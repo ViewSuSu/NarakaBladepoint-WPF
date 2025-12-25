@@ -2,25 +2,23 @@
     x:Class="Nakara_WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:commonfunction="clr-namespace:Nakara_WPF.CommonFunction"
+    xmlns:commonfunction="clr-namespace:Nakara_WPF.Modules.CommonFunction.Views"
+    xmlns:consts="clr-namespace:Nakara_WPF.Core.Consts"
     xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Nakara_WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:personalinformation="clr-namespace:Nakara_WPF.PersonalInformation"
-    xmlns:social="clr-namespace:Nakara_WPF.Social"
-    xmlns:wealth="clr-namespace:Nakara_WPF.Wealth"
+    xmlns:nakara_wpf="clr-namespace:Nakara_WPF"
+    xmlns:personalinformation="clr-namespace:Nakara_WPF.Modules.PersonalInformation.Views"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:social="clr-namespace:Nakara_WPF.Modules.Social.Views"
+    xmlns:viewmodels="clr-namespace:Nakara_WPF.Modules.Wealth.ViewModels"
+    xmlns:wealth="clr-namespace:Nakara_WPF.Modules.Wealth.Views"
     Width="1080"
     Height="720"
+    d:DataContext="{d:DesignInstance Type=nakara_wpf:MainWindowViewModel}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
     Background="Gray"
     mc:Ignorable="d">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Nakara.Controls;component/Themes/DefaultStyle.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -88,5 +86,17 @@
                 <Border BorderBrush="White" BorderThickness="1" />
             </Grid>
         </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.25*" />
+            </Grid.ColumnDefinitions>
+            <ContentControl
+                Grid.Column="1"
+                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.SidePanelRegion}"
+                BorderBrush="White"
+                BorderThickness="1" />
+        </Grid>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.MainContentRegion}" />
     </Grid>
 </Window>

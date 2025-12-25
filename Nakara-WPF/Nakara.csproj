@@ -15,17 +15,19 @@
     <None Remove="GoldBrick.png" />
   </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Prism.DryIoc" Version="9.0.537" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Nakara.Controls\Nakara.Controls.csproj" />
 	</ItemGroup>
+
+
 	<ItemGroup>
+	  <Folder Include="Core\Common\" />
+	  <Folder Include="Core\Models\" />
+	  <Folder Include="Core\Services\" />
+	  <Folder Include="Core\Infrastructure\" />
+	  <Folder Include="Infrastructure\Services\" />
 	  <Folder Include="PersonalHomepage\" />
-	  <Folder Include="MatchRecord\" />
-	</ItemGroup>
-</Project>
+	</ItemGroup></Project>

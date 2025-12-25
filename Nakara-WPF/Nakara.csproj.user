@@ -2,16 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="CommonFunction\CommonFunctionUserControl.xaml.cs">
+    <Compile Update="Modules\Social\FriendList\Views\FriendListUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PersonalInformation\PersonalInformationUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Social\SocialUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Wealth\WealthUserControl.xaml.cs">
+    <Compile Update="Modules\Store\Views\StoreUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
