@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Nakara.Controls">
     <Style x:Key="GoldBrick" TargetType="controls:IconTextBlockCustomControl">
-        <Setter Property="Icon" Value="/Nakara.Controls;component/Images/GoldBrick.png" />
+        <Setter Property="Icon" Value="/Nakara.Controls;component/Themes/Images/GoldBrick.png" />
     </Style>
     <Style x:Key="AncientCoins" TargetType="controls:IconTextBlockCustomControl">
-        <Setter Property="Icon" Value="/Nakara.Controls;component/Images/古币.png" />
+        <Setter Property="Icon" Value="/Nakara.Controls;component/Themes/Images/古币.png" />
     </Style>
     <Style x:Key="BaseImageSize" TargetType="Image">
         <Setter Property="Height" Value="20" />
@@ -17,24 +17,24 @@
         x:Key="Email"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Images/邮箱.png" />
+        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/邮箱.png" />
     </Style>
     <Style
         x:Key="Contact"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Images/联系人.png" />
+        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/联系人.png" />
     </Style>
     <Style
         x:Key="Avatar"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Images/用户.png" />
+        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/用户.png" />
     </Style>
     <Style
         x:Key="Setting"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Images/设置.png" />
+        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/设置.png" />
     </Style>
 </ResourceDictionary>

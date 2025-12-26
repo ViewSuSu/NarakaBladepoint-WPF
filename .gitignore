@@ -1,7 +1,13 @@
-/Nakara-WPF/bin
-/Nakara-WPF/obj
-/.vs
+/Nakara.App/obj
+/Nakara.App/bin
 /Nakara.Controls/obj
 /Nakara.Controls/bin
-/Nakara.Resources/obj
+/Nakara.Framework/obj
+/Nakara.Framework/bin
+/Nakara.Modules/obj
+/Nakara.Modules/bin
+/Nakara.Shared/obj
+/Nakara.Shared/bin
 /Nakara.Resources/bin
+/Nakara.Resources/obj
+/.vs

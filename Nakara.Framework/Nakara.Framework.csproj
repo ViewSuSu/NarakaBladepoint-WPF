@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="UI\Converters\" />
+    <Folder Include="UI\Behaviors\" />
+    <Folder Include="UI\AttachedProperties\" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Prism.DryIoc" Version="9.0.537" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Nakara.Controls\Nakara.Controls.csproj" />
+	  <ProjectReference Include="..\Nakara.Resources\Nakara.Resources.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,50 @@
+﻿<UserControl
+    x:Class="Nakara.Modules.PersonalInformation.UI.Views.PersonalInformationUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="200"
+    d:DesignWidth="450"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Nakara.Controls;component/Themes/DefaultStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Grid.Column="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Column="0"
+            BorderBrush="White"
+            BorderThickness="1">
+            <Image Style="{StaticResource Avatar}" />
+        </Border>
+        <Grid Grid.Column="1" Margin="10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                d:Text="123"
+                Foreground="White"
+                Text="{Binding Name}" />
+            <ProgressBar
+                Grid.Row="1"
+                Grid.Column="1"
+                Height="10"
+                d:Maximum="100"
+                d:Value="10"
+                Background="DimGray"
+                Foreground="Orange" />
+        </Grid>
+    </Grid>
+</UserControl>

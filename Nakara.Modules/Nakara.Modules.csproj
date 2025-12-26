@@ -8,4 +8,15 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Social\Domain\Email\" />
+    <Folder Include="Social\Domain\Setting\" />
+    <Folder Include="Social\UI\Converters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nakara.Shared\Nakara.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

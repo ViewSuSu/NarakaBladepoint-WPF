@@ -8,4 +8,8 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Nakara.Framework\Nakara.Framework.csproj" />
+	</ItemGroup>
+
 </Project>

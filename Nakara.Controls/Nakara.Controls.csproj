@@ -9,18 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\古币.png" />
-    <None Remove="Images\用户.png" />
-    <None Remove="Images\设置.png" />
+    <None Remove="Themes\Images\古币.png" />
+    <None Remove="Themes\Images\用户.png" />
+    <None Remove="Themes\Images\设置.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\GoldBrick.png" />
-    <Resource Include="Images\古币.png" />
-    <Resource Include="Images\用户.png" />
-    <Resource Include="Images\联系人.png" />
-    <Resource Include="Images\设置.png" />
-    <Resource Include="Images\邮箱.png" />
+    <Resource Include="Themes\Images\GoldBrick.png" />
+    <Resource Include="Themes\Images\古币.png" />
+    <Resource Include="Themes\Images\用户.png" />
+    <Resource Include="Themes\Images\联系人.png" />
+    <Resource Include="Themes\Images\设置.png" />
+    <Resource Include="Themes\Images\邮箱.png" />
   </ItemGroup>
 
 </Project>
