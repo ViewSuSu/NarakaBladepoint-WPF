@@ -10,9 +10,6 @@
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="GoldBrick.png" />
-  </ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Nakara.Modules\Nakara.Modules.csproj" />
 	</ItemGroup></Project>

@@ -10,6 +10,8 @@
 
 
   <ItemGroup>
+    <Folder Include="CommonFunction\Domain\HeroList\" />
+    <Folder Include="PersonalInformation\Domain\MatchRecord\" />
     <Folder Include="Social\Domain\Email\" />
     <Folder Include="Social\Domain\Setting\" />
     <Folder Include="Social\UI\Converters\" />

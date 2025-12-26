@@ -1,5 +1,5 @@
-﻿using Nakara.Modules.CommonFunction.UI.ViewModels;
-using Nakara.Modules.CommonFunction.UI.Views;
+﻿using Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels;
+using Nakara.Modules.CommonFunction.UI.CommonFunction.Views;
 
 namespace Nakara.Modules.CommonFunction.Module
 {

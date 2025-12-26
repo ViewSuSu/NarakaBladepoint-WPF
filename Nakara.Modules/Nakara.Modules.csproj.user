@@ -2,6 +2,27 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="CommonFunction\UI\CustomMatch\Views\CustomMatchUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Hall\Views\HallUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\HeroList\Views\HeroListUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Inventory\Views\InventoryUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\LeaderboardUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\SkillPoint\Views\SkillPointUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\MatchRecord\Views\MatchRecordUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Social\UI\Setting\Views\SettingUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

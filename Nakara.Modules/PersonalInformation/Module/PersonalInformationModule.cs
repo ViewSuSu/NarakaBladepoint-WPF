@@ -1,5 +1,5 @@
-﻿using Nakara.Modules.PersonalInformation.UI.ViewModels;
-using Nakara.Modules.PersonalInformation.UI.Views;
+﻿using Nakara.Modules.PersonalInformation.UI.PersonalInformation.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views;
 
 namespace Nakara.Modules.PersonalInformation.Module
 {

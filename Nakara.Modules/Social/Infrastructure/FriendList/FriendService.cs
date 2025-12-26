@@ -5,9 +5,9 @@ namespace Nakara.Modules.Social.Infrastructure.FriendList
 {
     internal class FriendService : IFriendService
     {
-        public Task<List<Friend>> GetFriendsAsync()
+        public async Task<List<Friend>> GetFriendsAsync()
         {
-            return Task.FromResult(new List<Friend>());
+            return await Task.FromResult(new List<Friend>());
         }
     }
 }
