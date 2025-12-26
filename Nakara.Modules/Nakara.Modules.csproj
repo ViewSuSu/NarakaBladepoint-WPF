@@ -8,10 +8,16 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Remove="PersonalInformation\Domain\HistoryMatchRecord\**" />
+	  <EmbeddedResource Remove="PersonalInformation\Domain\HistoryMatchRecord\**" />
+	  <None Remove="PersonalInformation\Domain\HistoryMatchRecord\**" />
+	  <Page Remove="PersonalInformation\Domain\HistoryMatchRecord\**" />
+	</ItemGroup>
+
 
   <ItemGroup>
     <Folder Include="CommonFunction\Domain\HeroList\" />
-    <Folder Include="PersonalInformation\Domain\MatchRecord\" />
     <Folder Include="Social\Domain\Email\" />
     <Folder Include="Social\Domain\Setting\" />
     <Folder Include="Social\UI\Converters\" />

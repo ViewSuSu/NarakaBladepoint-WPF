@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Nakara.Modules.PersonalInformation.UI.MatchRecord.Views
+namespace Nakara.Modules.BattlePass.UI.BattlePassDetails.Views
 {
     /// <summary>
-    /// MatchRecordUserControl.xaml 的交互逻辑
+    /// BattlePassMainContentUserControl.xaml 的交互逻辑
     /// </summary>
-    public partial class MatchRecordUserControl: UserControlBase
+    public partial class BattlePassMainContentUserControl : UserControl
     {
-        public MatchRecordUserControl()
+        public BattlePassMainContentUserControl()
         {
             InitializeComponent();
         }

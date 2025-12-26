@@ -16,11 +16,69 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition />
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Text="活动中心" />
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="MouseLeftButtonDown">
+                        <b:InvokeCommandAction Command="{Binding NavigateToActivityEnterCommand}" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Grid>
+            <Grid Grid.Row="1" Margin="10">
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <TextBlock d:Text="无相龙王" />
+                    <StackPanel Orientation="Horizontal">
+                        <Image />
+                        <TextBlock>
+                            <Run d:Text="15" />
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Margin="10">
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Orientation="Vertical">
+                    <TextBlock Text="组队范围" />
+                    <TextBlock Foreground="Orange">
+                        <Run d:Text="无间修罗" />
+                        <Run Text="~" />
+                        <Run d:Text="无量梵天" />
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <TextBlock
+                        Foreground="Orange"
+                        Text="豪杰对局"
+                        Visibility="{Binding IsXiuLuo}" />
+                    <TextBlock>
+                        <Run d:Text="排位赛" />
+                        <Run Text="·" />
+                        <Run d:Text="三排" />
+                    </TextBlock>
+                </StackPanel>
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    d:Text="龙隐洞天" />
+            </Grid>
             <TextBlock
-                Grid.Row="2"
+                Grid.Row="3"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Text="开始游戏">

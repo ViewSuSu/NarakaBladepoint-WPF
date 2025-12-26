@@ -13,13 +13,10 @@
     d:DesignWidth="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-    <StackPanel Grid.Column="1" Orientation="Horizontal">
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="大厅"
-            Command="{Binding HallCommand}" />
+    <StackPanel
+        Grid.Column="1"
+        HorizontalAlignment="Center"
+        Orientation="Horizontal">
         <controls:ImageTextBlock
             Margin="5,0"
             HorizontalAlignment="Center"
@@ -30,8 +27,26 @@
             Margin="5,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            d:Text="天赋"
+            d:Text="兵器"
+            Command="{Binding HeroListCommand}" />
+        <controls:ImageTextBlock
+            Margin="5,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            d:Text="备战"
             Command="{Binding SkillPointCommand}" />
+        <controls:ImageTextBlock
+            Margin="5,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            d:Text="聚义厅"
+            Command="{Binding HallCommand}" />
+        <controls:ImageTextBlock
+            Margin="5,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            d:Text="大厅"
+            Command="{Binding HallCommand}" />
         <controls:ImageTextBlock
             Margin="5,0"
             HorizontalAlignment="Center"
@@ -48,18 +63,13 @@
             Margin="5,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            d:Text="浪潮" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
             d:Text="商店"
             Command="{Binding StoreCommand}" />
         <controls:ImageTextBlock
             Margin="5,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            d:Text="自定房间"
+            d:Text="自定义房间"
             Command="{Binding CustomMatchCommand}" />
     </StackPanel>
 </UserControl>

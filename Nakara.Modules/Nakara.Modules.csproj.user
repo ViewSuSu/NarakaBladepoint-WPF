@@ -2,6 +2,24 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="BattlePass\UI\BattlePassDetails\Views\BattlePassDetailsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePassDetails\Views\BattlePassMainContentUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePassDetails\Views\SeasonRewardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePassDetails\Views\TaskPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChatBox\UI\Views\ChatBoxUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\CustomMatch\Views\CustomMatchUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -20,10 +38,28 @@
     <Compile Update="CommonFunction\UI\SkillPoint\Views\SkillPointUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PersonalInformation\UI\MatchRecord\Views\MatchRecordUserControl.xaml.cs">
+    <Compile Update="PersonalInformation\UI\HeroData\Views\HeroDataPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\HistoryMatchRecord\Views\HistoryMatchRecordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\PersonalInformationDetailMainContent\Views\PersonalInformationDetailMainContentUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\PersonalInformationDetailsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\SeasonData\Views\SeasonDataPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\TippingRecord\Views\TippingRecordPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Social\UI\Setting\Views\SettingUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StartGame\UI\EventCenter\Views\EventCenterUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -1,5 +1,17 @@
-﻿using Nakara.Modules.PersonalInformation.UI.PersonalInformation.ViewModels;
+﻿using Nakara.Modules.PersonalInformation.UI.HeroData.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.HeroData.Views;
+using Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.Views;
+using Nakara.Modules.PersonalInformation.UI.PersonalInformation.ViewModels;
 using Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views;
+using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.Views;
+using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
+using Nakara.Modules.PersonalInformation.UI.SeasonData.Views;
+using Nakara.Modules.PersonalInformation.UI.TippingRecord.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.TippingRecord.Views;
+using Nakara.Modules.SeasonData.ViewModels;
 
 namespace Nakara.Modules.PersonalInformation.Module
 {
@@ -11,6 +23,12 @@ namespace Nakara.Modules.PersonalInformation.Module
         {
             containerRegistry.Register<PersonalInformationUserControl>();
             containerRegistry.Register<PersonalInformationUserControlViewModel>();
+            containerRegistry.RegisterForNavigation<PersonalInformationDetailMainContentUserControl, PersonalInformationDetailMainContentUserControlViewModel>();
+            containerRegistry.RegisterForNavigation<HeroDataPage, HeroDataPageViewModel>();
+            containerRegistry.RegisterForNavigation<HistoryMatchRecordPage, HistoryMatchRecordPageViewModel>();
+            containerRegistry.RegisterForNavigation<PersonalInformationDetailsPage, PersonalInformationDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<SeasonDataPage, SeasonDataPageViewModel>();
+            containerRegistry.RegisterForNavigation<TippingRecordPage, TippingRecordPageViewModel>();
         }
     }
 }

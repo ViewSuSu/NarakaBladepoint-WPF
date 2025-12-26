@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nakara.Modules.PersonalInformation.UI.MatchRecord.Models
+namespace Nakara.Modules.PersonalInformation.UI.HeroData.ViewModels
 {
-    internal class MatchRecordItemModel
+    internal class HeroDataPageViewModel
     {
     }
 }

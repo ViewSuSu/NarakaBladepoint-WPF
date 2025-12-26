@@ -2,6 +2,7 @@
     x:Class="Nakara.App.Shell.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:battlePass="clr-namespace:Nakara.Modules.BattlePass.UI.BattlePass.Views;assembly=Nakara.Modules"
     xmlns:commonfunction="clr-namespace:Nakara.Modules.CommonFunction.UI.CommonFunction.Views;assembly=Nakara.Modules"
     xmlns:consts="clr-namespace:Nakara.Shared.Consts;assembly=Nakara.Shared"
     xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
@@ -24,11 +25,12 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.2*" />
+                <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition Width="0.8*" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <battlePass:BattlePassUserControl Grid.Column="0" />
             <commonfunction:CommonFunctionUserControl Grid.Column="1" />
             <wealth:WealthUserControl Grid.Column="2" />
             <social:SocialUserControl Grid.Column="3" />
