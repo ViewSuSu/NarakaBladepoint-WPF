@@ -2,6 +2,7 @@
 using Nakara.App.Shell;
 using Nakara.Framework;
 using Nakara.Modules;
+using Nakara.Shared.Services;
 
 namespace Nakara.App
 {
@@ -14,7 +15,7 @@ namespace Nakara.App
         {
             containerRegistry.Register<MainWindow>();
             containerRegistry.Register<MainWindowViewModel>();
-            containerRegistry.RegisterCoreServices();
+            containerRegistry.RegisterSharedServices();
         }
 
         protected override Window CreateShell()

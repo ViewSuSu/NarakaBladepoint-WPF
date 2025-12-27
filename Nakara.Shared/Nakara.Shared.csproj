@@ -12,4 +12,10 @@
 	  <ProjectReference Include="..\Nakara.Framework\Nakara.Framework.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Datas\Jsons\MatchData.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>

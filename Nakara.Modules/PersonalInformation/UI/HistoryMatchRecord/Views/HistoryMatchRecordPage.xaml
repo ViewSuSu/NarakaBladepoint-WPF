@@ -31,7 +31,10 @@
             </StackPanel>
 
             <Border Grid.Row="1">
-                <ListBox HorizontalContentAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox
+                    HorizontalContentAlignment="Stretch"
+                    d:ItemsSource="{d:SampleData ItemCount=5}"
+                    Background="Transparent">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,5">

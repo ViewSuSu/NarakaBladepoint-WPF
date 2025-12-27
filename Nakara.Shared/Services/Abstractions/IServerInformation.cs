@@ -1,4 +1,4 @@
-﻿namespace Nakara.Framework.Core.Abstractions
+﻿namespace Nakara.Shared.Services.Abstractions
 {
     /// <summary>
     /// 获取服务器信息

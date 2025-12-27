@@ -1,4 +1,6 @@
-﻿namespace Nakara.Modules.StartGame.UI.ModeSelection.ViewModels
+﻿using Nakara.Shared.Services.Abstractions;
+
+namespace Nakara.Modules.StartGame.UI.ModeSelection.ViewModels
 {
     internal class ModeSelectionUserControlViewModel : BindableBase
     {

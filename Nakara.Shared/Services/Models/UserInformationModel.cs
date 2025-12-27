@@ -1,4 +1,4 @@
-﻿namespace Nakara.Framework.Models
+﻿namespace Nakara.Shared.Services.Models
 {
     internal class UserInformationModel
     {

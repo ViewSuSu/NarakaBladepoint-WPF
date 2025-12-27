@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Nakara.Framework.Core.Extensions;
 
-namespace Nakara.Framework
+namespace Nakara.Shared.Services
 {
     public static class ServiceAutoRegister
     {
@@ -13,10 +13,10 @@ namespace Nakara.Framework
         }
 
         /// <summary>
-        /// 注册核心层的服务
+        /// 注册共享层的服务
         /// </summary>
         /// <param name="containerRegistry"></param>
-        public static IContainerRegistry RegisterCoreServices(
+        public static IContainerRegistry RegisterSharedServices(
             this IContainerRegistry containerRegistry
         )
         {

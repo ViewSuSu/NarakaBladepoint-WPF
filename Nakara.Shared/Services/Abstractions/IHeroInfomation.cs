@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nakara.Framework.Core.Abstractions
+namespace Nakara.Shared.Services.Abstractions
 {
     public interface IHeroInfomation { }
 }
