@@ -3,10 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Nakara.Controls">
     <Style x:Key="GoldBrick" TargetType="controls:IconTextBlockCustomControl">
-        <Setter Property="Icon" Value="/Nakara.Controls;component/Themes/Images/GoldBrick.png" />
+        <Setter Property="Icon" Value="/Nakara.Resources;component/Image/Button/金砖.png" />
     </Style>
     <Style x:Key="AncientCoins" TargetType="controls:IconTextBlockCustomControl">
-        <Setter Property="Icon" Value="/Nakara.Controls;component/Themes/Images/古币.png" />
+        <Setter Property="Icon" Value="/Nakara.Resources;component/Image/Button/古币.png" />
+    </Style>
+    <Style x:Key="HuanSi" TargetType="controls:IconTextBlockCustomControl">
+        <Setter Property="Icon" Value="/Nakara.Resources;component/Image/Button/幻丝.png" />
     </Style>
     <Style x:Key="BaseImageSize" TargetType="Image">
         <Setter Property="Height" Value="20" />
@@ -17,37 +20,37 @@
         x:Key="Music"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/音乐.png" />
+        <Setter Property="Source" Value="/Nakara.Resources;component/Image/Button/音乐.png" />
     </Style>
     <Style
         x:Key="Tutorial"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/教程.png" />
+        <Setter Property="Source" Value="/Nakara.Resources;component/Image/Button/教程.png" />
     </Style>
     <Style
         x:Key="Email"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/邮箱.png" />
+        <Setter Property="Source" Value="/Nakara.Resources;component/Image/Button/邮箱.png" />
     </Style>
     <Style
         x:Key="Contact"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/联系人.png" />
+        <Setter Property="Source" Value="/Nakara.Resources;component/Image/Button/联系人.png" />
     </Style>
     <Style
         x:Key="Avatar"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/用户.png" />
+        <Setter Property="Source" Value="/Nakara.Resources;component/Image/Button/用户.png" />
     </Style>
     <Style
         x:Key="Setting"
         BasedOn="{StaticResource BaseImageSize}"
         TargetType="Image">
-        <Setter Property="Source" Value="/Nakara.Controls;component/Themes/Images/设置.png" />
+        <Setter Property="Source" Value="/Nakara.Resources;component/Image/Button/设置.png" />
     </Style>
 
     <Style x:Key="BattleEncyclopediaButtonStyle" TargetType="Button">
@@ -108,4 +111,50 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="CommonFunctionTabItem" TargetType="TabItem">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="5,0" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <StackPanel Orientation="Horizontal">
+                        <Border
+                            x:Name="PART_Border"
+                            Height="{TemplateBinding Height}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter
+                                x:Name="PART_Content"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ContentSource="Header"
+                                TextElement.FontSize="{TemplateBinding FontSize}"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/Button/CommonFunctionButtonBackground.png" Stretch="Fill" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Content" Property="TextElement.Foreground" Value="#E6E6E6" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 </ResourceDictionary>

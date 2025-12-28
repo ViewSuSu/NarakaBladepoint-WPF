@@ -139,7 +139,6 @@
                     </UniformGrid>
                 </Grid>
             </Grid>
-
         </Grid>
         <Grid Grid.Column="1">
             <Image />

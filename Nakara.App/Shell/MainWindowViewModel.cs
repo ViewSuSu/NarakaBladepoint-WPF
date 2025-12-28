@@ -1,5 +1,5 @@
-﻿using Nakara.Shared.Consts;
-using Nakara.Shared.Evens;
+﻿using Nakara.Framework.Core.Evens;
+using Nakara.Shared.Consts;
 
 namespace Nakara.App.Shell
 {
@@ -12,27 +12,6 @@ namespace Nakara.App.Shell
         {
             _eventAggregator = eventAggregator;
             _regionManager = regionManager;
-
-            _eventAggregator
-                .GetEvent<LoadSidePanelRegionEvent>()
-                .Subscribe(
-                    (viewName) =>
-                    {
-                        RevemoveRegionByName(GlobalConstant.SidePanelRegion);
-                        _regionManager.RequestNavigate(GlobalConstant.SidePanelRegion, viewName);
-                    },
-                    ThreadOption.UIThread
-                );
-
-            _eventAggregator
-                .GetEvent<RemoveSidePanelRegionEvent>()
-                .Subscribe(
-                    () =>
-                    {
-                        RevemoveRegionByName(GlobalConstant.SidePanelRegion);
-                    },
-                    ThreadOption.UIThread
-                );
 
             _eventAggregator
                 .GetEvent<LoadHomePageRegionEvent>()

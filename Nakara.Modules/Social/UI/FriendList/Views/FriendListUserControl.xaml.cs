@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Nakara.Modules.Social.UI.FriendList.Views
+﻿namespace Nakara.Modules.Social.UI.FriendList.Views
 {
     /// <summary>
     /// FriendListUserControl.xaml 的交互逻辑

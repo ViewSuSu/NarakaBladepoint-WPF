@@ -9,7 +9,8 @@ namespace Nakara.Modules.BattlePass.UI.BattlePass.ViewModels
         public BattlePassUserControlViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-            this.eventAggregator.GetEvent<LoadMainContentRegionEvent>().Publish(nameof(BattlePassMainContentUserControl));
+            this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                .Publish(nameof(BattlePassMainContentUserControl));
         }
     }
 }

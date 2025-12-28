@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nakara.Shared.Jsons;
+﻿using Nakara.Shared.Jsons;
 using Nakara.Shared.Services.Abstractions;
 
 namespace Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.ViewModels

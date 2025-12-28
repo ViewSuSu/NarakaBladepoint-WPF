@@ -1,9 +1,4 @@
 ﻿using Nakara.Modules.Tutorial.UI.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nakara.Modules.Social.UI.Setting.ViewModels
 {
@@ -20,7 +15,8 @@ namespace Nakara.Modules.Social.UI.Setting.ViewModels
             });
             NavigateToTutorialCommand = new DelegateCommand(() =>
             {
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(TutorialUserControl));
+                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(TutorialUserControl));
             });
         }
 

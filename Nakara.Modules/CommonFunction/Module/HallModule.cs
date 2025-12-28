@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nakara.Modules.CommonFunction.UI.Hall;
-using Nakara.Modules.CommonFunction.UI.Hall.ViewModels;
+﻿using Nakara.Modules.CommonFunction.UI.Hall.ViewModels;
 using Nakara.Modules.CommonFunction.UI.Hall.Views;
 
 namespace Nakara.Modules.CommonFunction.Module

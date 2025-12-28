@@ -19,8 +19,14 @@ namespace Nakara.Modules.Social.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<FriendListUserControl, FriendListUserControlViewModel>();
-            containerRegistry.RegisterForNavigation<SettingUserControl, SettingUserControlViewModel>();
+            containerRegistry.RegisterForNavigation<
+                FriendListUserControl,
+                FriendListUserControlViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                SettingUserControl,
+                SettingUserControlViewModel
+            >();
             containerRegistry.RegisterForNavigation<EmailUserControl, EmailUserControlViewModel>();
             containerRegistry.RegisterForNavigation<MusicUserControl, MusicUserControlViewModel>();
             containerRegistry.Register<SocialUserControl>();

@@ -10,85 +10,132 @@
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:StartGameUserControlViewModel}"
     d:DesignHeight="300"
-    d:DesignWidth="450"
+    d:DesignWidth="240"
     mc:Ignorable="d">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.75*" />
+                <RowDefinition Height="0.25*" />
                 <RowDefinition Height="1.5*" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock
-                    Margin="10"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Text="活动中心" />
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding NavigateToActivityEnterCommand}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
+                <Grid.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/Region/StartGame/活动中心.png" Stretch="UniformToFill" />
+                </Grid.Background>
+                <Grid Background="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="0.5*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="10,0,0,0"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                        <Image
+                            Width="15"
+                            Source="pack://application:,,,/Nakara.Resources;component/Image/活动中心logo.png"
+                            Stretch="Uniform" />
+                        <TextBlock
+                            Margin="5,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="活动中心" />
+                    </StackPanel>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding NavigateToEventCenterMainCommand}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Grid>
             </Grid>
-            <Grid Grid.Row="1" Margin="10">
+            <Grid Grid.Row="1" Margin="0,2">
+                <Grid.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/Region/StartGame/段位.png" Stretch="Fill" />
+                </Grid.Background>
                 <StackPanel
+                    Margin="10,0,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Orientation="Vertical">
-                    <TextBlock d:Text="无相龙王" />
+                    <TextBlock Foreground="White" Text="无相龙王" />
                     <StackPanel Orientation="Horizontal">
-                        <Image />
-                        <TextBlock>
-                            <Run d:Text="15" />
+                        <Image Width="20" Source="pack://application:,,,/Nakara.Resources;component/Image/星.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="White">
+                            <Run Text="15" />
                         </TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Row="2" Margin="10">
-                <StackPanel
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Orientation="Vertical">
-                    <TextBlock Text="组队范围" />
-                    <TextBlock Foreground="Orange">
-                        <Run d:Text="无间修罗" />
-                        <Run Text="~" />
-                        <Run d:Text="无量梵天" />
-                    </TextBlock>
-                </StackPanel>
-                <StackPanel
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Orientation="Vertical">
-                    <TextBlock
-                        Foreground="Orange"
-                        Text="豪杰对局"
-                        Visibility="{Binding IsXiuLuo}" />
-                    <TextBlock>
-                        <Run d:Text="排位赛" />
-                        <Run Text="·" />
-                        <Run d:Text="三排" />
-                    </TextBlock>
-                </StackPanel>
-                <TextBlock
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    d:Text="龙隐洞天" />
+            <Grid Grid.Row="2">
+                <Border Background="Black">
+                    <CheckBox
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="自动补充队友"
+                        Foreground="White"
+                        IsChecked="True" />
+                </Border>
             </Grid>
-            <TextBlock
-                Grid.Row="3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="开始游戏">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding StartGameCommand}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-            </TextBlock>
+            <Grid Grid.Row="3" Margin="0,2">
+                <Grid.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/Region/StartGame/模式选择.png" Stretch="UniformToFill" />
+                </Grid.Background>
+                <Grid Margin="10,3,5,3">
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Orientation="Vertical">
+                        <TextBlock Foreground="White" Text="组队范围" />
+                        <TextBlock Foreground="Orange">
+                            <Run Text="无间修罗" />
+                            <Run Text="~" />
+                            <Run Text="无量梵天" />
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Orientation="Vertical">
+                        <TextBlock
+                            Foreground="Orange"
+                            Text="豪杰对局"
+                            Visibility="{Binding IsXiuLuo}" />
+                        <TextBlock Foreground="White">
+                            <Run Text="排位赛" />
+                            <Run Text="·" />
+                            <Run Text="三排" />
+                        </TextBlock>
+                    </StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Foreground="White"
+                        Text="龙隐洞天" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/Region/StartGame/开始游戏.png" Stretch="UniformToFill" />
+                </Grid.Background>
+                <TextBlock
+                    Grid.Row="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="35"
+                    Foreground="White"
+                    Text="开始游戏">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding StartGameCommand}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </TextBlock>
+            </Grid>
         </Grid>
-        <Border BorderBrush="White" BorderThickness="1" />
     </Grid>
 </base:UserControlBase>

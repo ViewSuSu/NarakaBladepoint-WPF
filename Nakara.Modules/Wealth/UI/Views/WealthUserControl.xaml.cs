@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows.Controls;
-using Nakara.Framework.Core.Bases;
-
-namespace Nakara.Modules.Wealth.UI.Views
+﻿namespace Nakara.Modules.Wealth.UI.Views
 {
     /// <summary>
     /// WealthUserControl.xaml 的交互逻辑
@@ -12,8 +8,6 @@ namespace Nakara.Modules.Wealth.UI.Views
         public WealthUserControl()
         {
             InitializeComponent();
-            if (DesignerProperties.GetIsInDesignMode(this))
-                return;
         }
     }
 }

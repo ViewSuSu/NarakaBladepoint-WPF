@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel;
-using System.Windows.Controls;
 
 namespace Nakara.Modules.Social.UI.Social.Views
 {
     /// <summary>
     /// SocialUserControl.xaml 的交互逻辑
     /// </summary>
-    public partial class SocialUserControl: UserControlBase
+    public partial class SocialUserControl : UserControlBase
     {
         public SocialUserControl()
         {

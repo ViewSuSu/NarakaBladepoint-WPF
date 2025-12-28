@@ -20,6 +20,5 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Nakara.Controls\Nakara.Controls.csproj" />
-	  <ProjectReference Include="..\Nakara.Resources\Nakara.Resources.csproj" />
 	</ItemGroup>
 </Project>

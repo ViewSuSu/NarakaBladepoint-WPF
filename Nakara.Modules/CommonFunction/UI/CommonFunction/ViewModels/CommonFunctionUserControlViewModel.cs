@@ -1,7 +1,6 @@
 ﻿using Nakara.Modules.CommonFunction.UI.CustomMatch.Views;
 using Nakara.Modules.CommonFunction.UI.Hall.Views;
-using Nakara.Modules.CommonFunction.UI.HeroList;
-using Nakara.Modules.CommonFunction.UI.HeroList.Views;
+using Nakara.Modules.CommonFunction.UI.HeroPage.Views;
 using Nakara.Modules.CommonFunction.UI.Inventory.Views;
 using Nakara.Modules.CommonFunction.UI.Leaderboard.Views;
 using Nakara.Modules.CommonFunction.UI.SkillPoint.Views;
@@ -16,15 +15,14 @@ namespace Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public CommonFunctionUserControlViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-            HeroListCommand = new DelegateCommand(() =>
+            NavigateToHeroCommand = new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(HeroListUserControl));
+                    .Publish(nameof(HeroPage));
             });
-            HallCommand = new DelegateCommand(() =>
+            NavigateToHallCommand = new DelegateCommand(() =>
             {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(HallUserControl));
+                this.eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
             });
             SkillPointCommand = new DelegateCommand(() =>
             {
@@ -53,8 +51,8 @@ namespace Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels
             });
         }
 
-        public DelegateCommand HeroListCommand { get; }
-        public DelegateCommand HallCommand { get; }
+        public DelegateCommand NavigateToHeroCommand { get; }
+        public DelegateCommand NavigateToHallCommand { get; }
         public DelegateCommand SkillPointCommand { get; }
         public DelegateCommand LeaderboardCommand { get; }
         public DelegateCommand InventoryCommand { get; }

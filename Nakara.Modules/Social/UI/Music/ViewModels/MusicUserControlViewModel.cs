@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nakara.Modules.Social.UI.Music.ViewModels
+﻿namespace Nakara.Modules.Social.UI.Music.ViewModels
 {
-    internal class MusicUserControlViewModel
-    {
-    }
+    internal class MusicUserControlViewModel { }
 }

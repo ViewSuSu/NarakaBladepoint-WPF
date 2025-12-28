@@ -16,32 +16,32 @@ namespace Nakara.Modules.Social.UI.Social.ViewModels
             NavigateToMusicCommand = new DelegateCommand(() =>
             {
                 _eventAggregator
-                 .GetEvent<LoadHomePageRegionEvent>()
-                 .Publish(nameof(FriendListUserControl));
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(FriendListUserControl));
             });
             NavigateToTutorialCommand = new DelegateCommand(() =>
             {
                 _eventAggregator
-                 .GetEvent<LoadHomePageRegionEvent>()
-                 .Publish(nameof(TutorialUserControl));
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(TutorialUserControl));
             });
             NavigateToEmailCommand = new DelegateCommand(() =>
             {
                 _eventAggregator
-                 .GetEvent<LoadHomePageRegionEvent>()
-                 .Publish(nameof(EmailUserControl));
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(EmailUserControl));
             });
             NavigateToFrendListCommand = new DelegateCommand(() =>
             {
                 _eventAggregator
-                 .GetEvent<LoadSidePanelRegionEvent>()
-                 .Publish(nameof(FriendListUserControl));
+                    .GetEvent<LoadSidePanelRegionEvent>()
+                    .Publish(nameof(FriendListUserControl));
             });
             NavigateToSettingCommand = new DelegateCommand(() =>
             {
                 _eventAggregator
-                 .GetEvent<LoadHomePageRegionEvent>()
-                 .Publish(nameof(SettingUserControl));
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(SettingUserControl));
             });
         }
 

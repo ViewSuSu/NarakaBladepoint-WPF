@@ -29,7 +29,7 @@
 
 
   <ItemGroup>
-    <Folder Include="CommonFunction\Domain\HeroList\" />
+    <Folder Include="CommonFunction\Domain\HeroPage\" />
     <Folder Include="Social\UI\SettingDetails\Views\" />
     <Folder Include="Social\UI\SettingDetails\ViewModels\" />
   </ItemGroup>

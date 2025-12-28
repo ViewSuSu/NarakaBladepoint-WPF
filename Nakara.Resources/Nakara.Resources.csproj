@@ -9,11 +9,69 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Image\background.png" />
+	  <None Remove="Image\background2.png" />
+	  <None Remove="Image\BattlePassBackground.png" />
+	  <None Remove="Image\Icon.png" />
 	  <None Remove="Image\logo.png" />
+	  <None Remove="Image\Button\古币.png" />
+	  <None Remove="Image\Button\幻丝.png" />
+	  <None Remove="Image\Button\金砖.png" />
+	  <None Remove="Image\Region\1.png" />
+	  <None Remove="Image\Region\2.png" />
+	  <None Remove="Image\Region\3.png" />
+	  <None Remove="Image\Region\4.png" />
+	  <None Remove="Image\Region\5.png" />
+	  <None Remove="Image\Region\EventCenter\LatestNews\1.png" />
+	  <None Remove="Image\Region\EventCenter\LatestNews\2.png" />
+	  <None Remove="Image\Region\EventCenter\LatestNews\3.png" />
+	  <None Remove="Image\Region\EventCenter\LatestNews\4.png" />
+	  <None Remove="Image\Region\EventCenter\LatestNews\5.png" />
+	  <None Remove="Image\Region\StartGame\开始游戏.png" />
+	  <None Remove="Image\Region\StartGame\模式.png" />
+	  <None Remove="Image\Region\StartGame\模式选择.png" />
+	  <None Remove="Image\Region\StartGame\段位.png" />
+	  <None Remove="Image\Region\StartGame\活动中心.png" />
+	  <None Remove="Image\提示Tip.png" />
+	  <None Remove="Image\星.png" />
+	  <None Remove="Image\活动中心logo.png" />
+	  <None Remove="Image\通用功能按钮高亮背景.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\background.png" />
+	  <Resource Include="Image\background2.png" />
+	  <Resource Include="Image\BattlePassBackground.png" />
+	  <Resource Include="Image\Button\教程.png" />
+	  <Resource Include="Image\Button\用户.png" />
+	  <Resource Include="Image\Button\联系人.png" />
+	  <Resource Include="Image\Button\设置.png" />
+	  <Resource Include="Image\Button\邮箱.png" />
+	  <Resource Include="Image\Button\音乐.png" />
+	  <Resource Include="Image\Icon.png" />
 	  <Resource Include="Image\logo.png" />
+	  <Resource Include="Image\Button\古币.png" />
+	  <Resource Include="Image\Button\幻丝.png" />
+	  <Resource Include="Image\Button\金砖.png" />
+	  <Resource Include="Image\Region\EventCenter\LatestNews\1.png" />
+	  <Resource Include="Image\Region\EventCenter\LatestNews\2.png" />
+	  <Resource Include="Image\Region\EventCenter\LatestNews\3.png" />
+	  <Resource Include="Image\Region\EventCenter\LatestNews\4.png" />
+	  <Resource Include="Image\Region\EventCenter\LatestNews\5.png" />
+	  <Resource Include="Image\Region\StartGame\开始游戏.png" />
+	  <Resource Include="Image\Region\StartGame\模式.png" />
+	  <Resource Include="Image\Region\StartGame\模式选择.png" />
+	  <Resource Include="Image\Region\StartGame\段位.png" />
+	  <Resource Include="Image\Region\StartGame\活动中心.png" />
+	  <Resource Include="Image\Region\TopUp\1.png" />
+	  <Resource Include="Image\Region\TopUp\2.png" />
+	  <Resource Include="Image\Region\TopUp\3.png" />
+	  <Resource Include="Image\Region\TopUp\4.png" />
+	  <Resource Include="Image\Region\TopUp\5.png" />
+	  <Resource Include="Image\Button\提示Tip.png" />
+	  <Resource Include="Image\Button\CommonFunctionButtonBackground.png" />
+	  <Resource Include="Image\星.png" />
+	  <Resource Include="Image\活动中心logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>

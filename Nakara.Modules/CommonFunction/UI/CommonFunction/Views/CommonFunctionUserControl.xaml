@@ -2,74 +2,33 @@
     x:Class="Nakara.Modules.CommonFunction.UI.CommonFunction.Views.CommonFunctionUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:Nakara.Framework.UI.AttachedProperties;assembly=Nakara.Framework"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewmodels="clr-namespace:Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels"
-    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:CommonFunctionUserControlViewModel}"
     d:DesignHeight="100"
-    d:DesignWidth="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-    <StackPanel
-        Grid.Column="1"
-        HorizontalAlignment="Center"
-        Orientation="Horizontal">
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="英雄"
-            Command="{Binding HeroListCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="兵器"
-            Command="{Binding HeroListCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="备战"
-            Command="{Binding SkillPointCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="聚义厅"
-            Command="{Binding HallCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="大厅"
-            Command="{Binding HallCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="排行榜"
-            Command="{Binding LeaderboardCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="仓库"
-            Command="{Binding InventoryCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="商店"
-            Command="{Binding StoreCommand}" />
-        <controls:ImageTextBlock
-            Margin="5,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            d:Text="自定义房间"
-            Command="{Binding CustomMatchCommand}" />
-    </StackPanel>
+    <TabControl Background="Transparent" BorderThickness="0">
+        <TabItem
+            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHeroCommand}"
+            Header="英雄"
+            Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="兵器" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="备战" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="聚义厅" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHallCommand}"
+            Header="大厅"
+            IsSelected="True"
+            Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="排行榜" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="仓库" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="商店" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem Header="自定义房间" Style="{StaticResource CommonFunctionTabItem}" />
+    </TabControl>
 </UserControl>

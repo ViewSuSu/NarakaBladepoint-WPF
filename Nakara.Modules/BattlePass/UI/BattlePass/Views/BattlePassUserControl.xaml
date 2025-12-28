@@ -6,10 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:Background="Gray"
-    d:DesignHeight="100"
+    d:DesignHeight="50"
     d:DesignWidth="300"
     mc:Ignorable="d">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/BattlePassBackground.png" Stretch="Fill" />
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -23,13 +26,15 @@
                 Grid.Row="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                d:Text="侠风通行证" />
+                FontSize="15"
+                Foreground="White"
+                Text="侠风通行证" />
             <TextBlock
                 Grid.Row="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
-                <Run Text="赛季等级  " />
-                <Run Text="{Binding BattlePassLevel}" />
+                <Run Foreground="White" Text="赛季等级 " />
+                <Run Foreground="White" Text="128" />
             </TextBlock>
         </Grid>
     </Grid>

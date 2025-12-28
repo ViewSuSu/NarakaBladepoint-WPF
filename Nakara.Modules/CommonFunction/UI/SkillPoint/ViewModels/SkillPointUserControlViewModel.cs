@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nakara.Modules.CommonFunction.UI.SkillPoint.ViewModels
+﻿namespace Nakara.Modules.CommonFunction.UI.SkillPoint.ViewModels
 {
-    internal class SkillPointUserControlViewModel
-    {
-    }
+    internal class SkillPointUserControlViewModel { }
 }

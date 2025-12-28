@@ -9,22 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Themes\Images\古币.png" />
-    <None Remove="Themes\Images\教程.png" />
-    <None Remove="Themes\Images\用户.png" />
-    <None Remove="Themes\Images\设置.png" />
-    <None Remove="Themes\Images\音乐.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Themes\Images\GoldBrick.png" />
-    <Resource Include="Themes\Images\古币.png" />
-    <Resource Include="Themes\Images\教程.png" />
-    <Resource Include="Themes\Images\用户.png" />
-    <Resource Include="Themes\Images\联系人.png" />
-    <Resource Include="Themes\Images\设置.png" />
-    <Resource Include="Themes\Images\邮箱.png" />
-    <Resource Include="Themes\Images\音乐.png" />
+    <ProjectReference Include="..\Nakara.Resources\Nakara.Resources.csproj" />
   </ItemGroup>
 
 </Project>

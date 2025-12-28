@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nakara.Modules.CommonFunction.UI.Hall.ViewModels
+﻿namespace Nakara.Modules.CommonFunction.UI.Hall.ViewModels
 {
-    internal class HallUserControlViewModel
-    {
-    }
+    internal class HallUserControlViewModel { }
 }

@@ -26,7 +26,7 @@
     <Compile Update="CommonFunction\UI\Hall\Views\HallUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CommonFunction\UI\HeroList\Views\HeroListUserControl.xaml.cs">
+    <Compile Update="CommonFunction\UI\HeroPage\Views\HeroPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CommonFunction\UI\Inventory\Views\InventoryUserControl.xaml.cs">
@@ -36,6 +36,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CommonFunction\UI\SkillPoint\Views\SkillPointUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EventCenter\UI\LatestNews\Views\LatestNewsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\HeroData\Views\HeroDataPage.xaml.cs">
@@ -62,10 +65,13 @@
     <Compile Update="Social\UI\Setting\Views\SettingUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TopUp\UI\Views\TopUpUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Tutorial\UI\Views\TutorialUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StartGame\UI\EventCenter\Views\EventCenterUserControl.xaml.cs">
+    <Compile Update="EventCenter\UI\Main\Views\EventCenterMainUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

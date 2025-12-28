@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Nakara.Modules.StartGame.UI.ModeSelection.Views
+﻿namespace Nakara.Modules.StartGame.UI.ModeSelection.Views
 {
     /// <summary>
     /// ModeSelectionUserControl.xaml 的交互逻辑

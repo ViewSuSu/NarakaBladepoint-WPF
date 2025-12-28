@@ -1,4 +1,5 @@
-﻿using Nakara.Modules.StartGame.UI.EventCenter.Views;
+﻿using Nakara.Modules.EventCenter.UI.LatestNews.Views;
+using Nakara.Modules.EventCenter.UI.Main.Views;
 using Nakara.Modules.StartGame.UI.ModeSelection.Views;
 
 namespace Nakara.Modules.StartGame.UI.StartGame.ViewModels
@@ -15,14 +16,14 @@ namespace Nakara.Modules.StartGame.UI.StartGame.ViewModels
                 this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(ModeSelectionUserControl));
             });
-            NavigateToActivityEnterCommand = new DelegateCommand(() =>
+            NavigateToEventCenterMainCommand = new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(nameof(EventCenterUserControl));
+                    .Publish(nameof(EventCenterMainUserControl));
             });
         }
 
         public DelegateCommand StartGameCommand { get; set; }
-        public DelegateCommand NavigateToActivityEnterCommand { get; set; }
+        public DelegateCommand NavigateToEventCenterMainCommand { get; set; }
     }
 }

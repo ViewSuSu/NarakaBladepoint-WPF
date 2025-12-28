@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Nakara.Modules.CommonFunction.UI.Store.Views
+﻿namespace Nakara.Modules.CommonFunction.UI.Store.Views
 {
     /// <summary>
     /// StoreUserControl.xaml 的交互逻辑

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nakara.Modules.CommonFunction.UI.CustomMatch.ViewModels;
+﻿using Nakara.Modules.CommonFunction.UI.CustomMatch.ViewModels;
 using Nakara.Modules.CommonFunction.UI.CustomMatch.Views;
 
 namespace Nakara.Modules.CommonFunction.Module

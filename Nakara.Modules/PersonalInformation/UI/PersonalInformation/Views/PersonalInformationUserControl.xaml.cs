@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views
+﻿namespace Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views
 {
     /// <summary>
     /// PersonalInformationUserControl.xaml 的交互逻辑
