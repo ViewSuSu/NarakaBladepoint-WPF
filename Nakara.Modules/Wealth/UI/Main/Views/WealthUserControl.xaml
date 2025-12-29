@@ -42,6 +42,6 @@
             d:Text="12500"
             Spacing="-5"
             Style="{StaticResource HuanSi}"
-            Text="{Binding WealthModel.GoldBrick}" />
+            Text="{Binding WealthModel.HuanSi}" />
     </UniformGrid>
 </base:UserControlBase>

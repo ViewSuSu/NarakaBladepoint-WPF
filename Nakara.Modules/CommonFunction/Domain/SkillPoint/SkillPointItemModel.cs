@@ -10,7 +10,7 @@
         private bool _isTaked;
 
         /// <summary>
-        /// 是否点了该垫付
+        /// 是否点了该天赋
         /// </summary>
         public bool IsTaked
         {
