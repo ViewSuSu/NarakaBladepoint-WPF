@@ -9,10 +9,16 @@
     xmlns:local="clr-namespace:Nakara.Modules.CommonFunction.UI.CustomMatch.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:Nakara.Modules.Social.UI.Social.ViewModels"
+    xmlns:viewmodels1="clr-namespace:Nakara.Modules.CommonFunction.UI.CustomMatch.ViewModels"
     attach:EscKeyAttachedProperty.Command="{Binding ReturnCommand}"
-    d:DataContext="{d:DesignInstance Type=viewmodels:SocialUserControlViewModel}"
+    d:DataContext="{d:DesignInstance Type=viewmodels1:CustomMatchUserControlViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
+    </Grid>
 </base:UserControlBase>

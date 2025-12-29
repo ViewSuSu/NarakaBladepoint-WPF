@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:Nakara.Modules.CommonFunction.UI.Hero.ViewModels"
-    attach:EscKeyAttachedProperty.Command="{Binding CloseCommand}"
+    attach:EscKeyAttachedProperty.Command="{Binding ReturnCommand}"
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroPageViewModel}"
     d:DesignHeight="450"
@@ -18,6 +18,6 @@
         <controls:EscBackControl
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Command="{Binding CloseCommand}" />
+            Command="{Binding ReturnCommand}" />
     </Grid>
 </base:UserControlBase>

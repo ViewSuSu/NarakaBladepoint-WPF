@@ -1,7 +1,15 @@
-﻿using Nakara.Modules.PersonalInformation.UI.HeroData.ViewModels;
+﻿using Nakara.Modules.PersonalInformation.UI.AvatarFrame.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.AvatarFrame.Views;
+using Nakara.Modules.PersonalInformation.UI.CareerAchievements.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.CareerAchievements.Views;
+using Nakara.Modules.PersonalInformation.UI.CreditScore.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.CreditScore.Views;
+using Nakara.Modules.PersonalInformation.UI.HeroData.ViewModels;
 using Nakara.Modules.PersonalInformation.UI.HeroData.Views;
 using Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.ViewModels;
 using Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.Views;
+using Nakara.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.IllustratedCollection.Views;
 using Nakara.Modules.PersonalInformation.UI.PersonalInformation.ViewModels;
 using Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views;
 using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.ViewModels;
@@ -10,6 +18,8 @@ using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModel
 using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
 using Nakara.Modules.PersonalInformation.UI.SeasonData.ViewModels;
 using Nakara.Modules.PersonalInformation.UI.SeasonData.Views;
+using Nakara.Modules.PersonalInformation.UI.SocialAvatar.ViewModels;
+using Nakara.Modules.PersonalInformation.UI.SocialAvatar.Views;
 using Nakara.Modules.PersonalInformation.UI.TippingRecord.ViewModels;
 using Nakara.Modules.PersonalInformation.UI.TippingRecord.Views;
 
@@ -27,6 +37,7 @@ namespace Nakara.Modules.PersonalInformation.Module
                 PersonalInformationDetailMainContentUserControl,
                 PersonalInformationDetailMainContentUserControlViewModel
             >();
+
             containerRegistry.RegisterForNavigation<HeroDataPage, HeroDataPageViewModel>();
             containerRegistry.RegisterForNavigation<
                 HistoryMatchRecordPage,
@@ -36,7 +47,18 @@ namespace Nakara.Modules.PersonalInformation.Module
                 PersonalInformationDetailsPage,
                 PersonalInformationDetailsPageViewModel
             >();
+            containerRegistry.RegisterForNavigation<AvatarFramePage, AvatarFramePageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                CareerAchievementsPage,
+                CareerAchievementsPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                IllustratedCollectionPage,
+                IllustratedCollectionPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<CreditScorePage, CreditScorePageViewModel>();
             containerRegistry.RegisterForNavigation<SeasonDataPage, SeasonDataPageViewModel>();
+            containerRegistry.RegisterForNavigation<SocialAvatarPage, SocialAvatarPageViewModel>();
             containerRegistry.RegisterForNavigation<
                 TippingRecordPage,
                 TippingRecordPageViewModel

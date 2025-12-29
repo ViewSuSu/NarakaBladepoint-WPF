@@ -38,10 +38,22 @@
     <Compile Update="EventCenter\UI\LatestNews\Views\LatestNewsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PersonalInformation\UI\AvatarFrame\Views\AvatarFramePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\CareerAchievements\Views\CareerAchievementsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\CreditScore\Views\CreditScorePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PersonalInformation\UI\HeroData\Views\HeroDataPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\HistoryMatchRecord\Views\HistoryMatchRecordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\IllustratedCollection\Views\IllustratedCollectionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\PersonalInformationDetailMainContent\Views\PersonalInformationDetailMainContentUserControl.xaml.cs">
@@ -51,6 +63,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\SeasonData\Views\SeasonDataPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\SocialAvatar\Views\SocialAvatarPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\TippingRecord\Views\TippingRecordPage.xaml.cs">

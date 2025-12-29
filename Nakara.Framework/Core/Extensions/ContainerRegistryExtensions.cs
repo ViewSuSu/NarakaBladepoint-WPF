@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Windows.Controls;
 
 namespace Nakara.Framework.Core.Extensions
 {

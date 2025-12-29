@@ -2,17 +2,9 @@
 
 namespace Nakara.Modules.CommonFunction.UI.Hero.ViewModels
 {
-    internal class HeroPageViewModel : ViewModelBase
+    internal class HeroPageViewModel : CanRemoveMainContentRegionViewModelBase
     {
         public HeroPageViewModel(IContainerExtension containerExtension)
-            : base(containerExtension)
-        {
-            CloseCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
-            });
-        }
-
-        public DelegateCommand CloseCommand { get; set; }
+            : base(containerExtension) { }
     }
 }
