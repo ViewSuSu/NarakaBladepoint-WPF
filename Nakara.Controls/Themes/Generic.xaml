@@ -1,7 +1,12 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Nakara.Controls.Converters"
     xmlns:local="clr-namespace:Nakara.Controls">
+    <converters:LTopLeftConverter x:Key="LTopLeftConverter" />
+    <converters:LTopRightConverter x:Key="LTopRightConverter" />
+    <converters:LBottomLeftConverter x:Key="LBottomLeftConverter" />
+    <converters:LBottomRightConverter x:Key="LBottomRightConverter" />
     <Style TargetType="{x:Type local:IconTextBlockCustomControl}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
@@ -190,6 +195,51 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    <Style TargetType="{x:Type local:AvatarControl}">
+        <Setter Property="BorderBrush" Value="#FF6B2C" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:AvatarControl}">
+                    <Grid>
+                        <Grid Margin="{TemplateBinding CornerThickness}">
+                            <Image Source="{TemplateBinding BackgroundImage}" Stretch="{TemplateBinding ImageStretch}" />
+                            <Border
+                                Padding="4"
+                                VerticalAlignment="Bottom"
+                                Background="#AA000000">
+                                <TextBox
+                                    HorizontalContentAlignment="Center"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                            </Border>
+                        </Grid>
+                        <Path
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LTopLeftConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                        <Path
+                            HorizontalAlignment="Right"
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LTopRightConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                        <Path
+                            VerticalAlignment="Bottom"
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LBottomLeftConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                        <Path
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LBottomRightConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

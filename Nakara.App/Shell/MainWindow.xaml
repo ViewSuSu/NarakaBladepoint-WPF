@@ -7,6 +7,7 @@
     xmlns:consts="clr-namespace:Nakara.Shared.Consts;assembly=Nakara.Shared"
     xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mainWindowRightEvent="clr-namespace:Nakara.Modules.MainWindowRightEvent.UI.Views;assembly=Nakara.Modules"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:personalinformation="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views;assembly=Nakara.Modules"
     xmlns:prism="http://prismlibrary.com/"
@@ -38,7 +39,7 @@
                     <ColumnDefinition Width="0.5*" />
                     <ColumnDefinition Width="1.5*" />
                 </Grid.ColumnDefinitions>
-                <battlePass:BattlePassUserControl Grid.Column="0"  />
+                <battlePass:BattlePassUserControl Grid.Column="0" />
                 <commonfunction:CommonFunctionUserControl Grid.Column="1" HorizontalAlignment="Center" />
                 <wealth:WealthUserControl Grid.Column="2" VerticalAlignment="Center" />
                 <social:SocialUserControl Grid.Column="4" VerticalAlignment="Center" />
@@ -63,14 +64,6 @@
                         </Grid.RowDefinitions>
                     </Grid>
                 </Grid>
-                <Grid Grid.Column="2" Margin="0,50,0,0">
-                    <StackPanel Orientation="Vertical">
-                        <controls:IconTextBlockCustomControl />
-                        <controls:IconTextBlockCustomControl />
-                        <controls:IconTextBlockCustomControl />
-                        <controls:IconTextBlockCustomControl />
-                    </StackPanel>
-                </Grid>
                 <Grid
                     Grid.ColumnSpan="3"
                     Width="240"
@@ -79,6 +72,14 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom">
                     <startGame:StartGameUserControl />
+                </Grid>
+                <Grid
+                    Grid.ColumnSpan="3"
+                    Width="150"
+                    Height="320"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+                    <mainWindowRightEvent:MainWindowRightEventUserControl />
                 </Grid>
             </Grid>
             <Grid Grid.Row="0" Grid.RowSpan="2">
@@ -94,7 +95,7 @@
             <personalinformation:PersonalInformationUserControl
                 Grid.Row="1"
                 Width="200"
-                Height="30"
+                Height="70"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom" />
             <ContentControl

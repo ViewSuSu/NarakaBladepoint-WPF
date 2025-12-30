@@ -1,0 +1,34 @@
+﻿<bases:UserControlBase
+    x:Class="Nakara.Modules.MainWindowRightEvent.UI.Views.MainWindowRightEventUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bases="clr-namespace:Nakara.Framework.Core.Bases;assembly=Nakara.Framework"
+    xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Nakara.Modules.MainWindowRightEvent.UI.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:Nakara.Modules.MainWindowRightEvent.UI.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowRightEventUserControlViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="200"
+    mc:Ignorable="d">
+    <UniformGrid Columns="2" Rows="4">
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventOneCommand}"
+            Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/露华集市.png"
+            Text="露华集市" />
+        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/白泽百科.png" Text="白泽百科" />
+        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/赛事.png" Text="赛事" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventFourCommand}"
+            Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/拓展包.png"
+            Text="拓展包" />
+        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/找队友.png" Text="找队友" />
+        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/摘星阁.png" Text="摘星阁" />
+        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/入劫门.png" Text="入劫门" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventEightCommand}"
+            Icon="pack://application:,,,/Nakara.Resources;component/Image/Button/白泽月卡.png"
+            Text="白泽月卡" />
+    </UniformGrid>
+</bases:UserControlBase>

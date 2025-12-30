@@ -68,6 +68,9 @@
     <Compile Update="EventCenter\UI\WelcomeBackEvent\Views\WelcomeBackEventPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MainWindowRightEvent\UI\Views\MainWindowRightEventUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PersonalInformation\UI\AvatarFrame\Views\AvatarFramePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

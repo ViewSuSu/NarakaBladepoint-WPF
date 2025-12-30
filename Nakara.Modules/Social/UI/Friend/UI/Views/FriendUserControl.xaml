@@ -29,6 +29,13 @@
                 <RowDefinition />
                 <RowDefinition Height="0.1*" />
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            </Grid>
             <TabControl
                 Grid.Row="3"
                 Background="Transparent"

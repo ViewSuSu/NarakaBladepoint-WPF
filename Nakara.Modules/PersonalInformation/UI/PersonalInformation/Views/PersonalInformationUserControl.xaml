@@ -4,10 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:base="clr-namespace:Nakara.Framework.Core.Bases;assembly=Nakara.Framework"
+    xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="200"
-    d:DesignWidth="450"
+    xmlns:viewmodels="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformation.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:PersonalInformationUserControlViewModel}"
+    d:DesignHeight="70"
+    d:DesignWidth="200"
     mc:Ignorable="d">
     <base:UserControlBase.Resources>
         <ResourceDictionary>
@@ -18,14 +21,17 @@
     </base:UserControlBase.Resources>
     <Grid Grid.Column="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="0.6*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Border
-            Grid.Column="0"
-            BorderBrush="White"
-            BorderThickness="1">
-            <Image Style="{StaticResource Avatar}" />
+        <Border Grid.Column="0" BorderThickness="1">
+            <controls:AvatarControl
+                d:Value="425"
+                BackgroundImage="pack://application:,,,/Nakara.Resources;component/Image/Avatar/1.png"
+                CornerLength="10"
+                CornerThickness="2"
+                ImageStretch="Fill"
+                Value="{Binding Value}" />
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToPersonalInfomationCommand}" />
@@ -37,13 +43,24 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock
-                Grid.Row="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                d:Text="123"
-                Foreground="White"
-                Text="{Binding Name}" />
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Border
+                    Width="15"
+                    Height="15"
+                    Background="Green"
+                    CornerRadius="10">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Text="1" />
+                </Border>
+                <TextBlock
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
+                    d:Text="野排牢张"
+                    Foreground="White"
+                    Text="{Binding Name}" />
+            </StackPanel>
             <!--<ProgressBar
                 Grid.Row="1"
                 Grid.Column="1"

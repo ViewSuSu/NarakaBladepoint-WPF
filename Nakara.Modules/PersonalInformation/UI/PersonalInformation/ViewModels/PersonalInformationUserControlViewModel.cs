@@ -2,13 +2,11 @@
 
 namespace Nakara.Modules.PersonalInformation.UI.PersonalInformation.ViewModels
 {
-    internal class PersonalInformationUserControlViewModel
+    internal class PersonalInformationUserControlViewModel : ViewModelBase
     {
-        private readonly IEventAggregator eventAggregator;
-
-        public PersonalInformationUserControlViewModel(IEventAggregator eventAggregator)
+        public PersonalInformationUserControlViewModel(IContainerExtension containerExtension)
+            : base(containerExtension)
         {
-            this.eventAggregator = eventAggregator;
             NavigateToPersonalInfomationCommand = new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()

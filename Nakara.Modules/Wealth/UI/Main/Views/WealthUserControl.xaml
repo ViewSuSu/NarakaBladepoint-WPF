@@ -31,12 +31,7 @@
             Placement="Bottom"
             PlacementTarget="{Binding ElementName=GoldBrickControl}"
             StaysOpen="True">
-            <Border
-                Width="300"
-                Height="200"
-                Background="Transparent"
-                BorderBrush="White"
-                BorderThickness="1" />
+            <Image Source="pack://application:,,,/Nakara.Resources;component/Image/Region/Wealth/1.png" />
         </Popup>
         <controls:IconTextBlockCustomControl
             d:Text="12500"
