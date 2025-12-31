@@ -16,38 +16,227 @@
     d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid>
-        <ItemsControl ItemsSource="{Binding InventoryItems}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="8" Rows="6" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Border
-                        Width="50"
-                        Height="50"
-                        Background="#333"
-                        BorderBrush="#666"
-                        BorderThickness="1">
-                        <Grid>
-                            <Image
-                                Width="40"
-                                Height="40"
-                                Source="{Binding Icon}"
-                                Stretch="Uniform" />
-                            <TextBlock
-                                Margin="0,0,2,2"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Bottom"
-                                FontSize="10"
-                                Foreground="White"
-                                Text="{Binding Count}" />
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/background2.png" Stretch="UniformToFill" />
+        </Grid.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="0.1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.75*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TabControl Margin="50,100,0,0" Background="Transparent">
+                    <TabItem Header="全部">
+                        <ItemsControl ItemsSource="{Binding InventoryItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" Rows="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="50"
+                                        Height="50"
+                                        Background="#333"
+                                        BorderBrush="#666"
+                                        BorderThickness="1">
+                                        <Grid>
+                                            <Image
+                                                Width="40"
+                                                Height="40"
+                                                Source="{Binding Icon}"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                Margin="0,0,2,2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="10"
+                                                Foreground="White"
+                                                Text="{Binding Count}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
+                    <TabItem Header="礼包">
+                        <ItemsControl ItemsSource="{Binding InventoryItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" Rows="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="50"
+                                        Height="50"
+                                        Background="#333"
+                                        BorderBrush="#666"
+                                        BorderThickness="1">
+                                        <Grid>
+                                            <Image
+                                                Width="40"
+                                                Height="40"
+                                                Source="{Binding Icon}"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                Margin="0,0,2,2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="10"
+                                                Foreground="White"
+                                                Text="{Binding Count}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
+                    <TabItem Header="卡券">
+                        <ItemsControl ItemsSource="{Binding InventoryItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" Rows="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="50"
+                                        Height="50"
+                                        Background="#333"
+                                        BorderBrush="#666"
+                                        BorderThickness="1">
+                                        <Grid>
+                                            <Image
+                                                Width="40"
+                                                Height="40"
+                                                Source="{Binding Icon}"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                Margin="0,0,2,2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="10"
+                                                Foreground="White"
+                                                Text="{Binding Count}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
+                    <TabItem Header="征神之路">
+                        <ItemsControl ItemsSource="{Binding InventoryItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" Rows="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="50"
+                                        Height="50"
+                                        Background="#333"
+                                        BorderBrush="#666"
+                                        BorderThickness="1">
+                                        <Grid>
+                                            <Image
+                                                Width="40"
+                                                Height="40"
+                                                Source="{Binding Icon}"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                Margin="0,0,2,2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="10"
+                                                Foreground="White"
+                                                Text="{Binding Count}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
+                    <TabItem Header="无间镖客">
+                        <ItemsControl ItemsSource="{Binding InventoryItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" Rows="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="50"
+                                        Height="50"
+                                        Background="#333"
+                                        BorderBrush="#666"
+                                        BorderThickness="1">
+                                        <Grid>
+                                            <Image
+                                                Width="40"
+                                                Height="40"
+                                                Source="{Binding Icon}"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                Margin="0,0,2,2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="10"
+                                                Foreground="White"
+                                                Text="{Binding Count}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
+                    <TabItem Header="其他道具">
+                        <ItemsControl ItemsSource="{Binding InventoryItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" Rows="6" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="50"
+                                        Height="50"
+                                        Background="#333"
+                                        BorderBrush="#666"
+                                        BorderThickness="1">
+                                        <Grid>
+                                            <Image
+                                                Width="40"
+                                                Height="40"
+                                                Source="{Binding Icon}"
+                                                Stretch="Uniform" />
+                                            <TextBlock
+                                                Margin="0,0,2,2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="10"
+                                                Foreground="White"
+                                                Text="{Binding Count}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
         <controls:EscBackControl
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"

@@ -32,18 +32,18 @@
                 Orientation="Horizontal">
                 <Button
                     Width="100"
-                    Background="#1A000000"
+                    Background="#3A000000"
                     Content="天选之人"
                     Style="{StaticResource HistoryMatchRecordButton}" />
                 <Button
                     Width="100"
                     Margin="10,0"
-                    Background="#1A000000"
+                    Background="#3A000000"
                     Content="征神之路"
                     Style="{StaticResource HistoryMatchRecordButton}" />
                 <Button
                     Width="100"
-                    Background="#1A000000"
+                    Background="#3A000000"
                     Content="无间镖客"
                     Style="{StaticResource HistoryMatchRecordButton}" />
             </StackPanel>
@@ -61,12 +61,12 @@
                                 Background="#1A000000">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="80" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="0.75*" />
                                     <ColumnDefinition Width="40" />
-                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="0.5*" />
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="0.9*" />
+                                    <ColumnDefinition Width="0.75*" />
+                                    <ColumnDefinition Width="0.7*" />
                                 </Grid.ColumnDefinitions>
                                 <Border
                                     Grid.Column="0"
@@ -130,6 +130,27 @@
                                         d:Text="12345"
                                         Foreground="White" />
                                 </StackPanel>
+                                <ItemsControl
+                                    Grid.Column="4"
+                                    VerticalAlignment="Center"
+                                    d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Image
+                                                    Width="20"
+                                                    Margin="2,0"
+                                                    d:Source="pack://application:,,,/Nakara.Resources;component/Image/HisitoryMatchRecord/1.png" />
+                                                <Popup />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                                 <Grid Grid.Column="5">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />
@@ -195,7 +216,8 @@
                                         <TextBlock
                                             Grid.Row="1"
                                             VerticalAlignment="Center"
-                                            Foreground="#14FFFFFF"
+                                            d:Text="15:37 2025/12/21"
+                                            Foreground="#64FFFFFF"
                                             Text="{Binding GameTime, StringFormat={}{0:HH:mm  yyyy/MM/dd }}" />
                                     </UniformGrid>
                                     <Image

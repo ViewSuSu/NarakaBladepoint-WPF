@@ -159,5 +159,6 @@
             VerticalAlignment="Bottom"
             Panel.ZIndex="10"
             Command="{Binding ReturnCommand}" />
+        <ContentControl prism:RegionManager.RegionName="123" />
     </Grid>
 </bases:UserControlBase>
