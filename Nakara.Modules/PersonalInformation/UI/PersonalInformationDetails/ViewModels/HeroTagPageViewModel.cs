@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nakara.Modules.PersonalInformation.Domain.Events;
 using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
 
 namespace Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
@@ -14,7 +15,9 @@ namespace Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewM
         {
             EscCommand = new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent2>().Publish(nameof(HeroTagPage));
+                eventAggregator
+                    .GetEvent<RemovePersonalInformationDetailMainContentEvents>()
+                    .Publish();
             });
             SaveCommand = new DelegateCommand(() => { });
         }

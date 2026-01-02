@@ -31,7 +31,7 @@
                 </Grid.ColumnDefinitions>
                 <TabControl Margin="50,100,0,0" Background="Transparent">
                     <TabItem Header="全部">
-                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding InventoryItems}">
+                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding InventoryItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="8" Rows="6" />

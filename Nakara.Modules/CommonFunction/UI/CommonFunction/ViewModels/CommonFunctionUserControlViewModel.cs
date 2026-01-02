@@ -15,7 +15,7 @@ namespace Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels
             NavigateToHeroCommand = new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(HeroPage));
+                    .Publish(nameof(HeroListPage));
             });
             NavigateToHallCommand = new DelegateCommand(() =>
             {

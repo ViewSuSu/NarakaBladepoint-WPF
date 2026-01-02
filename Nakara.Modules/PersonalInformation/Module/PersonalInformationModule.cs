@@ -39,6 +39,7 @@ namespace Nakara.Modules.PersonalInformation.Module
             >();
 
             containerRegistry.RegisterForNavigation<HeroDataPage, HeroDataPageViewModel>();
+            containerRegistry.RegisterForNavigation<HeroTagPage, HeroTagPageViewModel>();
             containerRegistry.RegisterForNavigation<
                 HistoryMatchRecordPage,
                 HistoryMatchRecordPageViewModel

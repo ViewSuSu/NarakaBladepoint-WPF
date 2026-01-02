@@ -16,17 +16,18 @@
     d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid>
-        <Grid Margin="0,0,0,60">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="0.6*" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" Background="#3A000000">
+            <Grid Grid.Column="1" Background="#8A000000">
                 <Grid Margin="20,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.1*" />
                         <RowDefinition Height="0.1*" />
                         <RowDefinition />
+                        <RowDefinition Height="0.1*" />
                         <RowDefinition Height="0.1*" />
                     </Grid.RowDefinitions>
                     <TextBlock
@@ -46,36 +47,65 @@
                             Foreground="White">
                             <Run Text="0" />
                             <Run Text="/" />
-                            <Run Text="100" />
+                            <Run Text="10" />
                         </TextBlock>
                     </Grid>
                     <ItemsControl
                         Grid.Row="2"
                         Margin="0,0,0,30"
+                        d:ItemsSource="{d:SampleData ItemCount=10}"
                         ItemsSource="{Binding InventoryItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <UniformGrid Columns="8" Rows="6" />
+                                <WrapPanel ItemHeight="120" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border
-                                    Width="50"
-                                    Height="50"
-                                    Background="#333"
-                                    BorderBrush="#666"
-                                    BorderThickness="1">
+                                <Grid
+                                    Width="110"
+                                    Margin="5"
+                                    Background="#1A000000">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="0.2*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Source="pack://application:,,,/Nakara.Resources;component/Image/PersonalInfoDetails/HeroTag/1.png" Stretch="Uniform" />
+                                    <CheckBox
+                                        Width="20"
+                                        Height="20"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Foreground="White"
+                                        Style="{StaticResource DiamondCheckBoxStyle}" />
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        Text="武痴·赤金" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <!--<ItemsControl
+                        Grid.Row="2"
+                        Margin="0,0,0,30"
+                        d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Height="60" ItemWidth="40" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border>
                                     <Grid>
-                                        <Image
-                                            Width="40"
-                                            Height="40"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
+                                        <Image Source="{Binding Icon}" Stretch="Uniform" />
                                         <TextBlock
                                             Margin="0,0,2,2"
                                             HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
+                                            VerticalAlignment="Top"
                                             FontSize="10"
                                             Foreground="White"
                                             Text="{Binding Count}" />
@@ -83,9 +113,9 @@
                                 </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    </ItemsControl>-->
                     <Button
-                        Grid.Row="4"
+                        Grid.Row="3"
                         Command="{Binding SaveCommand}"
                         Content="保存"
                         FontSize="20"

@@ -1,22 +1,24 @@
 ﻿<bases:UserControlBase
     x:Class="Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.Views.PersonalInformationDetailMainContentUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
-    xmlns:bases="clr-namespace:Nakara.Framework.Core.Bases;assembly=Nakara.Framework"
     xmlns:attached="clr-namespace:Nakara.Framework.UI.AttachedProperties;assembly=Nakara.Framework"
-    xmlns:heroData="clr-namespace:Nakara.Modules.CommonFunction.UI.Hero.Views"
     xmlns:avatarFramePage="clr-namespace:Nakara.Modules.PersonalInformation.UI.AvatarFrame.Views"
+    xmlns:bases="clr-namespace:Nakara.Framework.Core.Bases;assembly=Nakara.Framework"
     xmlns:careerAchievementsPage="clr-namespace:Nakara.Modules.PersonalInformation.UI.CareerAchievements.Views"
+    xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:heroData="clr-namespace:Nakara.Modules.PersonalInformation.UI.HeroData.Views"
     xmlns:historyMatchRecord="clr-namespace:Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.Views"
     xmlns:illustratedCollectionPage="clr-namespace:Nakara.Modules.PersonalInformation.UI.IllustratedCollection.Views"
-    xmlns:viewmodels="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:personConsts="clr-namespace:Nakara.Modules.PersonalInformation.Domain.Consts"
     xmlns:personalInformationDetailsPage="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
+    xmlns:prism="http://prismlibrary.com/"
     xmlns:seasonData="clr-namespace:Nakara.Modules.PersonalInformation.UI.SeasonData.Views"
     xmlns:socialAvatarPage="clr-namespace:Nakara.Modules.PersonalInformation.UI.SocialAvatar.Views"
     xmlns:tippingRecordPage="clr-namespace:Nakara.Modules.PersonalInformation.UI.TippingRecord.Views"
+    xmlns:viewmodels="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.ViewModels"
     xmlns:wealth="clr-namespace:Nakara.Modules.Wealth.UI.Main.Views"
     attached:EscKeyAttachedProperty.Command="{Binding ReturnCommand}"
     d:DataContext="{d:DesignInstance Type=viewmodels:PersonalInformationDetailMainContentUserControlViewModel}"
@@ -27,7 +29,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/background2.png" Stretch="UniformToFill" />
         </Grid.Background>
-        <Grid>
+        <Grid Cursor="">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.12*" />
                 <RowDefinition />
@@ -40,14 +42,15 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Top"
                     FontSize="30"
                     Foreground="White"
                     Text="名片" />
                 <wealth:WealthUserControl
                     Grid.Column="1"
                     Width="150"
-                    HorizontalAlignment="Right" />
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top" />
             </Grid>
             <TabControl
                 Grid.Row="0"
@@ -65,7 +68,7 @@
                     Background="Transparent"
                     Header="个人信息"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <personalInformationDetailsPage:PersonalInformationDetailsPage />
+                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="0,10" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -73,7 +76,7 @@
                     Background="Transparent"
                     Header="英雄数据"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <heroData:HeroPage />
+                    <heroData:HeroDataPage Margin="0,10" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -87,41 +90,42 @@
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
+                    Cursor="Hand"
                     Header="历史战绩"
-                    Style="{StaticResource CommonFunctionTabItem}" Cursor="Hand">
-                    <historyMatchRecord:HistoryMatchRecordPage />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <historyMatchRecord:HistoryMatchRecordPage Margin="0,10" />
                 </TabItem>
-                <TabItem
+                <!--<TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="打赏记录"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <tippingRecordPage:TippingRecordPage />
-                </TabItem>
+                    <tippingRecordPage:TippingRecordPage Margin="0,10" />
+                </TabItem>-->
                 <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="社交头像"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <socialAvatarPage:SocialAvatarPage />
+                    <socialAvatarPage:SocialAvatarPage Margin="0,10" />
                 </TabItem>
-                <TabItem
+                <!--<TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="头像框"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <avatarFramePage:AvatarFramePage />
-                </TabItem>
-                <TabItem
+                </TabItem>-->
+                <!--<TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="生涯成就"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <careerAchievementsPage:CareerAchievementsPage />
+                    <careerAchievementsPage:CareerAchievementsPage Margin="0,10" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -129,30 +133,26 @@
                     Background="Transparent"
                     Header="图鉴收集"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <illustratedCollectionPage:IllustratedCollectionPage />
+                    <illustratedCollectionPage:IllustratedCollectionPage Margin="0,10" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="信誉分"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}" />-->
                 <TabItem
-                    Width="100"
-                    VerticalAlignment="Center"
-                    Background="Transparent"
-                    Visibility="Hidden" />
-                <TabItem
-                    Width="100"
+                    Width="400"
                     VerticalAlignment="Center"
                     Background="Transparent"
                     Visibility="Hidden" />
             </TabControl>
+            <controls:EscBackControl
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Command="{Binding ReturnCommand}" />
         </Grid>
-        <controls:EscBackControl
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Panel.ZIndex="10"
-            Command="{Binding ReturnCommand}" />
+        <ContentControl prism:RegionManager.RegionName="{x:Static personConsts:PersonalInformationDetailMainContentRegionConsts.PersonalInformationMainContent}" />
     </Grid>
 </bases:UserControlBase>

@@ -3,13 +3,13 @@ using Nakara.Modules.CommonFunction.UI.Hero.Views;
 
 namespace Nakara.Modules.CommonFunction.Module
 {
-    internal class HeroModule : IModule
+    internal class HeroListModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) { }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<HeroPage, HeroPageViewModel>();
+            containerRegistry.RegisterForNavigation<HeroListPage, HeroListPageViewModel>();
         }
     }
 }

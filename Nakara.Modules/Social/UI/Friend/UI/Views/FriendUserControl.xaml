@@ -40,10 +40,10 @@
                 Grid.Row="3"
                 Background="Transparent"
                 Style="{StaticResource AverageTabControlStyle}">
-                <TabItem
+                <!--<TabItem
                     Height="30"
                     Header="找搭子"
-                    Style="{StaticResource FriendListTabItem}" />
+                    Style="{StaticResource FriendListTabItem}" />-->
                 <TabItem
                     Height="30"
                     Header="联系人"
@@ -99,15 +99,66 @@
                 <TabItem
                     Height="30"
                     Header="最近"
-                    Style="{StaticResource FriendListTabItem}" />
+                    Style="{StaticResource FriendListTabItem}">
+                    <ListBox
+                        HorizontalContentAlignment="Stretch"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="30"
+                                        Height="30"
+                                        HorizontalAlignment="Left"
+                                        Source="pack://application:,,,/Nakara.Resources;component/Image/Avatar/1.png"
+                                        Stretch="UniformToFill" />
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="Name" />
+                                        <TextBlock
+                                            FontSize="10"
+                                            Foreground="Orange"
+                                            Text="排位赛三排 19分钟（组队中3/3）" />
+                                    </StackPanel>
+                                    <Image
+                                        Grid.Column="2"
+                                        Width="30"
+                                        HorizontalAlignment="Right"
+                                        Source="pack://application:,,,/Nakara.Resources;component/Image/friendInv.png"
+                                        Stretch="UniformToFill" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
                 <TabItem
                     Height="30"
                     Header="附近"
-                    Style="{StaticResource FriendListTabItem}" />
+                    Style="{StaticResource FriendListTabItem}">
+                    <Expander
+                        Grid.Row="0"
+                        HorizontalContentAlignment="Stretch"
+                        Foreground="White"
+                        Header="附近玩家"
+                        Style="{StaticResource FlatRightChevronExpander}" />
+                </TabItem>
                 <TabItem
                     Height="30"
                     Header="申请"
-                    Style="{StaticResource FriendListTabItem}" />
+                    Style="{StaticResource FriendListTabItem}">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="暂无好友申请" />
+                </TabItem>
             </TabControl>
             <controls:EscBackControl
                 Grid.Row="4"

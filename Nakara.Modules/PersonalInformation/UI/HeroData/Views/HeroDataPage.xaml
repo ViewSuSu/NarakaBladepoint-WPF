@@ -76,7 +76,216 @@
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         Background="Transparent" />
                 </Grid>
+                <Grid Grid.Column="1" Margin="10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Foreground="White"
+                        Text="张起灵" />
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="最近12场" />
+                        <UniformGrid Grid.Row="1" Columns="3">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <TextBlock Foreground="White" Text="前五率" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Foreground="White"
+                                    Text="3.2%" />
+                            </StackPanel>
+                            <StackPanel
+                                Margin="10,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <TextBlock Foreground="White" Text="场均伤害" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Foreground="White"
+                                    Text="3.2%" />
+                            </StackPanel>
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <TextBlock Foreground="White" Text="击败/被击败" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Foreground="White"
+                                    Text="3.2%" />
+                            </StackPanel>
+                        </UniformGrid>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="所有场次" />
+                        <Grid Grid.Row="1">
+                            <UniformGrid Rows="4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.75*" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <UniformGrid Columns="4">
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="前五率" />
+                                        <TextBlock Foreground="White" Text="29.0%" />
+                                    </StackPanel>
 
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="天选率" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="3.2%" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="获胜数" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="1" />
+                                    </StackPanel>
+                                </UniformGrid>
+
+                                <UniformGrid Columns="4">
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="场均伤害" />
+                                        <TextBlock Foreground="White" Text="11385" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="单局最高伤害" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="35276" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="场均治疗" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="7852" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="总淘汰" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="79" />
+                                    </StackPanel>
+                                </UniformGrid>
+
+                                <UniformGrid Columns="4">
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="击败 / 被击败" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="1.66" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="单局最高击败" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="11" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="场均击败" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="3.32" />
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                        <TextBlock Foreground="White" Text="总击败" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+                                            Text="103" />
+                                    </StackPanel>
+                                </UniformGrid>
+
+                            </UniformGrid>
+                        </Grid>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">

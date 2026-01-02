@@ -14,9 +14,6 @@
     d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/background2.png" Stretch="UniformToFill" />
-        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="0.55*" />
@@ -69,7 +66,7 @@
                                 </controls:HighlightBorder.Background>
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction />
+                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
                             </controls:HighlightBorder>
@@ -260,7 +257,7 @@
                                 Stretch="Uniform" />
                         </Grid>
                     </UniformGrid>
-                    <ScrollViewer Grid.Row="2">
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden">
                         <StackPanel
                             Grid.Row="2"
                             Background="Transparent"

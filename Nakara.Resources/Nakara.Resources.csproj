@@ -79,6 +79,7 @@
 	  <None Remove="Image\Button\白泽百科.png" />
 	  <None Remove="Image\Button\赛事.png" />
 	  <None Remove="Image\Button\露华集市.png" />
+	  <None Remove="Image\friendInv.png" />
 	  <None Remove="Image\heroShow.png" />
 	  <None Remove="Image\HeroStandArt\岳山.png" />
 	  <None Remove="Image\HeroStandArt\胡为.png" />
@@ -139,6 +140,12 @@
 	  <None Remove="Image\PersonalInfoDetails\hero1.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero2.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero3.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\1.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\2.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\3.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\4.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\5.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\6.png" />
 	  <None Remove="Image\PersonalInfoDetails\listboxitembackground.png" />
 	  <None Remove="Image\Region\1.png" />
 	  <None Remove="Image\Region\2.png" />
@@ -171,6 +178,10 @@
 	  <None Remove="Image\豪杰对局.png" />
 	  <None Remove="Image\通用功能按钮高亮背景.png" />
 	  <None Remove="Image\造成伤害.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Image\friendInv.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -347,6 +358,12 @@
 	  <Resource Include="Image\PersonalInfoDetails\hero1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\hero2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\hero3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\1.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\2.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\4.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\5.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\6.png" />
 	  <Resource Include="Image\PersonalInfoDetails\listboxitembackground.png" />
 	  <Resource Include="Image\Region\EventCenter\LatestNews\1.png" />
 	  <Resource Include="Image\Region\EventCenter\LatestNews\2.png" />
