@@ -31,7 +31,7 @@ namespace Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels
                 this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
                     .Publish(nameof(LeaderboardUserControl));
             });
-            InventoryCommand = new DelegateCommand(() =>
+            NavigateToInventoryCommand = new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
                     .Publish(nameof(InventoryUserControl));
@@ -52,7 +52,7 @@ namespace Nakara.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public DelegateCommand NavigateToHallCommand { get; }
         public DelegateCommand SkillPointCommand { get; }
         public DelegateCommand LeaderboardCommand { get; }
-        public DelegateCommand InventoryCommand { get; }
+        public DelegateCommand NavigateToInventoryCommand { get; }
         public DelegateCommand StoreCommand { get; }
         public DelegateCommand CustomMatchCommand { get; }
     }
