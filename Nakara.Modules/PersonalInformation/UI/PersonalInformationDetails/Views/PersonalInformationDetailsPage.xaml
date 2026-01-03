@@ -9,6 +9,7 @@
     xmlns:local="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels"
+    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:PersonalInformationDetailsPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
@@ -525,10 +526,17 @@
                         <RowDefinition Height="0.5*" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <ComboBox
+                    <controls:HighlightComboBox
                         Grid.Row="0"
                         Width="100"
-                        HorizontalAlignment="Left" />
+                        HorizontalAlignment="Left"
+                        HighlightIndex="2"
+                        SelectedIndex="2">
+                        <ComboBoxItem Content="所有赛季" />
+                        <ComboBoxItem Content="当前赛季" />
+                        <ComboBoxItem Content="第18赛季：侠风" />
+                        <ComboBoxItem Content="第17赛季：裂变" />
+                    </controls:HighlightComboBox>
                     <TextBlock
                         Grid.Row="0"
                         HorizontalAlignment="Right"

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Nakara.Controls
+namespace Nakara.Modules.DayEvent.UI.Views
 {
     /// <summary>
-    /// TopHeaderTabControl.xaml 的交互逻辑
+    /// DayEventUserControl.xaml 的交互逻辑
     /// </summary>
-    public partial class TopHeaderTabControl : UserControl
+    public partial class DayEventUserControl : UserControlBase
     {
-        public TopHeaderTabControl()
+        public DayEventUserControl()
         {
             InitializeComponent();
         }

@@ -42,6 +42,8 @@
 	  <None Remove="Image\Avatar\9.png" />
 	  <None Remove="Image\background.png" />
 	  <None Remove="Image\background2.png" />
+	  <None Remove="Image\background3.png" />
+	  <None Remove="Image\background4.png" />
 	  <None Remove="Image\Baize\1.png" />
 	  <None Remove="Image\Baize\10.png" />
 	  <None Remove="Image\Baize\11.png" />
@@ -187,20 +189,33 @@
 	  <None Remove="Image\Region\StartGame\段位.png" />
 	  <None Remove="Image\Region\StartGame\活动中心.png" />
 	  <None Remove="Image\Region\Wealth\1.png" />
+	  <None Remove="Image\sayhello.png" />
+	  <None Remove="Image\×.png" />
 	  <None Remove="Image\一人之下.png" />
+	  <None Remove="Image\任务详情.png" />
 	  <None Remove="Image\出类拔萃.png" />
 	  <None Remove="Image\击杀数.png" />
 	  <None Remove="Image\唯我独尊.png" />
+	  <None Remove="Image\在线.png" />
+	  <None Remove="Image\复制.png" />
 	  <None Remove="Image\对局详情.png" />
 	  <None Remove="Image\提示Tip.png" />
+	  <None Remove="Image\搜索放大镜.png" />
 	  <None Remove="Image\星.png" />
+	  <None Remove="Image\每日任务奖励.png" />
+	  <None Remove="Image\每日任务背景1.png" />
+	  <None Remove="Image\每日任务花.png" />
 	  <None Remove="Image\活动中心logo.png" />
+	  <None Remove="Image\点击设置标签.png" />
+	  <None Remove="Image\聚宝阁.png" />
 	  <None Remove="Image\豪杰对局.png" />
 	  <None Remove="Image\通用功能按钮高亮背景.png" />
 	  <None Remove="Image\造成伤害.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\background3.png" />
+	  <Resource Include="Image\background4.png" />
 	  <Resource Include="Image\friendInv.png" />
 	</ItemGroup>
 
@@ -427,13 +442,24 @@
 	  <Resource Include="Image\Button\提示Tip.png" />
 	  <Resource Include="Image\Button\CommonFunctionButtonBackground.png" />
 	  <Resource Include="Image\Region\Wealth\1.png" />
+	  <Resource Include="Image\sayhello.png" />
+	  <Resource Include="Image\×.png" />
 	  <Resource Include="Image\一人之下.png" />
+	  <Resource Include="Image\任务详情.png" />
 	  <Resource Include="Image\出类拔萃.png" />
 	  <Resource Include="Image\击杀数.png" />
 	  <Resource Include="Image\唯我独尊.png" />
+	  <Resource Include="Image\在线.png" />
+	  <Resource Include="Image\复制.png" />
 	  <Resource Include="Image\对局详情.png" />
+	  <Resource Include="Image\搜索放大镜.png" />
 	  <Resource Include="Image\星.png" />
+	  <Resource Include="Image\每日任务奖励.png" />
+	  <Resource Include="Image\每日任务背景1.png" />
+	  <Resource Include="Image\每日任务花.png" />
 	  <Resource Include="Image\活动中心logo.png" />
+	  <Resource Include="Image\点击设置标签.png" />
+	  <Resource Include="Image\聚宝阁.png" />
 	  <Resource Include="Image\豪杰对局.png" />
 	  <Resource Include="Image\造成伤害.png" />
 	</ItemGroup>

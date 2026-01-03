@@ -35,6 +35,9 @@
     <Compile Update="CommonFunction\UI\SkillPoint\Views\SkillPointUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DayEvent\UI\Views\DayEventUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EventCenter\UI\BaiZeCard\Views\BaiZeCardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

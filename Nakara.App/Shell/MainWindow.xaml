@@ -7,6 +7,7 @@
     xmlns:consts="clr-namespace:Nakara.Shared.Consts;assembly=Nakara.Shared"
     xmlns:controls="clr-namespace:Nakara.Controls;assembly=Nakara.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dayEvent="clr-namespace:Nakara.Modules.DayEvent.UI.Views;assembly=Nakara.Modules"
     xmlns:mainWindowRightEvent="clr-namespace:Nakara.Modules.MainWindowRightEvent.UI.Views;assembly=Nakara.Modules"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:personalinformation="clr-namespace:Nakara.Modules.PersonalInformation.UI.PersonalInformation.Views;assembly=Nakara.Modules"
@@ -32,6 +33,9 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
+                <Grid.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Nakara.Resources;component/Image/background3.png" Stretch="Fill" />
+                </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*" />
                     <ColumnDefinition Width="5*" />
@@ -46,7 +50,7 @@
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition Width="0.5*" />
                     <ColumnDefinition />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
@@ -63,6 +67,14 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                     </Grid>
+                </Grid>
+                <Grid Grid.Column="0">
+                    <dayEvent:DayEventUserControl
+                        Width="270"
+                        Height="390"
+                        Margin="20,20,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top" />
                 </Grid>
                 <Grid
                     Grid.ColumnSpan="3"

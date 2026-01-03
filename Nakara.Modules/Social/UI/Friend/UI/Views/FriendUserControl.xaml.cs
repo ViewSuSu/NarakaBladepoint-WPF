@@ -9,5 +9,14 @@
         {
             InitializeComponent();
         }
+
+        private void Image_MouseLeftButtonDown(
+            object sender,
+            System.Windows.Input.MouseButtonEventArgs e
+        )
+        {
+            SearchBox.Text = null;
+            SearchBox.Focus();
+        }
     }
 }
