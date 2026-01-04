@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -131,7 +126,7 @@ namespace Nakara.Framework.UI.AttachedProperties
                 )
             );
 
-        #endregion
+        #endregion Placeholder Property
 
         #region PlaceholderBrush Property
 
@@ -153,7 +148,7 @@ namespace Nakara.Framework.UI.AttachedProperties
                 )
             );
 
-        #endregion
+        #endregion PlaceholderBrush Property
 
         #region PlaceholderFontSize Property
 
@@ -175,7 +170,7 @@ namespace Nakara.Framework.UI.AttachedProperties
                 )
             );
 
-        #endregion
+        #endregion PlaceholderFontSize Property
 
         #region PlaceholderFontStyle Property
 
@@ -197,7 +192,7 @@ namespace Nakara.Framework.UI.AttachedProperties
                 )
             );
 
-        #endregion
+        #endregion PlaceholderFontStyle Property
 
         #region PlaceholderFontWeight Property
 
@@ -219,7 +214,7 @@ namespace Nakara.Framework.UI.AttachedProperties
                 )
             );
 
-        #endregion
+        #endregion PlaceholderFontWeight Property
 
         #region PlaceholderFontFamily Property
 
@@ -241,7 +236,7 @@ namespace Nakara.Framework.UI.AttachedProperties
                 )
             );
 
-        #endregion
+        #endregion PlaceholderFontFamily Property
 
         private static void OnPlaceholderChanged(
             DependencyObject d,

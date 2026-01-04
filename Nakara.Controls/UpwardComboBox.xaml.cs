@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Nakara.Controls
 {
@@ -22,25 +11,30 @@ namespace Nakara.Controls
     public partial class UpwardComboBox : UserControl
     {
         #region ItemsSource
+
         public IEnumerable ItemsSource
         {
             get => (IEnumerable)GetValue(ItemsSourceProperty);
             set => SetValue(ItemsSourceProperty, value);
         }
+
         public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
             "ItemsSource",
             typeof(IEnumerable),
             typeof(UpwardComboBox),
             new PropertyMetadata(null)
         );
-        #endregion
+
+        #endregion ItemsSource
 
         #region SelectedItem
+
         public object SelectedItem
         {
             get => GetValue(SelectedItemProperty);
             set => SetValue(SelectedItemProperty, value);
         }
+
         public static readonly DependencyProperty SelectedItemProperty =
             DependencyProperty.Register(
                 "SelectedItem",
@@ -48,14 +42,17 @@ namespace Nakara.Controls
                 typeof(UpwardComboBox),
                 new PropertyMetadata(null)
             );
-        #endregion
+
+        #endregion SelectedItem
 
         #region ItemTemplate
+
         public DataTemplate ItemTemplate
         {
             get => (DataTemplate)GetValue(ItemTemplateProperty);
             set => SetValue(ItemTemplateProperty, value);
         }
+
         public static readonly DependencyProperty ItemTemplateProperty =
             DependencyProperty.Register(
                 "ItemTemplate",
@@ -63,7 +60,8 @@ namespace Nakara.Controls
                 typeof(UpwardComboBox),
                 new PropertyMetadata(null)
             );
-        #endregion
+
+        #endregion ItemTemplate
 
         // 点击显示区展开 Popup
         private void DisplayBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

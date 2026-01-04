@@ -515,10 +515,8 @@
                                     </TextBlock>
                                 </Grid>
                             </Grid>
-
                         </StackPanel>
                     </ScrollViewer>
-
                 </Grid>
                 <Grid Grid.Column="1" Margin="10,0,0,0">
                     <Grid.RowDefinitions>

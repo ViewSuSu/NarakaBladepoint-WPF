@@ -98,7 +98,6 @@
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                     </Grid>
-
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.RowDefinitions>
@@ -227,7 +226,6 @@
                             </StackPanel>
                         </ScrollViewer.Content>
                     </ScrollViewer>
-
                 </Grid>
             </Grid>
         </Grid>

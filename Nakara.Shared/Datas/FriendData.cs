@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nakara.Shared.Datas
+﻿namespace Nakara.Shared.Datas
 {
     public class FriendData { }
 }

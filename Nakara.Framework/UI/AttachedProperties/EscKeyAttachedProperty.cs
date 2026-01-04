@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -45,7 +43,7 @@ namespace Nakara.Framework.UI.AttachedProperties
         [DllImport("kernel32.dll")]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
 
-        #endregion
+        #endregion Win32 Hook
 
         #region 附加属性
 
@@ -77,14 +75,14 @@ namespace Nakara.Framework.UI.AttachedProperties
                 new PropertyMetadata(null)
             );
 
-        #endregion
+        #endregion 附加属性
 
         #region 内部状态
 
         // 保存绑定的控件弱引用，防止内存泄漏
         private static readonly List<WeakReference<FrameworkElement>> _elements = new();
 
-        #endregion
+        #endregion 内部状态
 
         #region 附加属性回调
 
@@ -121,7 +119,7 @@ namespace Nakara.Framework.UI.AttachedProperties
             }
         }
 
-        #endregion
+        #endregion 附加属性回调
 
         #region 钩子安装/卸载
 
@@ -145,7 +143,7 @@ namespace Nakara.Framework.UI.AttachedProperties
             }
         }
 
-        #endregion
+        #endregion 钩子安装/卸载
 
         #region 钩子回调
 
@@ -189,6 +187,6 @@ namespace Nakara.Framework.UI.AttachedProperties
             return CallNextHookEx(_hookId, nCode, wParam, lParam);
         }
 
-        #endregion
+        #endregion 钩子回调
     }
 }

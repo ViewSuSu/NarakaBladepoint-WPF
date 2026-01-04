@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -104,7 +99,7 @@ namespace Nakara.Framework.UI.AttachedProperties
             }
         }
 
-        #endregion
+        #endregion SelectedCommand 附加属性
 
         #region SelectedCommandParameter 附加属性
 
@@ -126,7 +121,7 @@ namespace Nakara.Framework.UI.AttachedProperties
             tabItem.SetValue(SelectedCommandParameterProperty, value);
         }
 
-        #endregion
+        #endregion SelectedCommandParameter 附加属性
 
         #region CleanupOnUnload 附加属性（可选）
 
@@ -175,6 +170,6 @@ namespace Nakara.Framework.UI.AttachedProperties
             }
         }
 
-        #endregion
+        #endregion CleanupOnUnload 附加属性（可选）
     }
 }

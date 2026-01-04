@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
@@ -21,7 +20,7 @@ namespace Nakara.Controls
             );
         }
 
-        #endregion
+        #endregion 静态构造函数
 
         #region 依赖属性
 
@@ -73,7 +72,7 @@ namespace Nakara.Controls
             set => SetValue(HighlightBackgroundProperty, value);
         }
 
-        #endregion
+        #endregion 依赖属性
 
         #region 私有方法
 
@@ -166,7 +165,7 @@ namespace Nakara.Controls
             }
         }
 
-        #endregion
+        #endregion 私有方法
     }
 
     /// <summary>
@@ -230,6 +229,6 @@ namespace Nakara.Controls
             set => SetValue(IsHighlightedProperty, value);
         }
 
-        #endregion
+        #endregion IsHighlighted 依赖属性
     }
 }

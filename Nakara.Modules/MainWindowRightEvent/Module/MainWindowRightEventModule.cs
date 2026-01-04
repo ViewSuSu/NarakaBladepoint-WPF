@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nakara.Modules.MainWindowRightEvent.UI.ViewModels;
+﻿using Nakara.Modules.MainWindowRightEvent.UI.ViewModels;
 using Nakara.Modules.MainWindowRightEvent.UI.Views;
 
 namespace Nakara.Modules.MainWindowRightEvent.Module

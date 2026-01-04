@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
 
@@ -13,6 +11,7 @@ namespace Nakara.Shared
     {
         private static readonly Dictionary<Type, object> _configurations =
             new Dictionary<Type, object>();
+
         private static readonly string _jsonsFolderPath;
 
         static ConfigurationDataReader()

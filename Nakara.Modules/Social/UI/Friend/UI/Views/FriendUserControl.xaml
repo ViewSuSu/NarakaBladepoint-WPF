@@ -70,7 +70,6 @@
                                 Text="空闲" />
                         </StackPanel>
                     </UniformGrid>
-
                 </Grid>
                 <controls:HighlightBorder
                     Grid.Row="1"

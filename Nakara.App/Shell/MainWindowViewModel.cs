@@ -1,7 +1,7 @@
-﻿using Nakara.Framework.Core.Bases.ViewModels;
+﻿using Nakara.App.Shell.Infrastructure;
+using Nakara.Framework.Core.Bases.ViewModels;
 using Nakara.Framework.Core.Evens;
 using Nakara.Shared.Consts;
-using Nakara.Shared.Services.Infrastructure;
 
 namespace Nakara.App.Shell
 {
@@ -16,15 +16,13 @@ namespace Nakara.App.Shell
             : base(containerExtension)
         {
             this.homePageVisualNavigator = homePageVisualNavigator;
-            eventAggregator
-                .GetEvent<LoadHomePageRegionEvent>()
+            this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                 .Subscribe(
                     viewName => this.homePageVisualNavigator.RequestNavigate(viewName),
                     ThreadOption.UIThread
                 );
 
-            eventAggregator
-                .GetEvent<RemoveHomePageRegionEvent>()
+            this.eventAggregator.GetEvent<RemoveHomePageRegionEvent>()
                 .Subscribe(() => this.homePageVisualNavigator.RemoveTop(), ThreadOption.UIThread);
 
             this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()

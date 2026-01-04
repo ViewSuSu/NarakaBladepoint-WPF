@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -22,6 +17,7 @@ namespace Nakara.Controls
         #region 依赖属性
 
         #region Icon
+
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
             "Icon",
             typeof(ImageSource),
@@ -37,9 +33,11 @@ namespace Nakara.Controls
             get => (ImageSource)GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
-        #endregion
+
+        #endregion Icon
 
         #region IconWidth
+
         public static readonly DependencyProperty IconWidthProperty = DependencyProperty.Register(
             "IconWidth",
             typeof(double),
@@ -52,9 +50,11 @@ namespace Nakara.Controls
             get => (double)GetValue(IconWidthProperty);
             set => SetValue(IconWidthProperty, value);
         }
-        #endregion
+
+        #endregion IconWidth
 
         #region IconHeight
+
         public static readonly DependencyProperty IconHeightProperty = DependencyProperty.Register(
             "IconHeight",
             typeof(double),
@@ -67,9 +67,11 @@ namespace Nakara.Controls
             get => (double)GetValue(IconHeightProperty);
             set => SetValue(IconHeightProperty, value);
         }
-        #endregion
+
+        #endregion IconHeight
 
         #region TextSpacing
+
         public static readonly DependencyProperty TextSpacingProperty = DependencyProperty.Register(
             "TextSpacing",
             typeof(double),
@@ -82,9 +84,11 @@ namespace Nakara.Controls
             get => (double)GetValue(TextSpacingProperty);
             set => SetValue(TextSpacingProperty, value);
         }
-        #endregion
+
+        #endregion TextSpacing
 
         #region BackgroundHeightFactor
+
         public static readonly DependencyProperty BackgroundHeightFactorProperty =
             DependencyProperty.Register(
                 "BackgroundHeightFactor",
@@ -98,9 +102,11 @@ namespace Nakara.Controls
             get => (double)GetValue(BackgroundHeightFactorProperty);
             set => SetValue(BackgroundHeightFactorProperty, value);
         }
-        #endregion
+
+        #endregion BackgroundHeightFactor
 
         #region HeaderFontSize
+
         public static readonly DependencyProperty HeaderFontSizeProperty =
             DependencyProperty.Register("HeaderFontSize", typeof(double), typeof(IconTabItem));
 
@@ -109,9 +115,11 @@ namespace Nakara.Controls
             get => (double)GetValue(HeaderFontSizeProperty);
             set => SetValue(HeaderFontSizeProperty, value);
         }
-        #endregion
+
+        #endregion HeaderFontSize
 
         #region HeaderForeground
+
         public static readonly DependencyProperty HeaderForegroundProperty =
             DependencyProperty.Register(
                 "HeaderForeground",
@@ -125,8 +133,9 @@ namespace Nakara.Controls
             get => (Brush)GetValue(HeaderForegroundProperty);
             set => SetValue(HeaderForegroundProperty, value);
         }
-        #endregion
 
-        #endregion
+        #endregion HeaderForeground
+
+        #endregion 依赖属性
     }
 }

@@ -281,7 +281,6 @@
                                             Text="103" />
                                     </StackPanel>
                                 </UniformGrid>
-
                             </UniformGrid>
                         </Grid>
                     </Grid>

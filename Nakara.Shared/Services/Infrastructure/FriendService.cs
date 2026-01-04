@@ -1,6 +1,4 @@
-﻿using Nakara.Shared.Datas;
-
-namespace Nakara.Shared.Services.Infrastructure
+﻿namespace Nakara.Shared.Services.Infrastructure
 {
     [Component]
     internal class FriendService : IFriendService

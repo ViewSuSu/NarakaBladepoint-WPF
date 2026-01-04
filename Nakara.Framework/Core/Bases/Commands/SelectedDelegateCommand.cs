@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nakara.Framework.Core.Bases.Commands
+﻿namespace Nakara.Framework.Core.Bases.Commands
 {
     public class SelectedDelegateCommand : DelegateCommand
     {

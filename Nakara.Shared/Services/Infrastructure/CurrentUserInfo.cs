@@ -1,6 +1,4 @@
-﻿
-
-namespace Nakara.Shared.Services.Infrastructure
+﻿namespace Nakara.Shared.Services.Infrastructure
 {
     [Component]
     internal class CurrentUserInfo : ICurrentUserInformation

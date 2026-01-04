@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Nakara.App.Shell;
-using Nakara.Framework;
 using Nakara.Modules;
 using Nakara.Shared.Services;
 
@@ -15,7 +14,8 @@ namespace Nakara.App
         {
             containerRegistry.Register<MainWindow>();
             containerRegistry.Register<MainWindowViewModel>();
-            containerRegistry.RegisterSharedServices();
+            containerRegistry.RegisterAppLayer();
+            containerRegistry.RegisterSharedLayer();
         }
 
         protected override Window CreateShell()

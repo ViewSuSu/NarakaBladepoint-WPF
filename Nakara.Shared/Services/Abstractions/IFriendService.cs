@@ -1,6 +1,4 @@
-﻿using Nakara.Shared.Datas;
-
-namespace Nakara.Shared.Services.Abstractions
+﻿namespace Nakara.Shared.Services.Abstractions
 {
     public interface IFriendService
     {

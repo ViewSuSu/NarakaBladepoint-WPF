@@ -327,7 +327,6 @@
         </Setter>
     </Style>
 
-
     <converters:ItemIndexToIsHighlightedConverter x:Key="ItemIndexToIsHighlightedConverter" />
 
     <ImageBrush x:Key="DefaultHighlightBackground" ImageSource="pack://application:,,,/Nakara.Resources;component/Image/background4.png" />

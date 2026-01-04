@@ -67,7 +67,7 @@ namespace Nakara.Controls
             RaiseEvent(args);
         }
 
-        #endregion
+        #endregion IsSelected
 
         #region Content
 
@@ -84,7 +84,7 @@ namespace Nakara.Controls
             set => SetValue(ContentProperty, value);
         }
 
-        #endregion
+        #endregion Content
 
         #region Command
 
@@ -113,7 +113,7 @@ namespace Nakara.Controls
             set => SetValue(CommandParameterProperty, value);
         }
 
-        #endregion
+        #endregion Command
 
         #region Input Handling
 
@@ -132,6 +132,6 @@ namespace Nakara.Controls
             e.Handled = true;
         }
 
-        #endregion
+        #endregion Input Handling
     }
 }

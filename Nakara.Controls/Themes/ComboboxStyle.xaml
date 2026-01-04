@@ -3,5 +3,3 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:Nakara.Controls.Converters"
     xmlns:local="clr-namespace:Nakara.Controls" />
-
-

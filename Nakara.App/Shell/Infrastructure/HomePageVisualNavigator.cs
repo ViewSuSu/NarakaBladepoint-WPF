@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Nakara.Framework.Core.Attrbuites;
 using Nakara.Shared.Consts;
 
-namespace Nakara.Shared.Services.Infrastructure
+namespace Nakara.App.Shell.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    public class HomePageVisualNavigator(IRegionManager regionManager)
+    public class HomePageVisualNavigator
     {
-        private readonly IRegionManager _regionManager = regionManager;
+        public HomePageVisualNavigator(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+        }
+
+        private readonly IRegionManager _regionManager;
 
         private readonly string[] _layers =
         {

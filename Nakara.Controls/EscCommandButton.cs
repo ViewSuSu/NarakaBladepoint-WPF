@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -15,7 +10,8 @@ namespace Nakara.Controls
         {
             DefaultStyleKeyProperty.OverrideMetadata(
                 typeof(EscBackControl),
-                new FrameworkPropertyMetadata(typeof(EscBackControl)));
+                new FrameworkPropertyMetadata(typeof(EscBackControl))
+            );
         }
 
         public EscBackControl()
@@ -46,11 +42,11 @@ namespace Nakara.Controls
             set => SetValue(CommandProperty, value);
         }
 
-        public static readonly DependencyProperty CommandProperty =
-            DependencyProperty.Register(
-                nameof(Command),
-                typeof(ICommand),
-                typeof(EscBackControl));
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
+            nameof(Command),
+            typeof(ICommand),
+            typeof(EscBackControl)
+        );
 
         public object CommandParameter
         {
@@ -62,9 +58,10 @@ namespace Nakara.Controls
             DependencyProperty.Register(
                 nameof(CommandParameter),
                 typeof(object),
-                typeof(EscBackControl));
+                typeof(EscBackControl)
+            );
 
-        #endregion
+        #endregion Command
 
         #region EscKeyText
 
@@ -74,14 +71,14 @@ namespace Nakara.Controls
             set => SetValue(EscKeyTextProperty, value);
         }
 
-        public static readonly DependencyProperty EscKeyTextProperty =
-            DependencyProperty.Register(
-                nameof(EscKeyText),
-                typeof(string),
-                typeof(EscBackControl),
-                new PropertyMetadata("Esc"));
+        public static readonly DependencyProperty EscKeyTextProperty = DependencyProperty.Register(
+            nameof(EscKeyText),
+            typeof(string),
+            typeof(EscBackControl),
+            new PropertyMetadata("Esc")
+        );
 
-        #endregion
+        #endregion EscKeyText
 
         #region BackText
 
@@ -91,13 +88,12 @@ namespace Nakara.Controls
             set => SetValue(BackTextProperty, value);
         }
 
-        public static readonly DependencyProperty BackTextProperty =
-            DependencyProperty.Register(
-                nameof(BackText),
-                typeof(string),
-                typeof(EscBackControl),
-                new PropertyMetadata("返回"));  // 设置默认值
-
-        #endregion
+        public static readonly DependencyProperty BackTextProperty = DependencyProperty.Register(
+            nameof(BackText),
+            typeof(string),
+            typeof(EscBackControl),
+            new PropertyMetadata("返回")
+        ); // 设置默认值
+        #endregion BackText
     }
 }

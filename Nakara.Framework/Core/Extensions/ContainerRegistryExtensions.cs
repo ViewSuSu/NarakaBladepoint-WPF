@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Windows.Controls;
 
 namespace Nakara.Framework.Core.Extensions
 {
@@ -11,7 +10,7 @@ namespace Nakara.Framework.Core.Extensions
         /// <summary>
         /// 自动注册指定程序集中标记了 ComponentAttribute 的类型
         /// </summary>
-        public static IContainerRegistry RegisterComponents(
+        public static IContainerRegistry RegisterrComponentsByAssembly(
             this IContainerRegistry registry,
             Assembly assembly
         )

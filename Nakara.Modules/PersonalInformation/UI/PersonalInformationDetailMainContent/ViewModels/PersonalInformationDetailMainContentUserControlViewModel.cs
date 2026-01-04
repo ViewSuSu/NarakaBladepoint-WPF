@@ -1,7 +1,5 @@
 ﻿using Nakara.Modules.PersonalInformation.Domain.Consts;
 using Nakara.Modules.PersonalInformation.Domain.Events;
-using Nakara.Modules.PersonalInformation.UI.HistoryMatchRecord.Views;
-using Nakara.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
 
 namespace Nakara.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.ViewModels
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -48,7 +43,7 @@ namespace Nakara.Controls
             }
         }
 
-        #endregion
+        #endregion HighlightIndex 依赖属性
 
         #region HighlightBackground 依赖属性
 
@@ -86,7 +81,7 @@ namespace Nakara.Controls
             }
         }
 
-        #endregion
+        #endregion HighlightBackground 依赖属性
 
         #region IsHighlighted 只读依赖属性（用于ItemContainer）
 
@@ -111,6 +106,6 @@ namespace Nakara.Controls
             obj.SetValue(IsHighlightedPropertyKey, value);
         }
 
-        #endregion
+        #endregion IsHighlighted 只读依赖属性（用于ItemContainer）
     }
 }

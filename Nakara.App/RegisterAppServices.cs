@@ -1,24 +1,22 @@
 ﻿using System.Reflection;
 using Nakara.Framework.Core.Extensions;
 
-namespace Nakara.Shared.Services
+namespace Nakara.App
 {
-    public static class ServiceAutoRegister
+    internal static class RegisterAppServices
     {
         private static readonly Assembly assembly;
 
-        static ServiceAutoRegister()
+        static RegisterAppServices()
         {
-            assembly = typeof(ServiceAutoRegister).Assembly;
+            assembly = typeof(RegisterAppServices).Assembly;
         }
 
         /// <summary>
-        /// 注册共享层的服务
+        /// 注册App层的服务
         /// </summary>
         /// <param name="containerRegistry"></param>
-        public static IContainerRegistry RegisterSharedLayer(
-            this IContainerRegistry containerRegistry
-        )
+        public static IContainerRegistry RegisterAppLayer(this IContainerRegistry containerRegistry)
         {
             return containerRegistry.RegisterrComponentsByAssembly(assembly);
         }
