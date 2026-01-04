@@ -22,7 +22,7 @@
                 <RowDefinition Height="1.5*" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <controls:HighlightBorder Grid.Row="0" Cursor="Hand">
+            <controls:HighlightBorder Grid.Row="0" >
                 <controls:HighlightBorder.Background>
                     <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/活动中心.png" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>
@@ -57,7 +57,7 @@
             <controls:HighlightBorder
                 Grid.Row="1"
                 Margin="0,2"
-                Cursor="Hand">
+                >
                 <controls:HighlightBorder.Background>
                     <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/段位.png" Stretch="Fill" />
                 </controls:HighlightBorder.Background>
@@ -89,7 +89,7 @@
             <controls:HighlightBorder
                 Grid.Row="3"
                 Margin="0,2"
-                Cursor="Hand">
+                >
                 <controls:HighlightBorder.Background>
                     <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/模式选择.png" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>
@@ -131,7 +131,7 @@
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
             </controls:HighlightBorder>
-            <controls:HighlightBorder Grid.Row="4" Cursor="Hand">
+            <controls:HighlightBorder Grid.Row="4" >
                 <controls:HighlightBorder.Background>
                     <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/开始游戏.png" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>

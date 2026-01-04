@@ -6,7 +6,7 @@
     <Style x:Key="CommonFunctionTabItem" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
+        
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
         <Setter Property="MinHeight" Value="45" />
@@ -51,7 +51,7 @@
     <Style x:Key="FriendListTabItem" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
+        
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="12,8" />
         <Setter Property="HeaderTemplate">
@@ -102,7 +102,7 @@
     <Style x:Key="HistoryMatchRecordTabItemStyle" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
+        
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="12,8" />
         <Setter Property="HeaderTemplate">

@@ -17,12 +17,18 @@
             <ColumnDefinition />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-        <TabControl Background="Transparent" Style="{StaticResource AverageTabControlStyle}">
-            <controls:IconTabItem Header="全部">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=50}" ItemsSource="{Binding InventoryItems}">
+        <TabControl Background="Transparent" BorderThickness="0">
+            <controls:IconTabItem
+                Width="70"
+                Header="全部"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon1.png">
+                <ItemsControl
+                    Margin="0,30,0,0"
+                    d:ItemsSource="{d:SampleData ItemCount=50}"
+                    ItemsSource="{Binding AvatarItemModels}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel ItemHeight="70" />
+                            <WrapPanel ItemHeight="100" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
@@ -36,19 +42,47 @@
                                     Width="20"
                                     Height="20"
                                     HorizontalAlignment="Right"
-                                    VerticalAlignment="Top" />
+                                    VerticalAlignment="Top"
+                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/lock.png"
+                                    Visibility="{Binding IsLocked, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </controls:IconTabItem>
-            <controls:IconTabItem Header="英雄" />
-            <controls:IconTabItem Header="武器" />
-            <controls:IconTabItem Header="赛季奖励" />
-            <controls:IconTabItem Header="隐族秘宝" />
-            <controls:IconTabItem Header="限时活动" />
-            <controls:IconTabItem Header="其他" />
+            <controls:IconTabItem
+                Width="70"
+                Header="英雄"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon2.png" />
+            <controls:IconTabItem
+                Width="70"
+                Header="武器"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon3.png" />
+            <controls:IconTabItem
+                Width="70"
+                Header="赛季奖励"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon4.png" />
+            <controls:IconTabItem
+                Width="70"
+                Header="隐族秘宝"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon5.png" />
+            <controls:IconTabItem
+                Width="70"
+                Header="限时活动"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon6.png" />
+            <controls:IconTabItem
+                Width="70"
+                Header="其他"
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon7.png" />
+            <controls:IconTabItem Width="70" Visibility="Hidden" />
         </TabControl>
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,30,30,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Foreground="White"
+            Text="152/429" />
         <Grid Grid.Column="1" Margin="20,0">
             <Grid.RowDefinitions>
                 <RowDefinition />

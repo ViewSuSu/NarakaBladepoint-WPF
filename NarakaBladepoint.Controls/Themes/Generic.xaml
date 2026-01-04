@@ -10,7 +10,7 @@
     <converters:IconTabItemConverter x:Key="IconTabItemConverter" />
     <Style TargetType="{x:Type local:IconTextBlockCustomControl}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
+
         <Setter Property="Padding" Value="5" />
         <Setter Property="Template">
             <Setter.Value>
@@ -84,7 +84,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Cursor" Value="Hand" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ImageTextBlock}">
@@ -104,7 +104,6 @@
     </Style>
 
     <Style TargetType="{x:Type local:EscBackControl}">
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -159,7 +158,6 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CommonFunctionButton}">

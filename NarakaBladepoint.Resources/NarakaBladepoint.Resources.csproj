@@ -40,6 +40,14 @@
 	  <None Remove="Image\Avatar\7.png" />
 	  <None Remove="Image\Avatar\8.png" />
 	  <None Remove="Image\Avatar\9.png" />
+	  <None Remove="Image\Avatar\Icon1.png" />
+	  <None Remove="Image\Avatar\Icon2.png" />
+	  <None Remove="Image\Avatar\Icon3.png" />
+	  <None Remove="Image\Avatar\Icon4.png" />
+	  <None Remove="Image\Avatar\Icon5.png" />
+	  <None Remove="Image\Avatar\Icon6.png" />
+	  <None Remove="Image\Avatar\Icon7.png" />
+	  <None Remove="Image\Avatar\lock.png" />
 	  <None Remove="Image\background.png" />
 	  <None Remove="Image\background2.png" />
 	  <None Remove="Image\background3.png" />
@@ -214,6 +222,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\Avatar\Icon1.png" />
+	  <Resource Include="Image\Avatar\Icon2.png" />
+	  <Resource Include="Image\Avatar\Icon3.png" />
+	  <Resource Include="Image\Avatar\Icon4.png" />
+	  <Resource Include="Image\Avatar\Icon5.png" />
+	  <Resource Include="Image\Avatar\Icon6.png" />
+	  <Resource Include="Image\Avatar\Icon7.png" />
+	  <Resource Include="Image\Avatar\lock.png" />
 	  <Resource Include="Image\background3.png" />
 	  <Resource Include="Image\background4.png" />
 	  <Resource Include="Image\friendInv.png" />

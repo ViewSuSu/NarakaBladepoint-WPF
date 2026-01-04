@@ -14,35 +14,35 @@
     d:DesignWidth="300"
     mc:Ignorable="d">
     <UniformGrid Grid.Column="3" Columns="5">
-        <Image Cursor="Hand" Style="{StaticResource Music}">
+        <Image  Style="{StaticResource Music}">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToMusicCommand}" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </Image>
-        <Image Cursor="Hand" Style="{StaticResource Tutorial}">
+        <Image  Style="{StaticResource Tutorial}">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToTutorialCommand}" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </Image>
-        <Image Cursor="Hand" Style="{StaticResource Email}">
+        <Image  Style="{StaticResource Email}">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToEmailCommand}" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </Image>
-        <Image Cursor="Hand" Style="{StaticResource Contact}">
+        <Image  Style="{StaticResource Contact}">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToFrendListCommand}" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </Image>
-        <Image Cursor="Hand" Style="{StaticResource Setting}">
+        <Image  Style="{StaticResource Setting}">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToSettingCommand}" />
