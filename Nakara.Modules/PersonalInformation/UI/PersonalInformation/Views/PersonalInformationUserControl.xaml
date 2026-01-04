@@ -26,12 +26,11 @@
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" BorderThickness="1">
             <controls:AvatarControl
-                d:Value="425"
                 BackgroundImage="pack://application:,,,/Nakara.Resources;component/Image/Avatar/1.png"
                 CornerLength="10"
                 CornerThickness="2"
                 ImageStretch="Fill"
-                Value="{Binding Value}" />
+                Value="425" />
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">
                     <b:InvokeCommandAction Command="{Binding NavigateToPersonalInfomationCommand}" />

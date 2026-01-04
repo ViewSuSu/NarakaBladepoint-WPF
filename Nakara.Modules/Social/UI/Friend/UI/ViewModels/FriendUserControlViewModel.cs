@@ -23,9 +23,13 @@ namespace Nakara.Modules.Social.UI.Friend.UI.ViewModels
             {
                 _eventAggregator.GetEvent<RemoveRightSidePanelRegionEvent>().Publish();
             });
+            SettingTagCommand = new DelegateCommand(() => { });
+            SearchCommand = new DelegateCommand<string>(keyword => { });
         }
 
         public DelegateCommand CloseCommand { get; }
+        public DelegateCommand SettingTagCommand { get; }
+        public DelegateCommand<string> SearchCommand { get; }
 
         // 好友列表数据
         private ObservableCollection<FriendData> _friends = new ObservableCollection<FriendData>();

@@ -16,8 +16,8 @@
             <ColumnDefinition />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-        <TabControl Background="Transparent">
-            <TabItem Header="全部">
+        <TabControl Background="Transparent" Style="{StaticResource AverageTabControlStyle}">
+            <TabItem Header="全部" Style="{StaticResource IconTopTextHistoryTabItemStyle}">
                 <ItemsControl d:ItemsSource="{d:SampleData ItemCount=50}" ItemsSource="{Binding InventoryItems}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -38,12 +38,12 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </TabItem>
-            <TabItem Header="英雄" />
-            <TabItem Header="武器" />
-            <TabItem Header="赛季奖励" />
-            <TabItem Header="隐族秘宝" />
-            <TabItem Header="限时活动" />
-            <TabItem Header="其他" />
+            <TabItem Header="英雄" Style="{StaticResource IconTopTextHistoryTabItemStyle}" />
+            <TabItem Header="武器" Style="{StaticResource IconTopTextHistoryTabItemStyle}" />
+            <TabItem Header="赛季奖励" Style="{StaticResource IconTopTextHistoryTabItemStyle}" />
+            <TabItem Header="隐族秘宝" Style="{StaticResource IconTopTextHistoryTabItemStyle}" />
+            <TabItem Header="限时活动" Style="{StaticResource IconTopTextHistoryTabItemStyle}" />
+            <TabItem Header="其他" Style="{StaticResource IconTopTextHistoryTabItemStyle}" />
         </TabControl>
         <Grid Grid.Column="1" Margin="20,0">
             <Grid.RowDefinitions>

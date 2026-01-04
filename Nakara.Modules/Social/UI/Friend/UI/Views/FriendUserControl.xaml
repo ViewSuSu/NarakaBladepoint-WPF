@@ -25,7 +25,7 @@
         <Grid Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.25*" />
+                    <RowDefinition Height="0.2*" />
                     <RowDefinition Height="0.1*" />
                     <RowDefinition Height="0.1*" />
                     <RowDefinition />
@@ -37,7 +37,7 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Image Source="pack://application:,,,/Nakara.Resources;component/Image/Avatar/1.png" Stretch="Uniform" />
+                    <controls:AvatarControl BackgroundImage="pack://application:,,,/Nakara.Resources;component/Image/Avatar/1.png" ImageStretch="Uniform" />
                     <UniformGrid
                         Grid.Column="1"
                         Margin="10,0,0,0"
@@ -48,7 +48,10 @@
                             Foreground="White"
                             Text="野排牢张" />
                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock Foreground="White" Text="ID:123123123132" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Text="ID:123123123132" />
                             <Image
                                 Width="20"
                                 Margin="5,0,0,0"
@@ -86,6 +89,11 @@
                             Foreground="White"
                             Text="点击设置标签" />
                     </StackPanel>
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding SettingTagCommand}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
                 </controls:HighlightBorder>
                 <Border
                     Grid.Row="2"
@@ -113,7 +121,13 @@
                             d:Text="12321312"
                             Background="Transparent"
                             BorderThickness="0"
-                            Foreground="White" />
+                            Foreground="White">
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="TextChanged">
+                                    <b:InvokeCommandAction Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=SearchBox, Path=Text}" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </TextBox>
                         <Image
                             Grid.Column="2"
                             Width="20"

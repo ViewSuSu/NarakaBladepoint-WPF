@@ -1,30 +1,27 @@
-﻿using Nakara.Framework.Core.Evens;
+﻿using Nakara.Framework.Core.Bases.ViewModels;
+using Nakara.Framework.Core.Evens;
 using Nakara.Shared.Consts;
 
 namespace Nakara.App.Shell
 {
-    public partial class MainWindowViewModel : BindableBase
+    public partial class MainWindowViewModel : ViewModelBase
     {
-        private readonly IEventAggregator _eventAggregator;
-        private readonly IRegionManager _regionManager;
-
-        public MainWindowViewModel(IEventAggregator eventAggregator, IRegionManager regionManager)
+        public MainWindowViewModel(IContainerExtension containerExtension)
+            : base(containerExtension)
         {
-            _eventAggregator = eventAggregator;
-            _regionManager = regionManager;
-
-            _eventAggregator
-                .GetEvent<LoadHomePageRegionEvent>()
+            this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                 .Subscribe(
                     (viewName) =>
                     {
-                        _regionManager.RequestNavigate(GlobalConstant.HomePageRegion1, viewName);
+                        this.regionManager.RequestNavigate(
+                            GlobalConstant.HomePageRegion1,
+                            viewName
+                        );
                     },
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<RemoveHomePageRegionEvent>()
+            this.eventAggregator.GetEvent<RemoveHomePageRegionEvent>()
                 .Subscribe(
                     () =>
                     {
@@ -33,18 +30,19 @@ namespace Nakara.App.Shell
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<LoadHomePageRegionEvent2>()
+            this.eventAggregator.GetEvent<LoadHomePageRegionEvent2>()
                 .Subscribe(
                     (viewName) =>
                     {
-                        _regionManager.RequestNavigate(GlobalConstant.HomePageRegion2, viewName);
+                        this.regionManager.RequestNavigate(
+                            GlobalConstant.HomePageRegion2,
+                            viewName
+                        );
                     },
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<RemoveHomePageRegionEvent2>()
+            this.eventAggregator.GetEvent<RemoveHomePageRegionEvent2>()
                 .Subscribe(
                     () =>
                     {
@@ -53,18 +51,19 @@ namespace Nakara.App.Shell
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<LoadMainContentRegionEvent>()
+            this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
                 .Subscribe(
                     (viewName) =>
                     {
-                        _regionManager.RequestNavigate(GlobalConstant.MainContentRegion, viewName);
+                        this.regionManager.RequestNavigate(
+                            GlobalConstant.MainContentRegion,
+                            viewName
+                        );
                     },
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<RemoveMainContentRegionEvent>()
+            this.eventAggregator.GetEvent<RemoveMainContentRegionEvent>()
                 .Subscribe(
                     () =>
                     {
@@ -73,12 +72,11 @@ namespace Nakara.App.Shell
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<LoadRightSidePanelRegionEvent>()
+            this.eventAggregator.GetEvent<LoadRightSidePanelRegionEvent>()
                 .Subscribe(
                     (viewName) =>
                     {
-                        _regionManager.RequestNavigate(
+                        this.regionManager.RequestNavigate(
                             GlobalConstant.RightSidePanelRegion,
                             viewName
                         );
@@ -86,8 +84,7 @@ namespace Nakara.App.Shell
                     ThreadOption.UIThread
                 );
 
-            _eventAggregator
-                .GetEvent<RemoveRightSidePanelRegionEvent>()
+            this.eventAggregator.GetEvent<RemoveRightSidePanelRegionEvent>()
                 .Subscribe(
                     () =>
                     {
@@ -99,7 +96,7 @@ namespace Nakara.App.Shell
 
         private void RevemoveRegionByName(string regionName)
         {
-            var region = _regionManager.Regions[regionName];
+            var region = regionManager.Regions[regionName];
             region.RemoveAll();
         }
     }

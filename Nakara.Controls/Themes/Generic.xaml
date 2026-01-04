@@ -203,11 +203,9 @@
                     <Grid>
                         <Grid Margin="{TemplateBinding CornerThickness}">
                             <Image Source="{TemplateBinding BackgroundImage}" Stretch="{TemplateBinding ImageStretch}" />
-                            <Border
-                                Padding="4"
-                                VerticalAlignment="Bottom"
-                                Background="#AA000000">
+                            <Border Padding="4" VerticalAlignment="Bottom">
                                 <TextBox
+                                    VerticalAlignment="Bottom"
                                     HorizontalContentAlignment="Center"
                                     Background="Transparent"
                                     BorderThickness="0"
