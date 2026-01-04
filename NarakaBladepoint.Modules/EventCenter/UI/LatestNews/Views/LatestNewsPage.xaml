@@ -1,0 +1,49 @@
+﻿<bases:UserControlBase
+    x:Class="NarakaBladepoint.Modules.EventCenter.UI.LatestNews.Views.LatestNewsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.LatestNews.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid Margin="50,10">
+            <Grid Margin="0,40,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <controls:HighlightBorder Grid.Column="0" Margin="5,0">
+                    <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/1.png" Stretch="UniformToFill" />
+                </controls:HighlightBorder>
+                <Grid Grid.Column="1" Margin="5,0">
+                    <UniformGrid Rows="2">
+                        <controls:HighlightBorder Margin="0,5">
+                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/2.png" Stretch="UniformToFill" />
+                        </controls:HighlightBorder>
+
+                        <controls:HighlightBorder Margin="0,5">
+                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/4.png" Stretch="UniformToFill" />
+                        </controls:HighlightBorder>
+                    </UniformGrid>
+                </Grid>
+                <Grid Grid.Column="2" Margin="5,0">
+                    <UniformGrid Rows="2">
+                        <controls:HighlightBorder Margin="0,5">
+                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/3.png" Stretch="UniformToFill" />
+                        </controls:HighlightBorder>
+
+                        <controls:HighlightBorder Margin="0,5">
+                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/5.png" Stretch="UniformToFill" />
+                        </controls:HighlightBorder>
+                    </UniformGrid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</bases:UserControlBase>

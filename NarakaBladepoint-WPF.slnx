@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="NarakaBladepoint.App/NarakaBladepoint.App.csproj" />
+  <Project Path="NarakaBladepoint.Controls/NarakaBladepoint.Controls.csproj" />
+  <Project Path="NarakaBladepoint.Framework/NarakaBladepoint.Framework.csproj" Id="06812316-754d-4696-bced-66d7a4c6fac4" />
+  <Project Path="NarakaBladepoint.Modules/NarakaBladepoint.Modules.csproj" />
+  <Project Path="NarakaBladepoint.Resources/NarakaBladepoint.Resources.csproj" />
+  <Project Path="NarakaBladepoint.Shared/NarakaBladepoint.Shared.csproj" />
+</Solution>

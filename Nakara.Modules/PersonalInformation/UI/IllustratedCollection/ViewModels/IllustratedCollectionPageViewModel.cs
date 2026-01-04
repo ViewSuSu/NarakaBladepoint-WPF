@@ -1,8 +1,0 @@
-﻿namespace Nakara.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels
-{
-    internal class IllustratedCollectionPageViewModel : ViewModelBase
-    {
-        public IllustratedCollectionPageViewModel(IContainerExtension containerExtension)
-            : base(containerExtension) { }
-    }
-}

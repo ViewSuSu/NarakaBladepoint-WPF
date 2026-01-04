@@ -1,0 +1,169 @@
+{
+  "List": [
+    {
+      "AvatarIndex": 3,
+      "CurrentRank": 1,
+      "AllTeams": 17,
+      "KillNumber": 18,
+      "Damage": 28950.75,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-20T20:15:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 7,
+      "CurrentRank": 2,
+      "AllTeams": 17,
+      "KillNumber": 15,
+      "Damage": 26500.25,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-20T21:30:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 5,
+      "CurrentRank": 5,
+      "AllTeams": 16,
+      "KillNumber": 12,
+      "Damage": 19800.50,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-21T14:45:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 2,
+      "CurrentRank": 3,
+      "AllTeams": 15,
+      "KillNumber": 14,
+      "Damage": 23500.00,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-21T16:20:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 9,
+      "CurrentRank": 8,
+      "AllTeams": 17,
+      "KillNumber": 9,
+      "Damage": 16750.80,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-21T19:10:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 1,
+      "CurrentRank": 1,
+      "AllTeams": 17,
+      "KillNumber": 20,
+      "Damage": 29500.00,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-22T13:25:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 4,
+      "CurrentRank": 4,
+      "AllTeams": 16,
+      "KillNumber": 13,
+      "Damage": 21000.30,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-22T15:40:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 6,
+      "CurrentRank": 6,
+      "AllTeams": 15,
+      "KillNumber": 11,
+      "Damage": 18500.60,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-22T18:55:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 8,
+      "CurrentRank": 10,
+      "AllTeams": 17,
+      "KillNumber": 7,
+      "Damage": 14200.90,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-23T11:15:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 10,
+      "CurrentRank": 3,
+      "AllTeams": 16,
+      "KillNumber": 16,
+      "Damage": 24800.40,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-23T14:30:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 3,
+      "CurrentRank": 7,
+      "AllTeams": 15,
+      "KillNumber": 10,
+      "Damage": 17200.20,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-23T17:45:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 2,
+      "CurrentRank": 2,
+      "AllTeams": 17,
+      "KillNumber": 17,
+      "Damage": 27800.70,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-24T12:50:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 5,
+      "CurrentRank": 9,
+      "AllTeams": 16,
+      "KillNumber": 8,
+      "Damage": 15500.10,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-24T16:05:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 7,
+      "CurrentRank": 5,
+      "AllTeams": 15,
+      "KillNumber": 14,
+      "Damage": 22100.80,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-24T19:20:00",
+      "IsHightLevel": true
+    },
+    {
+      "AvatarIndex": 1,
+      "CurrentRank": 1,
+      "AllTeams": 17,
+      "KillNumber": 22,
+      "Damage": 29999.99,
+      "CurrentLevel": "无相龙王",
+      "GameMode": "三排",
+      "GameTime": "2024-05-25T20:00:00",
+      "IsHightLevel": true
+    }
+  ]
+}

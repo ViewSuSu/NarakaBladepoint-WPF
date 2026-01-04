@@ -1,8 +1,0 @@
-<Solution>
-  <Project Path="Nakara.App/Nakara.App.csproj" />
-  <Project Path="Nakara.Controls/Nakara.Controls.csproj" />
-  <Project Path="Nakara.Framework/Nakara.Framework.csproj" Id="06812316-754d-4696-bced-66d7a4c6fac4" />
-  <Project Path="Nakara.Modules/Nakara.Modules.csproj" Id="2fb794ff-6a1a-44f1-b566-7a7487691539" />
-  <Project Path="Nakara.Resources/Nakara.Resources.csproj" Id="e66cb840-c66a-4a65-b5ca-38e1adf925cf" />
-  <Project Path="Nakara.Shared/Nakara.Shared.csproj" Id="94098f50-dc50-4311-bef8-93d4da23140c" />
-</Solution>

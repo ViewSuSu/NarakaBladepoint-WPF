@@ -1,0 +1,508 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters"
+    xmlns:local="clr-namespace:NarakaBladepoint.Controls">
+    <converters:LTopLeftConverter x:Key="LTopLeftConverter" />
+    <converters:LTopRightConverter x:Key="LTopRightConverter" />
+    <converters:LBottomLeftConverter x:Key="LBottomLeftConverter" />
+    <converters:LBottomRightConverter x:Key="LBottomRightConverter" />
+    <converters:IconTabItemConverter x:Key="IconTabItemConverter" />
+    <Style TargetType="{x:Type local:IconTextBlockCustomControl}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconTextBlockCustomControl}">
+                    <Border
+                        x:Name="Root"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Button
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Command="{TemplateBinding Command}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Vertical">
+                                <Image
+                                    x:Name="PART_Icon"
+                                    Width="{TemplateBinding IconWidth}"
+                                    Height="{TemplateBinding IconHeight}"
+                                    HorizontalAlignment="Center"
+                                    Source="{TemplateBinding Icon}"
+                                    Stretch="{TemplateBinding IconStretch}" />
+                                <TextBlock
+                                    x:Name="PART_Text"
+                                    Margin="{TemplateBinding TextMargin}"
+                                    HorizontalAlignment="Center"
+                                    FontSize="{TemplateBinding TextFontSize}"
+                                    Foreground="{TemplateBinding TextForeground}"
+                                    Text="{TemplateBinding Text}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Opacity" Value="0.8" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Root" Property="Opacity" Value="0.5" />
+                            <Setter TargetName="PART_Text" Property="Foreground" Value="Gray" />
+                        </Trigger>
+
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="PART_Icon" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter TargetName="PART_Text" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="PART_Text" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ImageTextBlock}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ImageTextBlock}">
+                    <Grid>
+                        <Image Source="{TemplateBinding Source}" Stretch="UniformToFill" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Text="{TemplateBinding Text}"
+                            TextAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:EscBackControl}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:EscBackControl}">
+                    <Border
+                        x:Name="OuterBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="Transparent"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="4">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <Border
+                                Margin="0,0,8,0"
+                                Padding="8,3"
+                                Background="White"
+                                CornerRadius="2">
+                                <TextBlock
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    Foreground="Black"
+                                    Text="{TemplateBinding EscKeyText}" />
+                            </Border>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="12"
+                                Foreground="White"
+                                Text="{TemplateBinding BackText}" />
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="OuterBorder" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:CommonFunctionButton}">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CommonFunctionButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border
+                            x:Name="PART_Border"
+                            Height="{TemplateBinding Height}"
+                            Padding="5,0"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+
+                            <TextBlock
+                                x:Name="PART_Content"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Content}" />
+                        </Border>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CommonFunctionButtonBackground.png" Stretch="Fill" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Content" Property="Foreground" Value="#E6E6E6" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:AvatarControl}">
+        <Setter Property="BorderBrush" Value="#FF6B2C" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:AvatarControl}">
+                    <Grid>
+                        <Grid Margin="{TemplateBinding CornerThickness}">
+                            <Image Source="{TemplateBinding BackgroundImage}" Stretch="{TemplateBinding ImageStretch}" />
+                            <Border Padding="4" VerticalAlignment="Bottom">
+                                <TextBox
+                                    VerticalAlignment="Bottom"
+                                    HorizontalContentAlignment="Center"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                            </Border>
+                        </Grid>
+                        <Path
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LTopLeftConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                        <Path
+                            HorizontalAlignment="Right"
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LTopRightConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                        <Path
+                            VerticalAlignment="Bottom"
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LBottomLeftConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                        <Path
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Data="{Binding CornerLength, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LBottomRightConverter}}"
+                            Stroke="{TemplateBinding BorderBrush}"
+                            StrokeThickness="{TemplateBinding CornerThickness}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:IconTabItem}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="IconWidth" Value="30" />
+        <Setter Property="IconHeight" Value="30" />
+        <Setter Property="BackgroundHeightFactor" Value="1.3" />
+        <Setter Property="HeaderFontSize" Value="10" />
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                        <TextBlock
+                            Name="PART_HeaderText"
+                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=TextSpacing}"
+                            HorizontalAlignment="Center"
+                            FontSize="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=HeaderFontSize}"
+                            Foreground="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=HeaderForeground}"
+                            Text="{Binding}">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=IsSelected}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Image
+                            Width="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=IconWidth}"
+                            Height="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=IconHeight}"
+                            HorizontalAlignment="Center"
+                            Source="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=Icon}" />
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconTabItem}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <Grid>
+                            <Image
+                                Name="PART_BackgroundImage"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Bottom"
+                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/TabItemBackground.png"
+                                Stretch="Fill"
+                                Visibility="Collapsed">
+                                <Image.Height>
+                                    <MultiBinding Converter="{StaticResource IconTabItemConverter}">
+                                        <Binding Path="IconHeight" RelativeSource="{RelativeSource AncestorType=local:IconTabItem}" />
+                                        <Binding Path="BackgroundHeightFactor" RelativeSource="{RelativeSource AncestorType=local:IconTabItem}" />
+                                    </MultiBinding>
+                                </Image.Height>
+                            </Image>
+                            <ContentPresenter
+                                Name="PART_HeaderContent"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ContentSource="Header"
+                                TextElement.FontSize="{TemplateBinding FontSize}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="PART_BackgroundImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="PART_BackgroundImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                           <Setter TargetName="PART_HeaderContent" Property="Foreground" Value="#E6E6E6" />
+                       </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <converters:ItemIndexToIsHighlightedConverter x:Key="ItemIndexToIsHighlightedConverter" />
+
+    <ImageBrush x:Key="DefaultHighlightBackground" ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background4.png" />
+
+    <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Border
+                x:Name="Border"
+                Grid.ColumnSpan="2"
+                Background="#FF3F3F3F"
+                BorderBrush="#FF97A0A5"
+                BorderThickness="1"
+                CornerRadius="0" />
+            <Border
+                Grid.Column="0"
+                Margin="1"
+                Background="#FF3F3F3F"
+                BorderBrush="#FF97A0A5"
+                BorderThickness="0,0,1,0"
+                CornerRadius="0" />
+            <Path
+                x:Name="Arrow"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z"
+                Fill="White" />
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+        <Border
+            x:Name="PART_ContentHost"
+            Background="{TemplateBinding Background}"
+            Focusable="False" />
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type local:ToggleButtonComboBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="4,2" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ToggleButtonComboBoxItem}">
+                    <Border
+                        x:Name="Bd"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="{Binding Path=HighlightBackground, RelativeSource={RelativeSource AncestorType={x:Type local:ToggleButtonComboBox}}, FallbackValue={StaticResource DefaultHighlightBackground}}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="#3D3D3D" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="#555555" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Bd" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:ToggleButtonComboBox}">
+        <Setter Property="HighlightIndex" Value="-1" />
+        <Setter Property="HighlightBackground" Value="{StaticResource DefaultHighlightBackground}" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="MinWidth" Value="120" />
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#FF3F3F3F" />
+        <Setter Property="BorderBrush" Value="#FF97A0A5" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource {x:Type local:ToggleButtonComboBoxItem}}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ToggleButtonComboBox}">
+                    <Grid>
+                        <ToggleButton
+                            Name="ToggleButton"
+                            ClickMode="Press"
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            Template="{StaticResource ComboBoxToggleButton}" />
+                        <ContentPresenter
+                            Name="ContentSite"
+                            Margin="3,3,23,3"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            IsHitTestVisible="False" />
+                        <TextBox
+                            x:Name="PART_EditableTextBox"
+                            Margin="3,3,23,3"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="{TemplateBinding Background}"
+                            Focusable="True"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"
+                            Style="{x:Null}"
+                            Template="{StaticResource ComboBoxTextBox}"
+                            Visibility="Hidden" />
+                        <Popup
+                            Name="Popup"
+                            AllowsTransparency="True"
+                            Focusable="False"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            Placement="Bottom"
+                            PopupAnimation="Slide">
+                            <Grid
+                                Name="DropDown"
+                                MinWidth="{TemplateBinding ActualWidth}"
+                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                SnapsToDevicePixels="True">
+                                <Border
+                                    x:Name="DropDownBorder"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="1" />
+                                <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#888888" />
+                            <Setter TargetName="ToggleButton" Property="Opacity" Value="0.7" />
+                        </Trigger>
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+                        </Trigger>
+                        <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                            <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0" />
+                            <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0" />
+                        </Trigger>
+                        <Trigger Property="IsEditable" Value="true">
+                            <Setter Property="IsTabStop" Value="false" />
+                            <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

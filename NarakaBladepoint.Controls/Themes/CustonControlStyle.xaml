@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls">
+    <Style x:Key="GoldBrick" TargetType="controls:IconTextBlockCustomControl">
+        <Setter Property="Icon" Value="/NarakaBladepoint.Resources;component/Image/Button/金砖.png" />
+    </Style>
+    <Style x:Key="AncientCoins" TargetType="controls:IconTextBlockCustomControl">
+        <Setter Property="Icon" Value="/NarakaBladepoint.Resources;component/Image/Button/古币.png" />
+    </Style>
+    <Style x:Key="HuanSi" TargetType="controls:IconTextBlockCustomControl">
+        <Setter Property="Icon" Value="/NarakaBladepoint.Resources;component/Image/Button/幻丝.png" />
+    </Style>
+</ResourceDictionary>

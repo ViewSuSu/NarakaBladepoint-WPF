@@ -1,0 +1,274 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "NarakaBladepoint.App/1.0.0": {
+        "dependencies": {
+          "NarakaBladepoint.Modules": "1.0.0"
+        },
+        "runtime": {
+          "NarakaBladepoint.App.dll": {}
+        }
+      },
+      "DryIoc.dll/5.4.3": {
+        "runtime": {
+          "lib/net7.0/DryIoc.dll": {
+            "assemblyVersion": "5.4.3.0",
+            "fileVersion": "5.4.3.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.324.11423"
+          }
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.122": {
+        "runtime": {
+          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.122.28819"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.4": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.4.30916"
+          }
+        }
+      },
+      "Prism.Container.Abstractions/9.0.106": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/Prism.Container.Abstractions.dll": {
+            "assemblyVersion": "9.0.106.9543",
+            "fileVersion": "9.0.106.9543"
+          }
+        }
+      },
+      "Prism.Container.DryIoc/9.0.106": {
+        "dependencies": {
+          "DryIoc.dll": "5.4.3",
+          "Prism.Container.Abstractions": "9.0.106"
+        },
+        "runtime": {
+          "lib/net8.0/Prism.Container.DryIoc.dll": {
+            "assemblyVersion": "9.0.106.9543",
+            "fileVersion": "9.0.106.9543"
+          }
+        }
+      },
+      "Prism.Core/9.0.537": {
+        "dependencies": {
+          "Prism.Container.Abstractions": "9.0.106",
+          "Prism.Events": "9.0.537"
+        },
+        "runtime": {
+          "lib/net6.0/Prism.dll": {
+            "assemblyVersion": "9.0.537.60525",
+            "fileVersion": "9.0.537.60525"
+          }
+        }
+      },
+      "Prism.DryIoc/9.0.537": {
+        "dependencies": {
+          "Prism.Container.DryIoc": "9.0.106",
+          "Prism.Wpf": "9.0.537"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Prism.DryIoc.Wpf.dll": {
+            "assemblyVersion": "9.0.537.60525",
+            "fileVersion": "9.0.537.60525"
+          }
+        }
+      },
+      "Prism.Events/9.0.537": {
+        "runtime": {
+          "lib/net6.0/Prism.Events.dll": {
+            "assemblyVersion": "9.0.537.60525",
+            "fileVersion": "9.0.537.60525"
+          }
+        }
+      },
+      "Prism.Wpf/9.0.537": {
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.122",
+          "Prism.Core": "9.0.537"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Prism.Wpf.dll": {
+            "assemblyVersion": "9.0.537.60525",
+            "fileVersion": "9.0.537.60525"
+          }
+        }
+      },
+      "NarakaBladepoint.Controls/1.0.0": {
+        "dependencies": {
+          "NarakaBladepoint.Resources": "1.0.0"
+        },
+        "runtime": {
+          "NarakaBladepoint.Controls.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "NarakaBladepoint.Framework/1.0.0": {
+        "dependencies": {
+          "NarakaBladepoint.Controls": "1.0.0",
+          "Newtonsoft.Json": "13.0.4",
+          "Prism.DryIoc": "9.0.537"
+        },
+        "runtime": {
+          "NarakaBladepoint.Framework.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "NarakaBladepoint.Modules/1.0.0": {
+        "dependencies": {
+          "NarakaBladepoint.Shared": "1.0.0"
+        },
+        "runtime": {
+          "NarakaBladepoint.Modules.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "NarakaBladepoint.Resources/1.0.0": {
+        "runtime": {
+          "NarakaBladepoint.Resources.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "NarakaBladepoint.Shared/1.0.0": {
+        "dependencies": {
+          "NarakaBladepoint.Framework": "1.0.0"
+        },
+        "runtime": {
+          "NarakaBladepoint.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NarakaBladepoint.App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DryIoc.dll/5.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yhXOG3SOxeWYxBAWskNRDD8fzw5hriEawv4VN4WKaFHOuubiop4kxe2rkWTEyCnTgRVgxVUSQCDBBkZqwPm1iQ==",
+      "path": "dryioc.dll/5.4.3",
+      "hashPath": "dryioc.dll.5.4.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.122": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SgcafT189u4qX++vSCV9FLQ4BsRXU9J2esnHA9IF8GOSgnPBulFw1CW4X/FYoOXvZwdDZxlSObJUGUg1U1wSyg==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.122",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.122.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
+    },
+    "Prism.Container.Abstractions/9.0.106": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QNOERNOqsxvAa8pbWjqFB872DkvYK/cVRrcFO5vJYgWTIKBd8xfaI/jaZ0qeXLYVDz0nrvgJTZVVnip6+68dCw==",
+      "path": "prism.container.abstractions/9.0.106",
+      "hashPath": "prism.container.abstractions.9.0.106.nupkg.sha512"
+    },
+    "Prism.Container.DryIoc/9.0.106": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g7UzyK4oRPmEGgz2CV976KTBFk+QPdfktyrL91kvI4YbHciQATO6/r1KFnyRnBE73il5v+SeXXKWIrvlMnsMdg==",
+      "path": "prism.container.dryioc/9.0.106",
+      "hashPath": "prism.container.dryioc.9.0.106.nupkg.sha512"
+    },
+    "Prism.Core/9.0.537": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D7mEqPKLVNrD0g2WHCpC/MOKwn8h7X1liCWyjqjL7NCuxgwuhVLTG85E/ZPBkISrXdwvOQZ+bSY31bvP79FQlg==",
+      "path": "prism.core/9.0.537",
+      "hashPath": "prism.core.9.0.537.nupkg.sha512"
+    },
+    "Prism.DryIoc/9.0.537": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tnKifVxlKeSbNP2gZi+nMcjsi/w0lm3aLhBh92gWO6uCoa44ACM9gVJeO77ew4aHYZuoHUd6wHyeozfN7QKWuA==",
+      "path": "prism.dryioc/9.0.537",
+      "hashPath": "prism.dryioc.9.0.537.nupkg.sha512"
+    },
+    "Prism.Events/9.0.537": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pzp5MGUuhAyKXZUbHVYNWLGF/eA3sScqDN6VrzbWlKj85R0IS0q+JXe99umynso2xhXAe+1jrQCCkgqmEFCBng==",
+      "path": "prism.events/9.0.537",
+      "hashPath": "prism.events.9.0.537.nupkg.sha512"
+    },
+    "Prism.Wpf/9.0.537": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-srsXhi7FRUFawsNoRkY67duMEGjZo3ff0FpqpkjeWkkAuLazlH1UmNVrvwnpaLQCBboexH/z6oGrLvpeocxgdw==",
+      "path": "prism.wpf/9.0.537",
+      "hashPath": "prism.wpf.9.0.537.nupkg.sha512"
+    },
+    "NarakaBladepoint.Controls/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NarakaBladepoint.Framework/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NarakaBladepoint.Modules/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NarakaBladepoint.Resources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NarakaBladepoint.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

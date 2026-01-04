@@ -1,0 +1,42 @@
+﻿<base:UserControlBase
+    x:Class="NarakaBladepoint.Modules.Wealth.UI.Main.Views.WealthUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:WealthUserControlViewModel}"
+    d:DesignHeight="50"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <UniformGrid Grid.Column="2" Columns="3">
+        <controls:IconTextBlockCustomControl
+            d:Text="12500"
+            Spacing="-5"
+            Style="{StaticResource AncientCoins}"
+            Text="{Binding WealthModel.AncientCoins}" />
+        <Grid x:Name="GoldBrickPopup">
+            <controls:IconTextBlockCustomControl
+                d:Text="12600"
+                Command="{Binding NavigateToTopUpCommand}"
+                Spacing="-5"
+                Style="{StaticResource GoldBrick}"
+                Text="{Binding WealthModel.GoldBrick}" />
+        </Grid>
+        <Popup
+            HorizontalOffset="-10"
+            IsOpen="{Binding ElementName=GoldBrickPopup, Path=IsMouseOver, Mode=OneWay}"
+            Placement="Bottom"
+            PlacementTarget="{Binding ElementName=GoldBrickControl}"
+            StaysOpen="True">
+            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/Wealth/1.png" />
+        </Popup>
+        <controls:IconTextBlockCustomControl
+            d:Text="12500"
+            Spacing="-5"
+            Style="{StaticResource HuanSi}"
+            Text="{Binding WealthModel.HuanSi}" />
+    </UniformGrid>
+</base:UserControlBase>
