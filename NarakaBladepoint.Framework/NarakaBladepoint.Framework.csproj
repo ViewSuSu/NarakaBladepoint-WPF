@@ -16,6 +16,7 @@
 	  <Page Remove="UI\Converters\**" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Mapster" Version="7.4.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="Prism.DryIoc" Version="9.0.537" />
 	</ItemGroup>

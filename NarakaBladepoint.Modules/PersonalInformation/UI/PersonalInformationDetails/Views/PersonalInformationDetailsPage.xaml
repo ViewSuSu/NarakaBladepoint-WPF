@@ -68,9 +68,10 @@
                                     <TextBlock
                                         Margin="5,0"
                                         VerticalAlignment="Center"
+                                        d:Text="野排牢张"
                                         FontSize="18"
                                         Foreground="White"
-                                        Text="野排牢张" />
+                                        Text="{Binding CurrentUserBasicInformationModel.Name, Mode=OneWay}" />
                                     <Image
                                         Width="30"
                                         HorizontalAlignment="Right"
@@ -104,8 +105,10 @@
                                     <TextBlock
                                         Margin="5,0,0,0"
                                         VerticalAlignment="Center"
-                                        Foreground="White"
-                                        Text="ID:15315313545343" />
+                                        Foreground="White">
+                                        <Run Text="ID:" />
+                                        <Run d:Text="15315313545343" Text="{Binding CurrentUserBasicInformationModel.Id, Mode=OneWay}" />
+                                    </TextBlock>
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -142,8 +145,9 @@
                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/6.png" />
                                     <TextBlock
                                         VerticalAlignment="Center"
+                                        d:Text="10000"
                                         Foreground="White"
-                                        Text="10000" />
+                                        Text="{Binding CurrentUserBasicInformationModel.Credits, Mode=OneWay}" />
                                     <Image
                                         Width="20"
                                         Margin="5,0,0,0"
@@ -158,8 +162,9 @@
                                     <TextBlock
                                         Margin="5,0,0,0"
                                         VerticalAlignment="Center"
+                                        d:Text="822"
                                         Foreground="White"
-                                        Text="822" />
+                                        Text="{Binding CurrentUserBasicInformationModel.ActiveValue}" />
                                     <Image
                                         Width="20"
                                         Margin="5,0,0,0"
@@ -360,9 +365,10 @@
                                     Text="总收藏值" />
                                 <TextBlock
                                     Margin="0,5,0,0"
+                                    d:Text="263442"
                                     FontSize="18"
                                     Foreground="Orange"
-                                    Text="263442" />
+                                    Text="{Binding CurrentUserBasicInformationModel.TotalFavorites}" />
                             </StackPanel>
                         </StackPanel>
                         <UniformGrid Grid.Row="1" Columns="3">
@@ -374,7 +380,10 @@
                                     HorizontalAlignment="Center"
                                     Foreground="White"
                                     Text="461" />
-                                <TextBlock Foreground="White" Text="登录天数" />
+                                <TextBlock
+                                    d:Text="登录天数"
+                                    Foreground="White"
+                                    Text="{Binding CurrentUserBasicInformationModel.LoginDays}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -382,8 +391,9 @@
                                 Orientation="Vertical">
                                 <TextBlock
                                     HorizontalAlignment="Center"
+                                    d:Text="461"
                                     Foreground="White"
-                                    Text="461" />
+                                    Text="{Binding CurrentUserBasicInformationModel.HeroSkins}" />
                                 <TextBlock Foreground="White" Text="英雄外观" />
                             </StackPanel>
                             <StackPanel
@@ -392,8 +402,9 @@
                                 Orientation="Vertical">
                                 <TextBlock
                                     HorizontalAlignment="Center"
+                                    d:Text="461"
                                     Foreground="White"
-                                    Text="461" />
+                                    Text="{Binding CurrentUserBasicInformationModel.WeaponSkins}" />
                                 <TextBlock Foreground="White" Text="武器外观" />
                             </StackPanel>
                         </UniformGrid>
@@ -513,7 +524,7 @@
                                 </Grid>
                             </Grid>
 
-                            <!--  暗语狂潮  -->
+                            <!--  暗域狂潮  -->
                             <Grid
                                 Height="25"
                                 Margin="0,5"
@@ -527,7 +538,7 @@
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
                                         Foreground="White"
-                                        Text="暗语狂潮" />
+                                        Text="暗域狂潮" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -700,11 +711,12 @@
                         Grid.Row="0"
                         Width="100"
                         HorizontalAlignment="Left"
-                        SelectedIndex="0">
-                        <controls:ToggleButtonComboBoxItem Content="所有赛季" />
+                        ItemsSource="{Binding PersonalSeasonDataModels}"
+                        SelectedItem="{Binding SelectedItem}">
+                        <!--<controls:ToggleButtonComboBoxItem Content="所有赛季" />
                         <controls:ToggleButtonComboBoxItem Content="当前赛季" />
                         <controls:ToggleButtonComboBoxItem Content="第18赛季：侠风" />
-                        <controls:ToggleButtonComboBoxItem Content="第17赛季：裂变" />
+                        <controls:ToggleButtonComboBoxItem Content="第17赛季：裂变" />-->
                     </controls:ToggleButtonComboBox>
                     <TextBlock
                         Grid.Row="0"

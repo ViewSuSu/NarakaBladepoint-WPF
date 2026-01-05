@@ -1,6 +1,6 @@
 ﻿namespace NarakaBladepoint.Shared.Services.Models
 {
-    internal class UserInformationModel
+    public class UserInformationModel
     {
         /// <summary>
         /// 用户ID
@@ -21,5 +21,36 @@
         /// 经验值
         /// </summary>
         public int Exp { get; set; }
+
+        /// <summary>
+        /// 信誉分
+        /// </summary>
+
+        public int Credits { get; set; }
+
+        ///<summary>
+        ///活跃值
+        ///</summary>
+        public int ActiveValue { get; set; }
+
+        ///<summary>
+        ///总收藏值
+        ///</summary>
+        public int TotalFavorites { get; set; }
+
+        /// <summary>
+        /// 登录天数
+        /// </summary>
+        public int LoginDays { get; set; }
+
+        /// <summary>
+        /// 武器外观数量
+        /// </summary>
+        public int WeaponSkins { get; set; }
+
+        /// <summary>
+        /// 英雄外观数量
+        /// </summary>
+        public int HeroSkins { get; set; }
     }
 }

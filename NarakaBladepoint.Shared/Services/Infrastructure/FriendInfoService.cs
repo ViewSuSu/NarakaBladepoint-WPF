@@ -1,7 +1,7 @@
 ﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component]
-    internal class FriendService : IFriendService
+    internal class FriendInfoService : ICurrentUserFriendInfo
     {
         public async Task<List<FriendData>> GetFriendsAsync()
         {

@@ -6,13 +6,13 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
     internal class FriendUserControlViewModel : BindableBase, IActiveAware
     {
-        private readonly IFriendService _friendService;
+        private readonly ICurrentUserFriendInfo _friendService;
         private readonly IEventAggregator _eventAggregator;
         private bool _isActive;
         private bool _isDataLoaded;
 
         public FriendUserControlViewModel(
-            IFriendService friendService,
+            ICurrentUserFriendInfo friendService,
             IEventAggregator eventAggregator
         )
         {
