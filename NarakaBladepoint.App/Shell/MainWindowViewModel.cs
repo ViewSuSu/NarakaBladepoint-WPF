@@ -5,7 +5,7 @@ using NarakaBladepoint.Shared.Consts;
 
 namespace NarakaBladepoint.App.Shell
 {
-    public partial class MainWindowViewModel : ViewModelBase
+    internal partial class MainWindowViewModel : ViewModelBase
     {
         private readonly HomePageVisualNavigator homePageVisualNavigator;
 

@@ -4,7 +4,7 @@ using NarakaBladepoint.Shared.Consts;
 namespace NarakaBladepoint.App.Shell.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    public class HomePageVisualNavigator
+    internal class HomePageVisualNavigator
     {
         public HomePageVisualNavigator(IRegionManager regionManager)
         {
