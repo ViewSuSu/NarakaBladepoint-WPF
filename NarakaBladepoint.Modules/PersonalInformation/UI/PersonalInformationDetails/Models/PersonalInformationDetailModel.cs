@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NarakaBladepoint.Framework.Core.Extensions;
+﻿using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Shared.Services.Models;
+using Prism.Mvvm;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models
 {
@@ -20,10 +16,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             get => _seasonType;
             set
             {
-                if (SetProperty(ref _seasonType, value))
-                {
-                    RaisePropertyChanged(nameof(Season));
-                }
+                _seasonType = value;
+                RaisePropertyChanged(); // 通知 SeasonType 自己
+                RaisePropertyChanged(nameof(Season)); // 额外通知派生属性
             }
         }
 
@@ -40,7 +35,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int GameTime
         {
             get => _gameTime;
-            set => SetProperty(ref _gameTime, value);
+            set
+            {
+                _gameTime = value;
+                RaisePropertyChanged(); // 通知 GameTime
+            }
         }
 
         private int _totalMatches;
@@ -51,7 +50,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int TotalMatches
         {
             get => _totalMatches;
-            set => SetProperty(ref _totalMatches, value);
+            set
+            {
+                _totalMatches = value;
+                RaisePropertyChanged(); // 通知 TotalMatches
+            }
         }
 
         private int _totalDefeats;
@@ -62,7 +65,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int TotalDefeats
         {
             get => _totalDefeats;
-            set => SetProperty(ref _totalDefeats, value);
+            set
+            {
+                _totalDefeats = value;
+                RaisePropertyChanged(); // 通知 TotalDefeats
+            }
         }
 
         private int _rankedMatches;
@@ -73,7 +80,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int RankedMatches
         {
             get => _rankedMatches;
-            set => SetProperty(ref _rankedMatches, value);
+            set
+            {
+                _rankedMatches = value;
+                RaisePropertyChanged(); // 通知 RankedMatches
+            }
         }
 
         private int _endlessTrialMatches;
@@ -84,7 +95,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int EndlessTrialMatches
         {
             get => _endlessTrialMatches;
-            set => SetProperty(ref _endlessTrialMatches, value);
+            set
+            {
+                _endlessTrialMatches = value;
+                RaisePropertyChanged(); // 通知 EndlessTrialMatches
+            }
         }
 
         private int _quickMatchMatches;
@@ -95,7 +110,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int QuickMatchMatches
         {
             get => _quickMatchMatches;
-            set => SetProperty(ref _quickMatchMatches, value);
+            set
+            {
+                _quickMatchMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _darkDomainMatches;
@@ -106,7 +125,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int DarkDomainMatches
         {
             get => _darkDomainMatches;
-            set => SetProperty(ref _darkDomainMatches, value);
+            set
+            {
+                _darkDomainMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _pvEMatches;
@@ -117,7 +140,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int PvEMatches
         {
             get => _pvEMatches;
-            set => SetProperty(ref _pvEMatches, value);
+            set
+            {
+                _pvEMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _leyLineWarMatches;
@@ -128,7 +155,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int LeyLineWarMatches
         {
             get => _leyLineWarMatches;
-            set => SetProperty(ref _leyLineWarMatches, value);
+            set
+            {
+                _leyLineWarMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _journeyToGodMatches;
@@ -139,7 +170,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int JourneyToGodMatches
         {
             get => _journeyToGodMatches;
-            set => SetProperty(ref _journeyToGodMatches, value);
+            set
+            {
+                _journeyToGodMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _hexagramCalamityMatches;
@@ -150,7 +185,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int HexagramCalamityMatches
         {
             get => _hexagramCalamityMatches;
-            set => SetProperty(ref _hexagramCalamityMatches, value);
+            set
+            {
+                _hexagramCalamityMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _infiniteEscortMatches;
@@ -161,7 +200,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int InfiniteEscortMatches
         {
             get => _infiniteEscortMatches;
-            set => SetProperty(ref _infiniteEscortMatches, value);
+            set
+            {
+                _infiniteEscortMatches = value;
+                RaisePropertyChanged();
+            }
         }
 
         private int _fourFiendsCalamityMatches;
@@ -172,7 +215,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public int FourFiendsCalamityMatches
         {
             get => _fourFiendsCalamityMatches;
-            set => SetProperty(ref _fourFiendsCalamityMatches, value);
+            set
+            {
+                _fourFiendsCalamityMatches = value;
+                RaisePropertyChanged();
+            }
         }
     }
 }

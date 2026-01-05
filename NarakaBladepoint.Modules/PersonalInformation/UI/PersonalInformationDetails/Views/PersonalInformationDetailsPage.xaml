@@ -468,13 +468,12 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="12345" Text="{Binding SelectedItem.RankedMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
                             </Grid>
 
-                            <!--  无尽试炼  -->
                             <Grid
                                 Height="25"
                                 Margin="0,5"
@@ -493,7 +492,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.EndlessTrialMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -518,7 +517,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.QuickMatchMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -543,7 +542,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.DarkDomainMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -568,7 +567,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.PvEMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -593,7 +592,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.LeyLineWarMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -618,7 +617,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.JourneyToGodMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -643,7 +642,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.HexagramCalamityMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -668,7 +667,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.InfiniteEscortMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -693,7 +692,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Foreground="White">
-                                        <Run Text="6196" />
+                                        <Run d:Text="6196" Text="{Binding SelectedItem.FourFiendsCalamityMatches}" />
                                         <Run Text="场" />
                                     </TextBlock>
                                 </Grid>
@@ -711,13 +710,9 @@
                         Grid.Row="0"
                         Width="100"
                         HorizontalAlignment="Left"
+                        DisplayMemberPath="Season"
                         ItemsSource="{Binding PersonalSeasonDataModels}"
-                        SelectedItem="{Binding SelectedItem}">
-                        <!--<controls:ToggleButtonComboBoxItem Content="所有赛季" />
-                        <controls:ToggleButtonComboBoxItem Content="当前赛季" />
-                        <controls:ToggleButtonComboBoxItem Content="第18赛季：侠风" />
-                        <controls:ToggleButtonComboBoxItem Content="第17赛季：裂变" />-->
-                    </controls:ToggleButtonComboBox>
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
                     <TextBlock
                         Grid.Row="0"
                         HorizontalAlignment="Right"
@@ -736,8 +731,8 @@
                                     Orientation="Vertical">
                                     <TextBlock Foreground="White" Text="游戏时间" />
                                     <TextBlock HorizontalAlignment="Center" Foreground="White">
-                                        <Run Text="82" />
-                                        <Run Text="小时" />
+                                        <Run d:Text="88" Text="{Binding SelectedItem.GameTime}" />
+                                        <Run d:Text="小时" />
                                     </TextBlock>
                                 </StackPanel>
                             </StackPanel>
@@ -755,7 +750,7 @@
                                     Orientation="Vertical">
                                     <TextBlock Foreground="White" Text="总场次" />
                                     <TextBlock HorizontalAlignment="Center" Foreground="White">
-                                        <Run Text="13" />
+                                        <Run d:Text="13" Text="{Binding SelectedItem.TotalMatches}" />
                                     </TextBlock>
                                 </StackPanel>
                             </StackPanel>
@@ -773,7 +768,7 @@
                                     Orientation="Vertical">
                                     <TextBlock Foreground="White" Text="总击败" />
                                     <TextBlock HorizontalAlignment="Center" Foreground="White">
-                                        <Run Text="36" />
+                                        <Run d:Text="36" Text="{Binding SelectedItem.TotalDefeats}" />
                                     </TextBlock>
                                 </StackPanel>
                             </StackPanel>

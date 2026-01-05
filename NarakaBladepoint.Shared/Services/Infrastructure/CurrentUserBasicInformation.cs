@@ -1,4 +1,6 @@
-﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
+﻿using NarakaBladepoint.Shared.Jsons;
+
+namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component]
     internal class CurrentUserBasicInformation : ICurrentUserBasicInformation
@@ -18,6 +20,11 @@
                 WeaponSkins = 2123,
                 HeroSkins = 862,
             };
+        }
+
+        public async Task<List<MatchDataItem>> GetMatchDataItemsAsync()
+        {
+            return ConfigurationDataReader.Get<MatchData>().List;
         }
 
         public async Task<List<PersonalSeasonDataModel>> GetPersonalSeasonsAsync()

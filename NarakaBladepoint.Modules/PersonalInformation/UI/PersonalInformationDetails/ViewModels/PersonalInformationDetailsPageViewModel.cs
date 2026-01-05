@@ -9,10 +9,19 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
 {
     internal class PersonalInformationDetailsPageViewModel : ViewModelBase
     {
-        private readonly ICurrentUserBasicInformation currentUserBasicInformation;
         public List<PersonalInformationDetailModel> PersonalSeasonDataModels { get; set; } = [];
         public UserInformationModel CurrentUserBasicInformationModel { get; }
-        public PersonalInformationDetailModel SelectedItem { get; set; }
+
+        private PersonalInformationDetailModel _selectedItem;
+        public PersonalInformationDetailModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public PersonalInformationDetailsPageViewModel(
             IContainerExtension containerExtension,
@@ -20,7 +29,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         )
             : base(containerExtension)
         {
-            this.currentUserBasicInformation = currentUserBasicInformation;
             HeroTagCommand = new DelegateCommand(() =>
             {
                 eventAggregator
@@ -29,10 +37,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
             PersonalSeasonDataModels = currentUserBasicInformation
                 .GetPersonalSeasonsAsync()
-                .Result.ConvertToList<PersonalSeasonDataModel, PersonalInformationDetailModel>();
+                .Result.ConvertToList<PersonalInformationDetailModel>();
             this.CurrentUserBasicInformationModel = currentUserBasicInformation
                 .GetCurrentUserInfoAsync()
                 .Result;
+            SelectedItem = PersonalSeasonDataModels.FirstOrDefault();
         }
 
         public DelegateCommand HeroTagCommand { get; set; }
