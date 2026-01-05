@@ -1,4 +1,7 @@
-﻿namespace NarakaBladepoint.Shared.Services.Models
+﻿using System.Windows.Media;
+using NarakaBladepoint.Resources;
+
+namespace NarakaBladepoint.Shared.Services.Models
 {
     public class UserInformationModel
     {
@@ -6,6 +9,16 @@
         /// 用户ID
         /// </summary>
         public long Id { get; set; }
+
+        /// <summary>
+        /// 头像索引
+        /// </summary>
+        public int AvatarIndex { get; set; }
+
+        /// <summary>
+        /// 头像
+        /// </summary>
+        public ImageSource Avatar => ResourceImageReader.GetAvatarImage(AvatarIndex);
 
         /// <summary>
         /// 名字

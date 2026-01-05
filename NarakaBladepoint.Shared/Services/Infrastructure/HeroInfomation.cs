@@ -1,5 +1,5 @@
 ﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
-    [Component]
+    [Component(ComponentLifetime.Singleton)]
     internal class HeroInfomation : IHeroInfomation { }
 }

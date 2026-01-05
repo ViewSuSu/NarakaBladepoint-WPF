@@ -1,6 +1,6 @@
 ﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
-    [Component]
+    [Component(ComponentLifetime.Singleton)]
     internal class FriendInfoService : ICurrentUserFriendInfo
     {
         public async Task<List<FriendData>> GetFriendsAsync()

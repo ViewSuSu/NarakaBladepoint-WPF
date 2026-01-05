@@ -26,7 +26,8 @@
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" BorderThickness="1">
             <controls:AvatarControl
-                BackgroundImage="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                d:BackgroundImage="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                BackgroundImage="{Binding UserInfoModel.Avatar, Mode=OneWay}"
                 CornerLength="10"
                 CornerThickness="2"
                 ImageStretch="Fill"
@@ -58,7 +59,7 @@
                     VerticalAlignment="Center"
                     d:Text="野排牢张"
                     Foreground="White"
-                    Text="{Binding Name}" />
+                    Text="{Binding UserInfoModel.Name}" />
             </StackPanel>
             <!--<ProgressBar
                 Grid.Row="1"

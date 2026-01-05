@@ -40,7 +40,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
             NavigateToFrendListCommand = new DelegateCommand(() =>
             {
                 _eventAggregator
-                    .GetEvent<LoadRightSidePanelRegionEvent>()
+                    .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(FriendUserControl));
             });
         }

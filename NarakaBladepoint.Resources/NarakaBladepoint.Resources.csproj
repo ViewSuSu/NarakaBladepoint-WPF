@@ -223,14 +223,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Resource Include="Image\Avatar\Icon1.png" />
-	  <Resource Include="Image\Avatar\Icon2.png" />
-	  <Resource Include="Image\Avatar\Icon3.png" />
-	  <Resource Include="Image\Avatar\Icon4.png" />
-	  <Resource Include="Image\Avatar\Icon5.png" />
-	  <Resource Include="Image\Avatar\Icon6.png" />
-	  <Resource Include="Image\Avatar\Icon7.png" />
-	  <Resource Include="Image\Avatar\lock.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon1.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon2.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon3.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon4.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon5.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon6.png" />
+	  <Resource Include="Image\Avatar\Icon\Icon7.png" />
+	  <Resource Include="Image\Avatar\Icon\lock.png" />
 	  <Resource Include="Image\background3.png" />
 	  <Resource Include="Image\background4.png" />
 	  <Resource Include="Image\friendInv.png" />

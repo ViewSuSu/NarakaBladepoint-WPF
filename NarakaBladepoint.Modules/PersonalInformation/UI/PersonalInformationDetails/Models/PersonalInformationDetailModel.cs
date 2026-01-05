@@ -1,5 +1,5 @@
 ﻿using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Shared.Services.Models;
+using NarakaBladepoint.Shared.Enums;
 using Prism.Mvvm;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models

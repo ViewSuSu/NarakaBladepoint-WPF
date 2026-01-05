@@ -25,7 +25,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
 
         public PersonalInformationDetailsPageViewModel(
             IContainerExtension containerExtension,
-            ICurrentUserBasicInformation currentUserBasicInformation
+            ICurrentUserInformationProvider currentUserBasicInformation
         )
             : base(containerExtension)
         {

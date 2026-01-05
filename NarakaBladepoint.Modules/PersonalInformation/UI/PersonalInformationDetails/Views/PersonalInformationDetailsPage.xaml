@@ -45,7 +45,10 @@
                         Grid.Column="1"
                         HorizontalAlignment="Center"
                         Orientation="Vertical">
-                        <Image Height="100" />
+                        <Image
+                            Height="100"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                            Source="{Binding CurrentUserBasicInformationModel.Avatar, Mode=OneWay}" />
                         <Image
                             Width="40"
                             VerticalAlignment="Bottom"

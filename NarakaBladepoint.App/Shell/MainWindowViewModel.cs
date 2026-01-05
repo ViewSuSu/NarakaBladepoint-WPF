@@ -45,27 +45,6 @@ namespace NarakaBladepoint.App.Shell
                     },
                     ThreadOption.UIThread
                 );
-
-            this.eventAggregator.GetEvent<LoadRightSidePanelRegionEvent>()
-                .Subscribe(
-                    (viewName) =>
-                    {
-                        this.regionManager.RequestNavigate(
-                            GlobalConstant.RightSidePanelRegion,
-                            viewName
-                        );
-                    },
-                    ThreadOption.UIThread
-                );
-
-            this.eventAggregator.GetEvent<RemoveRightSidePanelRegionEvent>()
-                .Subscribe(
-                    () =>
-                    {
-                        RevemoveRegionByName(GlobalConstant.RightSidePanelRegion);
-                    },
-                    ThreadOption.UIThread
-                );
         }
 
         private void RevemoveRegionByName(string regionName)

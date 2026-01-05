@@ -1,15 +1,17 @@
-﻿using NarakaBladepoint.Shared.Jsons;
+﻿using NarakaBladepoint.Shared.Enums;
+using NarakaBladepoint.Shared.Jsons;
 
 namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
-    [Component]
-    internal class CurrentUserBasicInformation : ICurrentUserBasicInformation
+    [Component(ComponentLifetime.Singleton)]
+    internal class CurrentUserBasicInformation : ICurrentUserInformationProvider
     {
         public async Task<UserInformationModel> GetCurrentUserInfoAsync()
         {
             return new UserInformationModel()
             {
                 Id = 153153121323213,
+                AvatarIndex = 0,
                 Name = "野排劳张",
                 Level = 425,
                 Exp = 50,

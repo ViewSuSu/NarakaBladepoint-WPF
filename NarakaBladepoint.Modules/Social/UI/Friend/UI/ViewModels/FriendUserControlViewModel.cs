@@ -1,34 +1,42 @@
 ﻿using System.Collections.ObjectModel;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
+using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
     internal class FriendUserControlViewModel : BindableBase, IActiveAware
     {
         private readonly ICurrentUserFriendInfo _friendService;
+        private readonly ICurrentUserInformationProvider currentUserInformationProvider;
         private readonly IEventAggregator _eventAggregator;
         private bool _isActive;
         private bool _isDataLoaded;
 
         public FriendUserControlViewModel(
             ICurrentUserFriendInfo friendService,
+            ICurrentUserInformationProvider currentUserInformationProvider,
             IEventAggregator eventAggregator
         )
         {
             _friendService = friendService;
+            this.currentUserInformationProvider = currentUserInformationProvider;
             _eventAggregator = eventAggregator;
 
             CloseCommand = new DelegateCommand(() =>
             {
-                _eventAggregator.GetEvent<RemoveRightSidePanelRegionEvent>().Publish();
+                _eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
             });
+            this.CurrentUserInfoModel = currentUserInformationProvider
+                .GetCurrentUserInfoAsync()
+                .Result;
             SettingTagCommand = new DelegateCommand(() => { });
             SearchCommand = new DelegateCommand<string>(keyword => { });
             SayHelloCommand = new DelegateCommand(() => { });
         }
 
         public DelegateCommand CloseCommand { get; }
+        public UserInformationModel CurrentUserInfoModel { get; }
         public DelegateCommand SettingTagCommand { get; }
         public DelegateCommand SayHelloCommand { get; }
         public DelegateCommand<string> SearchCommand { get; }

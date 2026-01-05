@@ -21,7 +21,7 @@
             <controls:IconTabItem
                 Width="70"
                 Header="全部"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon1.png">
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon1.png">
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
@@ -43,7 +43,7 @@
                                     Height="20"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
-                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/lock.png"
+                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/lock.png"
                                     Visibility="{Binding IsLocked, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             </Grid>
                         </DataTemplate>
@@ -53,27 +53,27 @@
             <controls:IconTabItem
                 Width="70"
                 Header="英雄"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon2.png" />
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon2.png" />
             <controls:IconTabItem
                 Width="70"
                 Header="武器"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon3.png" />
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon3.png" />
             <controls:IconTabItem
                 Width="70"
                 Header="赛季奖励"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon4.png" />
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon4.png" />
             <controls:IconTabItem
                 Width="70"
                 Header="隐族秘宝"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon5.png" />
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon5.png" />
             <controls:IconTabItem
                 Width="70"
                 Header="限时活动"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon6.png" />
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon6.png" />
             <controls:IconTabItem
                 Width="70"
                 Header="其他"
-                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon7.png" />
+                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/Icon7.png" />
             <controls:IconTabItem Width="70" Visibility="Hidden" />
         </TabControl>
         <TextBlock

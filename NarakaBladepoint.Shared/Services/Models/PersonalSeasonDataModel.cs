@@ -1,28 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NarakaBladepoint.Framework.Core.Extensions;
+using NarakaBladepoint.Shared.Enums;
 
 namespace NarakaBladepoint.Shared.Services.Models
 {
-    public enum SeasonType
-    {
-        [Description("所有赛季")]
-        All,
-
-        [Description("当前赛季")]
-        Current,
-
-        [Description("第18赛季：侠风")]
-        Last,
-
-        [Description("第17赛季：裂变")]
-        TheOneBeforeLast,
-    }
-
     /// <summary>
     /// 个人赛季信息
     /// </summary>

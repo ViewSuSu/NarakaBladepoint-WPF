@@ -3,9 +3,9 @@
 namespace NarakaBladepoint.Shared.Services.Abstractions
 {
     /// <summary>
-    /// 获取当前登录人基本信息
+    /// 当前登录人基本信息服务
     /// </summary>
-    public interface ICurrentUserBasicInformation
+    public interface ICurrentUserInformationProvider
     {
         /// <summary>
         /// 获取当前用户信息
