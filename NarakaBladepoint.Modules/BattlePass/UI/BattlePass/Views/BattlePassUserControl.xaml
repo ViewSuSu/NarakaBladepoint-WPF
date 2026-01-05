@@ -5,7 +5,9 @@
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels"
     d:Background="Gray"
+    d:DataContext="{d:DesignInstance Type=viewmodels:BattlePassUserControlViewModel}"
     d:DesignHeight="50"
     d:DesignWidth="300"
     mc:Ignorable="d">
@@ -26,15 +28,19 @@
                 Grid.Row="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
+                d:Text="侠风通行证"
                 FontSize="15"
                 Foreground="White"
-                Text="侠风通行证" />
+                Text="{Binding CurrentUserInformationModel.BattlePassName, Mode=OneWay}" />
             <TextBlock
                 Grid.Row="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center">
                 <Run Foreground="White" Text="赛季等级 " />
-                <Run Foreground="White" Text="128" />
+                <Run
+                    d:Text="128"
+                    Foreground="White"
+                    Text="{Binding CurrentUserInformationModel.BattlePassLevel, Mode=OneWay}" />
             </TextBlock>
         </Grid>
     </Grid>

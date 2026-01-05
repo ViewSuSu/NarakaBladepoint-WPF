@@ -11,6 +11,7 @@ namespace NarakaBladepoint.Resources
     {
         private static readonly List<ImageSource> _heroImages = new();
         private static readonly List<ImageSource> _avatarImages = new();
+        private static readonly List<ImageSource> _heroTagImages = new();
 
         static ResourceImageReader()
         {
@@ -64,6 +65,23 @@ namespace NarakaBladepoint.Resources
                         }
                     }
                 }
+
+                // HeroTag 图片，只取一级目录
+                if (key.StartsWith("image/personalinfodetails/herotag/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/personalinfodetails/herotag/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _heroTagImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch
+                        {
+                            // 加载失败可以忽略或记录日志
+                        }
+                    }
+                }
             }
         }
 
@@ -100,6 +118,12 @@ namespace NarakaBladepoint.Resources
             index >= 0 && index < _avatarImages.Count ? _avatarImages[index] : null;
 
         /// <summary>
+        /// 获取指定索引的英雄标签图片
+        /// </summary>
+        public static ImageSource GetHeroTagImage(int index) =>
+            index >= 0 && index < _heroTagImages.Count ? _heroTagImages[index] : null;
+
+        /// <summary>
         /// 获取所有英雄图片的副本
         /// </summary>
         /// <returns>英雄图片列表的只读副本</returns>
@@ -120,6 +144,16 @@ namespace NarakaBladepoint.Resources
         }
 
         /// <summary>
+        /// 获取所有英雄标签图片的副本
+        /// </summary>
+        /// <returns>英雄标签图片列表的只读副本</returns>
+        public static IReadOnlyList<ImageSource> GetAllHeroTagImages()
+        {
+            // 返回只读列表以防止外部修改
+            return _heroTagImages.AsReadOnly();
+        }
+
+        /// <summary>
         /// 英雄图片总数
         /// </summary>
         public static int HeroCount => _heroImages.Count;
@@ -128,5 +162,10 @@ namespace NarakaBladepoint.Resources
         /// 头像图片总数
         /// </summary>
         public static int AvatarCount => _avatarImages.Count;
+
+        /// <summary>
+        /// 英雄标签图片总数
+        /// </summary>
+        public static int HeroTagCount => _heroTagImages.Count;
     }
 }

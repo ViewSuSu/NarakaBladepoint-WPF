@@ -21,6 +21,8 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
                 LoginDays = 425,
                 WeaponSkins = 2123,
                 HeroSkins = 862,
+                BattlePassName = "穿云通行证",
+                BattlePassLevel = 128,
             };
         }
 

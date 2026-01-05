@@ -130,10 +130,10 @@
                             <TextBox
                                 Name="SearchBox"
                                 Grid.Column="1"
+                                Height="{Binding RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=1, Mode=FindAncestor}, Path=ActualHeight}"
                                 VerticalContentAlignment="Center"
                                 attach:TextBoxHelper.Placeholder="输入玩家名或ID搜索或添加"
                                 attach:TextBoxHelper.PlaceholderBrush="#64FFFFFF"
-                                d:Text="12321312"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Foreground="White">
@@ -230,7 +230,8 @@
                             <ListBox
                                 HorizontalContentAlignment="Stretch"
                                 d:ItemsSource="{d:SampleData ItemCount=5}"
-                                Background="Transparent">
+                                Background="Transparent"
+                                BorderThickness="0">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>

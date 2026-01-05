@@ -6,6 +6,11 @@ namespace NarakaBladepoint.Shared.Services.Models
     public class UserInformationModel
     {
         /// <summary>
+        /// 通行证名字
+        /// </summary>
+        public string BattlePassName { get; set; }
+
+        /// <summary>
         /// 用户ID
         /// </summary>
         public long Id { get; set; }
@@ -65,5 +70,10 @@ namespace NarakaBladepoint.Shared.Services.Models
         /// 英雄外观数量
         /// </summary>
         public int HeroSkins { get; set; }
+
+        /// <summary>
+        /// 通行证等级
+        /// </summary>
+        public int BattlePassLevel { get; internal set; }
     }
 }

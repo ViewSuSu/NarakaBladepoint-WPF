@@ -35,13 +35,15 @@
                     <Image
                         Width="50"
                         Height="50"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png" />
+                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png"
+                        Source="{Binding CurrentUserInformationModel.Avatar}" />
                     <TextBlock
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
+                        d:Text="野排牢张"
                         FontSize="18"
                         Foreground="White"
-                        Text="野排牢张" />
+                        Text="{Binding CurrentUserInformationModel.Name}" />
                 </StackPanel>
                 <StackPanel
                     HorizontalAlignment="Right"
@@ -150,8 +152,8 @@
                 <Grid Grid.Column="1" Margin="10,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.15*" />
-                        <RowDefinition Height="0.5*" />
-                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.25*" />
+                        <RowDefinition Height="0.35*" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
@@ -161,10 +163,71 @@
                         Foreground="White"
                         Text="张起灵" />
                     <Grid Grid.Row="1">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/2.png" Stretch="Fill" />
+                        </Grid.Background>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.35*" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
+                        <Grid Margin="0,20,0,0" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.35*" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Height="20"
+                                VerticalAlignment="Top"
+                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/3.png" />
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock Foreground="White" Text="英雄积分" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    Foreground="White"
+                                    Text="4077" />
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="1.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="40"
+                                HorizontalAlignment="Center"
+                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/16.png" />
+                            <StackPanel
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    FontSize="15"
+                                    Foreground="White"
+                                    Text="衡阳市第九张起灵" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    Foreground="White"
+                                    Text="距离湖南省榜还差138分" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    d:Text="历史最高"
+                                    Foreground="White" />
+                                <Image
+                                    Width="30"
+                                    HorizontalAlignment="Center"
+                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/14.png" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    d:Text="湖南省第三十"
+                                    Foreground="White" />
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                     <Grid Grid.Row="2">
                         <Grid.RowDefinitions>
@@ -183,7 +246,7 @@
                                     Orientation="Vertical">
                                     <TextBlock Foreground="White" Text="前五率" />
                                     <TextBlock
-                                        HorizontalAlignment="Center"
+                                        HorizontalAlignment="Left"
                                         Foreground="White"
                                         Text="3.2%" />
                                 </StackPanel>
@@ -195,7 +258,7 @@
                                     Orientation="Vertical">
                                     <TextBlock Foreground="White" Text="场均伤害" />
                                     <TextBlock
-                                        HorizontalAlignment="Center"
+                                        HorizontalAlignment="Left"
                                         Foreground="White"
                                         Text="3.2%" />
                                 </StackPanel>
@@ -207,7 +270,7 @@
                                     Orientation="Vertical">
                                     <TextBlock Foreground="White" Text="击败/被击败" />
                                     <TextBlock
-                                        HorizontalAlignment="Center"
+                                        HorizontalAlignment="Left"
                                         Foreground="White"
                                         Text="3.2%" />
                                 </StackPanel>
@@ -225,11 +288,49 @@
                             Text="所有场次" />
                         <Grid Grid.Row="1">
                             <UniformGrid Rows="4">
-                                <Grid Background="#3A000000">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.75*" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/20.png" Stretch="UniformToFill" />
+                                    </Grid.Background>
+                                    <Grid Margin="0,20,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.75*" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.15*" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Image VerticalAlignment="Top" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/1.png" />
+                                            <StackPanel
+                                                Grid.Column="1"
+                                                Margin="5,0,0,0"
+                                                Orientation="Vertical">
+                                                <TextBlock
+                                                    Grid.Column="1"
+                                                    Foreground="White"
+                                                    Text="麒麟怒开启期间击败人数" />
+                                                <TextBlock
+                                                    Margin="0,5,0,0"
+                                                    Foreground="White"
+                                                    Text="29" />
+                                            </StackPanel>
+                                        </Grid>
+                                        <StackPanel
+                                            Grid.Column="1"
+                                            Margin="5,0,0,0"
+                                            Orientation="Vertical">
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Foreground="White"
+                                                Text="场均数据" />
+                                            <TextBlock
+                                                Margin="0,5,0,0"
+                                                Foreground="White"
+                                                Text="0.94" />
+                                        </StackPanel>
+                                    </Grid>
                                 </Grid>
                                 <UniformGrid
                                     Margin="0,5,0,0"

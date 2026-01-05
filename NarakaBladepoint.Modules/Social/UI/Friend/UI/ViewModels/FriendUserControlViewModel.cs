@@ -7,8 +7,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
     internal class FriendUserControlViewModel : ViewModelBase
     {
-        private readonly ICurrentUserFriendInfo _friendService;
-        private readonly IEventAggregator _eventAggregator;
+        private readonly ICurrentUserFriendInfo currentUserFriendInfo;
 
         // 好友列表数据
         private ObservableCollection<FriendData> _friends = new ObservableCollection<FriendData>();
@@ -21,13 +20,15 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 
         public FriendUserControlViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserInformationProvider
+            ICurrentUserInformationProvider currentUserInformationProvider,
+            ICurrentUserFriendInfo currentUserFriendInfo
         )
             : base(containerProvider)
         {
+            this.currentUserFriendInfo = currentUserFriendInfo;
             CloseCommand = new DelegateCommand(() =>
             {
-                _eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
+                eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
             });
             this.CurrentUserInfoModel = currentUserInformationProvider
                 .GetCurrentUserInfoAsync()
@@ -48,7 +49,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         {
             try
             {
-                IEnumerable<FriendData> friendList = await _friendService.GetFriendsAsync();
+                IEnumerable<FriendData> friendList = await currentUserFriendInfo.GetFriendsAsync();
                 Friends.Clear();
                 foreach (var friend in friendList)
                 {

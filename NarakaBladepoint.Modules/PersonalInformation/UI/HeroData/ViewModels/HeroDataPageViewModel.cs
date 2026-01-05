@@ -13,6 +13,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         {
             this.SeasonDataModels = currentUserInformationProvider.GetPersonalSeasonsAsync().Result;
             SelectedSeasonDataModel = SeasonDataModels.FirstOrDefault();
+            this.CurrentUserInformationModel = currentUserInformationProvider
+                .GetCurrentUserInfoAsync()
+                .Result;
         }
 
         public List<PersonalSeasonDataModel> SeasonDataModels { get; }
@@ -27,5 +30,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
                 RaisePropertyChanged();
             }
         }
+
+        public UserInformationModel CurrentUserInformationModel { get; }
     }
 }
