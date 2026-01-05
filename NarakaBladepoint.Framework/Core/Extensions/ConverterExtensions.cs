@@ -17,7 +17,9 @@ namespace NarakaBladepoint.Framework.Core.Extensions
         /// <summary>
         /// 将列表转换为目标类型列表
         /// </summary>
-        public static List<TDestination> ConvertToList<TDestination>(this IEnumerable sourceList)
+        public static List<TDestination> ConvertToList<TDestination>(
+            this IEnumerable<object> sourceList
+        )
         {
             if (sourceList == null)
                 return new List<TDestination>();
