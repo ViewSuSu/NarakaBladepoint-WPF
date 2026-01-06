@@ -9,13 +9,15 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
     {
         private readonly ICurrentUserFriendInfo currentUserFriendInfo;
 
-        // 好友列表数据
-        private ObservableCollection<FriendData> _friends = new ObservableCollection<FriendData>();
-
-        public ObservableCollection<FriendData> Friends
+        private List<FriendDataItem> _friends = [];
+        public List<FriendDataItem> Friends
         {
-            get => _friends;
-            set => SetProperty(ref _friends, value);
+            get { return _friends; }
+            set
+            {
+                _friends = value;
+                RaisePropertyChanged();
+            }
         }
 
         public FriendUserControlViewModel(
@@ -26,6 +28,8 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             : base(containerProvider)
         {
             this.currentUserFriendInfo = currentUserFriendInfo;
+            Friends = currentUserFriendInfo.GetFriendsAsync().Result;
+
             CloseCommand = new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
@@ -34,9 +38,11 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
                 .GetCurrentUserInfoAsync()
                 .Result;
             SettingTagCommand = new DelegateCommand(() => { });
-            SearchCommand = new DelegateCommand<string>(keyword => { });
+            SearchCommand = new DelegateCommand<string>(keyword =>
+            {
+                Friends = this.currentUserFriendInfo.GetFriendsAsync(keyword).Result;
+            });
             SayHelloCommand = new DelegateCommand(() => { });
-            LoadDataAsync();
         }
 
         public DelegateCommand CloseCommand { get; }
@@ -44,24 +50,5 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         public DelegateCommand SettingTagCommand { get; }
         public DelegateCommand SayHelloCommand { get; }
         public DelegateCommand<string> SearchCommand { get; }
-
-        private async Task LoadDataAsync()
-        {
-            try
-            {
-                IEnumerable<FriendData> friendList = await currentUserFriendInfo.GetFriendsAsync();
-                Friends.Clear();
-                foreach (var friend in friendList)
-                {
-                    Friends.Add(friend);
-                }
-            }
-            catch (Exception ex)
-            {
-                // 处理异常
-                Console.WriteLine($"加载好友列表失败: {ex.Message}");
-            }
-            finally { }
-        }
     }
 }

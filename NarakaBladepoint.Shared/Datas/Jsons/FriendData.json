@@ -1,0 +1,164 @@
+﻿{
+  "List": [
+    {
+      "AvatarIndex": 0,
+      "Name": "Friend_00",
+      "Status": "在线"
+    },
+    {
+      "AvatarIndex": 1,
+      "Name": "Friend_01",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 2,
+      "Name": "Friend_02",
+      "Status": "排位赛单排 7分钟"
+    },
+    {
+      "AvatarIndex": 3,
+      "Name": "Friend_03",
+      "Status": "排位赛双排 12分钟（组队2/2）"
+    },
+    {
+      "AvatarIndex": 4,
+      "Name": "Friend_04",
+      "Status": "排位赛三排 19分钟（组队中3/3）"
+    },
+
+    {
+      "AvatarIndex": 5,
+      "Name": "Friend_05",
+      "Status": "在线"
+    },
+    {
+      "AvatarIndex": 6,
+      "Name": "Friend_06",
+      "Status": "排位赛单排 3分钟"
+    },
+    {
+      "AvatarIndex": 7,
+      "Name": "Friend_07",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 8,
+      "Name": "Friend_08",
+      "Status": "排位赛双排 9分钟（组队2/2）"
+    },
+    {
+      "AvatarIndex": 9,
+      "Name": "Friend_09",
+      "Status": "在线"
+    },
+
+    {
+      "AvatarIndex": 10,
+      "Name": "Friend_10",
+      "Status": "排位赛三排 22分钟（组队中3/3）"
+    },
+    {
+      "AvatarIndex": 11,
+      "Name": "Friend_11",
+      "Status": "排位赛单排 15分钟"
+    },
+    {
+      "AvatarIndex": 12,
+      "Name": "Friend_12",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 13,
+      "Name": "Friend_13",
+      "Status": "在线"
+    },
+    {
+      "AvatarIndex": 14,
+      "Name": "Friend_14",
+      "Status": "排位赛双排 18分钟（组队2/2）"
+    },
+
+    {
+      "AvatarIndex": 15,
+      "Name": "Friend_15",
+      "Status": "排位赛三排 5分钟（组队中2/3）"
+    },
+    {
+      "AvatarIndex": 16,
+      "Name": "Friend_16",
+      "Status": "在线"
+    },
+    {
+      "AvatarIndex": 17,
+      "Name": "Friend_17",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 18,
+      "Name": "Friend_18",
+      "Status": "排位赛单排 11分钟"
+    },
+    {
+      "AvatarIndex": 19,
+      "Name": "Friend_19",
+      "Status": "在线"
+    },
+
+    {
+      "AvatarIndex": 20,
+      "Name": "Friend_20",
+      "Status": "排位赛双排 6分钟（组队1/2）"
+    },
+    {
+      "AvatarIndex": 21,
+      "Name": "Friend_21",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 22,
+      "Name": "Friend_22",
+      "Status": "排位赛三排 27分钟（组队中3/3）"
+    },
+    {
+      "AvatarIndex": 23,
+      "Name": "Friend_23",
+      "Status": "在线"
+    },
+    {
+      "AvatarIndex": 24,
+      "Name": "Friend_24",
+      "Status": "排位赛单排 2分钟"
+    },
+
+    {
+      "AvatarIndex": 25,
+      "Name": "Friend_25",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 26,
+      "Name": "Friend_26",
+      "Status": "排位赛双排 14分钟（组队2/2）"
+    },
+    {
+      "AvatarIndex": 27,
+      "Name": "Friend_27",
+      "Status": "在线"
+    },
+    {
+      "AvatarIndex": 28,
+      "Name": "Friend_28",
+      "Status": "排位赛三排 9分钟（组队中1/3）"
+    },
+    {
+      "AvatarIndex": 29,
+      "Name": "Friend_29",
+      "Status": "离线"
+    },
+    {
+      "AvatarIndex": 30,
+      "Name": "Friend_30",
+      "Status": "在线"
+    }
+  ]
+}

@@ -1,12 +1,11 @@
-﻿using NarakaBladepoint.Shared.Services.Abstractions;
+﻿using NarakaBladepoint.Modules.StartGame.UI.MapChose.Views;
+using NarakaBladepoint.Shared.Services.Abstractions;
 using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
 {
     internal class ModeSelectionUserControlViewModel : CanRemoveHomePageRegionViewModelBase
     {
-        private readonly IServerInformation serverInformation;
-
         public List<ServerInformationModel> ServerInfos { get; }
 
         private ServerInformationModel selectedItem;
@@ -17,7 +16,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
             set
             {
                 selectedItem = value;
-                SetProperty(ref selectedItem, value);
+                RaisePropertyChanged();
             }
         }
 
@@ -27,9 +26,12 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
         )
             : base(containerProvider)
         {
-            this.serverInformation = serverInformation;
-            this.ServerInfos = this.serverInformation.GetServerInformationAsync().Result;
+            this.ServerInfos = serverInformation.GetServerInformationAsync().Result;
             SelectedItem = ServerInfos.FirstOrDefault();
+            ChoseMapCommand = new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(MapChosePage));
+            });
         }
 
         public DelegateCommand ChoseHeroCommand { get; set; }

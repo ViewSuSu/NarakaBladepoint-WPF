@@ -116,6 +116,9 @@
     <Compile Update="Social\UI\Setting\Views\SettingUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StartGame\UI\MapChose\Views\MapChosePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TopUp\UI\Views\TopUpUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

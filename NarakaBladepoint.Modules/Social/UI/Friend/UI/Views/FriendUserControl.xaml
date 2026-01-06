@@ -186,19 +186,29 @@
                                     <ListBox
                                         HorizontalContentAlignment="Stretch"
                                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                                        Background="Transparent">
+                                        Background="Transparent"
+                                        ItemsSource="{Binding Friends}">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
-                                                <Grid MaxHeight="30" Margin="0,0,30,0">
+                                                <Grid MaxHeight="40" Margin="0,0,30,0">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="0.15*" />
                                                         <ColumnDefinition />
                                                         <ColumnDefinition Width="0.1*" />
                                                     </Grid.ColumnDefinitions>
-                                                    <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png" Stretch="Uniform" />
+                                                    <Image
+                                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                                                        Source="{Binding Avatar, Mode=OneWay}"
+                                                        Stretch="Uniform" />
                                                     <StackPanel Grid.Column="1" Orientation="Vertical">
-                                                        <TextBlock d:Text="Name" Foreground="White" />
-                                                        <TextBlock d:Text="在线" Foreground="White" />
+                                                        <TextBlock
+                                                            d:Text="Name"
+                                                            Foreground="White"
+                                                            Text="{Binding Name, Mode=OneWay}" />
+                                                        <TextBlock
+                                                            Margin="0,5,0,0"
+                                                            Foreground="White"
+                                                            Text="在线" />
                                                     </StackPanel>
                                                     <Image
                                                         Grid.Column="2"
@@ -231,37 +241,42 @@
                                 HorizontalContentAlignment="Stretch"
                                 d:ItemsSource="{d:SampleData ItemCount=5}"
                                 Background="Transparent"
-                                BorderThickness="0">
+                                BorderThickness="0"
+                                ItemsSource="{Binding Friends}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid>
+                                        <Grid MaxHeight="40">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="30" />
                                                 <ColumnDefinition />
                                                 <ColumnDefinition />
                                             </Grid.ColumnDefinitions>
                                             <Image
-                                                Width="30"
-                                                Height="30"
                                                 HorizontalAlignment="Left"
-                                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
-                                                Stretch="UniformToFill" />
+                                                d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                                                Source="{Binding Avatar, Mode=OneWay}"
+                                                Stretch="Uniform" />
                                             <StackPanel
                                                 Grid.Column="1"
                                                 Margin="10,0,0,0"
                                                 Orientation="Vertical">
-                                                <TextBlock Foreground="White" Text="Name" />
                                                 <TextBlock
+                                                    d:Text="Name"
+                                                    Foreground="White"
+                                                    Text="{Binding Name, Mode=OneWay}" />
+                                                <TextBlock
+                                                    Margin="0,5,0,0"
+                                                    d:Text="排位赛三排 19分钟（组队中3/3）"
                                                     FontSize="10"
                                                     Foreground="Orange"
-                                                    Text="排位赛三排 19分钟（组队中3/3）" />
+                                                    Text="{Binding Status, Mode=OneWay}" />
                                             </StackPanel>
                                             <Image
                                                 Grid.Column="2"
-                                                Width="30"
+                                                Width="20"
                                                 HorizontalAlignment="Right"
                                                 Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/friendInv.png"
-                                                Stretch="UniformToFill" />
+                                                Stretch="Uniform" />
                                         </Grid>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

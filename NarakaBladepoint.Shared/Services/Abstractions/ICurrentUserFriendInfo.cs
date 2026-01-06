@@ -2,6 +2,6 @@
 {
     public interface ICurrentUserFriendInfo
     {
-        Task<List<FriendData>> GetFriendsAsync();
+        Task<List<FriendDataItem>> GetFriendsAsync(string nameKeyword = null);
     }
 }

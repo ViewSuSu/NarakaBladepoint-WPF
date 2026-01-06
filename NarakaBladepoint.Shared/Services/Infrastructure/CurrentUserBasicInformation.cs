@@ -12,7 +12,7 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
             {
                 Id = 153153121323213,
                 AvatarIndex = 0,
-                Name = "野排劳张",
+                Name = "国服张起灵",
                 Level = 425,
                 Exp = 50,
                 Credits = 10000,

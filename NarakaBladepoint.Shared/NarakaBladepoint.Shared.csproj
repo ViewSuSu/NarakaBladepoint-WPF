@@ -14,6 +14,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="Datas\Jsons\FriendData.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Datas\Jsons\MatchData.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>

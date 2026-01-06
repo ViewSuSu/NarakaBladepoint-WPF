@@ -28,8 +28,7 @@ namespace NarakaBladepoint.Modules
         /// <returns>初始化模式，如果没有指定特性则返回默认值</returns>
         private static InitializationMode GetModuleInitializationMode(Type moduleType)
         {
-            if (moduleType == null)
-                throw new ArgumentNullException(nameof(moduleType));
+            ArgumentNullException.ThrowIfNull(moduleType);
 
             // 检查是否应用了 ModuleInitializationModeAttribute 特性
             var attribute =
@@ -48,8 +47,7 @@ namespace NarakaBladepoint.Modules
         /// <returns>IModule类型列表</returns>
         private static IEnumerable<Type> GetModuleTypes(Assembly assembly)
         {
-            if (assembly == null)
-                throw new ArgumentNullException(nameof(assembly));
+            ArgumentNullException.ThrowIfNull(assembly);
 
             return assembly
                 .GetTypes()

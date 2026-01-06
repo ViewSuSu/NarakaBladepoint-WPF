@@ -1,11 +1,18 @@
-﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
+﻿using NarakaBladepoint.Shared.Jsons;
+
+namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
     internal class FriendInfoService : ICurrentUserFriendInfo
     {
-        public async Task<List<FriendData>> GetFriendsAsync()
+        public async Task<List<FriendDataItem>> GetFriendsAsync(string nameKeyword = null)
         {
-            return await Task.FromResult(new List<FriendData>());
+            return string.IsNullOrEmpty(nameKeyword)
+                ? ConfigurationDataReader.Get<FriendData>().List
+                : ConfigurationDataReader
+                    .Get<FriendData>()
+                    .List.Where(x => x.Name.Contains(nameKeyword))
+                    .ToList();
         }
     }
 }
