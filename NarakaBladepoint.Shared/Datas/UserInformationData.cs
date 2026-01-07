@@ -1,9 +1,9 @@
 ﻿using System.Windows.Media;
 using NarakaBladepoint.Resources;
 
-namespace NarakaBladepoint.Shared.Services.Models
+namespace NarakaBladepoint.Shared.Datas
 {
-    public class UserInformationModel
+    public class UserInformationData
     {
         /// <summary>
         /// 通行证名字
@@ -74,21 +74,21 @@ namespace NarakaBladepoint.Shared.Services.Models
         /// <summary>
         /// 通行证等级
         /// </summary>
-        public int BattlePassLevel { get; internal set; }
+        public int BattlePassLevel { get; set; }
 
         /// <summary>
         /// 预选首选英雄
         /// </summary>
-        public int FirstPickHeroIndex { get; internal set; }
+        public int FirstPickHeroIndex { get; set; }
 
         /// <summary>
         /// 预选次选英雄1
         /// </summary>
-        public int SecondPickHeroIndex { get; internal set; }
+        public int SecondPickHeroIndex { get; set; }
 
         /// <summary>
         /// 预选次选英雄2
         /// </summary>
-        public int ThridPickHeroIndex { get; internal set; }
+        public int ThridPickHeroIndex { get; set; }
     }
 }

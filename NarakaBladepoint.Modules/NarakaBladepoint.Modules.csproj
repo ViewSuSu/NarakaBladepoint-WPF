@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
-		<NoWarn>$(NoWarn);CS8601</NoWarn>
+		<NoWarn>$(NoWarn);CS8601;CS8603</NoWarn>
 		<Authors>Su</Authors>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>

@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Shared.Enums;
+using Newtonsoft.Json;
 
-namespace NarakaBladepoint.Shared.Services.Models
+namespace NarakaBladepoint.Shared.Datas
 {
     /// <summary>
     /// 个人赛季信息

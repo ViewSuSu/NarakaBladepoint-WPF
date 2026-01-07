@@ -2,15 +2,15 @@
 using NarakaBladepoint.Modules.PersonalInformation.Domain.Events;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
+using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
-using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
 {
     internal class PersonalInformationDetailsPageViewModel : ViewModelBase
     {
         public List<PersonalInformationDetailModel> PersonalSeasonDataModels { get; set; } = [];
-        public UserInformationModel CurrentUserBasicInformationModel { get; }
+        public UserInformationData CurrentUserBasicInformationModel { get; }
 
         private PersonalInformationDetailModel _selectedItem;
         public PersonalInformationDetailModel SelectedItem

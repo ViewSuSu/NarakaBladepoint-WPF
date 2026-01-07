@@ -1,6 +1,6 @@
 ﻿using NarakaBladepoint.Modules.BattlePass.UI.BattlePassDetails.Views;
+using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
-using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels
 {
@@ -20,6 +20,6 @@ namespace NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels
                 .Result;
         }
 
-        public UserInformationModel CurrentUserInformationModel { get; }
+        public UserInformationData CurrentUserInformationModel { get; }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
-using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
@@ -46,7 +45,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         }
 
         public DelegateCommand CloseCommand { get; }
-        public UserInformationModel CurrentUserInfoModel { get; }
+        public UserInformationData CurrentUserInfoModel { get; }
         public DelegateCommand SettingTagCommand { get; }
         public DelegateCommand SayHelloCommand { get; }
         public DelegateCommand<string> SearchCommand { get; }

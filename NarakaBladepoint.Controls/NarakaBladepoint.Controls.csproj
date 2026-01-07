@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 	  <UseWPF>true</UseWPF>
 	  <Authors>Su</Authors>
-	  <NoWarn>$(NoWarn);CS8601</NoWarn>
+	  <NoWarn>$(NoWarn);CS8601;CS8603</NoWarn>
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 

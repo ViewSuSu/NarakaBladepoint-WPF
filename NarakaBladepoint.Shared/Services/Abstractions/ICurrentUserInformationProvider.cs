@@ -11,7 +11,14 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         /// 获取当前用户信息
         /// </summary>
         /// <returns></returns>
-        Task<UserInformationModel> GetCurrentUserInfoAsync();
+        Task<UserInformationData> GetCurrentUserInfoAsync();
+
+        /// <summary>
+        /// 保存用户信息
+        /// </summary>
+        /// <param name="userInformationData"></param>
+        /// <returns></returns>
+        Task<bool> SaveCurrentUserInfoAsync(UserInformationData userInformationData);
 
         /// <summary>
         /// 获取当前用户赛季信息

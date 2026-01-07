@@ -1,6 +1,6 @@
 ﻿using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.Views;
+using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
-using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.ViewModels
 {
@@ -21,6 +21,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.Vi
         }
 
         public DelegateCommand NavigateToPersonalInfomationCommand { get; set; }
-        public UserInformationModel UserInfoModel { get; }
+        public UserInformationData UserInfoModel { get; }
     }
 }

@@ -1,5 +1,5 @@
-﻿using NarakaBladepoint.Shared.Services.Abstractions;
-using NarakaBladepoint.Shared.Services.Models;
+﻿using NarakaBladepoint.Shared.Datas;
+using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 {
@@ -31,6 +31,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
             }
         }
 
-        public UserInformationModel CurrentUserInformationModel { get; }
+        public UserInformationData CurrentUserInformationModel { get; }
     }
 }

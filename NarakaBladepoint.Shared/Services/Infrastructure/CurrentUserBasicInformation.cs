@@ -6,27 +6,33 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
     [Component(ComponentLifetime.Singleton)]
     internal class CurrentUserBasicInformation : ICurrentUserInformationProvider
     {
-        public async Task<UserInformationModel> GetCurrentUserInfoAsync()
+        public async Task<UserInformationData> GetCurrentUserInfoAsync()
         {
-            return new UserInformationModel()
-            {
-                Id = 153153121323213,
-                AvatarIndex = 0,
-                Name = "国服张起灵",
-                Level = 425,
-                Exp = 50,
-                Credits = 10000,
-                ActiveValue = 825,
-                TotalFavorites = 2656232,
-                LoginDays = 425,
-                WeaponSkins = 2123,
-                HeroSkins = 862,
-                BattlePassName = "穿云通行证",
-                BattlePassLevel = 128,
-                FirstPickHeroIndex = 0,
-                SecondPickHeroIndex = 1,
-                ThridPickHeroIndex = 2,
-            };
+            return ConfigurationDataReader.Get<UserInformationData>();
+            //return new UserInformationData()
+            //{
+            //    Id = 153153121323213,
+            //    AvatarIndex = 0,
+            //    Name = "国服张起灵",
+            //    Level = 425,
+            //    Exp = 50,
+            //    Credits = 10000,
+            //    ActiveValue = 825,
+            //    TotalFavorites = 2656232,
+            //    LoginDays = 425,
+            //    WeaponSkins = 2123,
+            //    HeroSkins = 862,
+            //    BattlePassName = "穿云通行证",
+            //    BattlePassLevel = 128,
+            //    FirstPickHeroIndex = 0,
+            //    SecondPickHeroIndex = 1,
+            //    ThridPickHeroIndex = 2,
+            //};
+        }
+
+        public async Task<bool> SaveCurrentUserInfoAsync(UserInformationData userInformationData)
+        {
+            return ConfigurationDataReader.Save(userInformationData);
         }
 
         public async Task<List<MatchDataItem>> GetMatchDataItemsAsync()

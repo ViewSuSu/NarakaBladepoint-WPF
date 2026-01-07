@@ -14,18 +14,5 @@
         /// <param name="index"></param>
         /// <returns></returns>
         public Task<HeroAvatarModel> GetHeroAvatarModelByIdAsync(int index);
-
-        /// <summary>
-        /// 保存首选英雄信息
-        /// </summary>
-        /// <param name="firstIndex"></param>
-        /// <param name="secondIndex"></param>
-        /// <param name="thirdIndex"></param>
-        /// <returns></returns>
-        public Task<bool> SaveHeroChoseIndex(
-            int firstIndex = -1,
-            int secondIndex = -1,
-            int thirdIndex = -1
-        );
     }
 }

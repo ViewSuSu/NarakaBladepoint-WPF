@@ -16,7 +16,7 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid Background="#CC000000">
+    <Grid Background="#E6000000">
         <Grid Margin="80,30,80,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.25*" />

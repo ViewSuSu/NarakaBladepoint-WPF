@@ -25,15 +25,6 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
             return heroAvatarModels;
         }
 
-        public async Task<bool> SaveHeroChoseIndex(
-            int firstIndex = -1,
-            int secondIndex = -1,
-            int thirdIndex = -1
-        )
-        {
-            return true;
-        }
-
         private HeroAvatarModel CreateHeroAvatarModel(int index, ImageSource imagesouce)
         {
             return new HeroAvatarModel()

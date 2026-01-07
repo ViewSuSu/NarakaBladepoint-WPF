@@ -21,6 +21,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             get { return firstHeroIndex; }
             set
             {
+                if (firstHeroIndex == -1)
+                    HeroChoseModuleItemModels[firstHeroIndex].IsSelected = false;
                 firstHeroIndex = value;
                 RaisePropertyChanged(nameof(FirstHeroAvatar));
                 RaisePropertyChanged(nameof(IsCanSelcted));
@@ -33,6 +35,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             get { return secondHeroIndex; }
             set
             {
+                if (secondHeroIndex == -1)
+                    HeroChoseModuleItemModels[secondHeroIndex].IsSelected = false;
                 secondHeroIndex = value;
                 RaisePropertyChanged(nameof(SecondHeroAvatar));
                 RaisePropertyChanged(nameof(IsCanSelcted));
@@ -45,6 +49,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             get { return thirdHeroIndex; }
             set
             {
+                if (thirdHeroIndex == -1)
+                    HeroChoseModuleItemModels[thirdHeroIndex].IsSelected = false;
                 thirdHeroIndex = value;
                 RaisePropertyChanged(nameof(ThirdHeroAvatar));
                 RaisePropertyChanged(nameof(IsCanSelcted));
@@ -86,56 +92,31 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
                     .Result.Select(x => new HeroChoseModuleItemModel(x))
                     .ToArray()
             );
-            HeroChoseModuleItemModels.ListChanged += (o, e) =>
-            {
-                if (
-                    e.PropertyDescriptor != null
-                    && e.PropertyDescriptor.Name == HeroChoseModuleItemModel.IsSelectedProperty
-                    && HeroChoseModuleItemModels[e.NewIndex].IsSelected
-                )
-                {
-                    if (FirstHeroIndex == -1)
-                    {
-                        FirstHeroIndex = e.NewIndex;
-                    }
-                    else if (SecondHeroIndex == -1)
-                    {
-                        SecondHeroIndex = e.NewIndex;
-                    }
-                    else if (ThirdHeroIndex == -1)
-                    {
-                        ThirdHeroIndex = e.NewIndex;
-                    }
-                }
-            };
-
-            var userModel = currentUserInformationProvider.GetCurrentUserInfoAsync().Result;
-            FirstHeroIndex = userModel.FirstPickHeroIndex;
-            SecondHeroIndex = userModel.SecondPickHeroIndex;
-            ThirdHeroIndex = userModel.ThridPickHeroIndex;
-            if (FirstHeroIndex != -1)
-                HeroChoseModuleItemModels[FirstHeroIndex].IsSelected = true;
-            if (SecondHeroIndex != -1)
-                HeroChoseModuleItemModels[SecondHeroIndex].IsSelected = true;
-            if (ThirdHeroIndex != -1)
-                HeroChoseModuleItemModels[ThirdHeroIndex].IsSelected = true;
 
             RemoveFirstHeroCommand = new DelegateCommand(() =>
             {
-                HeroChoseModuleItemModels[FirstHeroIndex].IsSelected = false;
                 FirstHeroIndex = -1;
             });
             RemoveSecondHeroCommand = new DelegateCommand(() =>
             {
-                HeroChoseModuleItemModels[SecondHeroIndex].IsSelected = false;
                 SecondHeroIndex = -1;
             });
             RemoveThirdHeroCommand = new DelegateCommand(() =>
             {
-                HeroChoseModuleItemModels[ThirdHeroIndex].IsSelected = false;
                 ThirdHeroIndex = -1;
             });
-            SaveCommand = new DelegateCommand(Save);
+            SaveCommand = new DelegateCommand(async () =>
+            {
+                var reuslt = await Save();
+                if (reuslt)
+                {
+                    ReturnCommand.Execute();
+                }
+                else
+                {
+                    throw new Exception("保存失败！");
+                }
+            });
             ClearCommand = new DelegateCommand(Clear);
             SelectedHeroCommand = new DelegateCommand<HeroChoseModuleItemModel>(SelectedHero);
         }
@@ -143,6 +124,19 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
         private void SelectedHero(HeroChoseModuleItemModel selectedModel)
         {
             selectedModel.IsSelected = true;
+            var index = HeroChoseModuleItemModels.IndexOf(selectedModel);
+            if (FirstHeroIndex == -1)
+            {
+                FirstHeroIndex = index;
+            }
+            else if (SecondHeroIndex == -1)
+            {
+                SecondHeroIndex = index;
+            }
+            else if (ThirdHeroIndex == -1)
+            {
+                ThirdHeroIndex = index;
+            }
         }
 
         private void Clear()
@@ -159,13 +153,27 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
         public DelegateCommand ClearCommand { get; }
         public DelegateCommand<HeroChoseModuleItemModel> SelectedHeroCommand { get; }
 
-        private async void Save()
+        protected override void OnNavigatedToExecute(NavigationContext navigationContext)
         {
-            await heroInfomation.SaveHeroChoseIndex(
-                FirstHeroIndex,
-                SecondHeroIndex,
-                ThirdHeroIndex
-            );
+            var userModel = currentUserInformationProvider.GetCurrentUserInfoAsync().Result;
+            FirstHeroIndex = userModel.FirstPickHeroIndex;
+            SecondHeroIndex = userModel.SecondPickHeroIndex;
+            ThirdHeroIndex = userModel.ThridPickHeroIndex;
+            if (FirstHeroIndex != -1)
+                HeroChoseModuleItemModels[FirstHeroIndex].IsSelected = true;
+            if (SecondHeroIndex != -1)
+                HeroChoseModuleItemModels[SecondHeroIndex].IsSelected = true;
+            if (ThirdHeroIndex != -1)
+                HeroChoseModuleItemModels[ThirdHeroIndex].IsSelected = true;
+        }
+
+        private async Task<bool> Save()
+        {
+            var currentUserModel = await currentUserInformationProvider.GetCurrentUserInfoAsync();
+            currentUserModel.FirstPickHeroIndex = FirstHeroIndex;
+            currentUserModel.SecondPickHeroIndex = SecondHeroIndex;
+            currentUserModel.ThridPickHeroIndex = ThirdHeroIndex;
+            return await currentUserInformationProvider.SaveCurrentUserInfoAsync(currentUserModel);
         }
     }
 }
