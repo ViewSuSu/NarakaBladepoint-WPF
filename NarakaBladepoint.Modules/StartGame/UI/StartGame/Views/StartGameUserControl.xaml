@@ -99,7 +99,7 @@
                         VerticalAlignment="Top"
                         Orientation="Vertical">
                         <TextBlock Foreground="White" Text="组队范围" />
-                        <TextBlock Foreground="Orange">
+                        <TextBlock Foreground="#EAB181">
                             <Run Text="无间修罗" />
                             <Run Text="~" />
                             <Run Text="无量梵天" />
@@ -110,7 +110,7 @@
                         VerticalAlignment="Bottom"
                         Orientation="Vertical">
                         <TextBlock
-                            Foreground="Orange"
+                            Foreground="#EAB181"
                             Text="豪杰对局"
                             Visibility="{Binding IsXiuLuo}" />
                         <TextBlock Foreground="White">

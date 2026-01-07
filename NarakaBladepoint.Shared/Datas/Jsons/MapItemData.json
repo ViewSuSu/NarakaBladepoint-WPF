@@ -1,0 +1,26 @@
+﻿[
+  {
+    "Index": 0,
+    "Name": "混沌神域",
+    "Description": "混沌古神，撕裂空间，聚万千异世碎片于此地。神狱降下，谁能逃脱？",
+    "IsSelected": false
+  },
+  {
+    "Index": 1,
+    "Name": "龙隐洞天",
+    "Description": "藏于帝国龙脉深处的千年王陵，如今再次成为英雄们的战场。",
+    "IsSelected": false
+  },
+  {
+    "Index": 2,
+    "Name": "火罗国",
+    "Description": "荒漠中的明珠—一火罗国，虽毁于神力，却也难掩黄沙之下埋藏的秘密。",
+    "IsSelected": false
+  },
+  {
+    "Index": 3,
+    "Name": "聚窟州",
+    "Description": "曾受扶桑庇护的神战之地，吸引着天下英雄前来竟逐不朽面具。",
+    "IsSelected": false
+  }
+]

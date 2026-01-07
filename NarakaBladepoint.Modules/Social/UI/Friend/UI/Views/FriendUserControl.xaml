@@ -270,7 +270,7 @@
                                                     Margin="0,5,0,0"
                                                     d:Text="排位赛三排 19分钟（组队中3/3）"
                                                     FontSize="10"
-                                                    Foreground="Orange"
+                                                    Foreground="#EAB181"
                                                     Text="{Binding Status, Mode=OneWay}" />
                                             </StackPanel>
                                             <Image

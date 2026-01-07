@@ -132,7 +132,7 @@
                             <TextBlock
                                 VerticalAlignment="Center"
                                 FontSize="20"
-                                Foreground="Orange"
+                                Foreground="#EAB181"
                                 Text="手机绑定奖励" />
                             <TextBlock
                                 HorizontalAlignment="Right"

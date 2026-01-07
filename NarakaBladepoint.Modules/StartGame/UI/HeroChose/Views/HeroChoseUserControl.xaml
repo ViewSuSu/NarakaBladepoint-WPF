@@ -58,6 +58,11 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="5">
+                                <Border
+                                    Panel.ZIndex="1"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                 <Image
                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png"
                                     Source="{Binding HeroAvatarModel.Avatar, Mode=OneWay}"

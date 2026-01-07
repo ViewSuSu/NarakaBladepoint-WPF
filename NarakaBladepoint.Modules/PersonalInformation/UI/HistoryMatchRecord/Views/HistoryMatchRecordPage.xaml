@@ -162,7 +162,7 @@
                                                     d:Maximum="100"
                                                     d:Value="40"
                                                     Background="Black"
-                                                    Foreground="Orange" />
+                                                    Foreground="#EAB181" />
                                                 <TextBlock Margin="5,0,0,0" Foreground="White">
                                                     <Run Text="42" />
                                                     <Run Text="(" />

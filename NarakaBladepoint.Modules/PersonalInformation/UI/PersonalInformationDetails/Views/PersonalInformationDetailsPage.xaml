@@ -364,13 +364,13 @@
                             <StackPanel VerticalAlignment="Center" Orientation="Vertical">
                                 <TextBlock
                                     FontSize="18"
-                                    Foreground="Orange"
+                                    Foreground="#EAB181"
                                     Text="总收藏值" />
                                 <TextBlock
                                     Margin="0,5,0,0"
                                     d:Text="263442"
                                     FontSize="18"
-                                    Foreground="Orange"
+                                    Foreground="#EAB181"
                                     Text="{Binding CurrentUserBasicInformationModel.TotalFavorites}" />
                             </StackPanel>
                         </StackPanel>

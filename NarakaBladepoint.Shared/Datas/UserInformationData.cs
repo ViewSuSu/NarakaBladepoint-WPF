@@ -90,5 +90,10 @@ namespace NarakaBladepoint.Shared.Datas
         /// 预选次选英雄2
         /// </summary>
         public int ThridPickHeroIndex { get; set; }
+
+        /// <summary>
+        /// 超时默认全选地图
+        /// </summary>
+        public bool TimeoutDefaultAllMap { get; set; }
     }
 }

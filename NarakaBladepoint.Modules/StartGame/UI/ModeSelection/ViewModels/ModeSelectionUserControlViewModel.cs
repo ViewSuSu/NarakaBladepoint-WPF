@@ -14,6 +14,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
         private readonly IServerInformation serverInformation;
         private readonly ICurrentUserInformationProvider currentUserInformationProvider;
         private readonly IHeroInfomation heroInfomation;
+        private readonly IMapProvider mapProvider;
+
         public ServerInformationModel SelectedItem
         {
             get { return selectedItem; }
@@ -66,18 +68,21 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
             }
         }
 
+        public int SelectedMapCount { get; private set; }
+
         public ModeSelectionUserControlViewModel(
             IContainerProvider containerProvider,
             IServerInformation serverInformation,
             ICurrentUserInformationProvider currentUserInformationProvider,
-            IHeroInfomation heroInfomation
+            IHeroInfomation heroInfomation,
+            IMapProvider mapProvider
         )
             : base(containerProvider)
         {
             this.serverInformation = serverInformation;
             this.currentUserInformationProvider = currentUserInformationProvider;
             this.heroInfomation = heroInfomation;
-
+            this.mapProvider = mapProvider;
             ChoseMapCommand = new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(MapChosePage));
@@ -117,6 +122,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
                         .GetHeroAvatarModelByIdAsync(userModel.ThridPickHeroIndex)
                         .Result.Avatar
                     : null;
+            this.SelectedMapCount = mapProvider.GetSelectedMapCountAsync().Result;
         }
     }
 }

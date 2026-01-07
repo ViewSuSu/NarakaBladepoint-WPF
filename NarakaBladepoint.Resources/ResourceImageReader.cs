@@ -13,17 +13,23 @@ namespace NarakaBladepoint.Resources
         private static readonly List<ImageSource> _avatarImages = new();
         private static readonly List<ImageSource> _heroTagImages = new();
 
+        // Map 相关：Key = 静态图，Value = Gif（可为空）
+        private static readonly Dictionary<ImageSource, ImageSource> _mapImagePairs = new();
+
         static ResourceImageReader()
         {
             var assembly = typeof(ResourceImageReader).Assembly;
             var resourceName = assembly.GetName().Name + ".g.resources";
 
-            // 确保流和 ResourceReader 都能被正确释放
             using var stream = assembly.GetManifestResourceStream(resourceName);
             if (stream == null)
                 return;
 
             using var reader = new ResourceReader(stream);
+
+            // 临时缓存 Map / MapGif（按文件名 key）
+            var mapStaticTemp = new Dictionary<string, ImageSource>();
+            var mapGifTemp = new Dictionary<string, ImageSource>();
 
             foreach (DictionaryEntry entry in reader)
             {
@@ -32,7 +38,7 @@ namespace NarakaBladepoint.Resources
 
                 key = key.ToLowerInvariant();
 
-                // Hero 图片，只取一级目录
+                // ===================== Hero =====================
                 if (key.StartsWith("image/hero/") && key.EndsWith(".png"))
                 {
                     var relative = key["image/hero/".Length..];
@@ -42,14 +48,11 @@ namespace NarakaBladepoint.Resources
                         {
                             _heroImages.Add(LoadBitmapFromResource(assembly, key));
                         }
-                        catch
-                        {
-                            // 加载失败可以忽略或记录日志
-                        }
+                        catch { }
                     }
                 }
 
-                // Avatar 图片，只取一级目录
+                // ===================== Avatar =====================
                 if (key.StartsWith("image/avatar/") && key.EndsWith(".png"))
                 {
                     var relative = key["image/avatar/".Length..];
@@ -59,14 +62,11 @@ namespace NarakaBladepoint.Resources
                         {
                             _avatarImages.Add(LoadBitmapFromResource(assembly, key));
                         }
-                        catch
-                        {
-                            // 加载失败可以忽略或记录日志
-                        }
+                        catch { }
                     }
                 }
 
-                // HeroTag 图片，只取一级目录
+                // ===================== HeroTag =====================
                 if (key.StartsWith("image/personalinfodetails/herotag/") && key.EndsWith(".png"))
                 {
                     var relative = key["image/personalinfodetails/herotag/".Length..];
@@ -76,13 +76,63 @@ namespace NarakaBladepoint.Resources
                         {
                             _heroTagImages.Add(LoadBitmapFromResource(assembly, key));
                         }
-                        catch
+                        catch { }
+                    }
+                }
+
+                // ===================== Map 静态图 =====================
+                if (key.StartsWith("image/region/startgame/map/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/region/startgame/map/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        var mapKey = GetMapKeyStatic(relative);
+                        try
                         {
-                            // 加载失败可以忽略或记录日志
+                            mapStaticTemp[mapKey] = LoadBitmapFromResource(assembly, key);
                         }
+                        catch { }
+                    }
+                }
+
+                // ===================== Map Gif =====================
+                if (key.StartsWith("image/region/startgame/map/gif/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/region/startgame/map/gif/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        var mapKey = GetMapKeyGif(relative);
+                        try
+                        {
+                            mapGifTemp[mapKey] = LoadBitmapFromResource(assembly, key);
+                        }
+                        catch { }
                     }
                 }
             }
+
+            // ===================== Map 最终配对 =====================
+            foreach (var (mapKey, mapImage) in mapStaticTemp)
+            {
+                mapGifTemp.TryGetValue(mapKey, out var gifImage);
+                _mapImagePairs[mapImage] = gifImage; // Gif 可以为 null
+            }
+        }
+
+        // Map 静态图 key = 文件名去掉 .png
+        private static string GetMapKeyStatic(string fileName)
+        {
+            if (fileName.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                fileName = fileName[..^4];
+            return fileName;
+        }
+
+        // Map Gif key = 文件名去掉 Gif.png
+        private static string GetMapKeyGif(string fileName)
+        {
+            if (fileName.EndsWith("gif.png", StringComparison.OrdinalIgnoreCase))
+                fileName = fileName[..^7];
+            return fileName;
         }
 
         private static BitmapImage LoadBitmapFromResource(
@@ -98,74 +148,53 @@ namespace NarakaBladepoint.Resources
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.UriSource = uri;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad; // 立即加载，避免流占用
+            bitmap.CacheOption = BitmapCacheOption.OnLoad; // 立即加载
             bitmap.EndInit();
-            bitmap.Freeze(); // 冻结，提高性能并允许跨线程访问
+            bitmap.Freeze(); // 冻结，提高性能
 
             return bitmap;
         }
 
-        /// <summary>
-        /// 获取指定索引的英雄图片
-        /// </summary>
+        // ===================== Hero / Avatar / HeroTag =====================
+
         public static ImageSource GetHeroImage(int index) =>
             index >= 0 && index < _heroImages.Count ? _heroImages[index] : null;
 
-        /// <summary>
-        /// 获取指定索引的头像图片
-        /// </summary>
         public static ImageSource GetAvatarImage(int index) =>
             index >= 0 && index < _avatarImages.Count ? _avatarImages[index] : null;
 
-        /// <summary>
-        /// 获取指定索引的英雄标签图片
-        /// </summary>
         public static ImageSource GetHeroTagImage(int index) =>
             index >= 0 && index < _heroTagImages.Count ? _heroTagImages[index] : null;
 
-        /// <summary>
-        /// 获取所有英雄图片的副本
-        /// </summary>
-        /// <returns>英雄图片列表的只读副本</returns>
-        public static IReadOnlyList<ImageSource> GetAllHeroAvatarImageSouces()
-        {
-            // 返回只读列表以防止外部修改
-            return _heroImages.AsReadOnly();
-        }
+        public static IReadOnlyList<ImageSource> GetAllHeroAvatarImageSouces() =>
+            _heroImages.AsReadOnly();
 
-        /// <summary>
-        /// 获取所有头像图片的副本
-        /// </summary>
-        /// <returns>头像图片列表的只读副本</returns>
-        public static IReadOnlyList<ImageSource> GetAllAvatarImages()
-        {
-            // 返回只读列表以防止外部修改
-            return _avatarImages.AsReadOnly();
-        }
+        public static IReadOnlyList<ImageSource> GetAllAvatarImages() => _avatarImages.AsReadOnly();
 
-        /// <summary>
-        /// 获取所有英雄标签图片的副本
-        /// </summary>
-        /// <returns>英雄标签图片列表的只读副本</returns>
-        public static IReadOnlyList<ImageSource> GetAllHeroTagImages()
-        {
-            // 返回只读列表以防止外部修改
-            return _heroTagImages.AsReadOnly();
-        }
+        public static IReadOnlyList<ImageSource> GetAllHeroTagImages() =>
+            _heroTagImages.AsReadOnly();
 
-        /// <summary>
-        /// 英雄图片总数
-        /// </summary>
         public static int HeroCount => _heroImages.Count;
-
-        /// <summary>
-        /// 头像图片总数
-        /// </summary>
         public static int AvatarCount => _avatarImages.Count;
+        public static int HeroTagCount => _heroTagImages.Count;
+
+        // ===================== Map API =====================
 
         /// <summary>
-        /// 英雄标签图片总数
+        /// 获取 Map → MapGif 配对字典
         /// </summary>
-        public static int HeroTagCount => _heroTagImages.Count;
+        public static IReadOnlyDictionary<ImageSource, ImageSource> GetAllMapImagePairs() =>
+            _mapImagePairs;
+
+        /// <summary>
+        /// 根据 Map 静态图获取对应的 Gif（可能为 null）
+        /// </summary>
+        public static ImageSource GetMapGif(ImageSource mapImage) =>
+            mapImage != null && _mapImagePairs.TryGetValue(mapImage, out var gif) ? gif : null;
+
+        /// <summary>
+        /// 地图总数
+        /// </summary>
+        public static int MapCount => _mapImagePairs.Count;
     }
 }

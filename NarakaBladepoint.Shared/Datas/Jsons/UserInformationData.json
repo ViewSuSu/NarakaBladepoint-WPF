@@ -14,5 +14,6 @@
   "battlePassLevel": 128,
   "firstPickHeroIndex": 0,
   "secondPickHeroIndex": 1,
-  "thridPickHeroIndex": 2
+  "thridPickHeroIndex": 2,
+  "TimeoutDefaultAllMap": true
 }

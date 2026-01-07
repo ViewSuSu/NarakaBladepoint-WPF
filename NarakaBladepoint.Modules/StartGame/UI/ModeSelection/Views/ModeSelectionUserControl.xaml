@@ -152,7 +152,7 @@
                                     Margin="10,0,10,10"
                                     HorizontalAlignment="Center"
                                     FontSize="10"
-                                    Foreground="Orange"
+                                    Foreground="#EAB181"
                                     Text="每日19:00-23:00开启" />
                             </StackPanel>
                         </Grid>
@@ -623,13 +623,31 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon5.png" />
-                        <TextBlock
+                        <StackPanel
                             Margin="5,0,0,5"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
-                            FontSize="15"
-                            Foreground="White"
-                            Text="已选择2张地图" />
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="15"
+                                Foreground="White"
+                                Text="已选择" />
+                            <TextBlock
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Center"
+                                d:Text="2"
+                                FontSize="15"
+                                Foreground="#EAB181"
+                                Text="{Binding SelectedMapCount, Mode=OneWay}" />
+                            <TextBlock
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="15"
+                                Foreground="White"
+                                Text="张地图" />
+                        </StackPanel>
                     </Grid>
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="MouseLeftButtonDown">
@@ -657,11 +675,11 @@
                     <TextBlock
                         Margin="0,5,0,0"
                         HorizontalAlignment="Center"
-                        Foreground="Orange"
+                        Foreground="#EAB181"
                         Text="组队范围" />
                     <TextBlock
                         HorizontalAlignment="Center"
-                        Foreground="Orange"
+                        Foreground="#EAB181"
                         Text="铂金5~无间修罗" />
                 </StackPanel>
             </StackPanel>

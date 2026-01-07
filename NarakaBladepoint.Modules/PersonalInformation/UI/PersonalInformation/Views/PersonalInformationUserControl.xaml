@@ -68,7 +68,7 @@
                 d:Maximum="100"
                 d:Value="10"
                 Background="DimGray"
-                Foreground="Orange" />-->
+                Foreground="#EAB181" />-->
         </Grid>
     </Grid>
 </base:UserControlBase>

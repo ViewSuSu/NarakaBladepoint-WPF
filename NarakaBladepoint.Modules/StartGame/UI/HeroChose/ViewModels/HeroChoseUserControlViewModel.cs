@@ -9,6 +9,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
     {
         private readonly IHeroInfomation heroInfomation;
         private readonly ICurrentUserInformationProvider currentUserInformationProvider;
+        private readonly IConfiguration configuration;
 
         public BindingList<HeroChoseModuleItemModel> HeroChoseModuleItemModels { get; }
 
@@ -21,8 +22,6 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             get { return firstHeroIndex; }
             set
             {
-                if (firstHeroIndex == -1)
-                    HeroChoseModuleItemModels[firstHeroIndex].IsSelected = false;
                 firstHeroIndex = value;
                 RaisePropertyChanged(nameof(FirstHeroAvatar));
                 RaisePropertyChanged(nameof(IsCanSelcted));
@@ -35,8 +34,6 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             get { return secondHeroIndex; }
             set
             {
-                if (secondHeroIndex == -1)
-                    HeroChoseModuleItemModels[secondHeroIndex].IsSelected = false;
                 secondHeroIndex = value;
                 RaisePropertyChanged(nameof(SecondHeroAvatar));
                 RaisePropertyChanged(nameof(IsCanSelcted));
@@ -49,8 +46,6 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             get { return thirdHeroIndex; }
             set
             {
-                if (thirdHeroIndex == -1)
-                    HeroChoseModuleItemModels[thirdHeroIndex].IsSelected = false;
                 thirdHeroIndex = value;
                 RaisePropertyChanged(nameof(ThirdHeroAvatar));
                 RaisePropertyChanged(nameof(IsCanSelcted));
@@ -80,12 +75,14 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
         public HeroChoseUserControlViewModel(
             IContainerProvider containerProvider,
             IHeroInfomation heroInfomation,
-            ICurrentUserInformationProvider currentUserInformationProvider
+            ICurrentUserInformationProvider currentUserInformationProvider,
+            IConfiguration configuration
         )
             : base(containerProvider)
         {
             this.heroInfomation = heroInfomation;
             this.currentUserInformationProvider = currentUserInformationProvider;
+            this.configuration = configuration;
             this.HeroChoseModuleItemModels = new BindingList<HeroChoseModuleItemModel>(
                 heroInfomation
                     .GetHeroAvatarModelsAsync()
@@ -95,19 +92,25 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 
             RemoveFirstHeroCommand = new DelegateCommand(() =>
             {
+                if (FirstHeroIndex != -1)
+                    HeroChoseModuleItemModels[FirstHeroIndex].IsSelected = false;
                 FirstHeroIndex = -1;
             });
             RemoveSecondHeroCommand = new DelegateCommand(() =>
             {
+                if (SecondHeroIndex != -1)
+                    HeroChoseModuleItemModels[SecondHeroIndex].IsSelected = false;
                 SecondHeroIndex = -1;
             });
             RemoveThirdHeroCommand = new DelegateCommand(() =>
             {
+                if (ThirdHeroIndex != -1)
+                    HeroChoseModuleItemModels[ThirdHeroIndex].IsSelected = false;
                 ThirdHeroIndex = -1;
             });
-            SaveCommand = new DelegateCommand(async () =>
+            SaveCommand = new DelegateCommand(() =>
             {
-                var reuslt = await Save();
+                var reuslt = Save().Result;
                 if (reuslt)
                 {
                     ReturnCommand.Execute();
@@ -173,7 +176,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             currentUserModel.FirstPickHeroIndex = FirstHeroIndex;
             currentUserModel.SecondPickHeroIndex = SecondHeroIndex;
             currentUserModel.ThridPickHeroIndex = ThirdHeroIndex;
-            return await currentUserInformationProvider.SaveCurrentUserInfoAsync(currentUserModel);
+            return await configuration.Save(currentUserModel);
         }
     }
 }

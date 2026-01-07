@@ -47,6 +47,24 @@ namespace NarakaBladepoint.Shared
             return config;
         }
 
+        public static List<TItem> GetList<TItem>()
+            where TItem : class
+        {
+            var type = typeof(TItem);
+            var jsonFilePath = Path.Combine(_jsonsFolderPath, $"{type.Name}.json");
+            if (!File.Exists(jsonFilePath))
+            {
+                throw new FileNotFoundException($"找不到配置文件: {jsonFilePath}");
+            }
+            var jsonContent = File.ReadAllText(jsonFilePath);
+            var list = JsonConvert.DeserializeObject<List<TItem>>(jsonContent);
+            if (list == null)
+            {
+                throw new InvalidOperationException($"无法反序列化类型 List<{type.Name}> 的配置");
+            }
+            return list;
+        }
+
         /// <summary>
         /// 保存配置（覆盖本地 JSON 文件）
         /// </summary>
@@ -54,7 +72,6 @@ namespace NarakaBladepoint.Shared
         /// <param name="config">配置实例</param>
         /// <returns>是否保存成功</returns>
         public static bool Save<T>(T config)
-            where T : class
         {
             if (config == null)
             {
@@ -71,6 +88,42 @@ namespace NarakaBladepoint.Shared
 
                 // 序列化（格式化，方便人工查看和编辑）
                 var jsonContent = JsonConvert.SerializeObject(config, Formatting.Indented);
+
+                // 覆盖写入
+                File.WriteAllText(jsonFilePath, jsonContent);
+
+                return true;
+            }
+            catch
+            {
+                // 可以在这里打日志
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 保存 List 配置（覆盖本地 JSON 文件）
+        /// </summary>
+        /// <typeparam name="TItem">列表元素类型</typeparam>
+        /// <param name="list">列表实例</param>
+        /// <returns>是否保存成功</returns>
+        public static bool SaveList<TItem>(IEnumerable<TItem> list)
+        {
+            if (list == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                var type = typeof(TItem);
+                var jsonFilePath = Path.Combine(_jsonsFolderPath, $"{type.Name}.json");
+
+                // 确保目录存在
+                Directory.CreateDirectory(_jsonsFolderPath);
+
+                // 序列化（格式化，方便人工查看和编辑）
+                var jsonContent = JsonConvert.SerializeObject(list, Formatting.Indented);
 
                 // 覆盖写入
                 File.WriteAllText(jsonFilePath, jsonContent);
