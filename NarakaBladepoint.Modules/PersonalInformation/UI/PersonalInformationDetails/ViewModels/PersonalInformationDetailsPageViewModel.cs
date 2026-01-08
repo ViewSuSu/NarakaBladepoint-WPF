@@ -1,9 +1,11 @@
-﻿using NarakaBladepoint.Framework.Core.Extensions;
+﻿using System.Collections.ObjectModel;
+using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Modules.PersonalInformation.Domain.Events;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
+using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
 {
@@ -13,6 +15,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public UserInformationData CurrentUserBasicInformationModel { get; }
 
         private PersonalInformationDetailModel _selectedItem;
+        private readonly ICurrentUserInformationProvider currentUserBasicInformation;
+        private readonly IHeroInfomation heroInfomation;
+
         public PersonalInformationDetailModel SelectedItem
         {
             get { return _selectedItem; }
@@ -23,12 +28,26 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             }
         }
 
+        private ObservableCollection<HeroTagModel> selectedHeroTagModels;
+        public ObservableCollection<HeroTagModel> SelectedHeroTagModels
+        {
+            get { return selectedHeroTagModels; }
+            set
+            {
+                selectedHeroTagModels = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public PersonalInformationDetailsPageViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserBasicInformation
+            ICurrentUserInformationProvider currentUserBasicInformation,
+            IHeroInfomation heroInfomation
         )
             : base(containerProvider)
         {
+            this.currentUserBasicInformation = currentUserBasicInformation;
+            this.heroInfomation = heroInfomation;
             HeroTagCommand = new DelegateCommand(() =>
             {
                 eventAggregator
@@ -42,6 +61,18 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
                 .GetCurrentUserInfoAsync()
                 .Result;
             SelectedItem = PersonalSeasonDataModels.FirstOrDefault();
+            SetHeroTags();
+            eventAggregator.GetEvent<SaveHeroTagEvent>().Subscribe(SetHeroTags);
+        }
+
+        private async void SetHeroTags()
+        {
+            var selectedTagItems = await heroInfomation.GetSelectedHeroTagModelsAsync();
+            this.SelectedHeroTagModels = new ObservableCollection<HeroTagModel>(selectedTagItems);
+            while (SelectedHeroTagModels.Count < 10)
+            {
+                SelectedHeroTagModels.Add(new HeroTagModel());
+            }
         }
 
         public DelegateCommand HeroTagCommand { get; set; }

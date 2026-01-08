@@ -18,10 +18,10 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
                 .Result;
         }
 
-        public List<PersonalSeasonDataModel> SeasonDataModels { get; }
+        public List<SeasonDataModel> SeasonDataModels { get; }
 
-        private PersonalSeasonDataModel _selectedSeasonDataModel;
-        public PersonalSeasonDataModel SelectedSeasonDataModel
+        private SeasonDataModel _selectedSeasonDataModel;
+        public SeasonDataModel SelectedSeasonDataModel
         {
             get { return _selectedSeasonDataModel; }
             set

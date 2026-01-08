@@ -17,7 +17,7 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         /// 获取当前用户赛季信息
         /// </summary>
         /// <returns></returns>
-        Task<List<PersonalSeasonDataModel>> GetPersonalSeasonsAsync();
+        Task<List<SeasonDataModel>> GetPersonalSeasonsAsync();
 
         /// <summary>
         /// 获取当前用户对局记录

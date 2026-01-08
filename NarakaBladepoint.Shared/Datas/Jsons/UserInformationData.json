@@ -15,5 +15,6 @@
   "firstPickHeroIndex": 0,
   "secondPickHeroIndex": 1,
   "thridPickHeroIndex": 2,
-  "TimeoutDefaultAllMap": true
+  "TimeoutDefaultAllMap": true,
+  "selectedHeroTags": [ 0, 1, 2, 3 ]
 }

@@ -4,6 +4,7 @@
     xmlns:converterts="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework">
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converterts:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
+    <converterts:InverseBoolConverter x:Key="InverseBoolConverter" />
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ExpandStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ButtonStyle.xaml" />

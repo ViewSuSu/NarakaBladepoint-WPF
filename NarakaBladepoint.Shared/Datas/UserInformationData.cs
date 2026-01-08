@@ -95,5 +95,10 @@ namespace NarakaBladepoint.Shared.Datas
         /// 超时默认全选地图
         /// </summary>
         public bool TimeoutDefaultAllMap { get; set; }
+
+        /// <summary>
+        /// 英雄印列表
+        /// </summary>
+        public int[] SelectedHeroTags { get; set; }
     }
 }

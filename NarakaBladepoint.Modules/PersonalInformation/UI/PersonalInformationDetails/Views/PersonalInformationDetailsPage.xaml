@@ -195,151 +195,53 @@
                                 </b:EventTrigger>
                             </b:Interaction.Triggers>
                         </Border>
-                        <StackPanel Grid.Row="3" Orientation="Horizontal">
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Width="40"
-                                Height="40"
-                                Margin="5,0,0,0"
-                                d:BorderBrush="White"
-                                d:BorderThickness="0.5">
-                                <controls:HighlightBorder.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
-                                </controls:HighlightBorder.Background>
-                                <b:Interaction.Triggers>
-                                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding HeroTagCommand}" />
-                                    </b:EventTrigger>
-                                </b:Interaction.Triggers>
-                            </controls:HighlightBorder>
-                        </StackPanel>
-                        <Image
-                            Grid.Row="3"
-                            Width="20"
-                            Height="20"
-                            Margin="0,0,8,0"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png"
-                            Stretch="UniformToFill" />
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <ItemsControl
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                d:ItemsSource="{d:SampleData ItemCount=10}"
+                                ItemsSource="{Binding SelectedHeroTagModels}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <controls:HighlightBorder
+                                            Width="35"
+                                            Height="35"
+                                            Margin="0,0,5,0"
+                                            d:BorderBrush="White"
+                                            d:BorderThickness="0.5">
+                                            <controls:HighlightBorder.Background>
+                                                <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
+                                            </controls:HighlightBorder.Background>
+                                            <Image Source="{Binding Icon, Mode=OneWay}" Stretch="Uniform" />
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding DataContext.HeroTagCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                        </controls:HighlightBorder>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <Image
+                                Grid.Column="1"
+                                Width="20"
+                                Height="20"
+                                Margin="0,0,8,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png"
+                                Stretch="UniformToFill" />
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

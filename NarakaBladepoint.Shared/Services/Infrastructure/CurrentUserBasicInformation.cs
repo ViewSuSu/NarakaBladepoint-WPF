@@ -16,12 +16,12 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
             return ConfigurationDataReader.Get<MatchData>().List;
         }
 
-        public async Task<List<PersonalSeasonDataModel>> GetPersonalSeasonsAsync()
+        public async Task<List<SeasonDataModel>> GetPersonalSeasonsAsync()
         {
             var random = new Random();
             var result = Enum.GetValues(typeof(SeasonType))
                 .Cast<SeasonType>()
-                .Select(seasonType => new PersonalSeasonDataModel
+                .Select(seasonType => new SeasonDataModel
                 {
                     SeasonType = seasonType,
                     GameTime = random.Next(10, 500),

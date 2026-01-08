@@ -181,6 +181,9 @@
 	  <None Remove="Image\PersonalInfoDetails\hero1.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero2.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero3.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\四时归真·紫木.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\天道酬勤·黄玉.png" />
+	  <None Remove="Image\PersonalInfoDetails\HeroTag\妙手回春·紫木.png" />
 	  <None Remove="Image\PersonalInfoDetails\listboxitembackground.png" />
 	  <None Remove="Image\Region\1.png" />
 	  <None Remove="Image\Region\2.png" />
@@ -463,6 +466,9 @@
 	  <Resource Include="Image\PersonalInfoDetails\hero1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\hero2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\hero3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\四时归真·紫木.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\天道酬勤·黄玉.png" />
+	  <Resource Include="Image\PersonalInfoDetails\HeroTag\妙手回春·紫木.png" />
 	  <Resource Include="Image\PersonalInfoDetails\HeroTag\武痴·赤金.png" />
 	  <Resource Include="Image\PersonalInfoDetails\HeroTag\锐不可当·赤金.png" />
 	  <Resource Include="Image\PersonalInfoDetails\HeroTag\星芒流转·黄玉.png" />

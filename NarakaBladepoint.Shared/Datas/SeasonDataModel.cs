@@ -12,7 +12,7 @@ namespace NarakaBladepoint.Shared.Datas
     /// <summary>
     /// 个人赛季信息
     /// </summary>
-    public class PersonalSeasonDataModel
+    public class SeasonDataModel
     {
         public SeasonType SeasonType { get; set; }
 
