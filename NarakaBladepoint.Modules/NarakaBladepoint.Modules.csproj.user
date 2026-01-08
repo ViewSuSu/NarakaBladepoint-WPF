@@ -116,6 +116,9 @@
     <Compile Update="Social\UI\Setting\Views\SettingUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Social\UI\StatusTag\Views\StatusTagUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="StartGame\UI\HeroChose\Views\HeroChoseUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

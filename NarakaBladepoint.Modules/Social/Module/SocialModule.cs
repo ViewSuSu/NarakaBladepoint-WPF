@@ -8,6 +8,8 @@ using NarakaBladepoint.Modules.Social.UI.Setting.ViewModels;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
 using NarakaBladepoint.Modules.Social.UI.Social.ViewModels;
 using NarakaBladepoint.Modules.Social.UI.Social.Views;
+using NarakaBladepoint.Modules.Social.UI.StatusTag.ViewModels;
+using NarakaBladepoint.Modules.Social.UI.StatusTag.Views;
 
 namespace NarakaBladepoint.Modules.Social.Module
 {
@@ -22,6 +24,10 @@ namespace NarakaBladepoint.Modules.Social.Module
                 SettingUserControlViewModel
             >();
             containerRegistry.RegisterForNavigation<EmailUserControl, EmailUserControlViewModel>();
+            containerRegistry.RegisterForNavigation<
+                StatusTagUserControl,
+                StatusTagUserControlViewModel
+            >();
             containerRegistry.RegisterForNavigation<MusicUserControl, MusicUserControlViewModel>();
             containerRegistry.RegisterForNavigation<
                 FriendUserControl,

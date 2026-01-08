@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using NarakaBladepoint.Modules.StartGame.UI.HeroChose.Models;
+using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
+using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 {
@@ -11,7 +12,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
         private readonly ICurrentUserInformationProvider currentUserInformationProvider;
         private readonly IConfiguration configuration;
 
-        public BindingList<HeroChoseModuleItemModel> HeroChoseModuleItemModels { get; }
+        public List<HeroChoseModuleItemModel> HeroChoseModuleItemModels { get; private set; }
 
         private int firstHeroIndex = -1;
         private int secondHeroIndex = -1;
@@ -83,12 +84,6 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             this.heroInfomation = heroInfomation;
             this.currentUserInformationProvider = currentUserInformationProvider;
             this.configuration = configuration;
-            this.HeroChoseModuleItemModels = new BindingList<HeroChoseModuleItemModel>(
-                heroInfomation
-                    .GetHeroAvatarModelsAsync()
-                    .Result.Select(x => new HeroChoseModuleItemModel(x))
-                    .ToArray()
-            );
 
             RemoveFirstHeroCommand = new DelegateCommand(() =>
             {
@@ -156,9 +151,15 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
         public DelegateCommand ClearCommand { get; }
         public DelegateCommand<HeroChoseModuleItemModel> SelectedHeroCommand { get; }
 
-        protected override void OnNavigatedToExecute(NavigationContext navigationContext)
+        protected override async void OnNavigatedToExecute(NavigationContext navigationContext)
         {
-            var userModel = currentUserInformationProvider.GetCurrentUserInfoAsync().Result;
+            List<HeroAvatarModel> heroModels = await heroInfomation.GetHeroAvatarModelsAsync();
+            this.HeroChoseModuleItemModels = heroModels
+                .Select(x => new HeroChoseModuleItemModel(x))
+                .ToList();
+
+            UserInformationData userModel =
+                await currentUserInformationProvider.GetCurrentUserInfoAsync();
             FirstHeroIndex = userModel.FirstPickHeroIndex;
             SecondHeroIndex = userModel.SecondPickHeroIndex;
             ThirdHeroIndex = userModel.ThridPickHeroIndex;
@@ -172,7 +173,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 
         private async Task<bool> Save()
         {
-            var currentUserModel = await currentUserInformationProvider.GetCurrentUserInfoAsync();
+            UserInformationData currentUserModel =
+                await currentUserInformationProvider.GetCurrentUserInfoAsync();
             currentUserModel.FirstPickHeroIndex = FirstHeroIndex;
             currentUserModel.SecondPickHeroIndex = SecondHeroIndex;
             currentUserModel.ThridPickHeroIndex = ThirdHeroIndex;

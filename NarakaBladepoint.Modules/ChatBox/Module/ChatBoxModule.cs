@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.ChatBox.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<ChatBoxUserControl>();
-            containerRegistry.Register<ChatBoxUserControlViewModel>();
+            containerRegistry.RegisterSingleton<ChatBoxUserControl>();
+            containerRegistry.RegisterSingleton<ChatBoxUserControlViewModel>();
         }
     }
 }

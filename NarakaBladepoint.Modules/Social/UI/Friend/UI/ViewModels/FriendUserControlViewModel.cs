@@ -36,7 +36,10 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             this.CurrentUserInfoModel = currentUserInformationProvider
                 .GetCurrentUserInfoAsync()
                 .Result;
-            SettingTagCommand = new DelegateCommand(() => { });
+            SettingTagCommand = new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish("!23");
+            });
             SearchCommand = new DelegateCommand<string>(keyword =>
             {
                 Friends = this.currentUserFriendInfo.GetFriendsAsync(keyword).Result;

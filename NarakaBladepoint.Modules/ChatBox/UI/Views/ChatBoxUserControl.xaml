@@ -6,8 +6,43 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.ChatBox.UI.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.ChatBox.UI.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:ChatBoxUserControlViewModel}"
+    d:DesignHeight="300"
+    d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid />
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <ListBox
+            Name="listbox"
+            HorizontalContentAlignment="Stretch"
+            d:ItemsSource="{d:SampleData ItemCount=5}"
+            Background="Transparent"
+            ItemsSource="{Binding ChatMessageItems}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid MinHeight="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="110" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Foreground="White" Text="{Binding Sender, Mode=OneWay}" />
+                        <Grid Grid.Column="1">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="2026.9.12 20:00" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox
+            Name="inputTextBox"
+            Grid.Row="1"
+            Background="Transparent" />
+    </Grid>
 </bases:UserControlBase>

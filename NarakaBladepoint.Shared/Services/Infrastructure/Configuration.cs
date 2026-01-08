@@ -8,7 +8,7 @@ using NarakaBladepoint.Shared.Datas;
 namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    internal class ConfigurationSave : IConfiguration
+    internal class Configuration : IConfiguration
     {
         public async Task<bool> Save<T>(T entity)
         {

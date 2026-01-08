@@ -512,6 +512,7 @@
 	  <Resource Include="Image\Button\CommonFunctionButtonBackground.png" />
 	  <Resource Include="Image\Region\Wealth\1.png" />
 	  <Resource Include="Image\sayhello.png" />
+	  <Resource Include="Image\StatusTag\×.png" />
 	  <Resource Include="Image\×.png" />
 	  <Resource Include="Image\一人之下.png" />
 	  <Resource Include="Image\任务详情.png" />
