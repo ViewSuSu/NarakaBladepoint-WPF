@@ -6,9 +6,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
     internal class FriendUserControlViewModel : ViewModelBase
     {
-        private readonly ICurrentUserFriendInfo currentUserFriendInfo;
-
         private List<FriendDataItem> _friends = [];
+        private readonly ICurrentUserInfoProvider currentUserInformationProvider;
+
         public List<FriendDataItem> Friends
         {
             get { return _friends; }
@@ -21,13 +21,12 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 
         public FriendUserControlViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserInformationProvider,
-            ICurrentUserFriendInfo currentUserFriendInfo
+            ICurrentUserInfoProvider currentUserInformationProvider
         )
             : base(containerProvider)
         {
-            this.currentUserFriendInfo = currentUserFriendInfo;
-            Friends = currentUserFriendInfo.GetFriendsAsync().Result;
+            this.currentUserInformationProvider = currentUserInformationProvider;
+            Friends = currentUserInformationProvider.GetFriendsAsync().Result;
 
             CloseCommand = new DelegateCommand(() =>
             {
@@ -42,7 +41,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             });
             SearchCommand = new DelegateCommand<string>(keyword =>
             {
-                Friends = this.currentUserFriendInfo.GetFriendsAsync(keyword).Result;
+                Friends = this.currentUserInformationProvider.GetFriendsAsync(keyword).Result;
             });
             SayHelloCommand = new DelegateCommand(() => { });
         }

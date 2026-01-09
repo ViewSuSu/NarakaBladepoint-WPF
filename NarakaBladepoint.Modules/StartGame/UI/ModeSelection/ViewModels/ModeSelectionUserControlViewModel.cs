@@ -11,9 +11,9 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
         public List<ServerInformationModel> ServerInfos { get; private set; }
 
         private ServerInformationModel selectedItem;
-        private readonly IServerInformation serverInformation;
-        private readonly ICurrentUserInformationProvider currentUserInformationProvider;
-        private readonly IHeroInfomation heroInfomation;
+        private readonly IServerInfoProvider serverInformation;
+        private readonly ICurrentUserInfoProvider currentUserInformationProvider;
+        private readonly IHeroInfoProvider heroInfomation;
         private readonly IMapProvider mapProvider;
 
         public ServerInformationModel SelectedItem
@@ -96,9 +96,9 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
 
         public ModeSelectionUserControlViewModel(
             IContainerProvider containerProvider,
-            IServerInformation serverInformation,
-            ICurrentUserInformationProvider currentUserInformationProvider,
-            IHeroInfomation heroInfomation,
+            IServerInfoProvider serverInformation,
+            ICurrentUserInfoProvider currentUserInformationProvider,
+            IHeroInfoProvider heroInfomation,
             IMapProvider mapProvider
         )
             : base(containerProvider)
@@ -124,7 +124,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
 
         protected override void OnNavigatedToExecute(NavigationContext navigationContext)
         {
-            this.ServerInfos = serverInformation.GetServerInformationAsync().Result;
+            this.ServerInfos = serverInformation.GeAlltServerInfosAsync().Result;
             SelectedItem = ServerInfos.FirstOrDefault();
 
             var userModel = currentUserInformationProvider.GetCurrentUserInfoAsync().Result;

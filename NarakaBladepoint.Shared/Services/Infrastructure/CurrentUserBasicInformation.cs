@@ -4,11 +4,21 @@ using NarakaBladepoint.Shared.Jsons;
 namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    internal class CurrentUserBasicInformation : ICurrentUserInformationProvider
+    internal class CurrentUserBasicInformation : ICurrentUserInfoProvider
     {
         public async Task<UserInformationData> GetCurrentUserInfoAsync()
         {
             return ConfigurationDataReader.Get<UserInformationData>();
+        }
+
+        public async Task<List<FriendDataItem>> GetFriendsAsync(string nameKeyword = null)
+        {
+            return string.IsNullOrEmpty(nameKeyword)
+                ? ConfigurationDataReader.Get<FriendData>().List
+                : ConfigurationDataReader
+                    .Get<FriendData>()
+                    .List.Where(x => x.Name.Contains(nameKeyword))
+                    .ToList();
         }
 
         public async Task<List<MatchDataItem>> GetMatchDataItemsAsync()

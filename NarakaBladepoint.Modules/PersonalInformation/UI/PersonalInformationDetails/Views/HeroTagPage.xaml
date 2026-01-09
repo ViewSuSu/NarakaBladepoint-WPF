@@ -35,7 +35,7 @@
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
             </Grid>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Background="#B3000000">
                 <Grid Margin="20,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.1*" />
@@ -71,7 +71,7 @@
                         ItemsSource="{Binding ItemModels}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemHeight="105" />
+                                <UniformGrid Columns="3" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -87,6 +87,10 @@
                                         </Rectangle.Visibility>
                                     </Rectangle>
                                     <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
                                         <Image Source="{Binding HeroTagModel.Icon}" Stretch="Uniform" />
                                         <CheckBox
                                             Name="heroTagCheckBox"
@@ -108,7 +112,7 @@
                                         <TextBlock
                                             Grid.Row="1"
                                             HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
+                                            VerticalAlignment="Bottom"
                                             Foreground="White"
                                             Text="{Binding HeroTagModel.Name}" />
                                     </Grid>

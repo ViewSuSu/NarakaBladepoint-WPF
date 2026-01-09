@@ -8,8 +8,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 {
     internal class HeroChoseUserControlViewModel : CanRemoveHomePageRegionViewModelBase
     {
-        private readonly IHeroInfomation heroInfomation;
-        private readonly ICurrentUserInformationProvider currentUserInformationProvider;
+        private readonly IHeroInfoProvider heroInfomation;
+        private readonly ICurrentUserInfoProvider currentUserInformationProvider;
         private readonly IConfiguration configuration;
 
         public List<HeroChoseModuleItemModel> HeroChoseModuleItemModels { get; private set; }
@@ -75,8 +75,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 
         public HeroChoseUserControlViewModel(
             IContainerProvider containerProvider,
-            IHeroInfomation heroInfomation,
-            ICurrentUserInformationProvider currentUserInformationProvider,
+            IHeroInfoProvider heroInfomation,
+            ICurrentUserInfoProvider currentUserInformationProvider,
             IConfiguration configuration
         )
             : base(containerProvider)

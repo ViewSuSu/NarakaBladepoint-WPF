@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace NarakaBladepoint.Shared.Services.Abstractions
 {
+    /// <summary>
+    /// 地图服务接口
+    /// </summary>
     public interface IMapProvider
     {
         /// <summary>

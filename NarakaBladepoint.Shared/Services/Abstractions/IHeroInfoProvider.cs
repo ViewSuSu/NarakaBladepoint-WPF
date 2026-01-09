@@ -1,6 +1,9 @@
 ﻿namespace NarakaBladepoint.Shared.Services.Abstractions
 {
-    public interface IHeroInfomation
+    /// <summary>
+    /// 获取英雄相关信息
+    /// </summary>
+    public interface IHeroInfoProvider
     {
         /// <summary>
         /// 获取所有英雄头像
@@ -35,7 +38,7 @@
         public Task<HeroTagModel> GetHeroHeroTagModelModelByIdAsync(int index);
 
         /// <summary>
-        /// 判断英雄印是否被选中
+        /// 根据Index判断英雄印是否被选中
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>

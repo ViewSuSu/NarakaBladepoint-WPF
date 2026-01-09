@@ -8,7 +8,7 @@ namespace NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels
     {
         public BattlePassUserControlViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserInformationProvider
+            ICurrentUserInfoProvider currentUserInformationProvider
         )
             : base(containerProvider)
         {

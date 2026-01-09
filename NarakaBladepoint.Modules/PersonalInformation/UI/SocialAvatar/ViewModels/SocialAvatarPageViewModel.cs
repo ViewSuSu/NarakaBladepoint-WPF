@@ -1,30 +1,31 @@
 ﻿using System.Collections.ObjectModel;
 using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.Models;
+using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModels
 {
     internal class SocialAvatarPageViewModel : ViewModelBase
     {
-        public List<AvatarItemModel> AvatarItemModels { get; set; } = [];
-
         public SocialAvatarPageViewModel(
             IContainerProvider containerProvider,
-            IImageSourceProvider imageSourceProvider
+            IAvatarProvider avatarProvider
         )
             : base(containerProvider)
         {
-            AvatarItemModels = imageSourceProvider
-                .GetCurrenUserAllAvatarImageSources()
-                .Result.Select(x => new AvatarItemModel()
-                {
-                    Icon = x,
-                    Name = x.GetFileName(),
-                    Description = "",
-                    IsLocked = false,
-                })
-                .ToList();
+            this.AvatarItemModels = avatarProvider.GetAvatarsAsync().Result;
+        }
+
+        private List<AvatarData> _avatarItemModels;
+
+        public List<AvatarData> AvatarItemModels
+        {
+            get { return _avatarItemModels; }
+            set
+            {
+                _avatarItemModels = value;
+                RaisePropertyChanged();
+            }
         }
     }
 }

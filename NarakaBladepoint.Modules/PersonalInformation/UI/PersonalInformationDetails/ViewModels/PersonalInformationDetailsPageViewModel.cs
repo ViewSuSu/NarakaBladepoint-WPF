@@ -15,8 +15,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public UserInformationData CurrentUserBasicInformationModel { get; }
 
         private PersonalInformationDetailModel _selectedItem;
-        private readonly ICurrentUserInformationProvider currentUserBasicInformation;
-        private readonly IHeroInfomation heroInfomation;
+        private readonly ICurrentUserInfoProvider currentUserBasicInformation;
+        private readonly IHeroInfoProvider heroInfomation;
 
         public PersonalInformationDetailModel SelectedItem
         {
@@ -41,8 +41,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
 
         public PersonalInformationDetailsPageViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserBasicInformation,
-            IHeroInfomation heroInfomation
+            ICurrentUserInfoProvider currentUserBasicInformation,
+            IHeroInfoProvider heroInfomation
         )
             : base(containerProvider)
         {

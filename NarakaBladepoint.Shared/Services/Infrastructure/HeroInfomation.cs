@@ -5,11 +5,11 @@ using NarakaBladepoint.Resources;
 namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    internal class HeroInfomation : IHeroInfomation
+    internal class HeroInfomation : IHeroInfoProvider
     {
-        private readonly ICurrentUserInformationProvider currentUserInformationProvider;
+        private readonly ICurrentUserInfoProvider currentUserInformationProvider;
 
-        public HeroInfomation(ICurrentUserInformationProvider currentUserInformationProvider)
+        public HeroInfomation(ICurrentUserInfoProvider currentUserInformationProvider)
         {
             this.currentUserInformationProvider = currentUserInformationProvider;
         }

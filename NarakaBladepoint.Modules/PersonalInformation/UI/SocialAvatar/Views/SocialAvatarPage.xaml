@@ -25,7 +25,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels}">
+                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -36,7 +36,7 @@
                             <Grid Margin="5">
                                 <Image
                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
-                                    Source="{Binding Icon}"
+                                    Source="{Binding ImageSource, Mode=OneWay}"
                                     Stretch="Uniform" />
                                 <Image
                                     Width="20"
@@ -44,7 +44,7 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/Icon/lock.png"
-                                    Visibility="{Binding IsLocked, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    Visibility="{Binding IsHave, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

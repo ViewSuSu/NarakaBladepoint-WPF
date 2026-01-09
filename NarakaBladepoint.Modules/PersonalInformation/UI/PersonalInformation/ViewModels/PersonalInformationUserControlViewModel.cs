@@ -8,7 +8,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.Vi
     {
         public PersonalInformationUserControlViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserBasicInformation
+            ICurrentUserInfoProvider currentUserBasicInformation
         )
             : base(containerProvider)
         {

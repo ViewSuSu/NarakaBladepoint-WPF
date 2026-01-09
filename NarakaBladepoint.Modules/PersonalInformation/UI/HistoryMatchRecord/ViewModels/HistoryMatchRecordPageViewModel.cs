@@ -5,12 +5,12 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Vie
 {
     internal class HistoryMatchRecordPageViewModel : ViewModelBase
     {
-        private readonly ICurrentUserInformationProvider currentUserBasicInformation;
+        private readonly ICurrentUserInfoProvider currentUserBasicInformation;
         public List<MatchDataItem> MatchDataItems { get; }
 
         public HistoryMatchRecordPageViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider matchDataInfomation
+            ICurrentUserInfoProvider matchDataInfomation
         )
             : base(containerProvider)
         {

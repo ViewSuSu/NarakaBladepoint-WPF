@@ -5,7 +5,7 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
     /// <summary>
     /// 当前登录人基本信息服务
     /// </summary>
-    public interface ICurrentUserInformationProvider
+    public interface ICurrentUserInfoProvider
     {
         /// <summary>
         /// 获取当前用户信息
@@ -24,5 +24,12 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         /// </summary>
         /// <returns></returns>
         Task<List<MatchDataItem>> GetMatchDataItemsAsync();
+
+        /// <summary>
+        /// 查询好友
+        /// </summary>
+        /// <param name="nameKeyword">名字关键字</param>
+        /// <returns></returns>
+        Task<List<FriendDataItem>> GetFriendsAsync(string nameKeyword = null);
     }
 }

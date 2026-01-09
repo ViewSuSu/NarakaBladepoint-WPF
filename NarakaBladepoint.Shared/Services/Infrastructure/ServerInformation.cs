@@ -1,9 +1,9 @@
 ﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    internal class ServerInformation : IServerInformation
+    internal class ServerInformation : IServerInfoProvider
     {
-        public async Task<List<ServerInformationModel>> GetServerInformationAsync()
+        public async Task<List<ServerInformationModel>> GeAlltServerInfosAsync()
         {
             return new List<ServerInformationModel>()
             {

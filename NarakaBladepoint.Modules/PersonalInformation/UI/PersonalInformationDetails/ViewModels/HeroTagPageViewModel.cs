@@ -7,8 +7,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
 {
     internal class HeroTagPageViewModel : ViewModelBase
     {
-        private readonly IHeroInfomation heroInfomation;
-        private readonly ICurrentUserInformationProvider currentUserInformationProvider;
+        private readonly IHeroInfoProvider heroInfomation;
+        private readonly ICurrentUserInfoProvider currentUserInformationProvider;
         private readonly IConfiguration configuration;
 
         public BindingList<HeroTagItemModel> ItemModels { get; }
@@ -21,8 +21,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
 
         public HeroTagPageViewModel(
             IContainerProvider containerProvider,
-            IHeroInfomation heroInfomation,
-            ICurrentUserInformationProvider currentUserInformationProvider,
+            IHeroInfoProvider heroInfomation,
+            ICurrentUserInfoProvider currentUserInformationProvider,
             IConfiguration configuration
         )
             : base(containerProvider)

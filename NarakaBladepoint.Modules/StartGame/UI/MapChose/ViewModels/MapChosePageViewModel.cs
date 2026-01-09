@@ -15,7 +15,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
 {
     internal class MapChosePageViewModel : CanRemoveHomePageRegionViewModelBase
     {
-        private readonly ICurrentUserInformationProvider currentUserInformationProvider;
+        private readonly ICurrentUserInfoProvider currentUserInformationProvider;
         private readonly IConfiguration configuration;
 
         public BindingList<MapChoseItemModel> MapItems { get; }
@@ -46,7 +46,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
 
         public MapChosePageViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInformationProvider currentUserInformationProvider,
+            ICurrentUserInfoProvider currentUserInformationProvider,
             IMapProvider mapProvider,
             IConfiguration configuration
         )
