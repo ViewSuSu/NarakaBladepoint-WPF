@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters"
     xmlns:local="clr-namespace:NarakaBladepoint.Controls">
     <ImageBrush x:Key="DefaultHighlightBackground" ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background4.png" />
     <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">

@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.Social.UI.Email.ViewModels;
+using NarakaBladepoint.Modules.Social.UI.Email.ViewModels;
 using NarakaBladepoint.Modules.Social.UI.Email.Views;
 using NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels;
 using NarakaBladepoint.Modules.Social.UI.Friend.UI.Views;
@@ -19,22 +19,13 @@ namespace NarakaBladepoint.Modules.Social.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<
-                SettingUserControl,
-                SettingUserControlViewModel
-            >();
-            containerRegistry.RegisterForNavigation<EmailUserControl, EmailUserControlViewModel>();
-            containerRegistry.RegisterForNavigation<
-                StatusTagUserControl,
-                StatusTagUserControlViewModel
-            >();
-            containerRegistry.RegisterForNavigation<MusicUserControl, MusicUserControlViewModel>();
-            containerRegistry.RegisterForNavigation<
-                FriendUserControl,
-                FriendUserControlViewModel
-            >();
-            containerRegistry.Register<SocialUserControl>();
-            containerRegistry.Register<SocialUserControlViewModel>();
+            containerRegistry.RegisterForNavigation<SettingPage, SettingPageViewModel>();
+            containerRegistry.RegisterForNavigation<EmailPage, EmailPageViewModel>();
+            containerRegistry.RegisterForNavigation<StatusTagPage, StatusTagPageViewModel>();
+            containerRegistry.RegisterForNavigation<MusicPage, MusicPageViewModel>();
+            containerRegistry.RegisterForNavigation<FriendPage, FriendPageViewModel>();
+            containerRegistry.Register<SocialPage>();
+            containerRegistry.Register<SocialPageViewModel>();
         }
     }
 }

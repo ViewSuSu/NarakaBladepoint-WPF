@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels;
+using NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels;
 using NarakaBladepoint.Modules.Wealth.UI.Main.Views;
 
 namespace NarakaBladepoint.Modules.Wealth.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.Wealth.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<WealthUserControl>();
-            containerRegistry.Register<WealthUserControlViewModel>();
+            containerRegistry.Register<WealthPage>();
+            containerRegistry.Register<WealthPageViewModel>();
         }
     }
 }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Resources;
+﻿using System.Windows.Media;
 
 namespace NarakaBladepoint.Shared.Services.Models
 {

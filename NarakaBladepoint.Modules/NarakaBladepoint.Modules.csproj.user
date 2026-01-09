@@ -5,37 +5,13 @@
     <Compile Update="BattlePass\UI\BattlePassDetails\Views\BattlePassDetailsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="BattlePass\UI\BattlePassDetails\Views\BattlePassMainContentUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="BattlePass\UI\BattlePassDetails\Views\SeasonRewardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="BattlePass\UI\BattlePassDetails\Views\TaskPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ChatBox\UI\Views\ChatBoxUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="CommonFunction\UI\CustomMatch\Views\CustomMatchUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="CommonFunction\UI\Inventory\Views\InventoryUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="CommonFunction\UI\Leaderboard\Views\LeaderboardUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="CommonFunction\UI\SkillPoint\Views\SkillPointUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="DayEvent\UI\Views\DayEventUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EventCenter\UI\BaiZeCard\Views\BaiZeCardPage.xaml.cs">
@@ -71,9 +47,6 @@
     <Compile Update="EventCenter\UI\WelcomeBackEvent\Views\WelcomeBackEventPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainWindowRightEvent\UI\Views\MainWindowRightEventUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="PersonalInformation\UI\AvatarFrame\Views\AvatarFramePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -92,9 +65,6 @@
     <Compile Update="PersonalInformation\UI\IllustratedCollection\Views\IllustratedCollectionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PersonalInformation\UI\PersonalInformationDetailMainContent\Views\PersonalInformationDetailMainContentUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\HeroTagPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -110,28 +80,7 @@
     <Compile Update="PersonalInformation\UI\TippingRecord\Views\TippingRecordPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Social\UI\Music\Views\MusicUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Social\UI\Setting\Views\SettingUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Social\UI\StatusTag\Views\StatusTagUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="StartGame\UI\HeroChose\Views\HeroChoseUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="StartGame\UI\MapChose\Views\MapChosePage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="TopUp\UI\Views\TopUpUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Tutorial\UI\Views\TutorialUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EventCenter\UI\Main\Views\EventCenterMainUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

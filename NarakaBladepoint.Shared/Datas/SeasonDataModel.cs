@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NarakaBladepoint.Framework.Core.Extensions;
+﻿using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Shared.Enums;
-using Newtonsoft.Json;
 
 namespace NarakaBladepoint.Shared.Datas
 {

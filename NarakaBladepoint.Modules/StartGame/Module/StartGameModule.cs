@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels;
+using NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels;
 using NarakaBladepoint.Modules.StartGame.UI.StartGame.Views;
 
 namespace NarakaBladepoint.Modules.StartGame.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.StartGame.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<StartGameUserControl>();
-            containerRegistry.Register<StartGameUserControlViewModel>();
+            containerRegistry.Register<StartGamePage>();
+            containerRegistry.Register<StartGamePageViewModel>();
         }
     }
 }

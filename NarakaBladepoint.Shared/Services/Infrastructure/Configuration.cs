@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NarakaBladepoint.Shared.Datas;
-
-namespace NarakaBladepoint.Shared.Services.Infrastructure
+﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
     internal class Configuration : IConfiguration

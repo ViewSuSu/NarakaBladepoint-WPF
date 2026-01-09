@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels;
+using NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels;
 using NarakaBladepoint.Modules.StartGame.UI.HeroChose.Views;
 using NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels;
 using NarakaBladepoint.Modules.StartGame.UI.MapChose.Views;
@@ -14,13 +14,10 @@ namespace NarakaBladepoint.Modules.StartGame.Module
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<
-                ModeSelectionUserControl,
-                ModeSelectionUserControlViewModel
+                ModeSelectionPage,
+                ModeSelectionPageViewModel
             >();
-            containerRegistry.RegisterForNavigation<
-                HeroChoseUserControl,
-                HeroChoseUserControlViewModel
-            >();
+            containerRegistry.RegisterForNavigation<HeroChosePage, HeroChosePageViewModel>();
             containerRegistry.RegisterForNavigation<MapChosePage, MapChosePageViewModel>();
         }
     }

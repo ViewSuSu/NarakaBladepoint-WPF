@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NarakaBladepoint.Shared.Services.Abstractions
+﻿namespace NarakaBladepoint.Shared.Services.Abstractions
 {
     /// <summary>
     /// 地图服务接口

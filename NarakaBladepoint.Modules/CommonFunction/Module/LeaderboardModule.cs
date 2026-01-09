@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels;
+using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module
@@ -9,10 +9,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<
-                LeaderboardUserControl,
-                LeaderboardUserControlViewModel
-            >();
+            containerRegistry.RegisterForNavigation<LeaderboardPage, LeaderboardPageViewModel>();
         }
     }
 }

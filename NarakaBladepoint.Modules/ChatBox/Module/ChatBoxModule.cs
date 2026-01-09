@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.ChatBox.UI.ViewModels;
+using NarakaBladepoint.Modules.ChatBox.UI.ViewModels;
 using NarakaBladepoint.Modules.ChatBox.UI.Views;
 
 namespace NarakaBladepoint.Modules.ChatBox.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.ChatBox.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<ChatBoxUserControl>();
-            containerRegistry.RegisterSingleton<ChatBoxUserControlViewModel>();
+            containerRegistry.RegisterSingleton<ChatBoxPage>();
+            containerRegistry.RegisterSingleton<ChatBoxPageViewModel>();
         }
     }
 }

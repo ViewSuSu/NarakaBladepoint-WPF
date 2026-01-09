@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.Tutorial.UI.ViewModels;
+using NarakaBladepoint.Modules.Tutorial.UI.ViewModels;
 using NarakaBladepoint.Modules.Tutorial.UI.Views;
 
 namespace NarakaBladepoint.Modules.Tutorial.Module
@@ -9,10 +9,7 @@ namespace NarakaBladepoint.Modules.Tutorial.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<
-                TutorialUserControl,
-                TutorialUserControlViewModel
-            >();
+            containerRegistry.RegisterForNavigation<TutorialPage, TutorialPageViewModel>();
         }
     }
 }

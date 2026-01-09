@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converter="clr-namespace:NarakaBladepoint.Controls.Converters"
     xmlns:ei="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:converter="clr-namespace:NarakaBladepoint.Controls.Converters">
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converter:BoolInverterConverter x:Key="BoolInverterConverter" />
     <Style x:Key="LeftHeaderExpanderStyle" TargetType="Expander">

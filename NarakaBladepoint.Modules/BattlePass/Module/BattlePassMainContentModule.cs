@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.BattlePass.UI.BattlePassDetails.ViewModels;
+using NarakaBladepoint.Modules.BattlePass.UI.BattlePassDetails.ViewModels;
 using NarakaBladepoint.Modules.BattlePass.UI.BattlePassDetails.Views;
 
 namespace NarakaBladepoint.Modules.BattlePass.Module
@@ -10,8 +10,8 @@ namespace NarakaBladepoint.Modules.BattlePass.Module
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<
-                BattlePassMainContentUserControl,
-                BattlePassMainContentUserControlViewModel
+                BattlePassMainContentPage,
+                BattlePassMainContentPageViewModel
             >();
             containerRegistry.Register<TaskPage>();
             containerRegistry.Register<TaskPageViewModel>();

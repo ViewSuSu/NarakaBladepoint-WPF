@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
-using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Modules.StartGame.UI.MapChose.Models;
-using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
@@ -21,6 +13,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
         public BindingList<MapChoseItemModel> MapItems { get; }
 
         private ImageSource _currentGifImageSource;
+
         public ImageSource CurrentGifImageSource
         {
             get { return _currentGifImageSource; }
@@ -32,6 +25,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
         }
 
         private string descprition;
+
         public string Descprition
         {
             get { return descprition; }
@@ -84,8 +78,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
 
         private DelegateCommand _saveCommand;
 
-        public DelegateCommand SaveCommand =>
-            _saveCommand ??= new DelegateCommand(Save);
+        public DelegateCommand SaveCommand => _saveCommand ??= new DelegateCommand(Save);
 
         private DelegateCommand<bool?> _checkAllMapCommand;
 

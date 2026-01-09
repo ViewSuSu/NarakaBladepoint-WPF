@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels;
+using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module
@@ -9,10 +9,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<
-                CustomMatchUserControl,
-                CustomMatchUserControlViewModel
-            >();
+            containerRegistry.RegisterForNavigation<CustomMatchPage, CustomMatchPageViewModel>();
         }
     }
 }

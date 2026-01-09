@@ -56,7 +56,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public DelegateCommand EscCommand =>
             _escCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<RemovePersonalInformationDetailMainContentEvents>()
+                eventAggregator
+                    .GetEvent<RemovePersonalInformationDetailMainContentEvents>()
                     .Publish();
             });
 

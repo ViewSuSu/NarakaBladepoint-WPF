@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.DayEvent.UI.ViewModels;
+using NarakaBladepoint.Modules.DayEvent.UI.ViewModels;
 using NarakaBladepoint.Modules.DayEvent.UI.Views;
 
 namespace NarakaBladepoint.Modules.DayEvent.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.DayEvent.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<DayEventUserControl>();
-            containerRegistry.Register<DayEventUserControlViewModel>();
+            containerRegistry.Register<DayEventPage>();
+            containerRegistry.Register<DayEventPageViewModel>();
         }
     }
 }

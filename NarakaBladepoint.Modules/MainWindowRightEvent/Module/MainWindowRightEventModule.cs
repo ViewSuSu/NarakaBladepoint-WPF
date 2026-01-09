@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.MainWindowRightEvent.UI.ViewModels;
+using NarakaBladepoint.Modules.MainWindowRightEvent.UI.ViewModels;
 using NarakaBladepoint.Modules.MainWindowRightEvent.UI.Views;
 
 namespace NarakaBladepoint.Modules.MainWindowRightEvent.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.MainWindowRightEvent.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<MainWindowRightEventUserControl>();
-            containerRegistry.Register<MainWindowRightEventUserControlViewModel>();
+            containerRegistry.Register<MainWindowRightEventPage>();
+            containerRegistry.Register<MainWindowRightEventPageViewModel>();
         }
     }
 }

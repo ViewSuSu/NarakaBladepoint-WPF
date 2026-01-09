@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Shared.Datas;
+﻿using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModels

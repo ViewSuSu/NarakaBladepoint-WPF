@@ -29,6 +29,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         }
 
         private ObservableCollection<HeroTagModel> selectedHeroTagModels;
+
         public ObservableCollection<HeroTagModel> SelectedHeroTagModels
         {
             get { return selectedHeroTagModels; }

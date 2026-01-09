@@ -1,0 +1,14 @@
+<bases:UserControlBase
+    x:Class="NarakaBladepoint.Modules.Social.UI.Music.Views.MusicPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Music.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MusicPageViewModel}"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    mc:Ignorable="d">
+    <Grid />
+</bases:UserControlBase>

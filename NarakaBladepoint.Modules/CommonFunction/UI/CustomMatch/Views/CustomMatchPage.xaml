@@ -1,0 +1,24 @@
+<base:UserControlBase
+    x:Class="NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views.CustomMatchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
+    xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Social.ViewModels"
+    xmlns:viewmodels1="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels"
+    attach:EscKeyAttachedProperty.Command="{Binding ReturnCommand}"
+    d:DataContext="{d:DesignInstance Type=viewmodels1:CustomMatchPageViewModel}"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    mc:Ignorable="d">
+    <Grid>
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
+    </Grid>
+</base:UserControlBase>

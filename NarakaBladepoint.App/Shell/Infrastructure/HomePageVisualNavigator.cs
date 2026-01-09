@@ -1,8 +1,5 @@
-﻿using System;
-using System.Linq;
-using NarakaBladepoint.Framework.Core.Attrbuites;
+﻿using NarakaBladepoint.Framework.Core.Attrbuites;
 using NarakaBladepoint.Shared.Consts;
-using Prism.Navigation.Regions;
 
 namespace NarakaBladepoint.App.Shell.Infrastructure
 {

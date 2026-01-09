@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels;
+using NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<CommonFunctionUserControl>();
-            containerRegistry.Register<CommonFunctionUserControlViewModel>();
+            containerRegistry.Register<CommonFunctionPage>();
+            containerRegistry.Register<CommonFunctionPageViewModel>();
         }
     }
 }

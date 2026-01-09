@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.EventCenter.UI.BaiZeCard.ViewModels;
+using NarakaBladepoint.Modules.EventCenter.UI.BaiZeCard.ViewModels;
 using NarakaBladepoint.Modules.EventCenter.UI.BaiZeCard.Views;
 using NarakaBladepoint.Modules.EventCenter.UI.BindReward.ViewModels;
 using NarakaBladepoint.Modules.EventCenter.UI.BindReward.Views;
@@ -30,8 +30,8 @@ namespace NarakaBladepoint.Modules.EventCenter.Module
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<
-                EventCenterMainUserControl,
-                EventCenterMainUserControlViewModel
+                EventCenterMainPage,
+                EventCenterMainPageViewModel
             >();
             containerRegistry.RegisterForNavigation<LatestNewsPage, LatestNewsPageViewModel>();
             containerRegistry.RegisterForNavigation<PatchNotePage, PatchNotePageViewModel>();

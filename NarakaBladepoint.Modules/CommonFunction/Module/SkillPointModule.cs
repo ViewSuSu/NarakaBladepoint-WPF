@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels;
+using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module
@@ -9,10 +9,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<
-                SkillPointUserControl,
-                SkillPointUserControlViewModel
-            >();
+            containerRegistry.RegisterForNavigation<SkillPointPage, SkillPointPageViewModel>();
         }
     }
 }

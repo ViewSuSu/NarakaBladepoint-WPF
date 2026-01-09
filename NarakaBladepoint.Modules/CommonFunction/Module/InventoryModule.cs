@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels;
+using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module
@@ -9,10 +9,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<
-                InventoryUserControl,
-                InventoryUserControlViewModel
-            >();
+            containerRegistry.RegisterForNavigation<InventoryPage, InventoryPageViewModel>();
         }
     }
 }

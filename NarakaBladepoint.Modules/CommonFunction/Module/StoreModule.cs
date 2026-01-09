@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels;
+using NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.Store.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module
@@ -9,7 +9,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<StoreUserControl, StoreUserControlViewModel>();
+            containerRegistry.RegisterForNavigation<StorePage, StorePageViewModel>();
         }
     }
 }

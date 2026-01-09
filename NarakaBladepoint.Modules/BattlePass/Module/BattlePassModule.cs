@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels;
+using NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels;
 using NarakaBladepoint.Modules.BattlePass.UI.BattlePass.Views;
 
 namespace NarakaBladepoint.Modules.BattlePass.Module
@@ -9,8 +9,8 @@ namespace NarakaBladepoint.Modules.BattlePass.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<BattlePassUserControl>();
-            containerRegistry.Register<BattlePassUserControlViewModel>();
+            containerRegistry.Register<BattlePassPage>();
+            containerRegistry.Register<BattlePassPageViewModel>();
         }
     }
 }

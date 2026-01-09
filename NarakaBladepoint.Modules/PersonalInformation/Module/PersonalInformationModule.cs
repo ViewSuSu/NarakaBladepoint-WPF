@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.PersonalInformation.UI.AvatarFrame.ViewModels;
+using NarakaBladepoint.Modules.PersonalInformation.UI.AvatarFrame.ViewModels;
 using NarakaBladepoint.Modules.PersonalInformation.UI.AvatarFrame.Views;
 using NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.ViewModels;
 using NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.Views;
@@ -31,11 +31,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<PersonalInformationUserControl>();
-            containerRegistry.Register<PersonalInformationUserControlViewModel>();
+            containerRegistry.Register<PersonalInformationPage>();
+            containerRegistry.Register<PersonalInformationPageViewModel>();
             containerRegistry.RegisterForNavigation<
-                PersonalInformationDetailMainContentUserControl,
-                PersonalInformationDetailMainContentUserControlViewModel
+                PersonalInformationDetailMainContentPage,
+                PersonalInformationDetailMainContentPageViewModel
             >();
 
             containerRegistry.RegisterForNavigation<HeroDataPage, HeroDataPageViewModel>();
