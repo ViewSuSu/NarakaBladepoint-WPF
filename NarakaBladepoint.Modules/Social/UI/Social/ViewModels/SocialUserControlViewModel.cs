@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.Social.UI.Email.Views;
+using NarakaBladepoint.Modules.Social.UI.Email.Views;
 using NarakaBladepoint.Modules.Social.UI.Friend.UI.Views;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
 using NarakaBladepoint.Modules.Tutorial.UI.Views;
@@ -10,42 +10,51 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
         public SocialUserControlViewModel(IContainerProvider containerProvider)
             : base(containerProvider)
         {
-            NavigateToMusicCommand = new DelegateCommand(() =>
+        }
+
+        private DelegateCommand _navigateToMusicCommand;
+        public DelegateCommand NavigateToMusicCommand =>
+            _navigateToMusicCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(TutorialUserControl));
             });
-            NavigateToTutorialCommand = new DelegateCommand(() =>
+
+        private DelegateCommand _navigateToTutorialCommand;
+        public DelegateCommand NavigateToTutorialCommand =>
+            _navigateToTutorialCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(TutorialUserControl));
             });
-            NavigateToEmailCommand = new DelegateCommand(() =>
+
+        private DelegateCommand _navigateToEmailCommand;
+        public DelegateCommand NavigateToEmailCommand =>
+            _navigateToEmailCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(EmailUserControl));
             });
-            NavigateToSettingCommand = new DelegateCommand(() =>
+
+        private DelegateCommand _navigateToSettingCommand;
+        public DelegateCommand NavigateToSettingCommand =>
+            _navigateToSettingCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(SettingUserControl));
             });
-            NavigateToFrendListCommand = new DelegateCommand(() =>
+
+        private DelegateCommand _navigateToFrendListCommand;
+        public DelegateCommand NavigateToFrendListCommand =>
+            _navigateToFrendListCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(FriendUserControl));
             });
-        }
-
-        public DelegateCommand NavigateToMusicCommand { get; }
-        public DelegateCommand NavigateToTutorialCommand { get; }
-        public DelegateCommand NavigateToEmailCommand { get; }
-        public DelegateCommand NavigateToFrendListCommand { get; }
-        public DelegateCommand NavigateToSettingCommand { get; }
     }
 }

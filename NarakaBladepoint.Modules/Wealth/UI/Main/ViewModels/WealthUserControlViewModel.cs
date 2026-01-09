@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.TopUp.UI.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Views;
 using NarakaBladepoint.Modules.Wealth.UI.Main.Models;
 
 namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
@@ -15,16 +15,17 @@ namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
                 HuanSi = 108520,
             };
 
-        public WealthUserControlViewModel(IEventAggregator eventAggregator)
-        {
-            this.eventAggregator = eventAggregator;
-            NavigateToTopUpCommand = new DelegateCommand(() =>
+        private DelegateCommand _navigateToTopUpCommand;
+        public DelegateCommand NavigateToTopUpCommand =>
+            _navigateToTopUpCommand ??= new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(TopUpUserControl));
             });
-        }
 
-        public DelegateCommand NavigateToTopUpCommand { get; set; }
+        public WealthUserControlViewModel(IEventAggregator eventAggregator)
+        {
+            this.eventAggregator = eventAggregator;
+        }
     }
 }

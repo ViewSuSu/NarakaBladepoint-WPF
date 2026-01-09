@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Models;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels
@@ -7,12 +7,13 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels
     {
         public BindingList<InventoryItemModel> InventoryItemModels { get; set; } = [];
 
-        public InventoryUserControlViewModel(IContainerProvider containerProvider)
-            : base(containerProvider)
-        {
-            ClickItemComamnd = new DelegateCommand(() => { });
-        }
+        private DelegateCommand _clickItemComamnd;
+    public DelegateCommand ClickItemComamnd =>
+        _clickItemComamnd ??= new DelegateCommand(() => { });
 
-        public DelegateCommand ClickItemComamnd { get; set; }
+    public InventoryUserControlViewModel(IContainerProvider containerProvider)
+        : base(containerProvider)
+    {
+    }
     }
 }

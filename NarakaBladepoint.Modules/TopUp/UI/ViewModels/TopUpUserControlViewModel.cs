@@ -1,18 +1,19 @@
-﻿namespace NarakaBladepoint.Modules.TopUp.UI.ViewModels
+namespace NarakaBladepoint.Modules.TopUp.UI.ViewModels
 {
     internal class TopUpUserControlViewModel
     {
         private readonly IEventAggregator eventAggregator;
 
-        public TopUpUserControlViewModel(IEventAggregator eventAggregator)
-        {
-            this.eventAggregator = eventAggregator;
-            ReturnCommand = new DelegateCommand(() =>
+        private DelegateCommand _returnCommand;
+        public DelegateCommand ReturnCommand =>
+            _returnCommand ??= new DelegateCommand(() =>
             {
                 this.eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
             });
-        }
 
-        public DelegateCommand ReturnCommand { get; set; }
+        public TopUpUserControlViewModel(IEventAggregator eventAggregator)
+        {
+            this.eventAggregator = eventAggregator;
+        }
     }
 }

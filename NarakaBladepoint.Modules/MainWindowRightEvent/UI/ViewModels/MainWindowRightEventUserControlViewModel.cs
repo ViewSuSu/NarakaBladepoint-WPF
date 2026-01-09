@@ -1,17 +1,22 @@
-﻿namespace NarakaBladepoint.Modules.MainWindowRightEvent.UI.ViewModels
+namespace NarakaBladepoint.Modules.MainWindowRightEvent.UI.ViewModels
 {
     internal class MainWindowRightEventUserControlViewModel : ViewModelBase
     {
         public MainWindowRightEventUserControlViewModel(IContainerProvider containerProvider)
             : base(containerProvider)
         {
-            EventOneCommand = new DelegateCommand(() => { });
-            EventFourCommand = new DelegateCommand(() => { });
-            EventEightCommand = new DelegateCommand(() => { });
         }
 
-        public DelegateCommand EventOneCommand { get; set; }
-        public DelegateCommand EventFourCommand { get; set; }
-        public DelegateCommand EventEightCommand { get; set; }
+        private DelegateCommand _eventOneCommand;
+        public DelegateCommand EventOneCommand =>
+            _eventOneCommand ??= new DelegateCommand(() => { });
+
+        private DelegateCommand _eventFourCommand;
+        public DelegateCommand EventFourCommand =>
+            _eventFourCommand ??= new DelegateCommand(() => { });
+
+        private DelegateCommand _eventEightCommand;
+        public DelegateCommand EventEightCommand =>
+            _eventEightCommand ??= new DelegateCommand(() => { });
     }
 }

@@ -48,12 +48,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         {
             this.currentUserBasicInformation = currentUserBasicInformation;
             this.heroInfomation = heroInfomation;
-            HeroTagCommand = new DelegateCommand(() =>
-            {
-                eventAggregator
-                    .GetEvent<LoadPersonalInformationDetailMainContentEvents>()
-                    .Publish(nameof(HeroTagPage));
-            });
             PersonalSeasonDataModels = currentUserBasicInformation
                 .GetPersonalSeasonsAsync()
                 .Result.ConvertToList<PersonalInformationDetailModel>();
@@ -75,6 +69,14 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             }
         }
 
-        public DelegateCommand HeroTagCommand { get; set; }
+        private DelegateCommand _heroTagCommand;
+
+        public DelegateCommand HeroTagCommand =>
+            _heroTagCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator
+                    .GetEvent<LoadPersonalInformationDetailMainContentEvents>()
+                    .Publish(nameof(HeroTagPage));
+            });
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -66,30 +66,6 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
             {
                 RaisePropertyChanged(nameof(SelectedCount));
             };
-            SaveCommand = new DelegateCommand(Save);
-            CheckAllMapCommand = new DelegateCommand<bool?>(
-                (isCheckAll) =>
-                {
-                    foreach (var item in MapItems)
-                    {
-                        item.IsSelected = true;
-                    }
-                }
-            );
-            UnCheckAllMapCommand = new DelegateCommand<bool?>(
-                (isCheckAll) =>
-                {
-                    foreach (var item in MapItems)
-                    {
-                        item.IsSelected = false;
-                    }
-                }
-            );
-            ClickMapCommand = new DelegateCommand<MapChoseItemModel>(item =>
-            {
-                CurrentGifImageSource = item.MapItemData.MapGif;
-                Descprition = item.MapItemData.Description;
-            });
             ClickMapCommand.Execute(MapItems.First());
         }
 
@@ -105,9 +81,45 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
         }
 
         public bool TimeoutDefaultAllMap { get; set; }
-        public DelegateCommand SaveCommand { get; set; }
-        public DelegateCommand<bool?> CheckAllMapCommand { get; set; }
-        public DelegateCommand<bool?> UnCheckAllMapCommand { get; set; }
-        public DelegateCommand<MapChoseItemModel> ClickMapCommand { get; set; }
+
+        private DelegateCommand _saveCommand;
+
+        public DelegateCommand SaveCommand =>
+            _saveCommand ??= new DelegateCommand(Save);
+
+        private DelegateCommand<bool?> _checkAllMapCommand;
+
+        public DelegateCommand<bool?> CheckAllMapCommand =>
+            _checkAllMapCommand ??= new DelegateCommand<bool?>(
+                (isCheckAll) =>
+                {
+                    foreach (var item in MapItems)
+                    {
+                        item.IsSelected = true;
+                    }
+                }
+            );
+
+        private DelegateCommand<bool?> _unCheckAllMapCommand;
+
+        public DelegateCommand<bool?> UnCheckAllMapCommand =>
+            _unCheckAllMapCommand ??= new DelegateCommand<bool?>(
+                (isCheckAll) =>
+                {
+                    foreach (var item in MapItems)
+                    {
+                        item.IsSelected = false;
+                    }
+                }
+            );
+
+        private DelegateCommand<MapChoseItemModel> _clickMapCommand;
+
+        public DelegateCommand<MapChoseItemModel> ClickMapCommand =>
+            _clickMapCommand ??= new DelegateCommand<MapChoseItemModel>(item =>
+            {
+                CurrentGifImageSource = item.MapItemData.MapGif;
+                Descprition = item.MapItemData.Description;
+            });
     }
 }

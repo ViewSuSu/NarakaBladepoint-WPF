@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.EventCenter.UI.Main.Views;
+using NarakaBladepoint.Modules.EventCenter.UI.Main.Views;
 using NarakaBladepoint.Modules.StartGame.UI.ModeSelection.Views;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
@@ -10,19 +10,22 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
         public StartGameUserControlViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-            NavigateToEventCenterMainCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(nameof(EventCenterMainUserControl));
-            });
-            NavigateToModelSelectionCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(nameof(ModeSelectionUserControl));
-            });
         }
 
-        public DelegateCommand NavigateToEventCenterMainCommand { get; set; }
-        public DelegateCommand NavigateToModelSelectionCommand { get; set; }
+        private DelegateCommand _navigateToEventCenterMainCommand;
+        public DelegateCommand NavigateToEventCenterMainCommand =>
+            _navigateToEventCenterMainCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(EventCenterMainUserControl));
+            });
+
+        private DelegateCommand _navigateToModelSelectionCommand;
+        public DelegateCommand NavigateToModelSelectionCommand =>
+            _navigateToModelSelectionCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(nameof(ModeSelectionUserControl));
+            });
     }
 }

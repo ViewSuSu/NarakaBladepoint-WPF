@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.Tutorial.UI.Views;
+using NarakaBladepoint.Modules.Tutorial.UI.Views;
 
 namespace NarakaBladepoint.Modules.Social.UI.Setting.ViewModels
 {
@@ -7,18 +7,21 @@ namespace NarakaBladepoint.Modules.Social.UI.Setting.ViewModels
         public SettingUserControlViewModel(IContainerProvider containerProvider)
             : base(containerProvider)
         {
-            NavigateToTutorialCommand = new DelegateCommand(() =>
+        }
+
+        private DelegateCommand _navigateToTutorialCommand;
+        public DelegateCommand NavigateToTutorialCommand =>
+            _navigateToTutorialCommand ??= new DelegateCommand(() =>
             {
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                     .Publish(nameof(TutorialUserControl));
             });
-            ExitCommand = new DelegateCommand(() =>
+
+        private DelegateCommand _exitCommand;
+        public DelegateCommand ExitCommand =>
+            _exitCommand ??= new DelegateCommand(() =>
             {
                 System.Windows.Application.Current.Shutdown();
             });
-        }
-
-        public DelegateCommand NavigateToTutorialCommand { get; set; }
-        public DelegateCommand ExitCommand { get; set; }
     }
 }

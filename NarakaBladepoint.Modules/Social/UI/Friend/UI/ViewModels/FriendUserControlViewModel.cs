@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
@@ -27,29 +27,40 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         {
             this.currentUserInformationProvider = currentUserInformationProvider;
             Friends = currentUserInformationProvider.GetFriendsAsync().Result;
-
-            CloseCommand = new DelegateCommand(() =>
-            {
-                eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
-            });
             this.CurrentUserInfoModel = currentUserInformationProvider
                 .GetCurrentUserInfoAsync()
                 .Result;
-            SettingTagCommand = new DelegateCommand(() =>
+        }
+
+        public UserInformationData CurrentUserInfoModel { get; }
+
+        private DelegateCommand _closeCommand;
+
+        public DelegateCommand CloseCommand =>
+            _closeCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
+            });
+
+        private DelegateCommand _settingTagCommand;
+
+        public DelegateCommand SettingTagCommand =>
+            _settingTagCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish("!23");
             });
-            SearchCommand = new DelegateCommand<string>(keyword =>
-            {
-                Friends = this.currentUserInformationProvider.GetFriendsAsync(keyword).Result;
-            });
-            SayHelloCommand = new DelegateCommand(() => { });
-        }
 
-        public DelegateCommand CloseCommand { get; }
-        public UserInformationData CurrentUserInfoModel { get; }
-        public DelegateCommand SettingTagCommand { get; }
-        public DelegateCommand SayHelloCommand { get; }
-        public DelegateCommand<string> SearchCommand { get; }
+        private DelegateCommand _sayHelloCommand;
+
+        public DelegateCommand SayHelloCommand =>
+            _sayHelloCommand ??= new DelegateCommand(() => { });
+
+        private DelegateCommand<string> _searchCommand;
+
+        public DelegateCommand<string> SearchCommand =>
+            _searchCommand ??= new DelegateCommand<string>(keyword =>
+            {
+                Friends = currentUserInformationProvider.GetFriendsAsync(keyword).Result;
+            });
     }
 }

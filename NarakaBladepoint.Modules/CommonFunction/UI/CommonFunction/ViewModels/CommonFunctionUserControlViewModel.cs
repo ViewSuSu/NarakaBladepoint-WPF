@@ -1,4 +1,4 @@
-﻿using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
+using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Hero.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
@@ -12,48 +12,61 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public CommonFunctionUserControlViewModel(IContainerProvider containerProvider)
             : base(containerProvider)
         {
-            NavigateToHeroCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(HeroListPage));
-            });
-            NavigateToHallCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
-            });
-            SkillPointCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(SkillPointUserControl));
-            });
-            LeaderboardCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(LeaderboardUserControl));
-            });
-            NavigateToInventoryCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(InventoryUserControl));
-            });
-            StoreCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(StoreUserControl));
-            });
-            CustomMatchCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(CustomMatchUserControl));
-            });
         }
 
-        public DelegateCommand NavigateToHeroCommand { get; }
-        public DelegateCommand NavigateToHallCommand { get; }
-        public DelegateCommand SkillPointCommand { get; }
-        public DelegateCommand LeaderboardCommand { get; }
-        public DelegateCommand NavigateToInventoryCommand { get; }
-        public DelegateCommand StoreCommand { get; }
-        public DelegateCommand CustomMatchCommand { get; }
+        private DelegateCommand _navigateToHeroCommand;
+        public DelegateCommand NavigateToHeroCommand =>
+            _navigateToHeroCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(nameof(HeroListPage));
+            });
+
+        private DelegateCommand _navigateToHallCommand;
+        public DelegateCommand NavigateToHallCommand =>
+            _navigateToHallCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
+            });
+
+        private DelegateCommand _skillPointCommand;
+        public DelegateCommand SkillPointCommand =>
+            _skillPointCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(nameof(SkillPointUserControl));
+            });
+
+        private DelegateCommand _leaderboardCommand;
+        public DelegateCommand LeaderboardCommand =>
+            _leaderboardCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(nameof(LeaderboardUserControl));
+            });
+
+        private DelegateCommand _navigateToInventoryCommand;
+        public DelegateCommand NavigateToInventoryCommand =>
+            _navigateToInventoryCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(nameof(InventoryUserControl));
+            });
+
+        private DelegateCommand _storeCommand;
+        public DelegateCommand StoreCommand =>
+            _storeCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(nameof(StoreUserControl));
+            });
+
+        private DelegateCommand _customMatchCommand;
+        public DelegateCommand CustomMatchCommand =>
+            _customMatchCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(nameof(CustomMatchUserControl));
+            });
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Windows.Media;
+using System.Windows.Media;
 using NarakaBladepoint.Modules.StartGame.UI.HeroChose.Models;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
@@ -84,39 +84,6 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             this.heroInfomation = heroInfomation;
             this.currentUserInformationProvider = currentUserInformationProvider;
             this.configuration = configuration;
-
-            RemoveFirstHeroCommand = new DelegateCommand(() =>
-            {
-                if (FirstHeroIndex != -1)
-                    HeroChoseModuleItemModels[FirstHeroIndex].IsSelected = false;
-                FirstHeroIndex = -1;
-            });
-            RemoveSecondHeroCommand = new DelegateCommand(() =>
-            {
-                if (SecondHeroIndex != -1)
-                    HeroChoseModuleItemModels[SecondHeroIndex].IsSelected = false;
-                SecondHeroIndex = -1;
-            });
-            RemoveThirdHeroCommand = new DelegateCommand(() =>
-            {
-                if (ThirdHeroIndex != -1)
-                    HeroChoseModuleItemModels[ThirdHeroIndex].IsSelected = false;
-                ThirdHeroIndex = -1;
-            });
-            SaveCommand = new DelegateCommand(() =>
-            {
-                var reuslt = Save().Result;
-                if (reuslt)
-                {
-                    ReturnCommand.Execute();
-                }
-                else
-                {
-                    throw new Exception("保存失败！");
-                }
-            });
-            ClearCommand = new DelegateCommand(Clear);
-            SelectedHeroCommand = new DelegateCommand<HeroChoseModuleItemModel>(SelectedHero);
         }
 
         private void SelectedHero(HeroChoseModuleItemModel selectedModel)
@@ -144,12 +111,61 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             RemoveThirdHeroCommand.Execute();
         }
 
-        public DelegateCommand RemoveFirstHeroCommand { get; }
-        public DelegateCommand RemoveSecondHeroCommand { get; }
-        public DelegateCommand RemoveThirdHeroCommand { get; }
-        public DelegateCommand SaveCommand { get; }
-        public DelegateCommand ClearCommand { get; }
-        public DelegateCommand<HeroChoseModuleItemModel> SelectedHeroCommand { get; }
+        private DelegateCommand _removeFirstHeroCommand;
+
+        public DelegateCommand RemoveFirstHeroCommand =>
+            _removeFirstHeroCommand ??= new DelegateCommand(() =>
+            {
+                if (FirstHeroIndex != -1)
+                    HeroChoseModuleItemModels[FirstHeroIndex].IsSelected = false;
+                FirstHeroIndex = -1;
+            });
+
+        private DelegateCommand _removeSecondHeroCommand;
+
+        public DelegateCommand RemoveSecondHeroCommand =>
+            _removeSecondHeroCommand ??= new DelegateCommand(() =>
+            {
+                if (SecondHeroIndex != -1)
+                    HeroChoseModuleItemModels[SecondHeroIndex].IsSelected = false;
+                SecondHeroIndex = -1;
+            });
+
+        private DelegateCommand _removeThirdHeroCommand;
+
+        public DelegateCommand RemoveThirdHeroCommand =>
+            _removeThirdHeroCommand ??= new DelegateCommand(() =>
+            {
+                if (ThirdHeroIndex != -1)
+                    HeroChoseModuleItemModels[ThirdHeroIndex].IsSelected = false;
+                ThirdHeroIndex = -1;
+            });
+
+        private DelegateCommand _saveCommand;
+
+        public DelegateCommand SaveCommand =>
+            _saveCommand ??= new DelegateCommand(() =>
+            {
+                var reuslt = Save().Result;
+                if (reuslt)
+                {
+                    ReturnCommand.Execute();
+                }
+                else
+                {
+                    throw new Exception("保存失败！");
+                }
+            });
+
+        private DelegateCommand _clearCommand;
+
+        public DelegateCommand ClearCommand =>
+            _clearCommand ??= new DelegateCommand(Clear);
+
+        private DelegateCommand<HeroChoseModuleItemModel> _selectedHeroCommand;
+
+        public DelegateCommand<HeroChoseModuleItemModel> SelectedHeroCommand =>
+            _selectedHeroCommand ??= new DelegateCommand<HeroChoseModuleItemModel>(SelectedHero);
 
         protected override async void OnNavigatedToExecute(NavigationContext navigationContext)
         {

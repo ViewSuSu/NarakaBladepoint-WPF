@@ -10,10 +10,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         )
             : base(containerProvider)
         {
-            ReturnCommand = new DelegateCommand(() =>
-            {
-                this.eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
-            });
             this.eventAggregator.GetEvent<LoadPersonalInformationDetailMainContentEvents>()
                 .Subscribe(
                     (viewName) =>
@@ -38,6 +34,12 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
                 );
         }
 
-        public DelegateCommand ReturnCommand { get; }
+        private DelegateCommand _returnCommand;
+
+        public DelegateCommand ReturnCommand =>
+            _returnCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator.GetEvent<RemoveHomePageRegionEvent>().Publish();
+            });
     }
 }
