@@ -1,5 +1,6 @@
 ﻿using System.Windows.Media;
 using NarakaBladepoint.Resources;
+using Newtonsoft.Json;
 
 namespace NarakaBladepoint.Shared.Datas
 {
@@ -23,6 +24,7 @@ namespace NarakaBladepoint.Shared.Datas
         /// <summary>
         /// 头像
         /// </summary>
+        [JsonIgnore]
         public ImageSource Avatar => ResourceImageReader.GetAvatarImage(AvatarIndex);
 
         /// <summary>

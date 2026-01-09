@@ -15,7 +15,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
 
         public int SelectedCount => ItemModels.Count(x => x.IsSelected);
 
-        public int TotalCount => 10;
+        public static int TotalCount => 10;
 
         public bool IsOutRange => SelectedCount < TotalCount;
 
