@@ -24,5 +24,20 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.Views
         {
             InitializeComponent();
         }
+
+        public double ContentFontSize
+        {
+            get { return (double)GetValue(ContentFontSizeProperty); }
+            set { SetValue(ContentFontSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ContentFontSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ContentFontSizeProperty =
+            DependencyProperty.Register(
+                nameof(ContentFontSize),
+                typeof(double),
+                typeof(TagUserControl),
+                new PropertyMetadata(Convert.ToDouble(12))
+            );
     }
 }

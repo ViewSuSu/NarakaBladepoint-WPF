@@ -8,6 +8,7 @@
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tagUsercontrol="clr-namespace:NarakaBladepoint.Modules.SocialTag.UI.Views"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels"
     attach:EscKeyAttachedProperty.Command="{Binding CloseCommand}"
     d:Background="Gray"
@@ -38,10 +39,9 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.2*" />
-                        <RowDefinition Height="0.1*" />
-                        <RowDefinition Height="0.1*" />
+                        <RowDefinition Height="0.08*" />
+                        <RowDefinition Height="0.08*" />
                         <RowDefinition />
-                        <RowDefinition Height="0.1*" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
@@ -91,7 +91,8 @@
                         Grid.Row="1"
                         Margin="0,5"
                         BorderBrush="White"
-                        BorderThickness="0.2">
+                        BorderThickness="0.2"
+                        Visibility="{Binding IsHaveVilidTag, Mode=OneTime, Converter={StaticResource InverseBoolToVisibilityConverter}}">
                         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                             <Image
                                 Width="20"
@@ -110,6 +111,34 @@
                             </b:EventTrigger>
                         </b:Interaction.Triggers>
                     </controls:HighlightBorder>
+                    <Grid
+                        Grid.Row="1"
+                        Margin="0,5"
+                        Visibility="{Binding IsHaveVilidTag, Mode=OneTime, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+                        <tagUsercontrol:TagUserControl
+                            Grid.Row="1"
+                            Margin="0,5"
+                            d:Visibility="Hidden"
+                            ContentFontSize="10" />
+                        <Image
+                            Grid.Column="1"
+                            Width="20"
+                            HorizontalAlignment="Right"
+                            d:Visibility="Hidden"
+                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png"
+                            Stretch="Uniform">
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                    <b:InvokeCommandAction Command="{Binding SettingTagCommand}" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Image>
+                    </Grid>
+
                     <Border
                         Grid.Row="2"
                         Margin="0,5"
@@ -127,22 +156,22 @@
                                 HorizontalAlignment="Left"
                                 Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/搜索放大镜.png"
                                 Stretch="Uniform" />
-                            <TextBox
+                            <controls:PlaceholderTextBox
                                 Name="SearchBox"
                                 Grid.Column="1"
                                 Height="{Binding RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=1, Mode=FindAncestor}, Path=ActualHeight}"
                                 VerticalContentAlignment="Center"
-                                attach:TextBoxHelper.Placeholder="输入玩家名或ID搜索或添加"
-                                attach:TextBoxHelper.PlaceholderBrush="#64FFFFFF"
                                 Background="Transparent"
                                 BorderThickness="0"
-                                Foreground="White">
+                                Foreground="White"
+                                Placeholder="输入玩家名或ID搜索或添加"
+                                PlaceholderForeground="#64FFFFFF">
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="TextChanged">
                                         <b:InvokeCommandAction Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=SearchBox, Path=Text}" />
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
-                            </TextBox>
+                            </controls:PlaceholderTextBox>
                             <Image
                                 Grid.Column="2"
                                 Width="20"

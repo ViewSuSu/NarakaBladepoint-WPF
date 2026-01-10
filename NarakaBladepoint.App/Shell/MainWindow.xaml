@@ -116,6 +116,10 @@
                 Grid.RowSpan="2"
                 Panel.ZIndex="4"
                 prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion3}" />
+            <ContentControl
+                Grid.RowSpan="2"
+                Panel.ZIndex="5"
+                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion4}" />
         </Grid>
     </Grid>
 </Window>

@@ -40,6 +40,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 d:Text="指挥家"
+                FontSize="{Binding ContentFontSize, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
                 Foreground="White"
                 Text="{Binding SelectedSocialTagOnlineModelContent, Mode=OneWay}" />
         </Grid>
@@ -66,6 +67,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             d:Text="指挥家"
+                            FontSize="{Binding ContentFontSize, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
                             Foreground="White"
                             Text="{Binding SocialTagData.Text, Mode=OneWay}" />
                     </Border>

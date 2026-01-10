@@ -18,6 +18,7 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
             GlobalConstant.HomePageRegion1,
             GlobalConstant.HomePageRegion2,
             GlobalConstant.HomePageRegion3,
+            GlobalConstant.HomePageRegion4,
         };
 
         /// <summary>

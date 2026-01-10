@@ -1,3 +1,4 @@
+using NarakaBladepoint.Modules.SocialTag.UI.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
@@ -18,6 +19,18 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             }
         }
 
+        private bool _isHaveVilidTag;
+
+        public bool IsHaveVilidTag
+        {
+            get { return _isHaveVilidTag; }
+            set
+            {
+                _isHaveVilidTag = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public FriendPageViewModel(
             IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInformationProvider
@@ -25,13 +38,24 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             : base(containerProvider)
         {
             this.currentUserInformationProvider = currentUserInformationProvider;
+            Init();
+        }
+
+        private void Init()
+        {
             Friends = currentUserInformationProvider.GetFriendsAsync().Result;
             this.CurrentUserInfoModel = currentUserInformationProvider
                 .GetCurrentUserInfoAsync()
                 .Result;
+            this.IsHaveVilidTag = CurrentUserInfoModel.IsExsitAnyValidSocialTag;
         }
 
-        public UserInformationData CurrentUserInfoModel { get; }
+        protected override void OnNavigatedToExecute(NavigationContext navigationContext)
+        {
+            Init();
+        }
+
+        public UserInformationData CurrentUserInfoModel { get; private set; }
 
         private DelegateCommand _closeCommand;
 
@@ -46,7 +70,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         public DelegateCommand SettingTagCommand =>
             _settingTagCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish("!23");
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(SocialTagPage));
             });
 
         private DelegateCommand _sayHelloCommand;
