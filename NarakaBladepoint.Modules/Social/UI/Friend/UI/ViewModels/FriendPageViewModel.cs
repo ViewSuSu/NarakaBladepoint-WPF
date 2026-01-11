@@ -4,7 +4,7 @@ using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
-    internal class FriendPageViewModel : ViewModelBase
+    internal class FriendPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
         private List<FriendDataItem> _friends = [];
         private readonly ICurrentUserInfoProvider currentUserInformationProvider;
@@ -70,6 +70,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         public DelegateCommand SettingTagCommand =>
             _settingTagCommand ??= new DelegateCommand(() =>
             {
+                ReturnCommand.Execute();
                 eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(SocialTagPage));
             });
 

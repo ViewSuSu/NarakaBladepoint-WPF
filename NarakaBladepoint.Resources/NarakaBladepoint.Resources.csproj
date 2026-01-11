@@ -96,6 +96,12 @@
 	  <None Remove="Image\Button\白泽百科.png" />
 	  <None Remove="Image\Button\赛事.png" />
 	  <None Remove="Image\Button\露华集市.png" />
+	  <None Remove="Image\Email\1.png" />
+	  <None Remove="Image\Email\2.png" />
+	  <None Remove="Image\Email\3.png" />
+	  <None Remove="Image\Email\4.png" />
+	  <None Remove="Image\Email\5.png" />
+	  <None Remove="Image\Email\Icon.png" />
 	  <None Remove="Image\friendInv.png" />
 	  <None Remove="Image\HeroData\1.png" />
 	  <None Remove="Image\HeroData\2.png" />
@@ -265,6 +271,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\Email\1.png" />
+	  <Resource Include="Image\Email\2.png" />
+	  <Resource Include="Image\Email\3.png" />
+	  <Resource Include="Image\Email\4.png" />
+	  <Resource Include="Image\Email\5.png" />
+	  <Resource Include="Image\Email\Icon.png" />
 	  <Resource Include="Image\SocialTag\background.png" />
 	  <Resource Include="Image\SocialTag\Icon1.png" />
 	  <Resource Include="Image\SocialTag\Icon2.png" />
