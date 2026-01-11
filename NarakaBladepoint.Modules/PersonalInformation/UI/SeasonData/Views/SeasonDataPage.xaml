@@ -1,9 +1,12 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.Views.SeasonDataPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:consts="clr-namespace:NarakaBladepoint.Shared.Consts;assembly=NarakaBladepoint.Shared"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,11 +16,73 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:TeamSizeToIndexConverter x:Key="TeamSizeToIndexConverter" />
+    </UserControl.Resources>
     <Grid Margin="30">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Margin="0,10"
+            HorizontalAlignment="Left"
+            Orientation="Horizontal">
+            <controls:AvatarControl
+                d:BackgroundImage="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                BackgroundImage="{Binding CurrentUserInfoModel.Avatar, Mode=OneWay}"
+                ImageStretch="Uniform" />
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                d:Text="野排牢张"
+                FontSize="20"
+                Foreground="White"
+                Text="{Binding CurrentUserInfoModel.Name}" />
+        </StackPanel>
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TabControl
+                Width="200"
+                d:SelectedIndex="2"
+                SelectedIndex="{Binding SelectedTeamSize, Mode=TwoWay, Converter={StaticResource TeamSizeToIndexConverter}}"
+                Style="{StaticResource AverageTabControlStyle}">
+                <TabItem
+                    Background="#1A000000"
+                    Header="{x:Static consts:TeamSizeConstant.Solo}"
+                    Style="{StaticResource FriendListTabItem}" />
+                <TabItem
+                    Background="#1A000000"
+                    Header="{x:Static consts:TeamSizeConstant.Duo}"
+                    Style="{StaticResource FriendListTabItem}" />
+                <TabItem
+                    Background="#1A000000"
+                    Header="{x:Static consts:TeamSizeConstant.Trio}"
+                    Style="{StaticResource FriendListTabItem}" />
+            </TabControl>
+            <controls:ToggleButtonComboBox
+                Grid.Row="0"
+                Width="100"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                d:SelectedIndex="0"
+                DisplayMemberPath="Key"
+                ItemsSource="{Binding GameModeItems}"
+                SelectedValue="{Binding SelectedGameMode, Mode=TwoWay}"
+                SelectedValuePath="Value" />
+            <controls:ToggleButtonComboBox
+                Grid.Row="0"
+                Width="100"
+                Margin="5,0"
+                HorizontalAlignment="Left"
+                d:SelectedIndex="0"
+                DisplayMemberPath="Season"
+                ItemsSource="{Binding SeasonDataModels}"
+                SelectedItem="{Binding SelectedSeasonDataModel}" />
+        </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.45*" />
@@ -47,7 +112,7 @@
                     VerticalAlignment="Top"
                     FontSize="30"
                     Foreground="White"
-                    Text="蚀月2" />
+                    Text="{Binding SeasonStatistics.CurrentSeasonRank}" />
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -68,7 +133,7 @@
                             FontSize="15"
                             FontWeight="Bold"
                             Foreground="White"
-                            Text="31" />
+                            Text="{Binding SeasonStatistics.TotalMatches}" />
                     </StackPanel>
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -80,7 +145,7 @@
                             FontSize="15"
                             FontWeight="Bold"
                             Foreground="White"
-                            Text="31" />
+                            Text="{Binding SeasonStatistics.ChampionCount}" />
                     </StackPanel>
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -92,7 +157,7 @@
                             FontSize="15"
                             FontWeight="Bold"
                             Foreground="White"
-                            Text="31" />
+                            Text="{Binding SeasonStatistics.TopFiveCount}" />
                     </StackPanel>
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -104,7 +169,7 @@
                             FontSize="15"
                             FontWeight="Bold"
                             Foreground="White"
-                            Text="31" />
+                            Text="{Binding SeasonStatistics.TotalDefeats}" />
                     </StackPanel>
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -116,7 +181,7 @@
                             FontSize="15"
                             FontWeight="Bold"
                             Foreground="White"
-                            Text="31" />
+                            Text="{Binding SeasonStatistics.TotalEliminations}" />
                     </StackPanel>
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -128,7 +193,7 @@
                             FontSize="15"
                             FontWeight="Bold"
                             Foreground="White"
-                            Text="31" />
+                            Text="{Binding SeasonStatistics.KillDeathRatio, StringFormat={}{0:#.##}}" />
                     </StackPanel>
                 </UniformGrid>
                 <UniformGrid Grid.Row="1" Columns="3">
@@ -145,7 +210,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.LongestSurvivalTime, StringFormat={}{0:hh\:mm}}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -155,7 +220,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.AverageSurvivalTime, StringFormat={}{0:hh\:mm}}" />
                             </StackPanel>
                         </UniformGrid>
                         <UniformGrid Columns="2">
@@ -167,7 +232,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.LongestDistance}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -177,7 +242,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.AverageDistance}" />
                             </StackPanel>
                         </UniformGrid>
                         <UniformGrid Columns="2">
@@ -189,7 +254,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.ChampionRate, StringFormat='{}{0:#.##}%'}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -199,7 +264,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.TopFiveRate, StringFormat='{}{0:#.##}%'}" />
                             </StackPanel>
                         </UniformGrid>
                     </UniformGrid>
@@ -216,7 +281,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.MaxKillsPerGame}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -226,7 +291,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.AverageKills, StringFormat={}{0:#.##}}" />
                             </StackPanel>
                         </UniformGrid>
                         <UniformGrid Columns="2">
@@ -238,7 +303,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.MaxDamagePerGame}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -248,7 +313,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.AverageDamage, StringFormat={}{0:#.##}}" />
                             </StackPanel>
                         </UniformGrid>
                         <UniformGrid Columns="2">
@@ -260,7 +325,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.MaxAssistsPerGame}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -270,7 +335,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.AverageAssists, StringFormat={}{0:#.##}}" />
                             </StackPanel>
                         </UniformGrid>
                     </UniformGrid>
@@ -287,7 +352,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.AverageHealing, StringFormat={}{0:#.##}}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -297,7 +362,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.TotalRescues}" />
                             </StackPanel>
                         </UniformGrid>
                         <UniformGrid Columns="2">
@@ -309,7 +374,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="24:22" />
+                                    Text="{Binding SeasonStatistics.DragonSlayerCount}" />
                             </StackPanel>
                             <StackPanel
                                 HorizontalAlignment="Center"
@@ -319,7 +384,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     Foreground="White"
-                                    Text="9:16" />
+                                    Text="{Binding SeasonStatistics.SkyArrowCount}" />
                             </StackPanel>
                         </UniformGrid>
                     </UniformGrid>
