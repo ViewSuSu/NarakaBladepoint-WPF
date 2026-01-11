@@ -6,6 +6,7 @@
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
     xmlns:consts="clr-namespace:NarakaBladepoint.Shared.Consts;assembly=NarakaBladepoint.Shared"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -14,6 +15,9 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:TeamSizeToIndexConverter x:Key="TeamSizeToIndexConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
@@ -52,7 +56,7 @@
                     <TabControl
                         Width="200"
                         d:SelectedIndex="2"
-                        SelectedIndex="{Binding SelectedTeamSize, Mode=TwoWay}"
+                        SelectedIndex="{Binding SelectedTeamSize, Mode=TwoWay, Converter={StaticResource TeamSizeToIndexConverter}}"
                         Style="{StaticResource AverageTabControlStyle}">
                         <TabItem
                             Background="#1A000000"
@@ -121,6 +125,7 @@
                         Background="Transparent"
                         BorderThickness="0"
                         ItemsSource="{Binding HeroDataList}"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
                         SelectedItem="{Binding SelectedHeroData, Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>

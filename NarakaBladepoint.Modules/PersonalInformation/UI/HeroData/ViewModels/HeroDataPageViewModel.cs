@@ -79,7 +79,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         }
 
         // 选中的排位模式
-        private TeamSize _selectedTeamSize;
+        private TeamSize _selectedTeamSize = TeamSize.Trio;
         public TeamSize SelectedTeamSize
         {
             get { return _selectedTeamSize; }
@@ -92,13 +92,16 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         }
 
         // 游戏模式列表
-        public List<KeyValuePair<string, GameMode>> GameModeItems { get; } = 
+        public List<KeyValuePair<string, GameMode>> GameModeItems { get; } =
             Enum.GetValues<GameMode>()
-                .Select(mode => new KeyValuePair<string, GameMode>(mode.GetDescription() ?? mode.ToString(), mode))
+                .Select(mode => new KeyValuePair<string, GameMode>(
+                    mode.GetDescription() ?? mode.ToString(),
+                    mode
+                ))
                 .ToList();
 
         // 选中的游戏模式
-        private GameMode _selectedGameMode;
+        private GameMode _selectedGameMode = GameMode.Ranked;
         public GameMode SelectedGameMode
         {
             get { return _selectedGameMode; }
@@ -111,9 +114,12 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         }
 
         // 英雄对比排序类型列表
-        public List<KeyValuePair<string, HeroCompareSortType>> HeroCompareSortTypeItems { get; } = 
+        public List<KeyValuePair<string, HeroCompareSortType>> HeroCompareSortTypeItems { get; } =
             Enum.GetValues<HeroCompareSortType>()
-                .Select(sortType => new KeyValuePair<string, HeroCompareSortType>(sortType.GetDescription() ?? sortType.ToString(), sortType))
+                .Select(sortType => new KeyValuePair<string, HeroCompareSortType>(
+                    sortType.GetDescription() ?? sortType.ToString(),
+                    sortType
+                ))
                 .ToList();
 
         // 选中的英雄对比排序类型
@@ -132,9 +138,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         // 加载英雄数据
         private void LoadHeroData()
         {
-            // 保存当前选中的英雄索引
-            int currentHeroIndex = SelectedHeroData?.HeroIndex ?? -1;
-
             // 使用选中的赛季类型，而不是固定的All
             var selectedSeasonType = SelectedSeasonDataModel?.SeasonType ?? SeasonType.All;
 
@@ -147,16 +150,14 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
                 .Select(data => data.ConvertTo<Shared.Datas.HeroDataModel, Models.HeroDataModel>())
                 .ToList();
 
+            SelectedHeroData = HeroDataList?.FirstOrDefault();
+            int currentHeroIndex = SelectedHeroData?.HeroIndex ?? -1;
+
             // 尝试找到与之前选中相同索引的英雄数据
             var matchedHeroData = HeroDataList.FirstOrDefault(h => h.HeroIndex == currentHeroIndex);
             if (matchedHeroData != null)
             {
                 SelectedHeroData = matchedHeroData;
-            }
-            else
-            {
-                // 当找不到匹配的英雄时，选择第一个英雄
-                SelectedHeroData = HeroDataList.FirstOrDefault();
             }
         }
     }
