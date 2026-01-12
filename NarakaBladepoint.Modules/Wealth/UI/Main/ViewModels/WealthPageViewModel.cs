@@ -23,7 +23,8 @@ namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
         public DelegateCommand NavigateToTopUpCommand =>
             _navigateToTopUpCommand ??= new DelegateCommand(() =>
             {
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(TopUpPage)));
+                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(TopUpPage)));
             });
     }
 }

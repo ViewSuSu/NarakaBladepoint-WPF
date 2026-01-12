@@ -51,7 +51,6 @@
                     Text="名片" />
                 <wealth:WealthPage
                     Grid.Column="1"
-                    Width="150"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top" />
             </Grid>
@@ -97,14 +96,14 @@
                     Style="{StaticResource CommonFunctionTabItem}">
                     <historyMatchRecord:HistoryMatchRecordPage />
                 </TabItem>
-                <!--<TabItem
+                <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="打赏记录"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <tippingRecordPage:TippingRecordPage  />
-                </TabItem>-->
+                    <tippingRecordPage:TippingRecordPage />
+                </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"

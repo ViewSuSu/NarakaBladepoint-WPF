@@ -35,7 +35,10 @@
                     FontSize="30"
                     Foreground="White"
                     Text="充值" />
-                <wealth:WealthPage Grid.Column="1" />
+                <wealth:WealthPage
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top" />
             </Grid>
             <TextBlock
                 Grid.Row="1"

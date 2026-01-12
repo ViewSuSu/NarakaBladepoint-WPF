@@ -2,6 +2,7 @@
 using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Views;
 using NarakaBladepoint.Shared.Consts;
 
 namespace NarakaBladepoint.App.Shell
@@ -23,6 +24,11 @@ namespace NarakaBladepoint.App.Shell
                 .Subscribe(
                     args =>
                     {
+                        if (!IsCanNavigate(args.ViewName))
+                        {
+                            return;
+                        }
+
                         this.homePageVisualNavigator.RequestNavigate(args.ViewName, args.Parameter);
                     },
                     ThreadOption.UIThread
@@ -38,6 +44,11 @@ namespace NarakaBladepoint.App.Shell
                 .Subscribe(
                     (args) =>
                     {
+                        if (!IsCanNavigate(args.ViewName))
+                        {
+                            return;
+                        }
+
                         if (args.Parameter != default)
                             this.regionManager.RequestNavigate(
                                 GlobalConstant.MainContentRegion,
@@ -61,6 +72,22 @@ namespace NarakaBladepoint.App.Shell
                     },
                     ThreadOption.UIThread
                 );
+        }
+
+        private bool IsCanNavigate(string viewName)
+        {
+            foreach (var region in regionManager.Regions)
+            {
+                foreach (var view in region.ActiveViews)
+                {
+                    if (view.GetType().Name == viewName)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         public DelegateCommand ExitGameCommand =>
