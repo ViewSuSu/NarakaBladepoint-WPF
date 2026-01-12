@@ -10,7 +10,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Models
     /// <summary>
     /// 英雄数据模型（用于UI绑定）
     /// </summary>
-    internal class HeroDataModel : BindableBase
+    internal class HeroDataItemModel : BindableBase
     {
         private int _heroIndex;
         private GameMode _gameMode;

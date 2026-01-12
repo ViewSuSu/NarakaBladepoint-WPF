@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using NarakaBladepoint.Shared.Enums;
 
-namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Converters
+namespace NarakaBladepoint.Modules.PersonalInformation.Domain.Converters
 {
     public class TeamSizeToIndexConverter : IValueConverter
     {

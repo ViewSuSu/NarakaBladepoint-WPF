@@ -55,8 +55,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         public UserInformationData CurrentUserInformationModel { get; }
 
         // 英雄数据列表
-        private List<Models.HeroDataModel> _heroDataList;
-        public List<Models.HeroDataModel> HeroDataList
+        private List<Models.HeroDataItemModel> _heroDataList;
+        public List<Models.HeroDataItemModel> HeroDataList
         {
             get { return _heroDataList; }
             set
@@ -67,8 +67,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         }
 
         // 选中的英雄数据
-        private Models.HeroDataModel _selectedHeroData;
-        public Models.HeroDataModel SelectedHeroData
+        private Models.HeroDataItemModel _selectedHeroData;
+        public Models.HeroDataItemModel SelectedHeroData
         {
             get { return _selectedHeroData; }
             set
@@ -147,7 +147,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 
             // 将共享数据模型转换为UI模型
             HeroDataList = sharedHeroDataList
-                .Select(data => data.ConvertTo<Shared.Datas.HeroDataModel, Models.HeroDataModel>())
+                .Select(data =>
+                    data.ConvertTo<Shared.Datas.HeroDataModel, Models.HeroDataItemModel>()
+                )
                 .ToList();
 
             SelectedHeroData = HeroDataList?.FirstOrDefault();
