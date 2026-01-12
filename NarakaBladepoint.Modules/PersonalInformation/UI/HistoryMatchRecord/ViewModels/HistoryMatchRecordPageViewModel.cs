@@ -27,7 +27,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Vie
                 (item) =>
                 {
                     eventAggregator
-                        .GetEvent<LoadMainContentRegionEvent>()
+                        .GetEvent<LoadHomePageRegionEvent>()
                         .Publish(
                             new NavigationArgs(
                                 nameof(HistoryMatchRecordDetailPage),

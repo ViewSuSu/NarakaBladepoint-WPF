@@ -8,7 +8,7 @@ using Prism.Common;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.ViewModels
 {
-    internal class HistoryMatchRecordDetailPageViewModel : CanRemoveMainContentRegionViewModelBase
+    internal class HistoryMatchRecordDetailPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
         private readonly ICurrentUserInfoProvider currentUserInfoProvider;
 
