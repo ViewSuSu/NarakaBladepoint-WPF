@@ -9,7 +9,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<CustomMatchPage, CustomMatchPageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                CustomMatchPage,
+                CustomMatchPageViewModel
+            >();
         }
     }
 }

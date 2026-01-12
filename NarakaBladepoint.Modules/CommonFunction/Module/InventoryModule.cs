@@ -9,7 +9,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<InventoryPage, InventoryPageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                InventoryPage,
+                InventoryPageViewModel
+            >();
         }
     }
 }

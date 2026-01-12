@@ -106,6 +106,13 @@
                     FontSize="30"
                     Foreground="White"
                     Text="当前赛季" />
+                <Image
+                    Grid.Row="1"
+                    Margin="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/RankLogo/2.png"
+                    Stretch="Uniform" />
                 <TextBlock
                     Grid.Row="2"
                     HorizontalAlignment="Center"

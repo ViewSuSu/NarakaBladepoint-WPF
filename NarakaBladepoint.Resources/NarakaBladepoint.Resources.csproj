@@ -197,6 +197,8 @@
 	  <None Remove="Image\PersonalInfoDetails\HeroTag\天道酬勤·黄玉.png" />
 	  <None Remove="Image\PersonalInfoDetails\HeroTag\妙手回春·紫木.png" />
 	  <None Remove="Image\PersonalInfoDetails\listboxitembackground.png" />
+	  <None Remove="Image\RankLogo\1.png" />
+	  <None Remove="Image\RankLogo\2.png" />
 	  <None Remove="Image\Region\1.png" />
 	  <None Remove="Image\Region\2.png" />
 	  <None Remove="Image\Region\3.png" />
@@ -289,6 +291,8 @@
 	  <Resource Include="Image\Hero\张起灵.png" />
 	  <Resource Include="Image\Hero\李寻欢.png" />
 	  <Resource Include="Image\Hero\蓝梦.png" />
+	  <Resource Include="Image\RankLogo\1.png" />
+	  <Resource Include="Image\RankLogo\2.png" />
 	  <Resource Include="Image\SocialTag\background.png" />
 	  <Resource Include="Image\SocialTag\Icon1.png" />
 	  <Resource Include="Image\SocialTag\Icon2.png" />
