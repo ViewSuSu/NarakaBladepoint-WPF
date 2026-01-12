@@ -5,7 +5,7 @@ using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
 {
-    internal class HeroTagPageViewModel : ViewModelBase
+    internal class HeroTagPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
         private readonly IHeroInfoProvider heroInfomation;
         private readonly ICurrentUserInfoProvider currentUserInformationProvider;
@@ -61,16 +61,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             };
             RaisePropertyChanged(nameof(SelectedCount));
         }
-
-        private DelegateCommand _escCommand;
-
-        public DelegateCommand EscCommand =>
-            _escCommand ??= new DelegateCommand(() =>
-            {
-                eventAggregator
-                    .GetEvent<RemovePersonalInformationDetailMainContentEvents>()
-                    .Publish();
-            });
 
         private DelegateCommand _saveCommand;
 

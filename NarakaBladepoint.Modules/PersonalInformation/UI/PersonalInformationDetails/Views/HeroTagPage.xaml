@@ -12,7 +12,7 @@
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels"
-    attach:EscKeyAttachedProperty.Command="{Binding EscCommand}"
+    attach:EscKeyAttachedProperty.Command="{Binding ReturnCommand}"
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroTagPageViewModel}"
     d:DesignHeight="720"
@@ -31,7 +31,7 @@
             <Grid Grid.Column="0" Background="Transparent">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding EscCommand}" />
+                        <b:InvokeCommandAction Command="{Binding ReturnCommand}" />
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
             </Grid>
@@ -143,6 +143,6 @@
         <controls:EscBackControl
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Command="{Binding EscCommand}" />
+            Command="{Binding ReturnCommand}" />
     </Grid>
 </bases:UserControlBase>

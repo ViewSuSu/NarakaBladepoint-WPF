@@ -1,6 +1,7 @@
 ﻿using NarakaBladepoint.App.Shell.Infrastructure;
 using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 using NarakaBladepoint.Framework.Core.Evens;
+using NarakaBladepoint.Modules.Social.UI.Setting.Views;
 using NarakaBladepoint.Shared.Consts;
 
 namespace NarakaBladepoint.App.Shell
@@ -8,6 +9,8 @@ namespace NarakaBladepoint.App.Shell
     internal partial class MainWindowViewModel : ViewModelBase
     {
         private readonly HomePageVisualNavigator homePageVisualNavigator;
+
+        private DelegateCommand _exitGameCommand;
 
         public MainWindowViewModel(
             IContainerProvider containerProvider,
@@ -59,6 +62,17 @@ namespace NarakaBladepoint.App.Shell
                     ThreadOption.UIThread
                 );
         }
+
+        public DelegateCommand ExitGameCommand =>
+            _exitGameCommand ??= new DelegateCommand(() =>
+            {
+                if (regionManager.Regions.Any(x => x.ActiveViews.Any()))
+                {
+                    return;
+                }
+                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(SettingPage)));
+            });
 
         private void RevemoveRegionByName(string regionName)
         {

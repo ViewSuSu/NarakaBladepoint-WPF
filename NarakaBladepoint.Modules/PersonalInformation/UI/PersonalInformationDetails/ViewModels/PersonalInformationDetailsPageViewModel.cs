@@ -98,15 +98,17 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             _heroTagCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator
-                    .GetEvent<LoadPersonalInformationDetailMainContentEvents>()
-                    .Publish(nameof(HeroTagPage));
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(HeroTagPage)));
             });
 
         private DelegateCommand _changeTagCommand;
         public DelegateCommand ChangeTagCommand =>
             _changeTagCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(SocialTagPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(SocialTagPage)));
             });
     }
 }
