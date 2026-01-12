@@ -1,3 +1,4 @@
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.Tutorial.UI.Views;
 
 namespace NarakaBladepoint.Modules.Social.UI.Setting.ViewModels
@@ -13,7 +14,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Setting.ViewModels
             _navigateToTutorialCommand ??= new DelegateCommand(() =>
             {
                 RemoveAllHomePageCommand.Execute();
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(TutorialPage));
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(TutorialPage)));
             });
 
         private DelegateCommand _exitCommand;

@@ -1,3 +1,4 @@
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.TopUp.UI.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
@@ -22,7 +23,7 @@ namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
         public DelegateCommand NavigateToTopUpCommand =>
             _navigateToTopUpCommand ??= new DelegateCommand(() =>
             {
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(TopUpPage));
+                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(TopUpPage)));
             });
     }
 }

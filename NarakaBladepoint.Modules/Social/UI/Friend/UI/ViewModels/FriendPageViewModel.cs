@@ -1,3 +1,4 @@
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.SocialTag.UI.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
@@ -71,7 +72,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             _settingTagCommand ??= new DelegateCommand(() =>
             {
                 ReturnCommand.Execute();
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(SocialTagPage));
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(SocialTagPage)));
             });
 
         private DelegateCommand _sayHelloCommand;

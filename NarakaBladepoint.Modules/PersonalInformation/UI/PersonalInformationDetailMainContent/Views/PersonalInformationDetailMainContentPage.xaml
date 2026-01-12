@@ -12,7 +12,6 @@
     xmlns:historyMatchRecord="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Views"
     xmlns:illustratedCollectionPage="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:personConsts="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.Domain.Consts"
     xmlns:personalInformationDetailsPage="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:seasonData="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.Views"
@@ -152,6 +151,5 @@
                 VerticalAlignment="Bottom"
                 Command="{Binding ReturnCommand}" />
         </Grid>
-        <ContentControl prism:RegionManager.RegionName="{x:Static personConsts:PersonalInformationDetailMainContentRegionConsts.PersonalInformationMainContent}" />
     </Grid>
 </bases:UserControlBase>

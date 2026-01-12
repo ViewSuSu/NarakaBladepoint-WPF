@@ -1,3 +1,4 @@
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Hero.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views;
@@ -19,7 +20,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             _navigateToHeroCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(HeroListPage));
+                    .Publish(new NavigationArgs(nameof(HeroListPage)));
             });
 
         private DelegateCommand _navigateToHallCommand;
@@ -34,7 +35,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             _skillPointCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(SkillPointPage));
+                    .Publish(new NavigationArgs(nameof(SkillPointPage)));
             });
 
         private DelegateCommand _leaderboardCommand;
@@ -42,7 +43,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             _leaderboardCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(LeaderboardPage));
+                    .Publish(new NavigationArgs(nameof(LeaderboardPage)));
             });
 
         private DelegateCommand _navigateToInventoryCommand;
@@ -50,7 +51,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             _navigateToInventoryCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(InventoryPage));
+                    .Publish(new NavigationArgs(nameof(InventoryPage)));
             });
 
         private DelegateCommand _storeCommand;
@@ -58,7 +59,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             _storeCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(StorePage));
+                    .Publish(new NavigationArgs(nameof(StorePage)));
             });
 
         private DelegateCommand _customMatchCommand;
@@ -66,7 +67,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             _customMatchCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(nameof(CustomMatchPage));
+                    .Publish(new NavigationArgs(nameof(CustomMatchPage)));
             });
     }
 }

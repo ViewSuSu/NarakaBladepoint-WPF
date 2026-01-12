@@ -11,6 +11,11 @@ namespace NarakaBladepoint.Shared.Jsons
     public class MatchDataItem
     {
         /// <summary>
+        /// 数据索引
+        /// </summary>
+        public int Index { get; set; }
+
+        /// <summary>
         /// 英雄头像
         /// </summary>
         public int AvatarIndex { get; set; }

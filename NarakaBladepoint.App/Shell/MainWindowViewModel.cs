@@ -18,7 +18,10 @@ namespace NarakaBladepoint.App.Shell
             this.homePageVisualNavigator = homePageVisualNavigator;
             this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                 .Subscribe(
-                    viewName => this.homePageVisualNavigator.RequestNavigate(viewName),
+                    args =>
+                    {
+                        this.homePageVisualNavigator.RequestNavigate(args.ViewName, args.Parameter);
+                    },
                     ThreadOption.UIThread
                 );
 
@@ -30,12 +33,19 @@ namespace NarakaBladepoint.App.Shell
 
             this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
                 .Subscribe(
-                    (viewName) =>
+                    (args) =>
                     {
-                        this.regionManager.RequestNavigate(
-                            GlobalConstant.MainContentRegion,
-                            viewName
-                        );
+                        if (args.Parameter != default)
+                            this.regionManager.RequestNavigate(
+                                GlobalConstant.MainContentRegion,
+                                args.ViewName,
+                                args.Parameter
+                            );
+                        else
+                            this.regionManager.RequestNavigate(
+                                GlobalConstant.MainContentRegion,
+                                args.ViewName
+                            );
                     },
                     ThreadOption.UIThread
                 );

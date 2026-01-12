@@ -8,6 +8,8 @@ using NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels;
 using NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Views;
 using NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.ViewModels;
 using NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Views;
+using NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.ViewModels;
+using NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.Views;
 using NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels;
 using NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.Views;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.ViewModels;
@@ -40,6 +42,10 @@ namespace NarakaBladepoint.Modules.PersonalInformation.Module
 
             containerRegistry.RegisterForNavigation<HeroDataPage, HeroDataPageViewModel>();
             containerRegistry.RegisterForNavigation<HeroTagPage, HeroTagPageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                HistoryMatchRecordDetailPage,
+                HistoryMatchRecordDetailPageViewModel
+            >();
             containerRegistry.RegisterForNavigation<
                 HistoryMatchRecordPage,
                 HistoryMatchRecordPageViewModel

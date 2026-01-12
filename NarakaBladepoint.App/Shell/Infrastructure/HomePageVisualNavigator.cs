@@ -26,7 +26,7 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
         /// <summary>
         /// 添加视图到最顶层
         /// </summary>
-        public void RequestNavigate(string viewName)
+        public void RequestNavigate(string viewName, NavigationParameters nacigationParameters)
         {
             var emptyLayer = _layers.FirstOrDefault(layer =>
                 !_regionManager.Regions[layer].ActiveViews.Any()
@@ -34,7 +34,10 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
 
             if (emptyLayer != null)
             {
-                _regionManager.RequestNavigate(emptyLayer, viewName);
+                if (nacigationParameters != default)
+                    _regionManager.RequestNavigate(emptyLayer, viewName, nacigationParameters);
+                else
+                    _regionManager.RequestNavigate(emptyLayer, viewName);
             }
             else
             {

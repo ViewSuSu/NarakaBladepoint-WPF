@@ -59,6 +59,9 @@
     <Compile Update="PersonalInformation\UI\HeroData\Views\HeroDataPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PersonalInformation\UI\HistoryMatchRecordDetail\Views\HistoryMatchRecordDetailPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PersonalInformation\UI\HistoryMatchRecord\Views\HistoryMatchRecordPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Modules.PersonalInformation.Domain.Events;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models;
@@ -105,7 +106,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public DelegateCommand ChangeTagCommand =>
             _changeTagCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(nameof(SocialTagPage));
+                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(SocialTagPage)));
             });
     }
 }

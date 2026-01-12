@@ -1,3 +1,4 @@
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetailMainContent.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
@@ -21,7 +22,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.Vi
             _navigateToPersonalInfomationCommand ??= new DelegateCommand(() =>
             {
                 eventAggregator.GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(nameof(PersonalInformationDetailMainContentPage));
+                    .Publish(new NavigationArgs(nameof(PersonalInformationDetailMainContentPage)));
             });
         public UserInformationData UserInfoModel { get; }
     }

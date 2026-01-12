@@ -1,3 +1,4 @@
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.EventCenter.UI.Main.Views;
 using NarakaBladepoint.Modules.StartGame.UI.ModeSelection.Views;
 
@@ -19,7 +20,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(nameof(EventCenterMainPage));
+                    .Publish(new NavigationArgs(nameof(EventCenterMainPage)));
             });
 
         private DelegateCommand _navigateToModelSelectionCommand;
@@ -29,7 +30,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(nameof(ModeSelectionPage));
+                    .Publish(new NavigationArgs(nameof(ModeSelectionPage)));
             });
     }
 }
