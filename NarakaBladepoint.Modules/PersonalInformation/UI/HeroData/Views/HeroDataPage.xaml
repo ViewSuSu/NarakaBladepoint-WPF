@@ -11,6 +11,7 @@
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels"
+    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroDataPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
@@ -19,14 +20,11 @@
         <converters:TeamSizeToIndexConverter x:Key="TeamSizeToIndexConverter" />
     </UserControl.Resources>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
-        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="30,20,20,50">
+        <Grid Grid.Column="0" Margin="30,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.15*" />
                 <RowDefinition Height="*" />
@@ -485,7 +483,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Margin="0,20,0,0">
             <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" Stretch="UniformToFill" />
         </Grid>
     </Grid>

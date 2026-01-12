@@ -34,7 +34,7 @@
         </Grid.Background>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.12*" />
+                <RowDefinition Height="0.15*" />
                 <RowDefinition />
                 <RowDefinition Height="0.1*" />
             </Grid.RowDefinitions>
@@ -71,7 +71,7 @@
                     Background="Transparent"
                     Header="个人信息"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="0,10" />
+                    <personalInformationDetailsPage:PersonalInformationDetailsPage />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -79,7 +79,7 @@
                     Background="Transparent"
                     Header="英雄数据"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <heroData:HeroDataPage Margin="0,10" />
+                    <heroData:HeroDataPage />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -95,7 +95,7 @@
                     Background="Transparent"
                     Header="历史战绩"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <historyMatchRecord:HistoryMatchRecordPage Margin="0,10" />
+                    <historyMatchRecord:HistoryMatchRecordPage />
                 </TabItem>
                 <!--<TabItem
                     VerticalAlignment="Center"
@@ -103,7 +103,7 @@
                     Background="Transparent"
                     Header="打赏记录"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <tippingRecordPage:TippingRecordPage Margin="0,10" />
+                    <tippingRecordPage:TippingRecordPage  />
                 </TabItem>-->
                 <TabItem
                     VerticalAlignment="Center"
@@ -111,7 +111,7 @@
                     Background="Transparent"
                     Header="社交头像"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <socialAvatarPage:SocialAvatarPage Margin="0,10" />
+                    <socialAvatarPage:SocialAvatarPage />
                 </TabItem>
                 <!--<TabItem
                     VerticalAlignment="Center"
@@ -127,7 +127,7 @@
                     Background="Transparent"
                     Header="生涯成就"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <careerAchievementsPage:CareerAchievementsPage Margin="0,10" />
+                    <careerAchievementsPage:CareerAchievementsPage  />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -135,7 +135,7 @@
                     Background="Transparent"
                     Header="图鉴收集"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <illustratedCollectionPage:IllustratedCollectionPage Margin="0,10" />
+                    <illustratedCollectionPage:IllustratedCollectionPage  />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"

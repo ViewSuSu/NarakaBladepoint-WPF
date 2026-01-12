@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels1="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.ViewModels"
@@ -12,21 +14,35 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="0.1*" />
-        </Grid.RowDefinitions>
-        <Grid Margin="30">
-            <TabControl Background="Transparent" BorderThickness="0">
-                <TabItem
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Header="天选之人"
-                    Style="{StaticResource HistoryMatchRecordTabItemStyle}">
+    <UserControl.Resources>
+        <converters:BoolToAddOrDeleteConverter x:Key="BoolToAddOrDeleteConverter" />
+        <Style x:Key="AddRunStyle" TargetType="Run">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=add, Path=Text}" Value="+">
+                    <Setter Property="Foreground" Value="Orange" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=add, Path=Text}" Value="-">
+                    <Setter Property="Foreground" Value="#64FFFFFF" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="30">
+        <TabControl Background="Transparent" BorderThickness="0">
+            <TabItem
+                Width="150"
+                Background="Transparent"
+                BorderThickness="0"
+                Header="天选之人"
+                Style="{StaticResource HistoryMatchRecordTabItemStyle}">
+                <Grid>
+                    <!--<controls:ToggleButtonComboBox
+                        Grid.Row="0"
+                        Width="100"
+                        Margin="0,-30,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        d:SelectedIndex="0" />-->
                     <ListBox
                         Grid.Row="1"
                         Margin="0,10,0,0"
@@ -39,7 +55,7 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid
-                                    Height="70"
+                                    Height="50"
                                     Margin="0,5"
                                     Background="#1A000000">
                                     <Grid.ColumnDefinitions>
@@ -59,7 +75,7 @@
                                             Width="60"
                                             d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/顾清寒.png"
                                             Source="{Binding Avatar, Mode=OneWay}"
-                                            Stretch="UniformToFill" />
+                                            Stretch="Uniform" />
                                     </Border>
                                     <Grid Grid.Column="1" Margin="5,0,0,0">
                                         <Grid.RowDefinitions>
@@ -70,16 +86,32 @@
                                             Height="20"
                                             HorizontalAlignment="Left"
                                             VerticalAlignment="Center"
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/出类拔萃.png" />
+                                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/出类拔萃.png"
+                                            Visibility="{Binding IsNo3To4, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <Image
+                                            Height="20"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/一人之下.png"
+                                            Visibility="{Binding IsNo2, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <Image
+                                            Height="20"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/唯我独尊.png"
+                                            Visibility="{Binding IsNo1, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                         <StackPanel
                                             Grid.Row="1"
                                             Margin="0,5,0,0"
                                             VerticalAlignment="Center"
                                             Orientation="Horizontal">
                                             <TextBlock VerticalAlignment="Center" Foreground="White">
-                                                <Run Text="7" />
+                                                <Run
+                                                    Name="CurrentRank"
+                                                    d:Text="7"
+                                                    Text="{Binding CurrentRank, Mode=OneWay}" />
                                                 <Run Text="/" />
-                                                <Run Text="17" />
+                                                <Run d:Text="17" Text="{Binding AllTeams, Mode=OneWay}" />
                                             </TextBlock>
                                         </StackPanel>
                                     </Grid>
@@ -95,8 +127,9 @@
                                         <TextBlock
                                             Margin="5,0,0,0"
                                             VerticalAlignment="Center"
+                                            d:Text="1"
                                             Foreground="White"
-                                            Text="1" />
+                                            Text="{Binding KillNumber, Mode=OneWay}" />
                                     </StackPanel>
                                     <StackPanel
                                         Grid.Column="3"
@@ -110,8 +143,9 @@
                                         <TextBlock
                                             Margin="5,0,0,0"
                                             VerticalAlignment="Center"
+                                            d:Text="12345"
                                             Foreground="White"
-                                            Text="12345" />
+                                            Text="{Binding Damage, Mode=OneWay}" />
                                     </StackPanel>
                                     <ItemsControl
                                         Grid.Column="4"
@@ -139,7 +173,10 @@
                                             <ColumnDefinition />
                                             <ColumnDefinition Width="30" />
                                         </Grid.ColumnDefinitions>
-                                        <UniformGrid Rows="2">
+                                        <UniformGrid
+                                            d:Visibility="Hidden"
+                                            Rows="2"
+                                            Visibility="{Binding IsHightLevel, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock
                                                     VerticalAlignment="Center"
@@ -156,13 +193,12 @@
                                                     Text="15" />
                                             </StackPanel>
                                             <Grid VerticalAlignment="Center">
-
                                                 <ProgressBar
                                                     Height="15"
-                                                    d:Maximum="100"
-                                                    d:Value="40"
                                                     Background="Black"
-                                                    Foreground="#EAB181" />
+                                                    Foreground="#EAB181"
+                                                    Maximum="100"
+                                                    Value="40" />
                                                 <TextBlock Margin="5,0,0,0" Foreground="White">
                                                     <Run Text="42" />
                                                     <Run Text="(" />
@@ -171,11 +207,41 @@
                                                 </TextBlock>
                                             </Grid>
                                         </UniformGrid>
+                                        <StackPanel
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                            <TextBlock
+                                                d:Text="蚀月 2"
+                                                FontSize="15"
+                                                Foreground="White"
+                                                Text="{Binding CurrentLevel, Mode=OneWay}" />
+                                            <TextBlock
+                                                Margin="5,0,0,0"
+                                                FontSize="15"
+                                                Foreground="White">
+                                                <Run
+                                                    d:Text="3847"
+                                                    Style="{StaticResource AddRunStyle}"
+                                                    Text="{Binding Score, Mode=OneWay}" />
+                                                <Run Style="{StaticResource AddRunStyle}" Text="(" />
+                                                <Run
+                                                    Name="add"
+                                                    d:Text="+"
+                                                    Style="{StaticResource AddRunStyle}"
+                                                    Text="{Binding IsAdd, Mode=OneWay, Converter={StaticResource BoolToAddOrDeleteConverter}}" />
+                                                <Run
+                                                    d:Text="28"
+                                                    Style="{StaticResource AddRunStyle}"
+                                                    Text="{Binding ChangeScore, Mode=OneWay}" />
+                                                <Run Style="{StaticResource AddRunStyle}" Text=")" />
+                                            </TextBlock>
+                                        </StackPanel>
                                         <Image
                                             Grid.Column="1"
                                             VerticalAlignment="Center"
                                             Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/400+.png"
-                                            Visibility="{Binding IsEasy}" />
+                                            Visibility="{Binding IsEasy, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                     </Grid>
                                     <Grid Grid.Column="6" Margin="10,0,0,0">
                                         <Grid.ColumnDefinitions>
@@ -191,10 +257,10 @@
                                                     Foreground="White"
                                                     Text="排位赛三排" />
                                                 <Image
-                                                    Width="20"
+                                                    Width="15"
                                                     HorizontalAlignment="Right"
                                                     Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/豪杰对局.png"
-                                                    Visibility="{Binding IsHaoJie}" />
+                                                    Visibility="{Binding IsHightLevel, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
                                             </Grid>
                                             <TextBlock
                                                 Grid.Row="1"
@@ -204,7 +270,7 @@
                                         </UniformGrid>
                                         <Image
                                             Grid.Column="1"
-                                            Width="20"
+                                            Width="15"
                                             VerticalAlignment="Center"
                                             Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/对局详情.png">
                                             <b:Interaction.Triggers>
@@ -218,32 +284,34 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                </TabItem>
-                <TabItem
-                    Background="Transparent"
-                    Header="征神之路"
-                    Style="{StaticResource HistoryMatchRecordTabItemStyle}">
-                    <Grid Margin="0,10,0,0" Background="#1A000000">
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="20"
-                            Text="暂无比赛数据" />
-                    </Grid>
-                </TabItem>
-                <TabItem
-                    Background="Transparent"
-                    Header="无间镖客"
-                    Style="{StaticResource HistoryMatchRecordTabItemStyle}">
-                    <Grid Margin="0,10,0,0" Background="#1A000000">
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="20"
-                            Text="暂无比赛数据" />
-                    </Grid>
-                </TabItem>
-            </TabControl>
-        </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem
+                Width="150"
+                Background="Transparent"
+                Header="征神之路"
+                Style="{StaticResource HistoryMatchRecordTabItemStyle}">
+                <Grid Margin="0,10,0,0" Background="#1A000000">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text="暂无比赛数据" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                Width="150"
+                Background="Transparent"
+                Header="无间镖客"
+                Style="{StaticResource HistoryMatchRecordTabItemStyle}">
+                <Grid Margin="0,10,0,0" Background="#1A000000">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text="暂无比赛数据" />
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </base:UserControlBase>

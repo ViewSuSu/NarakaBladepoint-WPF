@@ -708,7 +708,10 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" Stretch="UniformToFill" />
+            <Image
+                Margin="0,20,0,0"
+                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png"
+                Stretch="UniformToFill" />
         </Grid>
     </Grid>
 </bases:UserControlBase>

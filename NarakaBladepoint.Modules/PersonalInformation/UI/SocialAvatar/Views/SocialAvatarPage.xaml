@@ -25,7 +25,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding AllAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -57,7 +57,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding HeroAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -89,7 +89,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding WeaponAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -121,7 +121,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding SeasonRewardAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -153,7 +153,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding HiddenTreasureAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -185,7 +185,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding LimitedEventAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />
@@ -217,7 +217,7 @@
                 <ItemsControl
                     Margin="0,30,0,0"
                     d:ItemsSource="{d:SampleData ItemCount=50}"
-                    ItemsSource="{Binding AvatarItemModels, Mode=OneWay}">
+                    ItemsSource="{Binding OtherAvatarModels, Mode=OneWay}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="100" />

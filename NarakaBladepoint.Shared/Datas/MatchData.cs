@@ -1,4 +1,4 @@
-﻿using System.Windows.Media;
+using System.Windows.Media;
 using NarakaBladepoint.Resources;
 
 namespace NarakaBladepoint.Shared.Jsons
@@ -30,6 +30,10 @@ namespace NarakaBladepoint.Shared.Jsons
         /// </summary>
         public int CurrentRank { get; set; }
 
+        public bool IsNo1 => CurrentRank == 1;
+        public bool IsNo2 => CurrentRank == 2;
+        public bool IsNo3To4 => CurrentRank >= 3 && CurrentRank <= 4;
+
         /// <summary>
         /// 所有队伍
         /// </summary>
@@ -43,7 +47,7 @@ namespace NarakaBladepoint.Shared.Jsons
         /// <summary>
         /// 伤害
         /// </summary>
-        public double Damage { get; set; }
+        public int Damage { get; set; }
 
         /// <summary>
         /// 当前段位
@@ -61,8 +65,25 @@ namespace NarakaBladepoint.Shared.Jsons
         public DateTime GameTime { get; set; }
 
         /// <summary>
+        /// 分数
+        /// </summary>
+        public int Score { get; set; }
+
+        /// <summary>
+        /// 分数变化
+        /// </summary>
+        public int ChangeScore { get; set; }
+
+        /// <summary>
         /// 是否是豪杰对局
         /// </summary>
-        public bool IsHightLevel { get; set; }
+        public bool IsHightLevel => Score >= 4500;
+
+        /// <summary>
+        /// 是否加分
+        /// </summary>
+        public bool IsAdd { get; set; }
+
+        public bool IsEasy => DateTime.Now.Second % 2 == 0;
     }
 }
