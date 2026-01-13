@@ -1,15 +1,9 @@
 ﻿namespace NarakaBladepoint.Framework.Core.Evens
 {
-    public class NavigationArgs
+    public class NavigationArgs(string viewName, NavigationParameters? navigationParameter = null)
     {
-        public NavigationArgs(string viewName, NavigationParameters navigationParameter = default)
-        {
-            ViewName = viewName;
-            Parameter = navigationParameter;
-        }
-
-        public string ViewName { get; }
-        public NavigationParameters Parameter { get; }
+        public string ViewName { get; } = viewName;
+        public NavigationParameters Parameter { get; } = navigationParameter;
     }
 
     public class LoadHomePageRegionEvent : PubSubEvent<NavigationArgs> { }
