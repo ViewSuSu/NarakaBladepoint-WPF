@@ -13,8 +13,6 @@ namespace NarakaBladepoint.Modules.BattlePass.Module
                 BattlePassMainContentPage,
                 BattlePassMainContentPageViewModel
             >();
-            containerRegistry.Register<TaskPage>();
-            containerRegistry.Register<TaskPageViewModel>();
         }
     }
 }

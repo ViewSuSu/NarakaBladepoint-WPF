@@ -13,6 +13,8 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
             _regionManager = regionManager;
         }
 
+        public HomePageVisualNavigator() { }
+
         private readonly IRegionManager _regionManager;
 
         private readonly string[] _layers =

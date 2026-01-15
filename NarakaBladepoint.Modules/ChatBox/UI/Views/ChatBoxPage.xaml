@@ -7,11 +7,13 @@
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.ChatBox.UI.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.ChatBox.UI.ViewModels"
+    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:ChatBoxPageViewModel}"
     d:DesignHeight="300"
     d:DesignWidth="1080"
+    Background="Transparent"
     mc:Ignorable="d">
-    <Grid Background="Gray">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="30" />
@@ -21,6 +23,7 @@
             HorizontalContentAlignment="Stretch"
             d:ItemsSource="{d:SampleData ItemCount=5}"
             Background="Transparent"
+            BorderBrush="Transparent"
             ItemsSource="{Binding ChatMessageItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -43,6 +46,7 @@
         <TextBox
             Name="inputTextBox"
             Grid.Row="1"
-            Background="Transparent" />
+            Background="Transparent"
+            BorderBrush="Transparent" />
     </Grid>
 </bases:UserControlBase>

@@ -8,16 +8,87 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Hero.ViewModels"
-    attach:EscKeyAttachedProperty.Command="{Binding ReturnCommand}"
+    attach:EscKeyAttachedProperty.Command="{Binding ReturnToHallCommand}"
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroListPageViewModel}"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
+        </Grid.Background>
+        <Grid Margin="30,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="0,30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border
+                    Width="100"
+                    Height="30"
+                    HorizontalAlignment="Left">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="英雄币：" />
+                </Border>
+                <ItemsControl
+                    Grid.Row="1"
+                    d:ItemsSource="{d:SampleData ItemCount=25}"
+                    ItemsSource="{Binding InventoryItemModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="5" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:HighlightBorder Margin="2">
+                                <Grid>
+                                    <Image
+                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png"
+                                        Source="{Binding Icon}"
+                                        Stretch="Uniform" />
+                                </Grid>
+                            </controls:HighlightBorder>
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <UniformGrid
+                    Grid.Row="2"
+                    Height="30"
+                    VerticalAlignment="Bottom"
+                    Columns="2">
+                    <Button
+                        Margin="5,0"
+                        Content="外观"
+                        Style="{StaticResource CleanButtonStyle}" />
+                    <Button
+                        Margin="5,0"
+                        Content="易容"
+                        Style="{StaticResource CleanButtonStyle}" />
+                </UniformGrid>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+            </Grid>
+        </Grid>
         <controls:EscBackControl
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Command="{Binding ReturnCommand}" />
+            Command="{Binding ReturnToHallCommand}" />
     </Grid>
 </base:UserControlBase>

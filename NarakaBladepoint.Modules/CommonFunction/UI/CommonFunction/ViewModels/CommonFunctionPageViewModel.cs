@@ -1,4 +1,5 @@
 using NarakaBladepoint.Framework.Core.Evens;
+using NarakaBladepoint.Modules.CommonFunction.Domain.Events;
 using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Hero.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views;
@@ -10,31 +11,48 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
 {
     public partial class CommonFunctionPageViewModel : ViewModelBase
     {
+        private bool _isSelectedHall = true;
+
+        public bool IsSelectedHall
+        {
+            get { return _isSelectedHall; }
+            set
+            {
+                _isSelectedHall = value;
+                RaisePropertyChanged();
+                if (IsSelectedHall)
+                {
+                    eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
+                }
+            }
+        }
+
         public CommonFunctionPageViewModel(IContainerProvider containerProvider)
             : base(containerProvider)
         {
+            eventAggregator
+                .GetEvent<NavigateToHallEvent>()
+                .Subscribe(() =>
+                {
+                    IsSelectedHall = true;
+                });
         }
 
         private DelegateCommand _navigateToHeroCommand;
         public DelegateCommand NavigateToHeroCommand =>
             _navigateToHeroCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
                     .Publish(new NavigationArgs(nameof(HeroListPage)));
-            });
-
-        private DelegateCommand _navigateToHallCommand;
-        public DelegateCommand NavigateToHallCommand =>
-            _navigateToHallCommand ??= new DelegateCommand(() =>
-            {
-                eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
             });
 
         private DelegateCommand _skillPointCommand;
         public DelegateCommand SkillPointCommand =>
             _skillPointCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
                     .Publish(new NavigationArgs(nameof(SkillPointPage)));
             });
 
@@ -42,7 +60,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public DelegateCommand LeaderboardCommand =>
             _leaderboardCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
                     .Publish(new NavigationArgs(nameof(LeaderboardPage)));
             });
 
@@ -50,7 +69,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public DelegateCommand NavigateToInventoryCommand =>
             _navigateToInventoryCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
                     .Publish(new NavigationArgs(nameof(InventoryPage)));
             });
 
@@ -58,7 +78,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public DelegateCommand StoreCommand =>
             _storeCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
                     .Publish(new NavigationArgs(nameof(StorePage)));
             });
 
@@ -66,7 +87,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         public DelegateCommand CustomMatchCommand =>
             _customMatchCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadMainContentRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
                     .Publish(new NavigationArgs(nameof(CustomMatchPage)));
             });
     }

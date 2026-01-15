@@ -19,13 +19,15 @@
             attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHeroCommand}"
             Header="英雄"
             Style="{StaticResource CommonFunctionTabItem}" />
-        <TabItem Header="兵器" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHeroCommand}"
+            Header="兵器"
+            Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem Header="备战" Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem Header="聚义厅" Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem
-            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHallCommand}"
             Header="大厅"
-            IsSelected="True"
+            IsSelected="{Binding IsSelectedHall}"
             Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem Header="排行榜" Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem

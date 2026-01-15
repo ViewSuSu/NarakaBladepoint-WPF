@@ -2,16 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="BattlePass\UI\BattlePassDetails\Views\BattlePassDetailsPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="BattlePass\UI\BattlePassDetails\Views\SeasonRewardPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="BattlePass\UI\BattlePassDetails\Views\TaskPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Weapon\Views\WeaponPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EventCenter\UI\BaiZeCard\Views\BaiZeCardPage.xaml.cs">
