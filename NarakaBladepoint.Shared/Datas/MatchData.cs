@@ -23,7 +23,7 @@ namespace NarakaBladepoint.Shared.Jsons
         /// <summary>
         /// 英雄头像
         /// </summary>
-        public ImageSource Avatar => ResourceImageReader.GetHeroImage(AvatarIndex);
+        public ImageSource Avatar => ResourceImageReader.GetHeroAvatarImage(AvatarIndex);
 
         /// <summary>
         /// 当前排名

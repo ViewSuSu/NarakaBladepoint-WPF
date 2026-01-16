@@ -137,7 +137,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Models
         /// 头像图片源
         /// </summary>
         public ImageSource Avatar =>
-            HeroIndex != -1 ? ResourceImageReader.GetHeroImage(HeroIndex) : null;
+            HeroIndex != -1 ? ResourceImageReader.GetHeroAvatarImage(HeroIndex) : null;
     }
 
     /// <summary>

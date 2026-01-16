@@ -12,7 +12,7 @@ namespace NarakaBladepoint.Shared.Datas
         public int Index { get; set; } = -1;
 
         public ImageSource ImageSource =>
-            Index != -1 ? ResourceImageReader.GetAvatarImage(Index) : null;
+            Index != -1 ? ResourceImageReader.GetSocialAvatarImage(Index) : null;
 
         /// <summary>
         /// 名字

@@ -1,6 +1,4 @@
-﻿using NarakaBladepoint.Shared.Services.Models;
-
-namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.Models
+﻿namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.Models
 {
     internal class HeroChoseModuleItemModel : BindableBase
     {

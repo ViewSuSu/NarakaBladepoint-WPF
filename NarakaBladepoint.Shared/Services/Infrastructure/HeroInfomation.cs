@@ -16,20 +16,13 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
 
         public async Task<HeroAvatarModel> GetHeroAvatarModelByIdAsync(int index)
         {
-            ValidateIndex(index);
-            var imagesouce = ResourceImageReader.GetHeroImage(index);
-            return CreateHeroAvatarModel(index, imagesouce);
+            var reuslts = GetHeroAvatarModelsAsync().Result;
+            return reuslts.FirstOrDefault(x => x.Index == index);
         }
 
         public async Task<List<HeroAvatarModel>> GetHeroAvatarModelsAsync()
         {
-            List<HeroAvatarModel> heroAvatarModels = [];
-            for (int i = 0; i < ResourceImageReader.HeroCount; i++)
-            {
-                var imagesouce = ResourceImageReader.GetHeroImage(i);
-                heroAvatarModels.Add(CreateHeroAvatarModel(i, imagesouce));
-            }
-            return heroAvatarModels;
+            return ConfigurationDataReader.GetList<HeroAvatarModel>();
         }
 
         public async Task<bool> GetHeroHeroTagIsSelectedAsync(int index)
@@ -62,27 +55,6 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
                 tagModels.Add(new HeroTagModel() { Index = tagIndex });
             }
             return tagModels;
-        }
-
-        private HeroAvatarModel CreateHeroAvatarModel(int index, ImageSource imagesouce)
-        {
-            return new HeroAvatarModel()
-            {
-                Index = index,
-                Avatar = imagesouce,
-                Name = imagesouce.GetFileName(),
-            };
-        }
-
-        private void ValidateIndex(int index)
-        {
-            if (index < 0 || index >= ResourceImageReader.HeroCount)
-            {
-                throw new ArgumentOutOfRangeException(
-                    nameof(index),
-                    $"Index must be between 0 and {ResourceImageReader.HeroCount - 1}"
-                );
-            }
         }
     }
 }

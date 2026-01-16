@@ -87,6 +87,7 @@
 	  <None Remove="Image\Button\HistoryMatchRecordBackground.png" />
 	  <None Remove="Image\Button\SettingCommandDefaultBackground.png" />
 	  <None Remove="Image\Button\SettingCommandHightlightBackground.png" />
+	  <None Remove="Image\Button\修行.png" />
 	  <None Remove="Image\Button\入劫门.png" />
 	  <None Remove="Image\Button\找队友.png" />
 	  <None Remove="Image\Button\拓展包.png" />
@@ -110,6 +111,9 @@
 	  <None Remove="Image\HeroStandArt\岳山.png" />
 	  <None Remove="Image\HeroStandArt\胡为.png" />
 	  <None Remove="Image\HeroStandArt\胡桃.png" />
+	  <None Remove="Image\Hero\CustomControls\1.png" />
+	  <None Remove="Image\Hero\CustomControls\2.png" />
+	  <None Remove="Image\Hero\CustomControls\3.png" />
 	  <None Remove="Image\Hero\Show\万钧.png" />
 	  <None Remove="Image\Hero\Show\刘炼.png" />
 	  <None Remove="Image\Hero\Show\哈迪.png" />
@@ -135,13 +139,17 @@
 	  <None Remove="Image\Hero\Show\迦南.png" />
 	  <None Remove="Image\Hero\Show\顾清寒.png" />
 	  <None Remove="Image\Hero\Show\魏轻.png" />
+	  <None Remove="Image\Hero\Skill\F1.png" />
+	  <None Remove="Image\Hero\Skill\Icon.png" />
+	  <None Remove="Image\Hero\Skill\V1.png" />
 	  <None Remove="Image\Hero\万钧.png" />
 	  <None Remove="Image\Hero\刘炼.png" />
 	  <None Remove="Image\Hero\哈迪.png" />
 	  <None Remove="Image\Hero\天海.png" />
 	  <None Remove="Image\Hero\妖刀姬.png" />
+	  <None Remove="Image\Hero\季沧海.png" />
 	  <None Remove="Image\Hero\季莹莹.png" />
-	  <None Remove="Image\Hero\宁红叶.png" />
+	  <None Remove="Image\Hero\宁红夜.png" />
 	  <None Remove="Image\Hero\岳山.png" />
 	  <None Remove="Image\Hero\崔三娘.png" />
 	  <None Remove="Image\Hero\席拉.png" />
@@ -151,7 +159,6 @@
 	  <None Remove="Image\Hero\武田信忠.png" />
 	  <None Remove="Image\Hero\殷紫萍.png" />
 	  <None Remove="Image\Hero\沈妙.png" />
-	  <None Remove="Image\Hero\济沧海.png" />
 	  <None Remove="Image\Hero\特木尔.png" />
 	  <None Remove="Image\Hero\玉玲珑.png" />
 	  <None Remove="Image\Hero\胡为.png" />
@@ -337,12 +344,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\NarakaBladepoint.Framework\NarakaBladepoint.Framework.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Image\Button\修行.png" />
 	  <Resource Include="Image\Email\1.png" />
 	  <Resource Include="Image\Email\2.png" />
 	  <Resource Include="Image\Email\3.png" />
 	  <Resource Include="Image\Email\4.png" />
 	  <Resource Include="Image\Email\5.png" />
 	  <Resource Include="Image\Email\Icon.png" />
+	  <Resource Include="Image\Hero\CustomControls\1.png" />
+	  <Resource Include="Image\Hero\CustomControls\2.png" />
+	  <Resource Include="Image\Hero\CustomControls\3.png" />
 	  <Resource Include="Image\Hero\Show\万钧.png" />
 	  <Resource Include="Image\Hero\Show\刘炼.png" />
 	  <Resource Include="Image\Hero\Show\哈迪.png" />
@@ -368,8 +383,13 @@
 	  <Resource Include="Image\Hero\Show\迦南.png" />
 	  <Resource Include="Image\Hero\Show\顾清寒.png" />
 	  <Resource Include="Image\Hero\Show\魏轻.png" />
+	  <Resource Include="Image\Hero\Skill\F1.png" />
+	  <Resource Include="Image\Hero\Skill\Icon.png" />
+	  <Resource Include="Image\Hero\Skill\V1.png" />
 	  <Resource Include="Image\Hero\万钧.png" />
 	  <Resource Include="Image\Hero\刘炼.png" />
+	  <Resource Include="Image\Hero\季沧海.png" />
+	  <Resource Include="Image\Hero\宁红夜.png" />
 	  <Resource Include="Image\Hero\席拉.png" />
 	  <Resource Include="Image\Hero\张起灵.png" />
 	  <Resource Include="Image\Hero\李寻欢.png" />
@@ -509,9 +529,6 @@
 	  <Resource Include="Image\Hero\季莹莹.png">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Resource>
-	  <Resource Include="Image\Hero\宁红叶.png">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </Resource>
 	  <Resource Include="Image\Hero\岳山.png">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Resource>
@@ -528,9 +545,6 @@
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Resource>
 	  <Resource Include="Image\Hero\沈妙.png">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </Resource>
-	  <Resource Include="Image\Hero\济沧海.png">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Resource>
 	  <Resource Include="Image\Hero\特木尔.png">

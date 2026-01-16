@@ -74,7 +74,8 @@ namespace NarakaBladepoint.Shared.Datas
         /// <summary>
         /// 头像图片源
         /// </summary>
-        public ImageSource Avatar => HeroIndex != -1 ? ResourceImageReader.GetHeroImage(HeroIndex) : null;
+        public ImageSource Avatar =>
+            HeroIndex != -1 ? ResourceImageReader.GetHeroAvatarImage(HeroName) : null;
     }
 
     /// <summary>

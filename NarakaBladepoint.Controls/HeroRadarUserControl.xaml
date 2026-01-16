@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="NarakaBladepoint.Controls.HeroRadarUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Canvas Width="260" Height="260">
+
+        <!--  四层五边形  -->
+        <Polygon
+            Fill="#11FFFFFF"
+            Points="130,30 215,85 185,190 75,190 45,85"
+            Stroke="#33FFFFFF" />
+        <Polygon
+            Fill="#11FFFFFF"
+            Points="130,50 195,95 170,175 90,175 65,95"
+            Stroke="#33FFFFFF" />
+        <Polygon
+            Fill="#11FFFFFF"
+            Points="130,70 175,105 155,160 105,160 85,105"
+            Stroke="#33FFFFFF" />
+        <Polygon
+            Fill="#11FFFFFF"
+            Points="130,90 155,115 140,145 120,145 105,115"
+            Stroke="#33FFFFFF" />
+
+        <!--  数据多边形  -->
+        <Polygon
+            x:Name="DataPolygon"
+            Fill="#55FFB84D"
+            Stroke="#FFB84D"
+            StrokeThickness="1" />
+
+        <!--  点  -->
+        <Ellipse
+            x:Name="P1"
+            Width="8"
+            Height="8"
+            Fill="#FFB84D" />
+        <Ellipse
+            x:Name="P2"
+            Width="8"
+            Height="8"
+            Fill="#FFB84D" />
+        <Ellipse
+            x:Name="P3"
+            Width="8"
+            Height="8"
+            Fill="#FFB84D" />
+        <Ellipse
+            x:Name="P4"
+            Width="8"
+            Height="8"
+            Fill="#FFB84D" />
+        <Ellipse
+            x:Name="P5"
+            Width="8"
+            Height="8"
+            Fill="#FFB84D" />
+
+        <!--  文本  -->
+        <TextBlock
+            x:Name="T1"
+            Canvas.Left="115"
+            Canvas.Top="5"
+            Foreground="#80FFFFFF"
+            Text="生存" />
+        <TextBlock
+            x:Name="T2"
+            Canvas.Left="220"
+            Canvas.Top="75"
+            Foreground="#80FFFFFF"
+            Text="控制" />
+        <TextBlock
+            x:Name="T3"
+            Canvas.Left="185"
+            Canvas.Top="195"
+            Foreground="#80FFFFFF"
+            Text="机动" />
+        <TextBlock
+            x:Name="T4"
+            Canvas.Left="55"
+            Canvas.Top="195"
+            Foreground="#80FFFFFF"
+            Text="伤害" />
+        <TextBlock
+            x:Name="T5"
+            Canvas.Left="15"
+            Canvas.Top="75"
+            Foreground="#80FFFFFF"
+            Text="支援" />
+
+    </Canvas>
+</UserControl>

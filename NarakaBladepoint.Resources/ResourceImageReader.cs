@@ -2,12 +2,14 @@ using System.Collections;
 using System.Resources;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using NarakaBladepoint.Framework.Core.Extensions;
 
 namespace NarakaBladepoint.Resources
 {
     public static class ResourceImageReader
     {
         private static readonly List<ImageSource> _heroImages = new();
+        private static readonly List<ImageSource> _heroShowImages = new();
         private static readonly List<ImageSource> _avatarImages = new();
         private static readonly List<ImageSource> _heroTagImages = new();
 
@@ -45,6 +47,20 @@ namespace NarakaBladepoint.Resources
                         try
                         {
                             _heroImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
+
+                // ===================== HeroShow =====================
+                if (key.StartsWith("image/hero/show/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/hero/show/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _heroShowImages.Add(LoadBitmapFromResource(assembly, key));
                         }
                         catch { }
                     }
@@ -117,7 +133,8 @@ namespace NarakaBladepoint.Resources
             }
         }
 
-        // Map 静态图 key = 文件名去掉 .png
+        // ===================== Map Key =====================
+
         private static string GetMapKeyStatic(string fileName)
         {
             if (fileName.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
@@ -125,7 +142,6 @@ namespace NarakaBladepoint.Resources
             return fileName;
         }
 
-        // Map Gif key = 文件名去掉 Gif.png
         private static string GetMapKeyGif(string fileName)
         {
             if (fileName.EndsWith("gif.png", StringComparison.OrdinalIgnoreCase))
@@ -146,19 +162,41 @@ namespace NarakaBladepoint.Resources
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.UriSource = uri;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad; // 立即加载
+            bitmap.CacheOption = BitmapCacheOption.OnLoad;
             bitmap.EndInit();
-            bitmap.Freeze(); // 冻结，提高性能
+            bitmap.Freeze();
 
             return bitmap;
         }
 
-        // ===================== Hero / Avatar / HeroTag =====================
+        // ===================== Hero / HeroShow / Avatar / HeroTag =====================
 
-        public static ImageSource GetHeroImage(int index) =>
-            index >= 0 && index < _heroImages.Count ? _heroImages[index] : null;
+        public static ImageSource GetHeroAvatarImage(string name)
+        {
+            return _heroImages.Find(img =>
+            {
+                var fileName = img.GetFileName();
+                return string.Equals(fileName, name, StringComparison.OrdinalIgnoreCase);
+            });
+        }
 
-        public static ImageSource GetAvatarImage(int index) =>
+        public static ImageSource GetHeroAvatarImage(int index)
+        {
+            var name = _heroShowImages[index].GetFileName();
+            var heroAvatarImage = _heroImages.FirstOrDefault(x => x.GetFileName() == name);
+            return heroAvatarImage;
+        }
+
+        public static ImageSource GetHeroShowImage(string name)
+        {
+            return _heroShowImages.Find(img =>
+            {
+                var fileName = img.GetFileName();
+                return string.Equals(fileName, name, StringComparison.OrdinalIgnoreCase);
+            });
+        }
+
+        public static ImageSource GetSocialAvatarImage(int index) =>
             index >= 0 && index < _avatarImages.Count ? _avatarImages[index] : null;
 
         public static ImageSource GetHeroTagImage(int index) =>
@@ -167,32 +205,27 @@ namespace NarakaBladepoint.Resources
         public static IReadOnlyList<ImageSource> GetAllHeroAvatarImageSouces() =>
             _heroImages.AsReadOnly();
 
+        public static IReadOnlyList<ImageSource> GetAllHeroShowImages() =>
+            _heroShowImages.AsReadOnly();
+
         public static IReadOnlyList<ImageSource> GetAllAvatarImages() => _avatarImages.AsReadOnly();
 
         public static IReadOnlyList<ImageSource> GetAllHeroTagImages() =>
             _heroTagImages.AsReadOnly();
 
         public static int HeroCount => _heroImages.Count;
+        public static int HeroShowCount => _heroShowImages.Count;
         public static int AvatarCount => _avatarImages.Count;
         public static int HeroTagCount => _heroTagImages.Count;
 
         // ===================== Map API =====================
 
-        /// <summary>
-        /// 获取 Map → MapGif 配对字典
-        /// </summary>
         public static IReadOnlyDictionary<ImageSource, ImageSource> GetAllMapImagePairs() =>
             _mapImagePairs;
 
-        /// <summary>
-        /// 根据 Map 静态图获取对应的 Gif（可能为 null）
-        /// </summary>
         public static ImageSource GetMapGif(ImageSource mapImage) =>
             mapImage != null && _mapImagePairs.TryGetValue(mapImage, out var gif) ? gif : null;
 
-        /// <summary>
-        /// 地图总数
-        /// </summary>
         public static int MapCount => _mapImagePairs.Count;
     }
 }

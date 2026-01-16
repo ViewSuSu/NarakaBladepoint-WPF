@@ -25,7 +25,7 @@ namespace NarakaBladepoint.Shared.Datas
         /// 头像
         /// </summary>
         [JsonIgnore]
-        public ImageSource Avatar => ResourceImageReader.GetAvatarImage(AvatarIndex);
+        public ImageSource Avatar => ResourceImageReader.GetSocialAvatarImage(AvatarIndex);
 
         /// <summary>
         /// 名字
