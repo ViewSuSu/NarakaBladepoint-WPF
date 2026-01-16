@@ -30,7 +30,8 @@
                         <ListBox
                             HorizontalContentAlignment="Stretch"
                             d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Background="Transparent">
+                            Background="Transparent"
+                            BorderBrush="Transparent">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <controls:HighlightBorder MinHeight="100">

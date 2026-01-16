@@ -6,6 +6,7 @@ using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Store.Views;
+using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
 {
@@ -37,6 +38,15 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
                     IsSelectedHall = true;
                 });
         }
+
+        private DelegateCommand _navigateToToWeaponCommand;
+        public DelegateCommand NavigateToWeaponCommand =>
+            _navigateToToWeaponCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator
+                    .GetEvent<LoadMainContentRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(WeaponPage)));
+            });
 
         private DelegateCommand _navigateToHeroCommand;
         public DelegateCommand NavigateToHeroCommand =>

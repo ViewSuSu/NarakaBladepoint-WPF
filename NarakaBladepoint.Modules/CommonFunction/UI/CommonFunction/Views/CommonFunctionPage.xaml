@@ -20,7 +20,7 @@
             Header="英雄"
             Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem
-            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHeroCommand}"
+            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToWeaponCommand}"
             Header="兵器"
             Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem Header="备战" Style="{StaticResource CommonFunctionTabItem}" />
