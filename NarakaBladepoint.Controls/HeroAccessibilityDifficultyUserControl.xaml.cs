@@ -25,6 +25,6 @@ namespace NarakaBladepoint.Controls
             new FrameworkPropertyMetadata(1d, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
         );
 
-        public IEnumerable<int> StarIndexes { get; }
+        internal IEnumerable<int> StarIndexes { get; }
     }
 }
