@@ -1,0 +1,178 @@
+﻿[
+  {
+    "Name": "飞刀",
+    "Level": 19,
+    "TotalDamage": 35222,
+    "TotalEliminations": 9,
+    "TotalAssists": 8,
+    "MaxDamagePerGame": 19551,
+    "MaxEliminationsPerGame": 6,
+    "TotalParries": 1,
+    "Group": null
+  },
+  {
+    "Name": "拳刃",
+    "Level": 24,
+    "TotalDamage": 8047,
+    "TotalEliminations": 2,
+    "TotalAssists": 4,
+    "MaxDamagePerGame": 3558,
+    "MaxEliminationsPerGame": 1,
+    "TotalParries": 2,
+    "Group": null
+  },
+  {
+    "Name": "长剑",
+    "Level": 25,
+    "TotalDamage": 13417,
+    "TotalEliminations": 4,
+    "TotalAssists": 6,
+    "MaxDamagePerGame": 6395,
+    "MaxEliminationsPerGame": 2,
+    "TotalParries": 3,
+    "Group": "双刃"
+  },
+  {
+    "Name": "链剑",
+    "Level": 15,
+    "TotalDamage": 8047,
+    "TotalEliminations": 2,
+    "TotalAssists": 4,
+    "MaxDamagePerGame": 3558,
+    "MaxEliminationsPerGame": 1,
+    "TotalParries": 2,
+    "Group": "双刃"
+  },
+  {
+    "Name": "太刀",
+    "Level": 25,
+    "TotalDamage": 1118,
+    "TotalEliminations": 1,
+    "TotalAssists": 0,
+    "MaxDamagePerGame": 1046,
+    "MaxEliminationsPerGame": 1,
+    "TotalParries": 0,
+    "Group": "单刀"
+  },
+  {
+    "Name": "横刀",
+    "Level": 25,
+    "TotalDamage": 22247,
+    "TotalEliminations": 6,
+    "TotalAssists": 8,
+    "MaxDamagePerGame": 6033,
+    "MaxEliminationsPerGame": 3,
+    "TotalParries": 0,
+    "Group": "单刀"
+  },
+  {
+    "Name": "阔刀",
+    "Level": 25,
+    "TotalDamage": 1514,
+    "TotalEliminations": 2,
+    "TotalAssists": 0,
+    "MaxDamagePerGame": 1363,
+    "MaxEliminationsPerGame": 2,
+    "TotalParries": 0,
+    "Group": "重刀"
+  },
+  {
+    "Name": "斩马刀",
+    "Level": 25,
+    "TotalDamage": 4082,
+    "TotalEliminations": 0,
+    "TotalAssists": 0,
+    "MaxDamagePerGame": 1588,
+    "MaxEliminationsPerGame": 0,
+    "TotalParries": 0,
+    "Group": "重刀"
+  },
+  {
+    "Name": "枪",
+    "Level": 25,
+    "TotalDamage": 5386,
+    "TotalEliminations": 3,
+    "TotalAssists": 1,
+    "MaxDamagePerGame": 2028,
+    "MaxEliminationsPerGame": 2,
+    "TotalParries": 1,
+    "Group": "长兵器"
+  },
+  {
+    "Name": "棍",
+    "Level": 25,
+    "TotalDamage": 15090,
+    "TotalEliminations": 1,
+    "TotalAssists": 0,
+    "MaxDamagePerGame": 9901,
+    "MaxEliminationsPerGame": 1,
+    "TotalParries": 2,
+    "Group": "长兵器"
+  },
+  {
+    "Name": "匕首",
+    "Level": 25,
+    "TotalDamage": 28313,
+    "TotalEliminations": 11,
+    "TotalAssists": 9,
+    "MaxDamagePerGame": 10004,
+    "MaxEliminationsPerGame": 3,
+    "TotalParries": 2,
+    "Group": "短兵器"
+  },
+  {
+    "Name": "扇",
+    "Level": 25,
+    "TotalDamage": 24449,
+    "TotalEliminations": 7,
+    "TotalAssists": 10,
+    "MaxDamagePerGame": 4733,
+    "MaxEliminationsPerGame": 3,
+    "TotalParries": 2,
+    "Group": "短兵器"
+  },
+  {
+    "Name": "双节棍",
+    "Level": 25,
+    "TotalDamage": 17017,
+    "TotalEliminations": 6,
+    "TotalAssists": 1,
+    "MaxDamagePerGame": 10716,
+    "MaxEliminationsPerGame": 5,
+    "TotalParries": 1,
+    "Group": "短兵器"
+  },
+  {
+    "Name": "双刀",
+    "Level": 25,
+    "TotalDamage": 19912,
+    "TotalEliminations": 4,
+    "TotalAssists": 3,
+    "MaxDamagePerGame": 5798,
+    "MaxEliminationsPerGame": 1,
+    "TotalParries": 1,
+    "Group": "双持"
+  },
+  {
+    "Name": "双戟",
+    "Level": 25,
+    "TotalDamage": 22901,
+    "TotalEliminations": 9,
+    "TotalAssists": 0,
+    "MaxDamagePerGame": 6786,
+    "MaxEliminationsPerGame": 3,
+    "TotalParries": 3,
+    "Group": "双持"
+  },
+  {
+    "Name": "万刃轮",
+    "Level": 2,
+    "TotalDamage": 0,
+    "TotalEliminations": 0,
+    "TotalAssists": 0,
+    "MaxDamagePerGame": 0,
+    "MaxEliminationsPerGame": 0,
+    "TotalParries": 0,
+    "Group": "双持"
+  }
+]

@@ -25,22 +25,51 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="0,30">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="0.2*" />
+                </Grid.RowDefinitions>
                 <TabControl Background="Transparent" Style="{StaticResource AverageTabControlStyle}">
                     <TabItem Header="远程" Style="{StaticResource FriendListTabItem}">
-                        <ListBox
+                        <ItemsControl
                             HorizontalContentAlignment="Stretch"
-                            d:ItemsSource="{d:SampleData ItemCount=5}"
+                            d:ItemsSource="{d:SampleData ItemCount=10}"
                             Background="Transparent"
-                            BorderBrush="Transparent">
-                            <ListBox.ItemTemplate>
+                            BorderBrush="Transparent"
+                            ItemsSource="{Binding RangedWeaponModels, Mode=OneWay}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ItemsControl.Template>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <ScrollViewer Padding="{TemplateBinding Padding}">
+                                        <ItemsPresenter />
+                                    </ScrollViewer>
+                                </ControlTemplate>
+                            </ItemsControl.Template>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="1" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <controls:HighlightBorder MinHeight="100">
-                                        <Grid Margin="10">
+                                    <controls:HighlightBorder
+                                        Width="{Binding RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=1}, Path=ActualWidth}"
+                                        Height="100"
+                                        Margin="0,5"
+                                        Background="#1A000000"
+                                        BorderThickness="2">
+                                        <Grid Margin="5">
+                                            <Image
+                                                d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首.png"
+                                                Source="{Binding Icon, Mode=OneWay}"
+                                                Stretch="UniformToFill" />
                                             <TextBlock
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
                                                 d:Text="连弩"
-                                                Foreground="White" />
+                                                Foreground="White"
+                                                Text="{Binding Name, Mode=OneWay}" />
                                             <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
                                                 <StackPanel
                                                     HorizontalAlignment="Left"
@@ -56,18 +85,135 @@
                                                         VerticalAlignment="Bottom"
                                                         d:Text="25"
                                                         FontSize="20"
-                                                        Foreground="Orange" />
+                                                        Foreground="Orange"
+                                                        Text="{Binding Level, Mode=OneWay}" />
                                                 </StackPanel>
                                                 <ProgressBar Height="6" Margin="0,3,0,0" />
                                             </StackPanel>
                                         </Grid>
+                                        <controls:HighlightBorder.Style>
+                                            <Style TargetType="Border">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="White" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="False">
+                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </controls:HighlightBorder.Style>
                                     </controls:HighlightBorder>
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </TabItem>
-                    <TabItem Header="近战" Style="{StaticResource FriendListTabItem}" />
+                    <TabItem Header="近战" Style="{StaticResource FriendListTabItem}">
+                        <ItemsControl
+                            HorizontalContentAlignment="Stretch"
+                            d:ItemsSource="{d:SampleData ItemCount=3}"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            ItemsSource="{Binding MeleeWeaponModels, Mode=OneWay}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <ItemsControl.Template>
+                                <ControlTemplate TargetType="ItemsControl">
+                                    <ScrollViewer Padding="{TemplateBinding Padding}">
+                                        <ItemsPresenter />
+                                    </ScrollViewer>
+                                </ControlTemplate>
+                            </ItemsControl.Template>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock
+                                            d:Text="双刃"
+                                            Foreground="White"
+                                            Text="{Binding Group, Mode=OneWay}" />
+                                        <ItemsControl
+                                            HorizontalContentAlignment="Stretch"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            ItemsSource="{Binding MeleeWeaponDatas, Mode=OneWay}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Vertical" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <controls:HighlightBorder
+                                                        Width="{Binding RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=1}, Path=ActualWidth}"
+                                                        Height="100"
+                                                        Margin="0,2"
+                                                        Background="#1A000000"
+                                                        BorderThickness="2">
+                                                        <Grid Margin="5">
+                                                            <Image
+                                                                d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首.png"
+                                                                Source="{Binding Icon, Mode=OneWay}"
+                                                                Stretch="UniformToFill" />
+                                                            <TextBlock
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Top"
+                                                                d:Text="长剑"
+                                                                Foreground="White"
+                                                                Text="{Binding Name, Mode=OneWay}" />
+                                                            <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                                                                <StackPanel
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center"
+                                                                    Orientation="Horizontal">
+                                                                    <TextBlock
+                                                                        HorizontalAlignment="Left"
+                                                                        VerticalAlignment="Bottom"
+                                                                        Foreground="Orange"
+                                                                        Text="等级" />
+                                                                    <TextBlock
+                                                                        Margin="5,0,0,0"
+                                                                        VerticalAlignment="Bottom"
+                                                                        d:Text="25"
+                                                                        FontSize="20"
+                                                                        Foreground="Orange"
+                                                                        Text="{Binding Level, Mode=OneWay}" />
+                                                                </StackPanel>
+                                                                <ProgressBar Height="6" Margin="0,3,0,0" />
+                                                            </StackPanel>
+                                                        </Grid>
+                                                        <controls:HighlightBorder.Style>
+                                                            <Style TargetType="Border">
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
+                                                                        <Setter Property="BorderBrush" Value="White" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="False">
+                                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </controls:HighlightBorder.Style>
+                                                    </controls:HighlightBorder>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </TabItem>
                 </TabControl>
+                <Button
+                    Grid.Row="1"
+                    Height="30"
+                    VerticalAlignment="Bottom"
+                    Content="外观"
+                    Style="{StaticResource CleanButtonStyle}" />
             </Grid>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>

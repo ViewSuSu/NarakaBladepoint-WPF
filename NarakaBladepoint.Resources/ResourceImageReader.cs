@@ -13,6 +13,9 @@ namespace NarakaBladepoint.Resources
         private static readonly List<ImageSource> _avatarImages = new();
         private static readonly List<ImageSource> _heroTagImages = new();
 
+        // Weapon 相关：image/weapon/*.png
+        private static readonly List<ImageSource> _weaponImages = new();
+
         // Map 相关：Key = 静态图，Value = Gif（可为空）
         private static readonly Dictionary<ImageSource, ImageSource> _mapImagePairs = new();
 
@@ -89,6 +92,21 @@ namespace NarakaBladepoint.Resources
                         try
                         {
                             _heroTagImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
+
+                // ===================== Weapon =====================
+                // image/Weapon 下表示武器图片资源（统一按小写匹配后为 image/weapon/）
+                if (key.StartsWith("image/weapon/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/weapon/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _weaponImages.Add(LoadBitmapFromResource(assembly, key));
                         }
                         catch { }
                     }
@@ -217,6 +235,21 @@ namespace NarakaBladepoint.Resources
         public static int HeroShowCount => _heroShowImages.Count;
         public static int AvatarCount => _avatarImages.Count;
         public static int HeroTagCount => _heroTagImages.Count;
+
+        // ===================== Weapon API =====================
+
+        public static ImageSource GetWeaponImage(string name)
+        {
+            return _weaponImages.Find(img =>
+            {
+                var fileName = img.GetFileName();
+                return string.Equals(fileName, name, StringComparison.OrdinalIgnoreCase);
+            });
+        }
+
+        public static IReadOnlyList<ImageSource> GetAllWeaponImages() => _weaponImages.AsReadOnly();
+
+        public static int WeaponCount => _weaponImages.Count;
 
         // ===================== Map API =====================
 

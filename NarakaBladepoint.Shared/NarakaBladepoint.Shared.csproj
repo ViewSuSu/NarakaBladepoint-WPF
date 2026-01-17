@@ -15,6 +15,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="Datas\Jsons\MeleeWeaponData.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Datas\Jsons\RangedWeaponData.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Datas\Jsons\HeroAvatarModel.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
