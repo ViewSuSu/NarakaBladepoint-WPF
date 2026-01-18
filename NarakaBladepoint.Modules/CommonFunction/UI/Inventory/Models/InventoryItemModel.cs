@@ -37,6 +37,14 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Models
             set { icon = value; }
         }
 
+        private bool isSelected;
+
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set { SetProperty(ref isSelected, value); }
+        }
+
         public string Description { get; set; }
     }
 }

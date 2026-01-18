@@ -183,6 +183,13 @@
 	  <None Remove="Image\InventoryProps\10.png" />
 	  <None Remove="Image\InventoryProps\11.png" />
 	  <None Remove="Image\InventoryProps\12.png" />
+	  <None Remove="Image\InventoryProps\13.png" />
+	  <None Remove="Image\InventoryProps\14.png" />
+	  <None Remove="Image\InventoryProps\15.png" />
+	  <None Remove="Image\InventoryProps\16.png" />
+	  <None Remove="Image\InventoryProps\17.png" />
+	  <None Remove="Image\InventoryProps\18.png" />
+	  <None Remove="Image\InventoryProps\19.png" />
 	  <None Remove="Image\InventoryProps\2.png" />
 	  <None Remove="Image\InventoryProps\3.png" />
 	  <None Remove="Image\InventoryProps\4.png" />
@@ -503,6 +510,13 @@
 	  <Resource Include="Image\Hero\张起灵.png" />
 	  <Resource Include="Image\Hero\李寻欢.png" />
 	  <Resource Include="Image\Hero\蓝梦.png" />
+	  <Resource Include="Image\InventoryProps\13.png" />
+	  <Resource Include="Image\InventoryProps\14.png" />
+	  <Resource Include="Image\InventoryProps\15.png" />
+	  <Resource Include="Image\InventoryProps\16.png" />
+	  <Resource Include="Image\InventoryProps\17.png" />
+	  <Resource Include="Image\InventoryProps\18.png" />
+	  <Resource Include="Image\InventoryProps\19.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\3.png" />

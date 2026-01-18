@@ -6,6 +6,7 @@
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,6 +16,9 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
@@ -33,13 +37,8 @@
                     Margin="50,50,0,0"
                     Background="Transparent"
                     Style="{StaticResource AverageTabControlStyle}">
-                    <controls:IconTabItem
-                        Header="全部"
-                        HeaderFontSize="11"
-                        Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo1.png"
-                        IconHeight="22"
-                        IconWidth="24">
-                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding InventoryItemModels}">
+                    <controls:IconTabItem Header="全部" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo1.png">
+                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding AllItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="6" />
@@ -47,128 +46,173 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="2">
-                                        <Image
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
+                                    <controls:HighlightBorder Margin="2">
+                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <Grid>
+                                                <Image
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    Source="{Binding Icon}"
+                                                    Stretch="Uniform" />
+                                                <TextBlock
+                                                    Margin="0,0,2,2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Bottom"
+                                                    d:Text="1"
+                                                    FontSize="10"
+                                                    Foreground="White"
+                                                    Text="{Binding Count}" />
+                                            </Grid>
+                                        </Border>
+                                    </controls:HighlightBorder>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
                     <controls:IconTabItem Header="礼包" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo2.png">
-                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding InventoryItemModels}">
+                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding GiftPackItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel ItemHeight="60" ItemWidth="60" />
+                                    <UniformGrid Columns="6" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="2">
-                                        <Image
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
+                                    <controls:HighlightBorder Margin="2">
+                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <Grid>
+                                                <Image
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    Source="{Binding Icon}"
+                                                    Stretch="Uniform" />
+                                                <TextBlock
+                                                    Margin="0,0,2,2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Bottom"
+                                                    d:Text="1"
+                                                    FontSize="10"
+                                                    Foreground="White"
+                                                    Text="{Binding Count}" />
+                                            </Grid>
+                                        </Border>
+                                    </controls:HighlightBorder>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
                     <controls:IconTabItem Header="卡券" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo3.png">
-                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding InventoryItemModels}">
+                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding CouponItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel ItemHeight="60" ItemWidth="60" />
+                                    <UniformGrid Columns="6" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="2">
-                                        <Image
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
+                                    <controls:HighlightBorder Margin="2">
+                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <Grid>
+                                                <Image
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    Source="{Binding Icon}"
+                                                    Stretch="Uniform" />
+                                                <TextBlock
+                                                    Margin="0,0,2,2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Bottom"
+                                                    d:Text="1"
+                                                    FontSize="10"
+                                                    Foreground="White"
+                                                    Text="{Binding Count}" />
+                                            </Grid>
+                                        </Border>
+                                    </controls:HighlightBorder>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
                     <controls:IconTabItem Header="征神之路" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo4.png">
-                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding InventoryItemModels}">
+                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding ConquestItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel ItemHeight="60" ItemWidth="60" />
+                                    <UniformGrid Columns="6" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="2">
-                                        <Image
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
+                                    <controls:HighlightBorder Margin="2">
+                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <Grid>
+                                                <Image
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    Source="{Binding Icon}"
+                                                    Stretch="Uniform" />
+                                                <TextBlock
+                                                    Margin="0,0,2,2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Bottom"
+                                                    d:Text="1"
+                                                    FontSize="10"
+                                                    Foreground="White"
+                                                    Text="{Binding Count}" />
+                                            </Grid>
+                                        </Border>
+                                    </controls:HighlightBorder>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
                     <controls:IconTabItem Header="无间镖客" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo5.png">
-                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding InventoryItemModels}">
+                        <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding BountyItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel ItemHeight="60" ItemWidth="60" />
+                                    <UniformGrid Columns="6" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="2">
-                                        <Image
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
+                                    <controls:HighlightBorder Margin="2">
+                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <Grid>
+                                                <Image
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    Source="{Binding Icon}"
+                                                    Stretch="Uniform" />
+                                                <TextBlock
+                                                    Margin="0,0,2,2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Bottom"
+                                                    d:Text="1"
+                                                    FontSize="10"
+                                                    Foreground="White"
+                                                    Text="{Binding Count}" />
+                                            </Grid>
+                                        </Border>
+                                    </controls:HighlightBorder>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -185,14 +229,14 @@
                         Height="300"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
-                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/gaoqing.png"
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/gaoqing.png"
                         Stretch="Uniform" />
                     <Grid Grid.Column="1">
                         <StackPanel Orientation="Vertical">
                             <TextBlock
-                                d:Text="新春宝灯"
                                 FontSize="30"
-                                Foreground="White" />
+                                Foreground="White"
+                                Text="新春宝灯" />
                             <TextBlock
                                 Margin="0,10,0,0"
                                 Foreground="#EAB181"
@@ -200,7 +244,8 @@
                             <TextBlock
                                 Margin="0,10,0,0"
                                 Foreground="White"
-                                Text="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+                                Style="{StaticResource GrayForegroundTextBlock}"
+                                Text="藏有新春光彩的宝灯，使用后前往祈福祥瑞开启。将于版本中期开启。"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>

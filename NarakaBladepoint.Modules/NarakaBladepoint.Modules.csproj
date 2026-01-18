@@ -17,6 +17,10 @@
 	  <Page Remove="Social\UI\Friend\UI\Models\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="CommonFunction\UI\Inventory\ViewModels\InventoryPageViewModel.cs~RF1b11ff1.TMP" />
+	</ItemGroup>
+
 
 
 

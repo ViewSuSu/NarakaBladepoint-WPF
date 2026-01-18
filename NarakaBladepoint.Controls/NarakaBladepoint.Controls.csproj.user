@@ -8,6 +8,9 @@
     <Compile Update="HeroRadarUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SkillPointUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UpwardComboBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

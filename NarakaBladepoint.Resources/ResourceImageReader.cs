@@ -16,6 +16,9 @@ namespace NarakaBladepoint.Resources
         // Weapon 相关：image/weapon/*.png
         private static readonly List<ImageSource> _weaponImages = new();
 
+        // InventoryProps 相关：image/inventoryprops/*.png
+        private static readonly List<ImageSource> _inventoryPropImages = new();
+
         // Weapon 子文件夹：Key = 武器名称, Value = (技能图片列表, 背景图)
         private static readonly Dictionary<string, (List<ImageSource> Skills, ImageSource Background)> _weaponFolderImages = new();
 
@@ -97,6 +100,25 @@ namespace NarakaBladepoint.Resources
                             _heroTagImages.Add(LoadBitmapFromResource(assembly, key));
                         }
                         catch { }
+                    }
+                }
+
+                // ===================== InventoryProps =====================
+                if (key.StartsWith("image/inventoryprops/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/inventoryprops/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        // 只保留纯数字命名的文件（如 1.png, 2.png 等）
+                        var fileNameWithoutExtension = relative[..^4]; // 去掉 .png
+                        if (int.TryParse(fileNameWithoutExtension, out _))
+                        {
+                            try
+                            {
+                                _inventoryPropImages.Add(LoadBitmapFromResource(assembly, key));
+                            }
+                            catch { }
+                        }
                     }
                 }
 
@@ -274,6 +296,16 @@ namespace NarakaBladepoint.Resources
         public static int HeroShowCount => _heroShowImages.Count;
         public static int AvatarCount => _avatarImages.Count;
         public static int HeroTagCount => _heroTagImages.Count;
+
+        // ===================== InventoryProps API =====================
+
+        public static ImageSource GetInventoryPropImage(int index) =>
+            index >= 0 && index < _inventoryPropImages.Count ? _inventoryPropImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllInventoryPropImages() =>
+            _inventoryPropImages.AsReadOnly();
+
+        public static int InventoryPropCount => _inventoryPropImages.Count;
 
         // ===================== Weapon API =====================
 
