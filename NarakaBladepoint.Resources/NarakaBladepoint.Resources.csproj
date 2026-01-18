@@ -93,6 +93,7 @@
 	  <None Remove="Image\Button\拓展包.png" />
 	  <None Remove="Image\Button\揽月阁.png" />
 	  <None Remove="Image\Button\摘星阁.png" />
+	  <None Remove="Image\Button\武器等级.png" />
 	  <None Remove="Image\Button\白泽月卡.png" />
 	  <None Remove="Image\Button\白泽百科.png" />
 	  <None Remove="Image\Button\赛事.png" />
@@ -456,6 +457,7 @@
 
 	<ItemGroup>
 	  <Resource Include="Image\Button\修行.png" />
+	  <Resource Include="Image\Button\武器等级.png" />
 	  <Resource Include="Image\Email\1.png" />
 	  <Resource Include="Image\Email\2.png" />
 	  <Resource Include="Image\Email\3.png" />
@@ -876,7 +878,6 @@
 	  <Resource Include="Image\Weapon\棍\3.png" />
 	  <Resource Include="Image\Weapon\棍\4.png" />
 	  <Resource Include="Image\Weapon\棍\5.png" />
-	  <Resource Include="Image\Weapon\棍\6.png" />
 	  <Resource Include="Image\Weapon\棍\background.png" />
 	  <Resource Include="Image\Weapon\横刀.png" />
 	  <Resource Include="Image\Weapon\横刀\1.png" />

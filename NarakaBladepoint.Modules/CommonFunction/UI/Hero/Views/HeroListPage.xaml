@@ -53,7 +53,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <controls:HighlightBorder  Margin="2">
+                            <controls:HighlightBorder Margin="2">
                                 <Grid>
                                     <Image
                                         d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png"
@@ -160,9 +160,8 @@
                         <TextBlock VerticalAlignment="Center" Text="难度" />
                         <controls:HeroAccessibilityDifficultyUserControl
                             Margin="5,0,0,0"
-                            VerticalAlignment="Center"
-                            d:Number="3.5"
-                            Number="{Binding SelectedHeroAvatarModel.HeroAccessibilityDifficulty, Mode=OneWay}" />
+                            d:Number="3"
+                            Number="{Binding SelectedHeroAvatarModel.HeroAccessibilityDifficulty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <Viewbox Width="180">
                         <controls:HeroRadarUserControl
@@ -181,9 +180,6 @@
                         Content="大厅展示"
                         Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
                 </StackPanel>
-                <!--<StackPanel Grid.Row="2" VerticalAlignment="Center">
-                    <controls:HeroAccessibilityDifficultyUserControl VerticalAlignment="Center" Number="3" />
-                </StackPanel>-->
             </Grid>
         </Grid>
         <controls:EscBackControl

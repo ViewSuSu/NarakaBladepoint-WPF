@@ -10,12 +10,12 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Models
     {
         public string Group { get; set; }
 
-        public List<MeleeWeaponData> MeleeWeaponDatas { get; set; }
+        public List<WeaponData> MeleeWeaponDatas { get; set; }
 
-        public MeleeWeaponModel(List<MeleeWeaponData> meleeWeaponDatas)
+        public MeleeWeaponModel(List<WeaponData> meleeWeaponDatas)
         {
             MeleeWeaponDatas = meleeWeaponDatas;
-            Group = meleeWeaponDatas.FirstOrDefault().Group;
+            Group = meleeWeaponDatas.FirstOrDefault()?.Group;
         }
     }
 }

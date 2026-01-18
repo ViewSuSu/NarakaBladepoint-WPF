@@ -8,7 +8,7 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
 {
     public interface IWeaponProvider
     {
-        Task<List<MeleeWeaponData>> GetMeleeWeaponDatasAsync();
-        Task<List<RangedWeaponData>> GetRangedWeaponDatasAsync();
+        Task<List<WeaponData>> GetMeleeWeaponDatasAsync();
+        Task<List<WeaponData>> GetRangedWeaponDatasAsync();
     }
 }

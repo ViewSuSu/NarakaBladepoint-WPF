@@ -9,14 +9,14 @@ namespace NarakaBladepoint.Shared.Services.Infrastructure
     [Component(ComponentLifetime.Singleton)]
     internal class WeaponProvider : IWeaponProvider
     {
-        public async Task<List<RangedWeaponData>> GetRangedWeaponDatasAsync()
+        public async Task<List<WeaponData>> GetRangedWeaponDatasAsync()
         {
-            return ConfigurationDataReader.GetList<RangedWeaponData>();
+            return ConfigurationDataReader.GetList<WeaponData>("RangedWeaponData");
         }
 
-        public async Task<List<MeleeWeaponData>> GetMeleeWeaponDatasAsync()
+        public async Task<List<WeaponData>> GetMeleeWeaponDatasAsync()
         {
-            return ConfigurationDataReader.GetList<MeleeWeaponData>();
+            return ConfigurationDataReader.GetList<WeaponData>("MeleeWeaponData");
         }
     }
 }

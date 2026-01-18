@@ -13,6 +13,17 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         {
             _heroAvatarModel =
                 heroAvatarModel ?? throw new ArgumentNullException(nameof(heroAvatarModel));
+
+            _name = heroAvatarModel.Name;
+            _voiceActor = heroAvatarModel.VoiceActor;
+            _shortDescription = heroAvatarModel.ShortDescription;
+            _description = heroAvatarModel.Description;
+            _heroAccessibilityDifficulty = heroAvatarModel.HeroAccessibilityDifficulty;
+            _survival = heroAvatarModel.Survival;
+            _control = heroAvatarModel.Control;
+            _mobility = heroAvatarModel.Mobility;
+            _damage = heroAvatarModel.Damage;
+            _support = heroAvatarModel.Support;
         }
 
         private readonly HeroAvatarModel _heroAvatarModel;
@@ -25,155 +36,112 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
 
         public ImageSource ShowImage => _heroAvatarModel.ShowImage;
 
+        private string _name;
         public string Name
         {
-            get => _heroAvatarModel.Name;
+            get => _name;
             set
             {
-                if (_heroAvatarModel.Name == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Name = value;
+                _name = value;
                 RaisePropertyChanged();
-                RaisePropertyChanged(nameof(Index));
-                RaisePropertyChanged(nameof(Avatar));
-                RaisePropertyChanged(nameof(ShowImage));
             }
         }
 
+        private string _voiceActor;
         public string VoiceActor
         {
-            get => _heroAvatarModel.VoiceActor;
+            get => _voiceActor;
             set
             {
-                if (_heroAvatarModel.VoiceActor == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.VoiceActor = value;
+                _voiceActor = value;
                 RaisePropertyChanged();
             }
         }
 
+        private string _shortDescription;
         public string ShortDescription
         {
-            get => _heroAvatarModel.ShortDescription;
+            get => _shortDescription;
             set
             {
-                if (_heroAvatarModel.ShortDescription == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.ShortDescription = value;
+                _shortDescription = value;
                 RaisePropertyChanged();
             }
         }
 
+        private string _description;
         public string Description
         {
-            get => _heroAvatarModel.Description;
+            get => _description;
             set
             {
-                if (_heroAvatarModel.Description == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Description = value;
+                _description = value;
                 RaisePropertyChanged();
             }
         }
 
+        private double _heroAccessibilityDifficulty;
         public double HeroAccessibilityDifficulty
         {
-            get => _heroAvatarModel.HeroAccessibilityDifficulty;
+            get => _heroAccessibilityDifficulty;
             set
             {
-                if (_heroAvatarModel.HeroAccessibilityDifficulty == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.HeroAccessibilityDifficulty = value;
+                _heroAccessibilityDifficulty = value;
                 RaisePropertyChanged();
             }
         }
 
+        private int _survival;
         public int Survival
         {
-            get => _heroAvatarModel.Survival;
+            get => _survival;
             set
             {
-                if (_heroAvatarModel.Survival == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Survival = value;
+                _survival = value;
                 RaisePropertyChanged();
             }
         }
 
+        private int _control;
         public int Control
         {
-            get => _heroAvatarModel.Control;
+            get => _control;
             set
             {
-                if (_heroAvatarModel.Control == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Control = value;
+                _control = value;
                 RaisePropertyChanged();
             }
         }
 
+        private int _mobility;
         public int Mobility
         {
-            get => _heroAvatarModel.Mobility;
+            get => _mobility;
             set
             {
-                if (_heroAvatarModel.Mobility == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Mobility = value;
+                _mobility = value;
                 RaisePropertyChanged();
             }
         }
 
+        private int _damage;
         public int Damage
         {
-            get => _heroAvatarModel.Damage;
+            get => _damage;
             set
             {
-                if (_heroAvatarModel.Damage == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Damage = value;
+                _damage = value;
                 RaisePropertyChanged();
             }
         }
 
+        private int _support;
         public int Support
         {
-            get => _heroAvatarModel.Support;
+            get => _support;
             set
             {
-                if (_heroAvatarModel.Support == value)
-                {
-                    return;
-                }
-
-                _heroAvatarModel.Support = value;
+                _support = value;
                 RaisePropertyChanged();
             }
         }

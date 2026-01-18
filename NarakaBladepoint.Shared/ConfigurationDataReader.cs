@@ -58,15 +58,35 @@ namespace NarakaBladepoint.Shared
             var jsonContent = File.ReadAllText(jsonFilePath);
             var list = JsonConvert.DeserializeObject<List<TItem>>(jsonContent);
             if (list == null)
-            {
-                throw new InvalidOperationException($"无法反序列化类型 List<{type.Name}> 的配置");
+                {
+                    throw new InvalidOperationException($"无法反序列化类型 List<{type.Name}> 的配置");
+                }
+                return list;
             }
-            return list;
-        }
 
-        /// <summary>
-        /// 保存配置（覆盖本地 JSON 文件）
-        /// </summary>
+            /// <summary>
+            /// 根据自定义文件名获取配置列表（不缓存）
+            /// </summary>
+            public static List<TItem> GetList<TItem>(string jsonFileName)
+                where TItem : class
+            {
+                var jsonFilePath = Path.Combine(_jsonsFolderPath, $"{jsonFileName}.json");
+                if (!File.Exists(jsonFilePath))
+                {
+                    throw new FileNotFoundException($"找不到配置文件: {jsonFilePath}");
+                }
+                var jsonContent = File.ReadAllText(jsonFilePath);
+                var list = JsonConvert.DeserializeObject<List<TItem>>(jsonContent);
+                if (list == null)
+                {
+                    throw new InvalidOperationException($"无法反序列化类型 List<{typeof(TItem).Name}> 的配置");
+                }
+                return list;
+            }
+
+            /// <summary>
+            /// 保存配置（覆盖本地 JSON 文件）
+            /// </summary>
         /// <typeparam name="T">配置类型</typeparam>
         /// <param name="config">配置实例</param>
         /// <returns>是否保存成功</returns>

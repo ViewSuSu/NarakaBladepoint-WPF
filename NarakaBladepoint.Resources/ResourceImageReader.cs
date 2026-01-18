@@ -16,6 +16,9 @@ namespace NarakaBladepoint.Resources
         // Weapon 相关：image/weapon/*.png
         private static readonly List<ImageSource> _weaponImages = new();
 
+        // Weapon 子文件夹：Key = 武器名称, Value = (技能图片列表, 背景图)
+        private static readonly Dictionary<string, (List<ImageSource> Skills, ImageSource Background)> _weaponFolderImages = new();
+
         // Map 相关：Key = 静态图，Value = Gif（可为空）
         private static readonly Dictionary<ImageSource, ImageSource> _mapImagePairs = new();
 
@@ -104,11 +107,47 @@ namespace NarakaBladepoint.Resources
                     var relative = key["image/weapon/".Length..];
                     if (!relative.Contains("/"))
                     {
+                        // 根目录武器图标
                         try
                         {
                             _weaponImages.Add(LoadBitmapFromResource(assembly, key));
                         }
                         catch { }
+                    }
+                    else
+                    {
+                        // 子文件夹中的武器技能和背景图
+                        var parts = relative.Split('/');
+                        if (parts.Length == 2)
+                        {
+                            try
+                            {
+                                var image = LoadBitmapFromResource(assembly, key);
+                                // 使用扩展方法获取正确的文件名
+                                var fileName = image.GetFileNameWithExtension();
+                                
+                                // 从路径中获取武器文件夹名（需要从原始 URI 中获取正确大小写）
+                                var uri = ((BitmapImage)image).UriSource;
+                                var pathParts = uri.LocalPath.Split('/');
+                                var weaponName = pathParts.Length >= 2 ? pathParts[^2] : parts[0];
+
+                                if (!_weaponFolderImages.ContainsKey(weaponName))
+                                {
+                                    _weaponFolderImages[weaponName] = (new List<ImageSource>(), null);
+                                }
+
+                                if (fileName.Equals("background.png", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    var current = _weaponFolderImages[weaponName];
+                                    _weaponFolderImages[weaponName] = (current.Skills, image);
+                                }
+                                else
+                                {
+                                    _weaponFolderImages[weaponName].Skills.Add(image);
+                                }
+                            }
+                            catch { }
+                        }
                     }
                 }
 
@@ -250,6 +289,34 @@ namespace NarakaBladepoint.Resources
         public static IReadOnlyList<ImageSource> GetAllWeaponImages() => _weaponImages.AsReadOnly();
 
         public static int WeaponCount => _weaponImages.Count;
+
+        /// <summary>
+        /// 获取武器背景图
+        /// </summary>
+        public static ImageSource GetWeaponBackground(string weaponName)
+        {
+            var key = _weaponFolderImages.Keys.FirstOrDefault(k => 
+                string.Equals(k, weaponName, StringComparison.OrdinalIgnoreCase));
+            if (key != null && _weaponFolderImages.TryGetValue(key, out var data))
+            {
+                return data.Background;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 获取武器技能图片列表
+        /// </summary>
+        public static List<ImageSource> GetWeaponSkillImages(string weaponName)
+        {
+            var key = _weaponFolderImages.Keys.FirstOrDefault(k => 
+                string.Equals(k, weaponName, StringComparison.OrdinalIgnoreCase));
+            if (key != null && _weaponFolderImages.TryGetValue(key, out var data))
+            {
+                return data.Skills;
+            }
+            return new List<ImageSource>();
+        }
 
         // ===================== Map API =====================
 

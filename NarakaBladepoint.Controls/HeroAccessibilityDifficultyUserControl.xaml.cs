@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace NarakaBladepoint.Controls
@@ -9,7 +8,6 @@ namespace NarakaBladepoint.Controls
         public HeroAccessibilityDifficultyUserControl()
         {
             InitializeComponent();
-            StarIndexes = new[] { 1, 2, 3, 4, 5 };
         }
 
         public double Number
@@ -24,7 +22,5 @@ namespace NarakaBladepoint.Controls
             typeof(HeroAccessibilityDifficultyUserControl),
             new FrameworkPropertyMetadata(1d, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
         );
-
-        internal IEnumerable<int> StarIndexes { get; }
     }
 }
