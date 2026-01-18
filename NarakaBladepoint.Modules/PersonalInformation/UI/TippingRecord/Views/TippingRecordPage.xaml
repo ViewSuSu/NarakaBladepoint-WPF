@@ -7,69 +7,555 @@
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.TippingRecord.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.TippingRecord.ViewModels"
-    d:Background="Gray"
+    d:Background="#2A3A4A"
     d:DataContext="{d:DesignInstance Type=viewmodels:TippingRecordPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid Margin="30,50">
+    <Grid Margin="30,30">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="0.8*" />
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid>
-            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+
+        <!--  左侧区域 - 用户信息  -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  标题栏  -->
+            <Grid Grid.Row="0" Margin="0,0,0,20">
                 <TextBlock
                     HorizontalAlignment="Center"
-                    d:Text="Name"
-                    FontSize="20"
-                    Foreground="White"
+                    VerticalAlignment="Center"
+                    d:Text="野排牢张"
+                    FontSize="24"
+                    FontWeight="Bold"
                     Text="{Binding CurrentUserModel.Name, Mode=OneWay}" />
-                <Image
-                    Height="150"
+                <Button
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Cursor="Hand">
+                    <StackPanel Orientation="Vertical">
+                        <Image
+                            Width="24"
+                            Height="24"
+                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/1.png" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="打赏日志" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <!--  头像和称号区域  -->
+            <StackPanel
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Orientation="Vertical">
+                <!--  头像  -->
+                <Border
+                    Width="200"
+                    Height="220"
+                    HorizontalAlignment="Center"
+                    BorderThickness="3">
+                    <Image
+                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                        Source="{Binding CurrentUserModel.Avatar, Mode=OneWay}"
+                        Stretch="Uniform" />
+                </Border>
+
+                <StackPanel
                     Margin="0,20,0,0"
-                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
-                    Source="{Binding CurrentUserModel.Avatar, Mode=OneWay}" />
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="16"
+                        Height="16"
+                        VerticalAlignment="Center"
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/5.png" />
+                    <TextBlock
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        Text="支持者称号" />
+                    <Image
+                        Width="16"
+                        Height="16"
+                        VerticalAlignment="Center"
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/6.png" />
+                </StackPanel>
+
+                <!--  支持者标签  -->
                 <StackPanel
                     Margin="0,10,0,0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <Image
-                        Width="15"
+                        Width="20"
+                        Height="20"
                         VerticalAlignment="Center"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/TippingRecord/7.png" />
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/4.png" />
                     <TextBlock
                         Margin="5,0"
                         VerticalAlignment="Center"
-                        Foreground="White"
-                        Text="支持者称号" />
+                        Text="支持者" />
+                </StackPanel>
+            </StackPanel>
+
+            <!--  底部提取区域  -->
+            <StackPanel
+                Grid.Row="2"
+                Margin="0,0,20,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Orientation="Vertical">
+                <!--  可提取金块  -->
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <Image
-                        Width="15"
+                        Width="16"
+                        Height="16"
                         VerticalAlignment="Center"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/TippingRecord/2.png" />
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/5.png" />
+                    <TextBlock
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        Text="可提取金块" />
                 </StackPanel>
                 <StackPanel
-                    Margin="0,200,0,0"
+                    Margin="0,5,0,0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <Image
-                        Width="15"
+                        Width="20"
+                        Height="20"
                         VerticalAlignment="Center"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/TippingRecord/6.png" />
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/10.png" />
                     <TextBlock
                         Margin="5,0"
                         VerticalAlignment="Center"
-                        Foreground="White"
+                        FontSize="16"
                         Text="0" />
                 </StackPanel>
                 <Button
-                    Height="30"
-                    Margin="0,10,0,0"
-                    Background="Black"
+                    Width="200"
+                    Height="35"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Center"
+                    Background="Gray"
+                    BorderThickness="0"
                     Content="提取"
-                    Foreground="White" />
+                    FontSize="14" />
             </StackPanel>
+        </Grid>
+
+        <!--  中间区域 - 收到打赏  -->
+        <Grid Grid.Column="1" Margin="20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  标题  -->
+            <Border
+                Grid.Row="0"
+                Padding="15,10"
+                Background="#3A000000">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/2.png" />
+                    <TextBlock
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="收到打赏" />
+                </StackPanel>
+            </Border>
+
+            <!--  内容区域  -->
+            <Border
+                Grid.Row="1"
+                Margin="0,10,0,10"
+                Background="#1A000000">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="暂无打赏" />
+            </Border>
+
+            <!--  底部统计区域  -->
+            <Border
+                Grid.Row="2"
+                Padding="15,10"
+                Background="#8A000000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  左侧：合计收到打赏  -->
+                    <StackPanel
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <TextBlock Text="合计收到打赏" />
+                        <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                            <Image
+                                Width="20"
+                                Height="15"
+                                VerticalAlignment="Center"
+                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/10.png" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Text="0" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--  右侧：奖励图标、进度条和菱形  -->
+                    <Grid Grid.Column="1" Margin="20,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!--  奖励图标（与菱形对齐）  -->
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Width="50"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/7.png" />
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Width="50"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/8.png" />
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Width="50"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/9.png" />
+
+                        <!--  进度条和菱形节点  -->
+                        <Grid
+                            Grid.Row="1"
+                            Grid.ColumnSpan="3"
+                            Height="20"
+                            Margin="0,5,0,0">
+                            <!--  进度条背景线  -->
+                            <Rectangle
+                                Height="2"
+                                VerticalAlignment="Center"
+                                Fill="Gray" />
+                            <!--  进度条填充  -->
+                            <Rectangle
+                                Width="0"
+                                Height="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Fill="Red" />
+
+                            <!--  菱形节点容器  -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <!--  第一个菱形节点 (10000)  -->
+                                <Grid
+                                    Grid.Column="0"
+                                    Width="12"
+                                    Height="12"
+                                    HorizontalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="45" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="Gray" />
+                                </Grid>
+
+                                <!--  第二个菱形节点 (20000)  -->
+                                <Grid
+                                    Grid.Column="1"
+                                    Width="12"
+                                    Height="12"
+                                    HorizontalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="45" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="Gray" />
+                                </Grid>
+
+                                <!--  第三个菱形节点 (60000)  -->
+                                <Grid
+                                    Grid.Column="2"
+                                    Width="12"
+                                    Height="12"
+                                    HorizontalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="45" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="Gray" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <!--  数值标签  -->
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="10000" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="20000" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="60000" />
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!--  右侧区域 - 送出打赏  -->
+        <Grid Grid.Column="2" Margin="20,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  标题  -->
+            <Border
+                Grid.Row="0"
+                Padding="15,10"
+                Background="#3A000000">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/3.png" />
+                    <TextBlock
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="送出打赏" />
+                </StackPanel>
+            </Border>
+
+            <!--  内容区域  -->
+            <Border
+                Grid.Row="1"
+                Margin="0,10,0,10"
+                Background="#1A000000">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="暂无打赏" />
+            </Border>
+
+            <!--  底部统计区域  -->
+            <Border
+                Grid.Row="2"
+                Padding="15,10"
+                Background="#8A000000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  左侧：合计送出打赏  -->
+                    <StackPanel
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <TextBlock Text="合计送出打赏" />
+                        <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                            <Image
+                                Width="20"
+                                Height="15"
+                                VerticalAlignment="Center"
+                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/10.png" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Text="0" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--  右侧：奖励图标、进度条和菱形  -->
+                    <Grid Grid.Column="1" Margin="20,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!--  奖励图标（与菱形对齐）  -->
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Width="50"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/7.png" />
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Width="50"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/8.png" />
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Width="50"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/TippingRecord/9.png" />
+
+                        <!--  进度条和菱形节点  -->
+                        <Grid
+                            Grid.Row="1"
+                            Grid.ColumnSpan="3"
+                            Height="20"
+                            Margin="0,5,0,0">
+                            <!--  进度条背景线  -->
+                            <Rectangle
+                                Height="2"
+                                VerticalAlignment="Center"
+                                Fill="Gray" />
+                            <!--  进度条填充  -->
+                            <Rectangle
+                                Width="0"
+                                Height="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Fill="Red" />
+
+                            <!--  菱形节点容器  -->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <!--  第一个菱形节点 (10000)  -->
+                                <Grid
+                                    Grid.Column="0"
+                                    Width="12"
+                                    Height="12"
+                                    HorizontalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="45" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="Gray" />
+                                </Grid>
+
+                                <!--  第二个菱形节点 (20000)  -->
+                                <Grid
+                                    Grid.Column="1"
+                                    Width="12"
+                                    Height="12"
+                                    HorizontalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="45" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="Gray" />
+                                </Grid>
+
+                                <!--  第三个菱形节点 (60000)  -->
+                                <Grid
+                                    Grid.Column="2"
+                                    Width="12"
+                                    Height="12"
+                                    HorizontalAlignment="Center"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="45" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="Gray" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <!--  数值标签  -->
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="10000" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="20000" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="10"
+                            Text="60000" />
+                    </Grid>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </bases:UserControlBase>
