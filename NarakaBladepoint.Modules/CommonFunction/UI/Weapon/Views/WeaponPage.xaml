@@ -6,6 +6,7 @@
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,6 +16,9 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
@@ -22,7 +26,7 @@
         <Grid Name="weaponBackgroundGrid">
             <Grid.Background>
                 <ImageBrush
-                    d:ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png"
+                    d:ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首/background.png"
                     ImageSource="{Binding SelectedWeapon.Background, Mode=OneWay}"
                     Stretch="UniformToFill" />
             </Grid.Background>
@@ -73,56 +77,46 @@
                                         Height="100"
                                         Margin="0,5"
                                         Background="#1A000000"
-                                        BorderThickness="2">
-                                        <b:Interaction.Triggers>
-                                            <b:EventTrigger EventName="MouseLeftButtonDown">
-                                                <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectWeaponCommand}" CommandParameter="{Binding}" />
-                                            </b:EventTrigger>
-                                        </b:Interaction.Triggers>
-                                        <Grid Margin="5">
-                                            <Image
-                                                d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首.png"
-                                                Source="{Binding Icon, Mode=OneWay}"
-                                                Stretch="UniformToFill" />
-                                            <TextBlock
-                                                HorizontalAlignment="Left"
-                                                VerticalAlignment="Top"
-                                                d:Text="连弩"
-                                                Foreground="White"
-                                                Text="{Binding Name, Mode=OneWay}" />
-                                            <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
-                                                <StackPanel
+                                        BorderThickness="0">
+                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                            <b:Interaction.Triggers>
+                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectWeaponCommand}" CommandParameter="{Binding}" />
+                                                </b:EventTrigger>
+                                            </b:Interaction.Triggers>
+                                            <Grid Margin="5">
+                                                <Image
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首.png"
+                                                    Source="{Binding Icon, Mode=OneWay}"
+                                                    Stretch="UniformToFill" />
+                                                <TextBlock
                                                     HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center"
-                                                    Orientation="Horizontal">
-                                                    <TextBlock
+                                                    VerticalAlignment="Top"
+                                                    d:Text="连弩"
+                                                    Foreground="White"
+                                                    Text="{Binding Name, Mode=OneWay}" />
+                                                <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                                                    <StackPanel
                                                         HorizontalAlignment="Left"
-                                                        VerticalAlignment="Bottom"
-                                                        Foreground="Orange"
-                                                        Text="等级" />
-                                                    <TextBlock
-                                                        Margin="5,0,0,0"
-                                                        VerticalAlignment="Bottom"
-                                                        d:Text="25"
-                                                        FontSize="15"
-                                                        Foreground="Orange"
-                                                        Text="{Binding Level, Mode=OneWay}" />
+                                                        VerticalAlignment="Center"
+                                                        Orientation="Horizontal">
+                                                        <TextBlock
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Bottom"
+                                                            Foreground="Orange"
+                                                            Text="等级" />
+                                                        <TextBlock
+                                                            Margin="5,0,0,0"
+                                                            VerticalAlignment="Bottom"
+                                                            d:Text="25"
+                                                            FontSize="15"
+                                                            Foreground="Orange"
+                                                            Text="{Binding Level, Mode=OneWay}" />
+                                                    </StackPanel>
+                                                    <ProgressBar Height="6" Margin="0,3,0,0" />
                                                 </StackPanel>
-                                                <ProgressBar Height="6" Margin="0,3,0,0" />
-                                            </StackPanel>
-                                        </Grid>
-                                        <controls:HighlightBorder.Style>
-                                            <Style TargetType="Border">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
-                                                        <Setter Property="BorderBrush" Value="White" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="False">
-                                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </controls:HighlightBorder.Style>
+                                            </Grid>
+                                        </Border>
                                     </controls:HighlightBorder>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -176,56 +170,46 @@
                                                         Height="100"
                                                         Margin="0,2"
                                                         Background="#1A000000"
-                                                        BorderThickness="2">
-                                                        <b:Interaction.Triggers>
-                                                            <b:EventTrigger EventName="MouseLeftButtonDown">
-                                                                <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectWeaponCommand}" CommandParameter="{Binding}" />
-                                                            </b:EventTrigger>
-                                                        </b:Interaction.Triggers>
-                                                        <Grid Margin="5">
-                                                            <Image
-                                                                d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首.png"
-                                                                Source="{Binding Icon, Mode=OneWay}"
-                                                                Stretch="UniformToFill" />
-                                                            <TextBlock
-                                                                HorizontalAlignment="Left"
-                                                                VerticalAlignment="Top"
-                                                                d:Text="长剑"
-                                                                Foreground="White"
-                                                                Text="{Binding Name, Mode=OneWay}" />
-                                                            <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
-                                                                <StackPanel
+                                                        BorderThickness="0">
+                                                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
+                                                            <b:Interaction.Triggers>
+                                                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectWeaponCommand}" CommandParameter="{Binding}" />
+                                                                </b:EventTrigger>
+                                                            </b:Interaction.Triggers>
+                                                            <Grid Margin="5">
+                                                                <Image
+                                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Weapon/匕首.png"
+                                                                    Source="{Binding Icon, Mode=OneWay}"
+                                                                    Stretch="UniformToFill" />
+                                                                <TextBlock
                                                                     HorizontalAlignment="Left"
-                                                                    VerticalAlignment="Center"
-                                                                    Orientation="Horizontal">
-                                                                    <TextBlock
+                                                                    VerticalAlignment="Top"
+                                                                    d:Text="长剑"
+                                                                    Foreground="White"
+                                                                    Text="{Binding Name, Mode=OneWay}" />
+                                                                <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                                                                    <StackPanel
                                                                         HorizontalAlignment="Left"
-                                                                        VerticalAlignment="Bottom"
-                                                                        Foreground="Orange"
-                                                                        Text="等级" />
-                                                                    <TextBlock
-                                                                        Margin="5,0,0,0"
-                                                                        VerticalAlignment="Bottom"
-                                                                        d:Text="25"
-                                                                        FontSize="15"
-                                                                        Foreground="Orange"
-                                                                        Text="{Binding Level, Mode=OneWay}" />
+                                                                        VerticalAlignment="Center"
+                                                                        Orientation="Horizontal">
+                                                                        <TextBlock
+                                                                            HorizontalAlignment="Left"
+                                                                            VerticalAlignment="Bottom"
+                                                                            Foreground="Orange"
+                                                                            Text="等级" />
+                                                                        <TextBlock
+                                                                            Margin="5,0,0,0"
+                                                                            VerticalAlignment="Bottom"
+                                                                            d:Text="25"
+                                                                            FontSize="15"
+                                                                            Foreground="Orange"
+                                                                            Text="{Binding Level, Mode=OneWay}" />
+                                                                    </StackPanel>
+                                                                    <ProgressBar Height="6" Margin="0,3,0,0" />
                                                                 </StackPanel>
-                                                                <ProgressBar Height="6" Margin="0,3,0,0" />
-                                                            </StackPanel>
-                                                        </Grid>
-                                                        <controls:HighlightBorder.Style>
-                                                            <Style TargetType="Border">
-                                                                <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
-                                                                        <Setter Property="BorderBrush" Value="White" />
-                                                                    </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="False">
-                                                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                                                    </DataTrigger>
-                                                                </Style.Triggers>
-                                                            </Style>
-                                                        </controls:HighlightBorder.Style>
+                                                            </Grid>
+                                                        </Border>
                                                     </controls:HighlightBorder>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
