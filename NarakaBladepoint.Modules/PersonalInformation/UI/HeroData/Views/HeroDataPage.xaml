@@ -483,7 +483,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1" Margin="0,20,0,0">
+        <Grid Grid.Column="1">
             <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" Stretch="UniformToFill" />
         </Grid>
     </Grid>

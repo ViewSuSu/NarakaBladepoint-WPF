@@ -20,7 +20,7 @@
             <ColumnDefinition />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="30,50">
+        <Grid Grid.Column="0" Margin="0,0,30,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*" />
                 <RowDefinition />
@@ -709,7 +709,6 @@
         </Grid>
         <Grid Grid.Column="1">
             <Image
-                Margin="0,20,0,0"
                 Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png"
                 Stretch="UniformToFill" />
         </Grid>
