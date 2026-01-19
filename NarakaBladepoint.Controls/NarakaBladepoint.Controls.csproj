@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFramework>net8-windows</TargetFramework>
+	<TargetFramework>net6-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <UseWPF>true</UseWPF>
+	  <LangVersion>latest</LangVersion>
 	  <Authors>Su</Authors>
 	  <NoWarn>$(NoWarn);CS8601;CS8603;CA1416</NoWarn>
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>

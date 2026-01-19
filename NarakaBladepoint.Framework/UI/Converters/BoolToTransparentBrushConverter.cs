@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace NarakaBladepoint.Controls.Converters
+namespace NarakaBladepoint.Framework.UI.Converters
 {
     /// <summary>
     /// 布尔值转换为Brush的转换器
