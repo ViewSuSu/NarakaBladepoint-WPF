@@ -27,18 +27,28 @@
       <em>Figure 4: Personal Info</em>
     </td>
     <td align="center">
+      <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="380" /><br/>
+      <em>Figure 5: Avatar List</em>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./docs/HistoryData.png" alt="History Data Interface" width="380" /><br/>
+      <em>Figure 6: History Data</em>
+    </td>
+    <td align="center">
       <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="380" /><br/>
-      <em>Figure 5: Social Tag</em>
+      <em>Figure 7: Social Tag</em>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="./docs/Tag.png" alt="Tag Interface" width="380" /><br/>
-      <em>Figure 6: Tag</em>
+      <em>Figure 8: Tag</em>
     </td>
     <td align="center">
       <img src="./docs/Weapon.png" alt="Weapon Interface" width="380" /><br/>
-      <em>Figure 7: Weapon</em>
+      <em>Figure 9: Weapon</em>
     </td>
   </tr>
 </table>
