@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Windows;
 using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Modules.PersonalInformation.Domain.Events;
@@ -20,6 +21,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         private PersonalInformationDetailModel _selectedItem;
         private readonly ICurrentUserInfoProvider currentUserBasicInformation;
         private readonly IHeroInfoProvider heroInfomation;
+        private readonly ITipMessageService tipMessageService;
 
         public PersonalInformationDetailModel SelectedItem
         {
@@ -46,12 +48,14 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public PersonalInformationDetailsPageViewModel(
             IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserBasicInformation,
-            IHeroInfoProvider heroInfomation
+            IHeroInfoProvider heroInfomation,
+            ITipMessageService tipMessageService
         )
             : base(containerProvider)
         {
             this.currentUserBasicInformation = currentUserBasicInformation;
             this.heroInfomation = heroInfomation;
+            this.tipMessageService = tipMessageService;
             Init();
             eventAggregator.GetEvent<NoticeSocialTagChangeEvent>().Subscribe(Init);
         }
@@ -109,6 +113,22 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(new NavigationArgs(nameof(SocialTagPage)));
+            });
+
+        private DelegateCommand _copyUserIdCommand;
+
+        public DelegateCommand CopyUserIdCommand =>
+            _copyUserIdCommand ??= new DelegateCommand(async () =>
+            {
+                try
+                {
+                    Clipboard.SetText(CurrentUserBasicInformationModel.Id.ToString());
+                    await tipMessageService.ShowTipMessageAsync("ÒÑ¸´ÖÆID");
+                }
+                catch
+                {
+                    await tipMessageService.ShowTipMessageAsync("¸´ÖÆÊ§°Ü");
+                }
             });
     }
 }

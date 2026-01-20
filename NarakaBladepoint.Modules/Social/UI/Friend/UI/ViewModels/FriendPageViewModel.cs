@@ -8,19 +8,10 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 {
     internal class FriendPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
-        private List<FriendDataItem> _friends = [];
         private readonly ICurrentUserInfoProvider currentUserInformationProvider;
         private readonly ITipMessageService tipMessageService;
 
-        public List<FriendDataItem> Friends
-        {
-            get { return _friends; }
-            set
-            {
-                _friends = value;
-                RaisePropertyChanged();
-            }
-        }
+        public List<FriendDataItem> Friends { get; set; } = [];
 
         private bool _isHaveVilidTag;
 
@@ -84,9 +75,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         private DelegateCommand _sayHelloCommand;
 
         public DelegateCommand SayHelloCommand =>
-            _sayHelloCommand ??= new DelegateCommand(() =>
+            _sayHelloCommand ??= new DelegateCommand(async () =>
             {
-                tipMessageService.ShowTipMessage("已打招呼！");
+                await tipMessageService.ShowTipMessageAsync("已打招呼！");
             });
 
         private DelegateCommand<string> _searchCommand;
@@ -100,16 +91,16 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         private DelegateCommand _copyIdCommand;
 
         public DelegateCommand CopyIdCommand =>
-            _copyIdCommand ??= new DelegateCommand(() =>
+            _copyIdCommand ??= new DelegateCommand(async () =>
             {
                 try
                 {
                     Clipboard.SetText(CurrentUserInfoModel.Id.ToString());
-                    tipMessageService.ShowTipMessage("已复制");
+                    await tipMessageService.ShowTipMessageAsync("已复制");
                 }
                 catch
                 {
-                    tipMessageService.ShowTipMessage("复制失败");
+                    await tipMessageService.ShowTipMessageAsync("复制失败");
                 }
             });
     }

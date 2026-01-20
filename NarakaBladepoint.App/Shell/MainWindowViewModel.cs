@@ -53,7 +53,16 @@ namespace NarakaBladepoint.App.Shell
                 }
                 else
                 {
-                    StopQueueTimer();
+                    // 不立即停止，让隐藏动画自然完成后再停止
+                    // 这样用户不会感知到计时器的跳变
+                    // 延迟 300ms 后停止（隐藏动画完成时间）
+                    Task.Delay(300).ContinueWith(_ =>
+                    {
+                        if (!_isQueuing)
+                        {
+                            StopQueueTimer();
+                        }
+                    });
                 }
             }
         }

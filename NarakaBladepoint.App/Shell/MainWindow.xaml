@@ -77,7 +77,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Panel.ZIndex="10"
-                Visibility="{Binding IsQueuing, Converter={StaticResource BooleanToVisibilityConverter}}">
+                Visibility="Collapsed">
                 <Border Name="queueBorder" Style="{StaticResource QueueBorderStyle}">
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock

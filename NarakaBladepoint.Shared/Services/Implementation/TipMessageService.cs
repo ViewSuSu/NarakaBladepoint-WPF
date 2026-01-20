@@ -32,14 +32,5 @@ namespace NarakaBladepoint.Shared.Services.Implementation
                 _eventAggregator.GetEvent<TipMessageEvent>().Publish(message);
             });
         }
-
-        /// <summary>
-        /// 同步发送提示消息
-        /// </summary>
-        /// <param name="message">提示消息内容</param>
-        public void ShowTipMessage(string message)
-        {
-            _eventAggregator.GetEvent<TipMessageEvent>().Publish(message);
-        }
     }
 }

@@ -228,10 +228,17 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             // 获取控件引用
             var tipBorder = _window.FindName(TipBorderName) as FrameworkElement;
             var tipTextblock = _window.FindName(TipTextblockName) as FrameworkElement;
+            var tipGrid = _window.FindName("tipGrid") as FrameworkElement;
 
             if (tipBorder == null || tipTextblock == null)
             {
                 return;
+            }
+
+            // 显示 tipGrid 以便动画播放
+            if (tipGrid != null)
+            {
+                tipGrid.Visibility = Visibility.Visible;
             }
 
             // 停止当前运行的动画
@@ -259,8 +266,32 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 tipTextblock.Opacity = 0.0;
             }
 
+            // 在动画完成后隐藏 tipGrid，避免占用布局空间
+            if (_storyboard != null)
+            {
+                _storyboard.Completed -= Storyboard_Completed;
+                _storyboard.Completed += Storyboard_Completed;
+            }
+
             // 启动完整的动画序列
             _storyboard?.Begin();
+        }
+
+        /// <summary>
+        /// 动画完成后的回调 - 隐藏提示消息容器
+        /// </summary>
+        private void Storyboard_Completed(object sender, EventArgs e)
+        {
+            if (_window == null)
+            {
+                return;
+            }
+
+            var tipGrid = _window.FindName("tipGrid") as FrameworkElement;
+            if (tipGrid != null)
+            {
+                tipGrid.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

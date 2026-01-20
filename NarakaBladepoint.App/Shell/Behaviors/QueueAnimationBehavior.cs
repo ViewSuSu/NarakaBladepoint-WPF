@@ -158,6 +158,8 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
 
             var queueBorder = _window.FindName(QueueBorderName) as FrameworkElement;
+            var queueGrid = _window.FindName("queue") as FrameworkElement;
+            
             if (queueBorder == null)
             {
                 return;
@@ -194,12 +196,60 @@ namespace NarakaBladepoint.App.Shell.Behaviors
 
                 if (isQueuing)
                 {
+                    // 显示queue容器
+                    if (queueGrid != null)
+                    {
+                        queueGrid.Visibility = Visibility.Visible;
+                    }
+
+                    // 移除之前的完成回调
+                    if (_showStoryboard != null)
+                    {
+                        _showStoryboard.Completed -= ShowStoryboard_Completed;
+                        _showStoryboard.Completed += ShowStoryboard_Completed;
+                    }
+
                     _showStoryboard?.Begin();
                 }
                 else
                 {
+                    // 隐藏动画完成后的回调 - 此时才停止计时
+                    if (_hideStoryboard != null)
+                    {
+                        _hideStoryboard.Completed -= HideStoryboard_Completed;
+                        _hideStoryboard.Completed += HideStoryboard_Completed;
+                    }
+
                     _hideStoryboard?.Begin();
                 }
+            }
+        }
+
+        /// <summary>
+        /// 显示动画完成后的回调 - 清理之前的隐藏回调
+        /// </summary>
+        private void ShowStoryboard_Completed(object sender, EventArgs e)
+        {
+            if (_hideStoryboard != null)
+            {
+                _hideStoryboard.Completed -= HideStoryboard_Completed;
+            }
+        }
+
+        /// <summary>
+        /// 隐藏动画完成后的回调 - 隐藏排队容器并停止计时
+        /// </summary>
+        private void HideStoryboard_Completed(object sender, EventArgs e)
+        {
+            if (_window == null)
+            {
+                return;
+            }
+
+            var queueGrid = _window.FindName("queue") as FrameworkElement;
+            if (queueGrid != null)
+            {
+                queueGrid.Visibility = Visibility.Collapsed;
             }
         }
     }

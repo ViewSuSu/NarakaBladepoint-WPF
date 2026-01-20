@@ -105,7 +105,13 @@
                                         Width="20"
                                         Margin="5,0,0,0"
                                         HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png" />
+                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding CopyUserIdCommand}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </Image>
                                     <TextBlock
                                         Margin="5,0,0,0"
                                         VerticalAlignment="Center"
@@ -708,9 +714,7 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <Image
-                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png"
-                Stretch="UniformToFill" />
+            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" Stretch="UniformToFill" />
         </Grid>
     </Grid>
 </bases:UserControlBase>
