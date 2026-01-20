@@ -1,0 +1,60 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Queue animation: slide up from bottom  -->
+    <Storyboard x:Key="QueueShowStoryboard">
+        <!--  Slide up from bottom (0s - 0.3s)  -->
+        <DoubleAnimation
+            Storyboard.TargetName="queueBorder"
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+            From="100"
+            To="0"
+            Duration="0:0:0.3">
+            <DoubleAnimation.EasingFunction>
+                <ExponentialEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+        <!--  Fade in (0s - 0.1s)  -->
+        <DoubleAnimation
+            Storyboard.TargetName="queueBorder"
+            Storyboard.TargetProperty="Opacity"
+            From="0"
+            To="1"
+            Duration="0:0:0.1" />
+    </Storyboard>
+
+    <!--  Queue hide animation: slide down  -->
+    <Storyboard x:Key="QueueHideStoryboard">
+        <!--  Slide down (0s - 0.3s)  -->
+        <DoubleAnimation
+            Storyboard.TargetName="queueBorder"
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+            From="0"
+            To="100"
+            Duration="0:0:0.3">
+            <DoubleAnimation.EasingFunction>
+                <ExponentialEase EasingMode="EaseIn" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+        <!--  Fade out (0s - 0.1s)  -->
+        <DoubleAnimation
+            Storyboard.TargetName="queueBorder"
+            Storyboard.TargetProperty="Opacity"
+            From="1"
+            To="0"
+            Duration="0:0:0.1" />
+    </Storyboard>
+
+    <!--  Queue border style  -->
+    <Style x:Key="QueueBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="RenderTransformOrigin" Value="0.5,1" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform Y="100" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

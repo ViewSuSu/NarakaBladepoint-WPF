@@ -8,7 +8,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
 {
     /// <summary>
     /// 排队面板动画 Behavior
-    /// 
+    ///
     /// 用途：监听 ViewModel 中的 IsQueuing 属性变化，
     /// 当属性变化时自动触发动画：
     /// - IsQueuing = true: 从下往上滑出 + 淡入
@@ -21,7 +21,8 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 nameof(ShowStoryboardKey),
                 typeof(string),
                 typeof(QueueAnimationBehavior),
-                new PropertyMetadata("QueueShowStoryboard"));
+                new PropertyMetadata("QueueShowStoryboard")
+            );
 
         public string ShowStoryboardKey
         {
@@ -34,7 +35,8 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 nameof(HideStoryboardKey),
                 typeof(string),
                 typeof(QueueAnimationBehavior),
-                new PropertyMetadata("QueueHideStoryboard"));
+                new PropertyMetadata("QueueHideStoryboard")
+            );
 
         public string HideStoryboardKey
         {
@@ -47,7 +49,8 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 nameof(IsQueuingPropertyName),
                 typeof(string),
                 typeof(QueueAnimationBehavior),
-                new PropertyMetadata("IsQueuing"));
+                new PropertyMetadata("IsQueuing")
+            );
 
         public string IsQueuingPropertyName
         {
@@ -60,7 +63,8 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 nameof(QueueBorderName),
                 typeof(string),
                 typeof(QueueAnimationBehavior),
-                new PropertyMetadata("queueBorder"));
+                new PropertyMetadata("queueBorder")
+            );
 
         public string QueueBorderName
         {
@@ -107,7 +111,10 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             base.OnDetaching();
         }
 
-        private void AssociatedObject_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void AssociatedObject_DataContextChanged(
+            object sender,
+            DependencyPropertyChangedEventArgs e
+        )
         {
             if (_viewModel != null)
             {
@@ -128,7 +135,10 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             // 确保在 UI 线程上执行，因为访问 DependencyProperty 也需要在 UI 线程上
-            if (Application.Current?.Dispatcher != null && !Application.Current.Dispatcher.CheckAccess())
+            if (
+                Application.Current?.Dispatcher != null
+                && !Application.Current.Dispatcher.CheckAccess()
+            )
             {
                 Application.Current.Dispatcher.Invoke(() => ViewModel_PropertyChanged(sender, e));
                 return;
@@ -166,15 +176,21 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
             else
             {
-                queueBorder.RenderTransform = new System.Windows.Media.TranslateTransform { Y = 100 };
+                queueBorder.RenderTransform = new System.Windows.Media.TranslateTransform
+                {
+                    Y = 100,
+                };
                 queueBorder.Opacity = 0;
             }
 
             // 根据 IsQueuing 属性判断播放哪个动画
             if (_viewModel != null)
             {
-                var isQueuing = (bool)_viewModel.GetType()
-                    .GetProperty(IsQueuingPropertyName)?.GetValue(_viewModel, null);
+                var isQueuing = (bool)
+                    _viewModel
+                        .GetType()
+                        .GetProperty(IsQueuingPropertyName)
+                        ?.GetValue(_viewModel, null);
 
                 if (isQueuing)
                 {

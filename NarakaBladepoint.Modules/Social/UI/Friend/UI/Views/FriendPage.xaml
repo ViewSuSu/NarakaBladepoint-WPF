@@ -73,7 +73,13 @@
                                     Width="20"
                                     Margin="10,0,0,0"
                                     Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/复制.png"
-                                    Stretch="Uniform" />
+                                    Stretch="Uniform">
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                                            <b:InvokeCommandAction Command="{Binding CopyIdCommand}" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
+                                </Image>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Image
@@ -177,8 +183,8 @@
                                 Grid.Column="2"
                                 Width="20"
                                 Margin="5,0,0,0"
-                                MouseLeftButtonDown="Image_MouseLeftButtonDown"
                                 HorizontalAlignment="Left"
+                                MouseLeftButtonDown="Image_MouseLeftButtonDown"
                                 Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/×.png"
                                 Stretch="Uniform">
                                 <b:Interaction.Triggers>

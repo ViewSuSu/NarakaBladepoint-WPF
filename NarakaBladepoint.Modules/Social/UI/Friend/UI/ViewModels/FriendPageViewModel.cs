@@ -1,3 +1,4 @@
+using System.Windows;
 using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.SocialTag.UI.Views;
 using NarakaBladepoint.Shared.Datas;
@@ -9,6 +10,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
     {
         private List<FriendDataItem> _friends = [];
         private readonly ICurrentUserInfoProvider currentUserInformationProvider;
+        private readonly ITipMessageService tipMessageService;
 
         public List<FriendDataItem> Friends
         {
@@ -34,11 +36,13 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
 
         public FriendPageViewModel(
             IContainerProvider containerProvider,
-            ICurrentUserInfoProvider currentUserInformationProvider
+            ICurrentUserInfoProvider currentUserInformationProvider,
+            ITipMessageService tipMessageService
         )
             : base(containerProvider)
         {
             this.currentUserInformationProvider = currentUserInformationProvider;
+            this.tipMessageService = tipMessageService;
             Init();
         }
 
@@ -72,13 +76,18 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             _settingTagCommand ??= new DelegateCommand(() =>
             {
                 ReturnCommand.Execute();
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(SocialTagPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(SocialTagPage)));
             });
 
         private DelegateCommand _sayHelloCommand;
 
         public DelegateCommand SayHelloCommand =>
-            _sayHelloCommand ??= new DelegateCommand(() => { });
+            _sayHelloCommand ??= new DelegateCommand(() =>
+            {
+                tipMessageService.ShowTipMessage("已打招呼！");
+            });
 
         private DelegateCommand<string> _searchCommand;
 
@@ -86,6 +95,22 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
             _searchCommand ??= new DelegateCommand<string>(keyword =>
             {
                 Friends = currentUserInformationProvider.GetFriendsAsync(keyword).Result;
+            });
+
+        private DelegateCommand _copyIdCommand;
+
+        public DelegateCommand CopyIdCommand =>
+            _copyIdCommand ??= new DelegateCommand(() =>
+            {
+                try
+                {
+                    Clipboard.SetText(CurrentUserInfoModel.Id.ToString());
+                    tipMessageService.ShowTipMessage("已复制");
+                }
+                catch
+                {
+                    tipMessageService.ShowTipMessage("复制失败");
+                }
             });
     }
 }
