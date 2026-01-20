@@ -10,9 +10,9 @@ namespace NarakaBladepoint.App.Shell.Behaviors
     /// 排队面板动画 Behavior
     ///
     /// 用途：监听 ViewModel 中的 IsQueuing 属性变化，
-    /// 当属性变化时自动触发动画：
-    /// - IsQueuing = true: 从下往上滑出 + 淡入
-    /// - IsQueuing = false: 向下滑出 + 淡出
+    /// 当属性变化时自动触发动画和计时逻辑：
+    /// - IsQueuing = true: 从下往上滑出 + 淡入 + 启动计时
+    /// - IsQueuing = false: 向下滑出 + 淡出 + 停止计时
     /// </summary>
     public class QueueAnimationBehavior : Behavior<FrameworkElement>
     {
@@ -76,6 +76,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         private Storyboard _hideStoryboard;
         private Window _window;
         private INotifyPropertyChanged _viewModel;
+        private System.Timers.Timer _queueTimer;
 
         protected override void OnAttached()
         {
@@ -107,6 +108,8 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 _viewModel.PropertyChanged -= ViewModel_PropertyChanged;
                 _viewModel = null;
             }
+
+            StopQueueTimer();
 
             base.OnDetaching();
         }
@@ -202,6 +205,9 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                         queueGrid.Visibility = Visibility.Visible;
                     }
 
+                    // 启动排队计时
+                    StartQueueTimer();
+
                     // 移除之前的完成回调
                     if (_showStoryboard != null)
                     {
@@ -250,6 +256,72 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             if (queueGrid != null)
             {
                 queueGrid.Visibility = Visibility.Collapsed;
+            }
+
+            // 停止计时
+            StopQueueTimer();
+        }
+
+        /// <summary>
+        /// 启动排队计时器
+        /// </summary>
+        private void StartQueueTimer()
+        {
+            if (_viewModel == null)
+            {
+                return;
+            }
+
+            // 获取 ViewModel 中的 QueueTime 属性和 SetQueueTime 方法
+            var queueTimeProperty = _viewModel.GetType().GetProperty("QueueTime");
+            if (queueTimeProperty == null)
+            {
+                return;
+            }
+
+            // 重置计时
+            queueTimeProperty.SetValue(_viewModel, 0);
+
+            if (_queueTimer != null)
+            {
+                _queueTimer.Stop();
+                _queueTimer.Dispose();
+            }
+
+            // 创建新的计时器，每秒触发一次
+            _queueTimer = new System.Timers.Timer(1000);
+            _queueTimer.Elapsed += (s, e) =>
+            {
+                if (_viewModel != null)
+                {
+                    var currentValue = (int)queueTimeProperty.GetValue(_viewModel, null);
+                    queueTimeProperty.SetValue(_viewModel, currentValue + 1);
+                }
+            };
+            _queueTimer.AutoReset = true;
+            _queueTimer.Start();
+        }
+
+        /// <summary>
+        /// 停止排队计时器
+        /// </summary>
+        private void StopQueueTimer()
+        {
+            if (_queueTimer != null)
+            {
+                _queueTimer.Stop();
+                _queueTimer.Dispose();
+                _queueTimer = null;
+            }
+
+            // 重置计时
+            if (_viewModel != null)
+            {
+                var queueTimeProperty = _viewModel.GetType().GetProperty("QueueTime");
+                if (queueTimeProperty != null)
+                {
+                    queueTimeProperty.SetValue(_viewModel, 0);
+                }
             }
         }
     }

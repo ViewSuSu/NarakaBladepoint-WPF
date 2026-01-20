@@ -17,6 +17,7 @@ namespace NarakaBladepoint.App.Shell
         private readonly HomePageVisualNavigator homePageVisualNavigator;
         private readonly MainContentNavigator mainContentNavigator;
         private DelegateCommand _returnCommand;
+        private DelegateCommand _cancelQueueCommand;
 
         /// <summary>
         /// 提示消息文本
@@ -46,25 +47,6 @@ namespace NarakaBladepoint.App.Shell
 
                 _isQueuing = value;
                 RaisePropertyChanged();
-
-                if (_isQueuing)
-                {
-                    StartQueueTimer();
-                }
-                else
-                {
-                    // 不立即停止，让隐藏动画自然完成后再停止
-                    // 这样用户不会感知到计时器的跳变
-                    // 延迟 300ms 后停止（隐藏动画完成时间）
-                    Task.Delay(300)
-                        .ContinueWith(_ =>
-                        {
-                            if (!_isQueuing)
-                            {
-                                StopQueueTimer();
-                            }
-                        });
-                }
             }
         }
 
@@ -79,10 +61,22 @@ namespace NarakaBladepoint.App.Shell
             {
                 _queueTime = value;
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(QueueTimeFormatted));
             }
         }
 
-        private System.Timers.Timer _queueTimer;
+        /// <summary>
+        /// 格式化的排队时间 MM:SS
+        /// </summary>
+        public string QueueTimeFormatted
+        {
+            get
+            {
+                int minutes = _queueTime / 60;
+                int seconds = _queueTime % 60;
+                return $"{minutes:D2}:{seconds:D2}";
+            }
+        }
 
         public MainWindowViewModel(
             IContainerProvider containerProvider,
@@ -168,46 +162,6 @@ namespace NarakaBladepoint.App.Shell
                 );
         }
 
-        /// <summary>
-        /// 启动排队计时器
-        /// </summary>
-        private void StartQueueTimer()
-        {
-            // 重置计时
-            QueueTime = 0;
-
-            if (_queueTimer != null)
-            {
-                _queueTimer.Stop();
-                _queueTimer.Dispose();
-            }
-
-            // 创建新的计时器，每秒触发一次
-            _queueTimer = new System.Timers.Timer(1000);
-            _queueTimer.Elapsed += (s, e) =>
-            {
-                QueueTime++;
-            };
-            _queueTimer.AutoReset = true;
-            _queueTimer.Start();
-        }
-
-        /// <summary>
-        /// 停止排队计时器
-        /// </summary>
-        private void StopQueueTimer()
-        {
-            if (_queueTimer != null)
-            {
-                _queueTimer.Stop();
-                _queueTimer.Dispose();
-                _queueTimer = null;
-            }
-
-            // 重置计时
-            QueueTime = 0;
-        }
-
         private bool IsCanNavigate(string viewName)
         {
             foreach (var region in regionManager.Regions)
@@ -240,6 +194,13 @@ namespace NarakaBladepoint.App.Shell
                     this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
                         .Publish(new NavigationArgs(nameof(SettingPage)));
                 }
+            });
+
+        public DelegateCommand CancelQueueCommand =>
+            _cancelQueueCommand ??= new DelegateCommand(() =>
+            {
+                IsQueuing = false;
+                eventAggregator.GetEvent<QueueStatusChangedEvent>().Publish(false);
             });
 
         private void RevemoveRegionByName(string regionName)

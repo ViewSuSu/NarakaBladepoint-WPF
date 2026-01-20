@@ -207,6 +207,7 @@
 	  <None Remove="Image\InventoryProps\logo5.png" />
 	  <None Remove="Image\InventoryProps\logo6.png" />
 	  <None Remove="Image\InventoryProps\TabItemBackground.png" />
+	  <None Remove="Image\IsQueuing.png" />
 	  <None Remove="Image\logo.png" />
 	  <None Remove="Image\Button\古币.png" />
 	  <None Remove="Image\Button\幻丝.png" />
@@ -467,6 +468,10 @@
 	  <None Remove="Image\豪杰对局.png" />
 	  <None Remove="Image\通用功能按钮高亮背景.png" />
 	  <None Remove="Image\造成伤害.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Image\IsQueuing.png" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -136,13 +136,12 @@
                     d:Text="开始游戏"
                     FontSize="30"
                     Foreground="White"
-                    Text="{Binding StartGameContent, Mode=OneWay}">
-                    <b:Interaction.Triggers>
-                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                            <b:InvokeCommandAction Command="{Binding StartGameCommand}" />
-                        </b:EventTrigger>
-                    </b:Interaction.Triggers>
-                </TextBlock>
+                    Text="{Binding StartGameContent, Mode=OneWay}" />
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="MouseLeftButtonDown">
+                        <b:InvokeCommandAction Command="{Binding StartGameCommand}" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
             </controls:HighlightBorder>
         </Grid>
     </Grid>

@@ -98,7 +98,7 @@
                     Background="Transparent"
                     Header="打赏记录"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <tippingRecordPage:TippingRecordPage Margin="0,40" />
+                    <tippingRecordPage:TippingRecordPage Margin="50" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"

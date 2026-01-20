@@ -13,13 +13,17 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
             get { return _isLoadingGame; }
             set
             {
+                if (_isLoadingGame == value)
+                {
+                    return;
+                }
                 _isLoadingGame = value;
                 RaisePropertyChanged();
                 RaisePropertyChanged(nameof(StartGameContent));
             }
         }
 
-        public string StartGameContent => IsLoadingGame ? "取消游戏" : "开始游戏";
+        public string StartGameContent => IsLoadingGame ? "取消" : "开始游戏";
 
         public StartGamePageViewModel(
             IContainerProvider containerProvider,
@@ -28,6 +32,12 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
             : base(containerProvider)
         {
             this.tipMessageService = tipMessageService;
+            eventAggregator
+                .GetEvent<QueueStatusChangedEvent>()
+                .Subscribe(isload =>
+                {
+                    IsLoadingGame = isload;
+                });
         }
 
         private DelegateCommand _startGameCommand;
