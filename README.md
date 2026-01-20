@@ -4,6 +4,8 @@
 ![Platform](https://img.shields.io/badge/Platform-WPF-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
+## Main Interface Preview
+
 <div align="center">
   <img src="./docs/MainWindows.png" alt="Main Window Interface" width="800" />
   <br/>
@@ -52,3 +54,18 @@
     </td>
   </tr>
 </table>
+
+## Build and Run
+
+Run `NarakaBladepoint.App`
+
+- Environment: `net6-windows`
+- IDE: Visual Studio 2022 or later
+
+## Dependencies
+
+The project uses the following NuGet packages:
+
+- **Mapster** Version 7.4.0
+- **Newtonsoft.Json** Version 13.0.4
+- **Prism.DryIoc** Version 9.0.537
