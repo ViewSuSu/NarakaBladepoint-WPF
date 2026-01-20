@@ -10,7 +10,6 @@
     xmlns:consts="clr-namespace:NarakaBladepoint.Shared.Consts;assembly=NarakaBladepoint.Shared"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dayEvent="clr-namespace:NarakaBladepoint.Modules.DayEvent.UI.Views;assembly=NarakaBladepoint.Modules"
-    xmlns:frameworkBehaviors="clr-namespace:NarakaBladepoint.Framework.UI.Behaviors;assembly=NarakaBladepoint.Framework"
     xmlns:mainWindowRightEvent="clr-namespace:NarakaBladepoint.Modules.MainWindowRightEvent.UI.Views;assembly=NarakaBladepoint.Modules"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:personalinformation="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.Views;assembly=NarakaBladepoint.Modules"
@@ -37,7 +36,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <b:Interaction.Behaviors>
-        <frameworkBehaviors:EscCommandBehavior Command="{Binding ExitGameCommand}" />
+        <appBehaviors:EscCommandBehavior Command="{Binding ReturnCommand}" />
         <appBehaviors:TipMessageAnimationBehavior StoryboardKey="TipMessageAnimationStoryboard" />
         <appBehaviors:QueueAnimationBehavior
             HideStoryboardKey="QueueHideStoryboard"

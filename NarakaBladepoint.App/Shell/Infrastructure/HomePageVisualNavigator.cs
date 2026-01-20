@@ -26,6 +26,17 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
         };
 
         /// <summary>
+        /// 是否有活跃的 Region
+        ///
+        /// 用途：检查是否存在至少一个 Region 包含活跃的视图
+        /// 常用于判断是否有界面层打开（如弹窗、详情页等）
+        /// </summary>
+        public bool HasActiveRegion
+        {
+            get { return _layers.Any(layer => _regionManager.Regions[layer].ActiveViews.Any()); }
+        }
+
+        /// <summary>
         /// 添加视图到最顶层
         /// </summary>
         public void RequestNavigate(string viewName, NavigationParameters nacigationParameters)

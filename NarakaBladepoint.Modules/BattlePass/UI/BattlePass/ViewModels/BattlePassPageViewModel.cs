@@ -1,5 +1,4 @@
 using NarakaBladepoint.Framework.Core.Evens;
-using NarakaBladepoint.Modules.BattlePass.UI.BattlePassDetails.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
@@ -13,9 +12,6 @@ namespace NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels
         )
             : base(containerProvider)
         {
-            this.eventAggregator.GetEvent<LoadMainContentRegionEvent>()
-                .Publish(new NavigationArgs(nameof(BattlePassMainContentPage)));
-
             this.CurrentUserInformationModel = currentUserInformationProvider
                 .GetCurrentUserInfoAsync()
                 .Result;

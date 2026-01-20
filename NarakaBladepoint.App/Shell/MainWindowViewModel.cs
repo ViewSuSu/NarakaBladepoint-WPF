@@ -15,8 +15,8 @@ namespace NarakaBladepoint.App.Shell
     internal partial class MainWindowViewModel : ViewModelBase
     {
         private readonly HomePageVisualNavigator homePageVisualNavigator;
-
-        private DelegateCommand _exitGameCommand;
+        private readonly MainContentNavigator mainContentNavigator;
+        private DelegateCommand _returnCommand;
 
         /// <summary>
         /// 提示消息文本
@@ -56,13 +56,14 @@ namespace NarakaBladepoint.App.Shell
                     // 不立即停止，让隐藏动画自然完成后再停止
                     // 这样用户不会感知到计时器的跳变
                     // 延迟 300ms 后停止（隐藏动画完成时间）
-                    Task.Delay(300).ContinueWith(_ =>
-                    {
-                        if (!_isQueuing)
+                    Task.Delay(300)
+                        .ContinueWith(_ =>
                         {
-                            StopQueueTimer();
-                        }
-                    });
+                            if (!_isQueuing)
+                            {
+                                StopQueueTimer();
+                            }
+                        });
                 }
             }
         }
@@ -85,11 +86,13 @@ namespace NarakaBladepoint.App.Shell
 
         public MainWindowViewModel(
             IContainerProvider containerProvider,
-            HomePageVisualNavigator homePageVisualNavigator
+            HomePageVisualNavigator homePageVisualNavigator,
+            MainContentNavigator mainContentNavigator
         )
             : base(containerProvider)
         {
             this.homePageVisualNavigator = homePageVisualNavigator;
+            this.mainContentNavigator = mainContentNavigator;
 
             // 订阅提示消息事件
             this.eventAggregator.GetEvent<TipMessageEvent>()
@@ -221,15 +224,22 @@ namespace NarakaBladepoint.App.Shell
             return true;
         }
 
-        public DelegateCommand ExitGameCommand =>
-            _exitGameCommand ??= new DelegateCommand(() =>
+        public DelegateCommand ReturnCommand =>
+            _returnCommand ??= new DelegateCommand(() =>
             {
-                if (regionManager.Regions.Any(x => x.ActiveViews.Any()))
+                if (homePageVisualNavigator.HasActiveRegion)
                 {
-                    return;
+                    this.homePageVisualNavigator.RemoveTop();
                 }
-                this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(SettingPage)));
+                else if (mainContentNavigator.HasActiveContent)
+                {
+                    this.mainContentNavigator.Remove();
+                }
+                else
+                {
+                    this.eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(SettingPage)));
+                }
             });
 
         private void RevemoveRegionByName(string regionName)

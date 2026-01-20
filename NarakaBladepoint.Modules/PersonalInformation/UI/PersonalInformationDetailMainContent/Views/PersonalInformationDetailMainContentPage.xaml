@@ -6,7 +6,6 @@
     xmlns:avatarFramePage="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.AvatarFrame.Views"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
-    xmlns:behaviors="clr-namespace:NarakaBladepoint.Framework.UI.Behaviors;assembly=NarakaBladepoint.Framework"
     xmlns:careerAchievementsPage="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.Views"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -25,9 +24,6 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <b:Interaction.Behaviors>
-        <behaviors:EscCommandBehavior Command="{Binding ReturnCommand}" />
-    </b:Interaction.Behaviors>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
