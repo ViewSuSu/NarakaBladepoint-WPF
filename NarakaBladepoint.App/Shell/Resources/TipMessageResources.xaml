@@ -17,9 +17,9 @@
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
 
-        <!--  Show textblock at start (fade in from 0 to 1)  -->
+        <!--  Fade in (0s - 0.1s)  -->
         <DoubleAnimation
-            Storyboard.TargetName="tipTextblock"
+            Storyboard.TargetName="tipBorder"
             Storyboard.TargetProperty="Opacity"
             From="0"
             To="1"
@@ -27,10 +27,23 @@
 
         <!--  Phase 2: Display message (0.5s - 1.0s) - no animation, just display  -->
 
-        <!--  Phase 3: Fade out (1.0s - 1.5s)  -->
+        <!--  Phase 3: Move up and fade out (1.0s - 1.5s)  -->
         <DoubleAnimation
             BeginTime="0:0:1.0"
-            Storyboard.TargetName="tipTextblock"
+            Storyboard.TargetName="tipBorder"
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+            From="0"
+            To="-100"
+            Duration="0:0:0.5">
+            <DoubleAnimation.EasingFunction>
+                <ExponentialEase EasingMode="EaseIn" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+
+        <!--  Fade out (1.0s - 1.5s)  -->
+        <DoubleAnimation
+            BeginTime="0:0:1.0"
+            Storyboard.TargetName="tipBorder"
             Storyboard.TargetProperty="Opacity"
             From="1"
             To="0"
@@ -39,23 +52,23 @@
 
     <!--  Tip message border style  -->
     <Style x:Key="TipMessageBorderStyle" TargetType="Border">
-        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Opacity" Value="0" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0" />
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TranslateTransform Y="100" />
             </Setter.Value>
         </Setter>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
 
     <!--  Tip message textblock style  -->
     <Style x:Key="TipMessageTextBlockStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="15" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="Opacity" Value="0" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>

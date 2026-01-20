@@ -34,6 +34,21 @@ namespace NarakaBladepoint.App.Shell
         }
 
         /// <summary>
+        /// 提示消息的高亮文本列表
+        /// 直接存储需要高亮的字符串列表
+        /// </summary>
+        private List<string> _tipMessageHighlightTexts;
+        public List<string> TipMessageHighlightTexts
+        {
+            get => _tipMessageHighlightTexts;
+            set
+            {
+                _tipMessageHighlightTexts = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
         /// 是否正在排队
         /// </summary>
         private bool _isQueuing;
@@ -91,9 +106,10 @@ namespace NarakaBladepoint.App.Shell
             // 订阅提示消息事件
             this.eventAggregator.GetEvent<TipMessageEvent>()
                 .Subscribe(
-                    message =>
+                    args =>
                     {
-                        TipMessage = message;
+                        TipMessage = args.Message;
+                        TipMessageHighlightTexts = args.HighlightTexts;
                     },
                     ThreadOption.UIThread
                 );

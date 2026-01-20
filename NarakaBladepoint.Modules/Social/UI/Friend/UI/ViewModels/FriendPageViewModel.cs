@@ -72,13 +72,20 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
                     .Publish(new NavigationArgs(nameof(SocialTagPage)));
             });
 
-        private DelegateCommand _sayHelloCommand;
+        private DelegateCommand<FriendDataItem> _sayHelloCommand;
 
-        public DelegateCommand SayHelloCommand =>
-            _sayHelloCommand ??= new DelegateCommand(async () =>
-            {
-                await tipMessageService.ShowTipMessageAsync("已打招呼！");
-            });
+        public DelegateCommand<FriendDataItem> SayHelloCommand =>
+            _sayHelloCommand ??= new DelegateCommand<FriendDataItem>(
+                async (selectedItem) =>
+                {
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs(
+                            $"您已问候:{selectedItem.Name},亲密度+10",
+                            [selectedItem.Name, "+10"]
+                        )
+                    );
+                }
+            );
 
         private DelegateCommand<string> _searchCommand;
 
@@ -96,11 +103,15 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
                 try
                 {
                     Clipboard.SetText(CurrentUserInfoModel.Id.ToString());
-                    await tipMessageService.ShowTipMessageAsync("已复制");
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs("已复制")
+                    );
                 }
                 catch
                 {
-                    await tipMessageService.ShowTipMessageAsync("复制失败");
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs("复制失败")
+                    );
                 }
             });
     }

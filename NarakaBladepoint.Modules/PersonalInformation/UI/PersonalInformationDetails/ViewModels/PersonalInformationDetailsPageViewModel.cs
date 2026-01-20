@@ -123,11 +123,11 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
                 try
                 {
                     Clipboard.SetText(CurrentUserBasicInformationModel.Id.ToString());
-                    await tipMessageService.ShowTipMessageAsync("已复制ID");
+                    await tipMessageService.ShowTipMessageAsync(new TipMessageWithHighlightArgs("已复制ID"));
                 }
                 catch
                 {
-                    await tipMessageService.ShowTipMessageAsync("复制失败");
+                    await tipMessageService.ShowTipMessageAsync(new TipMessageWithHighlightArgs("复制失败"));
                 }
             });
     }

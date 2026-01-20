@@ -9,6 +9,7 @@
     xmlns:commonfunction="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views;assembly=NarakaBladepoint.Modules"
     xmlns:consts="clr-namespace:NarakaBladepoint.Shared.Consts;assembly=NarakaBladepoint.Shared"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dayEvent="clr-namespace:NarakaBladepoint.Modules.DayEvent.UI.Views;assembly=NarakaBladepoint.Modules"
     xmlns:mainWindowRightEvent="clr-namespace:NarakaBladepoint.Modules.MainWindowRightEvent.UI.Views;assembly=NarakaBladepoint.Modules"
@@ -29,6 +30,7 @@
     mc:Ignorable="d">
     <Window.Resources>
         <ResourceDictionary>
+            <converters:StringToHighlightSegmentsConverter x:Key="StringToHighlightSegmentsConverter" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/TipMessageResources.xaml" />
                 <ResourceDictionary Source="Resources/QueueResources.xaml" />
@@ -140,14 +142,29 @@
             <Grid
                 Name="tipGrid"
                 Grid.Row="1"
-                Width="300"
-                Height="100"
-                HorizontalAlignment="Center"
+                Margin="0,50,0,0"
                 VerticalAlignment="Top"
-                Panel.ZIndex="10">
-                <Border Name="tipBorder" Style="{StaticResource TipMessageBorderStyle}">
+                Panel.ZIndex="10"
+                Visibility="Collapsed">
+                <Border
+                    Name="tipBorder"
+                    Width="{Binding ElementName=tipGrid, Path=ActualWidth}"
+                    Padding="20,8"
+                    d:Visibility="Collapsed"
+                    Style="{StaticResource TipMessageBorderStyle}">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                            <GradientStop Offset="0" Color="#00000000" />
+                            <GradientStop Offset="0.3" Color="#80000000" />
+                            <GradientStop Offset="0.5" Color="#FF000000" />
+                            <GradientStop Offset="0.7" Color="#80000000" />
+                            <GradientStop Offset="1" Color="#00000000" />
+                        </LinearGradientBrush>
+                    </Border.Background>
                     <TextBlock
                         Name="tipTextblock"
+                        MaxWidth="800"
+                        attach:TextBlockExtensions.HighlightSegments="{Binding TipMessageHighlightTexts}"
                         Style="{StaticResource TipMessageTextBlockStyle}"
                         Text="{Binding TipMessage}" />
                 </Border>

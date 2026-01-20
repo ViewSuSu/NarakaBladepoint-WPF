@@ -11,7 +11,7 @@ using NarakaBladepoint.Modules.Social.UI.Social.Views;
 using NarakaBladepoint.Modules.Social.UI.StatusTag.ViewModels;
 using NarakaBladepoint.Modules.Social.UI.StatusTag.Views;
 
-namespace NarakaBladepoint.Modules.Social.Module
+namespace NarakaBladepoint.Modules.Social.UI.Module
 {
     internal class SocialModule : IModule
     {

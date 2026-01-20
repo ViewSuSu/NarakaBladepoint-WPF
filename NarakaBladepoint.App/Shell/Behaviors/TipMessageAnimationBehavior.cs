@@ -261,10 +261,11 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
 
             // 重置 TextBlock 的不透明度为完全透明（动画会从0淡入到1）
-            if (tipTextblock != null)
-            {
-                tipTextblock.Opacity = 0.0;
-            }
+            // 不要在这里手动设置，让动画完全控制
+            // if (tipTextblock != null)
+            // {
+            //     tipTextblock.Opacity = 0.0;
+            // }
 
             // 在动画完成后隐藏 tipGrid，避免占用布局空间
             if (_storyboard != null)
