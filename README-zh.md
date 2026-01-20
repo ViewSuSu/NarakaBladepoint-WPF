@@ -4,6 +4,8 @@
 ![Platform](https://img.shields.io/badge/Platform-WPF-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
+## 界面预览
+
 <div align="center">
   <img src="./docs/MainWindows.png" alt="主窗口" width="800" />
   <br/>
@@ -52,3 +54,18 @@
     </td>
   </tr>
 </table>
+
+## 编译与运行
+
+运行 `NarakaBladepoint.App`
+
+- 环境: `net6-windows`
+- 开发工具: Visual Studio 2022 或更高版本
+
+## 依赖项
+
+项目使用以下 NuGet 包:
+
+- **Mapster** Version 7.4.0 - 对象映射库
+- **Newtonsoft.Json** Version 13.0.4 - JSON 序列化库
+- **Prism.DryIoc** Version 9.0.537 - WPF 应用框架和依赖注入容器
