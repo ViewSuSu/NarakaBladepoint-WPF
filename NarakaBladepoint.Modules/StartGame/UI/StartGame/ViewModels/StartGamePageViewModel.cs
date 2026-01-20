@@ -4,14 +4,43 @@ using NarakaBladepoint.Modules.StartGame.UI.ModeSelection.Views;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
 {
-    internal class StartGamePageViewModel : BindableBase
+    internal class StartGamePageViewModel : ViewModelBase
     {
-        private readonly IEventAggregator eventAggregator;
+        private bool _isLoadingGame;
 
-        public StartGamePageViewModel(IEventAggregator eventAggregator)
+        public bool IsLoadingGame
         {
-            this.eventAggregator = eventAggregator;
+            get { return _isLoadingGame; }
+            set
+            {
+                _isLoadingGame = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged(nameof(StartGameContent));
+            }
         }
+
+        public string StartGameContent => IsLoadingGame ? "取消游戏" : "开始游戏";
+
+        public StartGamePageViewModel(
+            IContainerProvider containerProvider,
+            ITipMessageService tipMessageService
+        )
+            : base(containerProvider)
+        {
+            this.tipMessageService = tipMessageService;
+        }
+
+        private DelegateCommand _startGameCommand;
+
+        /// <summary>
+        /// 开始游戏命令
+        /// </summary>
+        public DelegateCommand StartGameCommand =>
+            _startGameCommand ??= new DelegateCommand(() =>
+            {
+                IsLoadingGame = !_isLoadingGame;
+                eventAggregator.GetEvent<QueueStatusChangedEvent>().Publish(IsLoadingGame);
+            });
 
         private DelegateCommand _navigateToEventCenterMainCommand;
 
@@ -24,6 +53,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
             });
 
         private DelegateCommand _navigateToModelSelectionCommand;
+        private readonly ITipMessageService tipMessageService;
 
         public DelegateCommand NavigateToModelSelectionCommand =>
             _navigateToModelSelectionCommand ??= new DelegateCommand(() =>

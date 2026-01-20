@@ -71,6 +71,7 @@
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="限时活动"
+                    IsSelected="{Binding IsSelectedLimitedEvent}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <timeLimitedEvent:TimeLimitedEventPage />
                 </TabItem>

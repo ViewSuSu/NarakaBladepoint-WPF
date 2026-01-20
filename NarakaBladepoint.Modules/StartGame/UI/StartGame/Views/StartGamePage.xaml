@@ -54,9 +54,7 @@
                     </b:Interaction.Triggers>
                 </Grid>
             </controls:HighlightBorder>
-            <controls:HighlightBorder
-                Grid.Row="1"
-                Margin="0,2">
+            <controls:HighlightBorder Grid.Row="1" Margin="0,2">
                 <controls:HighlightBorder.Background>
                     <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/段位.png" Stretch="Fill" />
                 </controls:HighlightBorder.Background>
@@ -85,9 +83,7 @@
                         Style="{StaticResource DiamondCheckBoxStyle}" />
                 </Border>
             </Grid>
-            <controls:HighlightBorder
-                Grid.Row="3"
-                Margin="0,2">
+            <controls:HighlightBorder Grid.Row="3" Margin="0,2">
                 <controls:HighlightBorder.Background>
                     <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/模式选择.png" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>
@@ -137,9 +133,10 @@
                     Grid.Row="3"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    d:Text="开始游戏"
                     FontSize="30"
                     Foreground="White"
-                    Text="开始游戏">
+                    Text="{Binding StartGameContent, Mode=OneWay}">
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="MouseLeftButtonDown">
                             <b:InvokeCommandAction Command="{Binding StartGameCommand}" />
