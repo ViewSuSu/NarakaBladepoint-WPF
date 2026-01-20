@@ -149,7 +149,9 @@
                                     </StackPanel>
                                     <ItemsControl
                                         Grid.Column="4"
+                                        Name="itemsControl"
                                         VerticalAlignment="Center"
+                                        ItemsSource="{Binding Achievements, Mode=OneWay}"
                                         d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
@@ -162,6 +164,7 @@
                                                     <Image
                                                         Width="20"
                                                         Margin="2,0"
+                                                        Source="{Binding}"
                                                         d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HisitoryMatchRecord/1.png" />
                                                     <Popup />
                                                 </Grid>

@@ -1,7 +1,7 @@
 ﻿using NarakaBladepoint.Shared.Enums;
 using NarakaBladepoint.Shared.Jsons;
 
-namespace NarakaBladepoint.Shared.Services.Infrastructure
+namespace NarakaBladepoint.Shared.Services.Implementation
 {
     [Component(ComponentLifetime.Singleton)]
     internal class CurrentUserBasicInformation : ICurrentUserInfoProvider

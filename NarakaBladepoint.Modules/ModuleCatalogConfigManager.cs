@@ -13,6 +13,17 @@ namespace NarakaBladepoint.Modules
         }
 
         /// <summary>
+        /// 注册Module层的服务
+        /// </summary>
+        /// <param name="containerRegistry"></param>
+        public static IContainerRegistry RegisterModuleLayer(
+            this IContainerRegistry containerRegistry
+        )
+        {
+            return containerRegistry.RegisterrComponentsByAssembly(assembly);
+        }
+
+        /// <summary>
         /// 自动注册所有模块
         /// </summary>
         /// <returns></returns>

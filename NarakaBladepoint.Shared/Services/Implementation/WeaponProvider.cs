@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NarakaBladepoint.Shared.Services.Infrastructure
+namespace NarakaBladepoint.Shared.Services.Implementation
 {
     [Component(ComponentLifetime.Singleton)]
     internal class WeaponProvider : IWeaponProvider

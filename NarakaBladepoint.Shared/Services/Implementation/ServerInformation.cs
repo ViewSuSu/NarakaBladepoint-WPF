@@ -1,4 +1,4 @@
-﻿namespace NarakaBladepoint.Shared.Services.Infrastructure
+﻿namespace NarakaBladepoint.Shared.Services.Implementation
 {
     [Component(ComponentLifetime.Singleton)]
     internal class ServerInformation : IServerInfoProvider

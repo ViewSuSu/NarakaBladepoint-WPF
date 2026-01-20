@@ -2,7 +2,7 @@
 using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Resources;
 
-namespace NarakaBladepoint.Shared.Services.Infrastructure
+namespace NarakaBladepoint.Shared.Services.Implementation
 {
     [Component(ComponentLifetime.Singleton)]
     internal class HeroInfomation : IHeroInfoProvider

@@ -16,6 +16,7 @@ namespace NarakaBladepoint.App
             containerRegistry.Register<MainWindowViewModel>();
             containerRegistry.RegisterAppLayer();
             containerRegistry.RegisterSharedLayer();
+            containerRegistry.RegisterModuleLayer();
         }
 
         protected override Window CreateShell()

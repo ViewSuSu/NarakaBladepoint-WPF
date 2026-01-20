@@ -6,7 +6,7 @@ using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Enums;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
-namespace NarakaBladepoint.Shared.Services.Infrastructure
+namespace NarakaBladepoint.Shared.Services.Implementation
 {
     /// <summary>
     /// 英雄数据提供器实现

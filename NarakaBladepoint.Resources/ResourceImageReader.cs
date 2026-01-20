@@ -25,6 +25,9 @@ namespace NarakaBladepoint.Resources
         // Map 相关：Key = 静态图，Value = Gif（可为空）
         private static readonly Dictionary<ImageSource, ImageSource> _mapImagePairs = new();
 
+        // HisitoryMatchRecord 相关：image/hisitorymatchrecord/*.png (数字命名，从1开始)
+        private static readonly Dictionary<int, ImageSource> _historyMatchRecordImages = new();
+
         static ResourceImageReader()
         {
             var assembly = typeof(ResourceImageReader).Assembly;
@@ -202,6 +205,24 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+
+                // ===================== HisitoryMatchRecord =====================
+                if (key.StartsWith("image/hisitorymatchrecord/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/hisitorymatchrecord/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        var fileNameWithoutExtension = relative[..^4]; // 去掉 .png
+                        if (int.TryParse(fileNameWithoutExtension, out var index))
+                        {
+                            try
+                            {
+                                _historyMatchRecordImages[index] = LoadBitmapFromResource(assembly, key);
+                            }
+                            catch { }
+                        }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -359,5 +380,15 @@ namespace NarakaBladepoint.Resources
             mapImage != null && _mapImagePairs.TryGetValue(mapImage, out var gif) ? gif : null;
 
         public static int MapCount => _mapImagePairs.Count;
+
+        // ===================== HisitoryMatchRecord API =====================
+
+        public static ImageSource GetHistoryMatchRecordImage(int index) =>
+            _historyMatchRecordImages.TryGetValue(index, out var image) ? image : null;
+
+        public static IReadOnlyDictionary<int, ImageSource> GetAllHistoryMatchRecordImages() =>
+            _historyMatchRecordImages;
+
+        public static int HistoryMatchRecordCount => _historyMatchRecordImages.Count;
     }
 }

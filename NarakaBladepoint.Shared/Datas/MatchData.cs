@@ -84,6 +84,23 @@ namespace NarakaBladepoint.Shared.Jsons
         /// </summary>
         public bool IsAdd { get; set; }
 
-        public bool IsEasy => DateTime.Now.Second % 2 == 0;
+        /// <summary>
+        /// 是否额外加分400+
+        /// </summary>
+        public bool IsEasy { get; set; }
+
+        /// <summary>
+        /// 对局成就图片索引列表 (索引从1开始)
+        /// </summary>
+        public List<int> AchievementIndexes { get; set; } = new();
+
+        /// <summary>
+        /// 对局成就图片列表
+        /// </summary>
+        public List<ImageSource> Achievements =>
+            AchievementIndexes
+                .Select(index => ResourceImageReader.GetHistoryMatchRecordImage(index))
+                .Where(img => img != null)
+                .ToList();
     }
 }
