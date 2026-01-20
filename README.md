@@ -4,4 +4,4 @@
 ![Platform](https://img.shields.io/badge/Platform-WPF-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-<div align="center"> <img src="./MainWindows.png" alt="Main Window Interface" width="800" /> <br/> <em>Figure 1: Main Window</em> </div>
+<div align="center"> <img src="./docs/MainWindows.png" alt="Main Window Interface" width="800" /> <br/> <em>Figure 1: Main Window</em> </div>
