@@ -61,6 +61,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="近期热点"
+                    IsSelected="{Binding IsSelectedLatestNews}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <latestNews:LatestNewsPage />
                 </TabItem>
@@ -78,6 +79,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="揽月阁"
+                    IsSelected="{Binding IsSelectedMoonGazingPavilion}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <moonGazingPavilion:MoonGazingPavilionPage />
                 </TabItem>
@@ -86,6 +88,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="白泽月卡"
+                    IsSelected="{Binding IsSelectedBaiZeCard}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <baize:BaiZeCardPage />
                 </TabItem>
@@ -94,6 +97,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="绑定有礼"
+                    IsSelected="{Binding IsSelectedBindReward}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <bindReward:BindRewardPage />
                 </TabItem>
@@ -102,6 +106,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="英雄归来"
+                    IsSelected="{Binding IsSelectedWelcomeBack}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <welcomeback:WelcomeBackEventPage />
                 </TabItem>
@@ -110,6 +115,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="传火"
+                    IsSelected="{Binding IsSelectedPassingTheFlame}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <passingTheFlame:PassingTheFlamePage />
                 </TabItem>
@@ -118,6 +124,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="蓬莱指南"
+                    IsSelected="{Binding IsSelectedPenglaiGuide}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <penglaiGuide:PenglaiGuidePage />
                 </TabItem>
@@ -126,6 +133,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="更新公告"
+                    IsSelected="{Binding IsSelectedPatchNote}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <patchNotePage:PatchNotePage />
                 </TabItem>
@@ -134,6 +142,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="网易支付好礼"
+                    IsSelected="{Binding IsSelectedNetEasePayRewards}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <netEasePayRewards:NetEasePayRewardsPage />
                 </TabItem>
@@ -142,6 +151,7 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="宝箱定向保底"
+                    IsSelected="{Binding IsSelectedTargetedChestGuarantee}"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <targetedChestGuarantee:TargetedChestGuaranteePage />
                 </TabItem>
