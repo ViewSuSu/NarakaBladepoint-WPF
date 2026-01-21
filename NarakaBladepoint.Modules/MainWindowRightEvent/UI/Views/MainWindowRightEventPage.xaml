@@ -17,15 +17,30 @@
             Command="{Binding EventOneCommand}"
             Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/露华集市.png"
             Text="露华集市" />
-        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/白泽百科.png" Text="白泽百科" />
-        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/赛事.png" Text="赛事" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventTwoCommand}"
+            Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/白泽百科.png"
+            Text="白泽百科" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventThreeCommand}"
+            Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/赛事.png"
+            Text="赛事" />
         <controls:IconTextBlockCustomControl
             Command="{Binding EventFourCommand}"
             Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/拓展包.png"
             Text="拓展包" />
-        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/找队友.png" Text="找队友" />
-        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/摘星阁.png" Text="摘星阁" />
-        <controls:IconTextBlockCustomControl Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/入劫门.png" Text="入劫门" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventFiveCommand}"
+            Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/找队友.png"
+            Text="找队友" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventSixCommand}"
+            Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/摘星阁.png"
+            Text="摘星阁" />
+        <controls:IconTextBlockCustomControl
+            Command="{Binding EventSevenCommand}"
+            Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/入劫门.png"
+            Text="入劫门" />
         <controls:IconTextBlockCustomControl
             Command="{Binding EventEightCommand}"
             Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/白泽月卡.png"

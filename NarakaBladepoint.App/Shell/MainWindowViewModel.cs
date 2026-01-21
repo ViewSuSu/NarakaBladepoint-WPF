@@ -94,11 +94,9 @@ namespace NarakaBladepoint.App.Shell
         }
 
         public MainWindowViewModel(
-            IContainerProvider containerProvider,
             HomePageVisualNavigator homePageVisualNavigator,
             MainContentNavigator mainContentNavigator
         )
-            : base(containerProvider)
         {
             this.homePageVisualNavigator = homePageVisualNavigator;
             this.mainContentNavigator = mainContentNavigator;

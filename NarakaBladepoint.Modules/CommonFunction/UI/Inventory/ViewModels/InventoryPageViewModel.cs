@@ -36,9 +36,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels
             });
 
         public InventoryPageViewModel(
-            IContainerProvider containerProvider,
             IInventoryPropProvider inventoryPropProvider)
-            : base(containerProvider)
         {
             _inventoryPropProvider = inventoryPropProvider;
             LoadInventoryItems();

@@ -7,10 +7,8 @@
         public UserInformationData CurrentUserModel { get; }
 
         public TippingRecordPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInfoProvider
         )
-            : base(containerProvider)
         {
             this.currentUserInfoProvider = currentUserInfoProvider;
             this.CurrentUserModel = currentUserInfoProvider.GetCurrentUserInfoAsync().Result;

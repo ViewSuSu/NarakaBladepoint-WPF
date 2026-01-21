@@ -7,11 +7,13 @@
     {
         protected readonly IEventAggregator eventAggregator;
         protected readonly IRegionManager regionManager;
+        protected readonly IContainerProvider containerProvider;
 
-        protected ViewModelBase(IContainerProvider containerProvider)
+        protected ViewModelBase()
         {
-            this.eventAggregator = containerProvider.Resolve<IEventAggregator>();
-            this.regionManager = containerProvider.Resolve<IRegionManager>();
+            this.containerProvider = PrismApplicationBase.ContainerProvider;
+            this.eventAggregator = this.containerProvider.Resolve<IEventAggregator>();
+            this.regionManager = this.containerProvider.Resolve<IRegionManager>();
         }
 
         protected virtual bool IsNavigationTargetExecute(NavigationContext navigationContext)

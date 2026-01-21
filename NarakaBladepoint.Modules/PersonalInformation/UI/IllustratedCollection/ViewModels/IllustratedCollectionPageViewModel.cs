@@ -2,7 +2,6 @@
 {
     internal class IllustratedCollectionPageViewModel : ViewModelBase
     {
-        public IllustratedCollectionPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public IllustratedCollectionPageViewModel() { }
     }
 }

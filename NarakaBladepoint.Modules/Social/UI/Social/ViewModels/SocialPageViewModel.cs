@@ -8,8 +8,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
 {
     public class SocialPageViewModel : ViewModelBase
     {
-        public SocialPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public SocialPageViewModel() { }
 
         private DelegateCommand _navigateToMusicCommand;
 

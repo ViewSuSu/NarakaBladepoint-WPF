@@ -69,11 +69,9 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
         }
 
         public TagUserControlViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInfoProvider,
             ISocialTagProvider socialTagProvider
         )
-            : base(containerProvider)
         {
             this.currentUserInfoProvider = currentUserInfoProvider;
             this.socialTagProvider = socialTagProvider;

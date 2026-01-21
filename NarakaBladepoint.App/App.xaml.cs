@@ -8,7 +8,7 @@ namespace NarakaBladepoint.App
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : PrismApplication
+    public partial class App : Framework.Core.Bases.PrismApplicationBase
     {
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -19,7 +19,7 @@ namespace NarakaBladepoint.App
             containerRegistry.RegisterModuleLayer();
         }
 
-        protected override Window CreateShell()
+        protected override Window CreateShellExecute()
         {
             return Container.Resolve<MainWindow>();
         }

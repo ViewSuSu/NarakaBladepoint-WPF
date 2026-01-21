@@ -7,7 +7,6 @@ namespace NarakaBladepoint.Modules.ChatBox.UI.ViewModels
     {
         public ObservableCollection<ChatMessageItem> ChatMessageItems { get; set; } = [];
 
-        public ChatBoxPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public ChatBoxPageViewModel() { }
     }
 }

@@ -2,7 +2,6 @@
 {
     internal class TimeLimitedEventPageViewModel : ViewModelBase
     {
-        public TimeLimitedEventPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public TimeLimitedEventPageViewModel() { }
     }
 }

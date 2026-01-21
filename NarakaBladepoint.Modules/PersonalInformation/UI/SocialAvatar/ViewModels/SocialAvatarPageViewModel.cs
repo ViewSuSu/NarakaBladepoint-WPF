@@ -11,10 +11,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
         private static readonly Random _random = new();
 
         public SocialAvatarPageViewModel(
-            IContainerProvider containerProvider,
             IAvatarProvider avatarProvider
         )
-            : base(containerProvider)
         {
             var avatarDatas = avatarProvider.GetAvatarsAsync().Result;
             InitializeAvatarLists(avatarDatas);

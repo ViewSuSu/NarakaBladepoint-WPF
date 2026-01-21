@@ -13,10 +13,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDeta
         private readonly ICurrentUserInfoProvider currentUserInfoProvider;
 
         public HistoryMatchRecordDetailPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInfoProvider
         )
-            : base(containerProvider)
         {
             this.currentUserInfoProvider = currentUserInfoProvider;
         }

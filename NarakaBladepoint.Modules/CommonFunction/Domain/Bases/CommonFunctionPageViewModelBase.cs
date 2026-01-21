@@ -8,8 +8,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Domain.Bases
 {
     internal abstract class CommonFunctionPageViewModelBase : ViewModelBase
     {
-        public CommonFunctionPageViewModelBase(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public CommonFunctionPageViewModelBase() { }
 
         private DelegateCommand _returnToHallCommand;
 

@@ -26,10 +26,8 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
         public string StartGameContent => IsLoadingGame ? "取消" : "开始游戏";
 
         public StartGamePageViewModel(
-            IContainerProvider containerProvider,
             ITipMessageService tipMessageService
         )
-            : base(containerProvider)
         {
             this.tipMessageService = tipMessageService;
             eventAggregator

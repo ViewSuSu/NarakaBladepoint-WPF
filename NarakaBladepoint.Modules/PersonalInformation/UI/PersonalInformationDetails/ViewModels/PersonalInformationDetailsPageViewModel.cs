@@ -46,12 +46,10 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         }
 
         public PersonalInformationDetailsPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserBasicInformation,
             IHeroInfoProvider heroInfomation,
             ITipMessageService tipMessageService
         )
-            : base(containerProvider)
         {
             this.currentUserBasicInformation = currentUserBasicInformation;
             this.heroInfomation = heroInfomation;

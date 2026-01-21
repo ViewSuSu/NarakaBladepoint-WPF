@@ -39,12 +39,10 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
         public int SelectedCount => MapItems.Count(x => x.IsSelected);
 
         public MapChosePageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInformationProvider,
             IMapProvider mapProvider,
             IConfiguration configuration
         )
-            : base(containerProvider)
         {
             this.currentUserInformationProvider = currentUserInformationProvider;
             this.configuration = configuration;

@@ -1,5 +1,5 @@
-using Prism.Events;
 using System.Collections.Generic;
+using Prism.Events;
 
 namespace NarakaBladepoint.Framework.Core.Evens
 {
@@ -25,29 +25,12 @@ namespace NarakaBladepoint.Framework.Core.Evens
         public List<string> HighlightTexts { get; set; }
 
         /// <summary>
-        /// 无参构造函数
-        /// </summary>
-        public TipMessageWithHighlightArgs()
-        {
-        }
-
-        /// <summary>
         /// 仅消息的构造函数
         /// </summary>
-        public TipMessageWithHighlightArgs(string message)
-        {
-            Message = message;
-        }
-
-        /// <summary>
-        /// 完整构造函数
-        /// </summary>
-        public TipMessageWithHighlightArgs(string message, List<string> highlightTexts)
+        public TipMessageWithHighlightArgs(string message, List<string> highlightTexts = null)
         {
             Message = message;
             HighlightTexts = highlightTexts;
         }
     }
 }
-
-

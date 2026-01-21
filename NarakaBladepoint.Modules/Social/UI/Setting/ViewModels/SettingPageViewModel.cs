@@ -5,8 +5,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Setting.ViewModels
 {
     internal class SettingPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
-        public SettingPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public SettingPageViewModel() { }
 
         private DelegateCommand _navigateToTutorialCommand;
 

@@ -12,8 +12,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
 {
     public partial class CommonFunctionPageViewModel : ViewModelBase
     {
-        public CommonFunctionPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider)
+        public CommonFunctionPageViewModel()
         {
             eventAggregator
                 .GetEvent<NavigateToHallEvent>()

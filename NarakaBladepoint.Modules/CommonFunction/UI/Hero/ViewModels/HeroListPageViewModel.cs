@@ -22,10 +22,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.ViewModels
         }
 
         public HeroListPageViewModel(
-            IContainerProvider containerProvider,
             IHeroInfoProvider heroInfoProvider
         )
-            : base(containerProvider)
         {
             this.heroInfoProvider = heroInfoProvider;
             this.HeroAvatarModels = heroInfoProvider

@@ -7,10 +7,8 @@ namespace NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels
     internal class BattlePassPageViewModel : ViewModelBase
     {
         public BattlePassPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInformationProvider
         )
-            : base(containerProvider)
         {
             this.CurrentUserInformationModel = currentUserInformationProvider
                 .GetCurrentUserInfoAsync()

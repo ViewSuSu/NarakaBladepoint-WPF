@@ -26,11 +26,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         }
 
         public FriendPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInformationProvider,
             ITipMessageService tipMessageService
         )
-            : base(containerProvider)
         {
             this.currentUserInformationProvider = currentUserInformationProvider;
             this.tipMessageService = tipMessageService;

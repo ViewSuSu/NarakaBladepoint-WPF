@@ -2,7 +2,6 @@
 {
     internal class TargetedChestGuaranteePageViewModel : ViewModelBase
     {
-        public TargetedChestGuaranteePageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public TargetedChestGuaranteePageViewModel() { }
     }
 }

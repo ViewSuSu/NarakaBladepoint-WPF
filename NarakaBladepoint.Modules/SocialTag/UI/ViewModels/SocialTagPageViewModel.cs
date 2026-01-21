@@ -49,12 +49,10 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
                 .Where(x => x.IsSelected);
 
         public SocialTagPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInfoProvider,
             ISocialTagProvider socialTagProvider,
             IConfiguration configuration
         )
-            : base(containerProvider)
         {
             this.currentUserInfoProvider = currentUserInfoProvider;
             this.socialTagProvider = socialTagProvider;

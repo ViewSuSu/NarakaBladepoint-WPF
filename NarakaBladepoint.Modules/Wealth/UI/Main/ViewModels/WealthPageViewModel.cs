@@ -12,10 +12,8 @@ namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
         private DelegateCommand _navigateToTopUpCommand;
 
         public WealthPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInfoProvider
         )
-            : base(containerProvider)
         {
             this.CurrentUserModel = currentUserInfoProvider.GetCurrentUserInfoAsync().Result;
         }

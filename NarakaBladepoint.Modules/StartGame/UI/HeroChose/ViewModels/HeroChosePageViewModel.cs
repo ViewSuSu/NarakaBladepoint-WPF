@@ -74,12 +74,10 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
         public bool ThirdHeroIsNull => ThirdHeroIndex == -1;
 
         public HeroChosePageViewModel(
-            IContainerProvider containerProvider,
             IHeroInfoProvider heroInfomation,
             ICurrentUserInfoProvider currentUserInformationProvider,
             IConfiguration configuration
         )
-            : base(containerProvider)
         {
             this.heroInfomation = heroInfomation;
             this.currentUserInformationProvider = currentUserInformationProvider;

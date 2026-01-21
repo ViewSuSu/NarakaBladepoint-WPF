@@ -30,12 +30,10 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public bool IsOutRange => SelectedCount < TotalCount;
 
         public HeroTagPageViewModel(
-            IContainerProvider containerProvider,
             IHeroInfoProvider heroInfomation,
             ICurrentUserInfoProvider currentUserInformationProvider,
             IConfiguration configuration
         )
-            : base(containerProvider)
         {
             this.heroInfomation = heroInfomation;
             this.currentUserInformationProvider = currentUserInformationProvider;

@@ -8,10 +8,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.Vi
     internal class PersonalInformationPageViewModel : ViewModelBase
     {
         public PersonalInformationPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserBasicInformation
         )
-            : base(containerProvider)
         {
             this.UserInfoModel = currentUserBasicInformation.GetCurrentUserInfoAsync().Result;
         }

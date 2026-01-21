@@ -29,10 +29,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.ViewModels
         public DelegateCommand<WeaponItemModel> SelectWeaponCommand { get; }
 
         public WeaponPageViewModel(
-            IContainerProvider containerProvider,
             IWeaponProvider weaponProvider
         )
-            : base(containerProvider)
         {
             this.weaponProvider = weaponProvider;
 

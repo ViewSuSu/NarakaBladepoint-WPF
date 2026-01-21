@@ -2,7 +2,6 @@
 {
     internal class WelcomeBackEventPageViewModel : ViewModelBase
     {
-        public WelcomeBackEventPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public WelcomeBackEventPageViewModel() { }
     }
 }

@@ -98,13 +98,11 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
         }
 
         public ModeSelectionPageViewModel(
-            IContainerProvider containerProvider,
             IServerInfoProvider serverInformation,
             ICurrentUserInfoProvider currentUserInformationProvider,
             IHeroInfoProvider heroInfomation,
             IMapProvider mapProvider
         )
-            : base(containerProvider)
         {
             this.serverInformation = serverInformation;
             this.currentUserInformationProvider = currentUserInformationProvider;

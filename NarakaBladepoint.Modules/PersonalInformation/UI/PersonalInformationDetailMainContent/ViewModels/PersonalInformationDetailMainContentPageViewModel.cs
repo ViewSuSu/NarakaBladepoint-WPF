@@ -5,9 +5,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
     internal class PersonalInformationDetailMainContentPageViewModel
         : CanRemoveHomePageRegionViewModelBase
     {
-        public PersonalInformationDetailMainContentPageViewModel(
-            IContainerProvider containerProvider
-        )
-            : base(containerProvider) { }
+        public PersonalInformationDetailMainContentPageViewModel() { }
     }
 }

@@ -2,7 +2,6 @@
 {
     internal class AvatarFramePageViewModel : ViewModelBase
     {
-        public AvatarFramePageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public AvatarFramePageViewModel() { }
     }
 }

@@ -16,8 +16,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
             }
         }
 
-        public EventCenterMainPageViewModel(IContainerProvider containerProvider)
-            : base(containerProvider) { }
+        public EventCenterMainPageViewModel() { }
 
         protected override void OnNavigatedToExecute(NavigationContext navigationContext)
         {

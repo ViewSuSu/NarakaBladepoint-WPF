@@ -22,10 +22,8 @@ namespace NarakaBladepoint.Modules.Social.UI.Email.ViewModels
         }
 
         public EmailPageViewModel(
-            IContainerProvider containerProvider,
             IEmailItemDataProvider emailItemDataProvider
         )
-            : base(containerProvider)
         {
             this.emailItemDataProvider = emailItemDataProvider;
             this.EmailDatas = emailItemDataProvider.GetEmailItemDatasAsync().Result;

@@ -13,11 +13,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.ViewModels
         private readonly ISeasonDataProvider _seasonDataProvider;
 
         public SeasonDataPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInfoProvider,
             ISeasonDataProvider seasonDataProvider
         )
-            : base(containerProvider)
         {
             _currentUserInfoProvider = currentUserInfoProvider;
             _seasonDataProvider = seasonDataProvider;

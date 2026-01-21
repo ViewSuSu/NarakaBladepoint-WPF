@@ -14,11 +14,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
         private readonly ICurrentUserInfoProvider _currentUserInformationProvider;
 
         public HeroDataPageViewModel(
-            IContainerProvider containerProvider,
             ICurrentUserInfoProvider currentUserInformationProvider,
             IHeroDataProvider heroDataProvider
         )
-            : base(containerProvider)
         {
             _currentUserInformationProvider = currentUserInformationProvider;
             _heroDataProvider = heroDataProvider;
