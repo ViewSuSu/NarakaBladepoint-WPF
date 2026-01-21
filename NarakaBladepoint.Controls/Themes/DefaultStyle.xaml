@@ -17,5 +17,6 @@
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ComboboxItemStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/RadioButtonStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/TextBlackStyle.xaml" />
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ScrollViewerStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

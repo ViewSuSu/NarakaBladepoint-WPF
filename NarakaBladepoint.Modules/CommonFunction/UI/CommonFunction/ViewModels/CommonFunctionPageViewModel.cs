@@ -12,22 +12,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
 {
     public partial class CommonFunctionPageViewModel : ViewModelBase
     {
-        private bool _isSelectedHall = true;
-
-        public bool IsSelectedHall
-        {
-            get { return _isSelectedHall; }
-            set
-            {
-                _isSelectedHall = value;
-                RaisePropertyChanged();
-                if (IsSelectedHall)
-                {
-                    eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
-                }
-            }
-        }
-
         public CommonFunctionPageViewModel(IContainerProvider containerProvider)
             : base(containerProvider)
         {
@@ -39,67 +23,142 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
                 });
         }
 
-        private DelegateCommand _navigateToToWeaponCommand;
-        public DelegateCommand NavigateToWeaponCommand =>
-            _navigateToToWeaponCommand ??= new DelegateCommand(() =>
-            {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(WeaponPage)));
-            });
+        #region Tab Selection Properties
 
-        private DelegateCommand _navigateToHeroCommand;
-        public DelegateCommand NavigateToHeroCommand =>
-            _navigateToHeroCommand ??= new DelegateCommand(() =>
+        private bool _isSelectedHero;
+        public bool IsSelectedHero
+        {
+            get => _isSelectedHero;
+            set
             {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(HeroListPage)));
-            });
+                _isSelectedHero = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(HeroListPage)));
+                }
+            }
+        }
 
-        private DelegateCommand _skillPointCommand;
-        public DelegateCommand SkillPointCommand =>
-            _skillPointCommand ??= new DelegateCommand(() =>
+        private bool _isSelectedWeapon;
+        public bool IsSelectedWeapon
+        {
+            get => _isSelectedWeapon;
+            set
             {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(SkillPointPage)));
-            });
+                _isSelectedWeapon = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(WeaponPage)));
+                }
+            }
+        }
 
-        private DelegateCommand _leaderboardCommand;
-        public DelegateCommand LeaderboardCommand =>
-            _leaderboardCommand ??= new DelegateCommand(() =>
+        private bool _isSelectedSkillPoint;
+        public bool IsSelectedSkillPoint
+        {
+            get => _isSelectedSkillPoint;
+            set
             {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(LeaderboardPage)));
-            });
+                _isSelectedSkillPoint = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(SkillPointPage)));
+                }
+            }
+        }
 
-        private DelegateCommand _navigateToInventoryCommand;
-        public DelegateCommand NavigateToInventoryCommand =>
-            _navigateToInventoryCommand ??= new DelegateCommand(() =>
+        private bool _isSelectedHall = true;
+        public bool IsSelectedHall
+        {
+            get => _isSelectedHall;
+            set
             {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(InventoryPage)));
-            });
+                _isSelectedHall = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
+                }
+            }
+        }
 
-        private DelegateCommand _storeCommand;
-        public DelegateCommand StoreCommand =>
-            _storeCommand ??= new DelegateCommand(() =>
+        private bool _isSelectedLeaderboard;
+        public bool IsSelectedLeaderboard
+        {
+            get => _isSelectedLeaderboard;
+            set
             {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(StorePage)));
-            });
+                _isSelectedLeaderboard = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(LeaderboardPage)));
+                }
+            }
+        }
 
-        private DelegateCommand _customMatchCommand;
-        public DelegateCommand CustomMatchCommand =>
-            _customMatchCommand ??= new DelegateCommand(() =>
+        private bool _isSelectedInventory;
+        public bool IsSelectedInventory
+        {
+            get => _isSelectedInventory;
+            set
             {
-                eventAggregator
-                    .GetEvent<LoadMainContentRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(CustomMatchPage)));
-            });
+                _isSelectedInventory = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(InventoryPage)));
+                }
+            }
+        }
+
+        private bool _isSelectedStore;
+        public bool IsSelectedStore
+        {
+            get => _isSelectedStore;
+            set
+            {
+                _isSelectedStore = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(StorePage)));
+                }
+            }
+        }
+
+        private bool _isSelectedCustomMatch;
+        public bool IsSelectedCustomMatch
+        {
+            get => _isSelectedCustomMatch;
+            set
+            {
+                _isSelectedCustomMatch = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(CustomMatchPage)));
+                }
+            }
+        }
+
+        #endregion
     }
 }

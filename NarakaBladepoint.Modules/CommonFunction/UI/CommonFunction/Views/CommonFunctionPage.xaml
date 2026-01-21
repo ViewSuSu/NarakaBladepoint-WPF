@@ -2,7 +2,6 @@
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views.CommonFunctionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
@@ -16,25 +15,37 @@
         Background="Transparent"
         BorderThickness="0">
         <TabItem
-            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToHeroCommand}"
             Header="英雄"
+            IsSelected="{Binding IsSelectedHero}"
             Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem
-            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToWeaponCommand}"
             Header="兵器"
+            IsSelected="{Binding IsSelectedWeapon}"
             Style="{StaticResource CommonFunctionTabItem}" />
-        <TabItem Header="备战" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            Header="备战"
+            IsSelected="{Binding IsSelectedSkillPoint}"
+            Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem Header="聚义厅" Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem
             Header="大厅"
             IsSelected="{Binding IsSelectedHall}"
             Style="{StaticResource CommonFunctionTabItem}" />
-        <TabItem Header="排行榜" Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem
-            attach:TabItemAttachedProperty.SelectedCommand="{Binding NavigateToInventoryCommand}"
-            Header="仓库"
+            Header="排行榜"
+            IsSelected="{Binding IsSelectedLeaderboard}"
             Style="{StaticResource CommonFunctionTabItem}" />
-        <TabItem Header="商店" Style="{StaticResource CommonFunctionTabItem}" />
-        <TabItem Header="自定义房间" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            Header="仓库"
+            IsSelected="{Binding IsSelectedInventory}"
+            Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            Header="商店"
+            IsSelected="{Binding IsSelectedStore}"
+            Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            Header="自定义房间"
+            IsSelected="{Binding IsSelectedCustomMatch}"
+            Style="{StaticResource CommonFunctionTabItem}" />
     </TabControl>
 </UserControl>

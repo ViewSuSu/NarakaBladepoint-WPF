@@ -157,7 +157,7 @@ mc:Ignorable="d">
                     <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/textblockBackground.png" Stretch="Fill" />
                     <ScrollViewer
                         Grid.Row="1 "
-                        attach:ScrollViewerExtensions.HorizontalScrollOnMouseWheel="True"
+                        attach:ScrollViewerHorizontalScrollAttachedProperty.EnableMouseWheelScroll="True"
                         HorizontalScrollBarVisibility="Hidden"
                         VerticalScrollBarVisibility="Disabled">
                         <ScrollViewer.Content>

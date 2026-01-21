@@ -299,7 +299,7 @@
                                 Background="Transparent"
                                 BorderThickness="0"
                                 ItemsSource="{Binding Friends}"
-                                ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid MaxHeight="40">
