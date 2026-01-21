@@ -66,6 +66,6 @@
 
 项目使用以下 NuGet 包:
 
-- **Mapster** Version 7.4.0 - 对象映射库
-- **Newtonsoft.Json** Version 13.0.4 - JSON 序列化库
-- **Prism.DryIoc** Version 9.0.537 - WPF 应用框架和依赖注入容器
+- **Mapster** Version 7.4.0 
+- **Newtonsoft.Json** Version 13.0.4 
+- **Prism.DryIoc** Version 9.0.537 
