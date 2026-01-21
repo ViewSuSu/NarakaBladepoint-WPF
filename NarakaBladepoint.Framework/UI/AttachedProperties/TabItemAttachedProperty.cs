@@ -1,12 +1,39 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 
 namespace NarakaBladepoint.Framework.UI.AttachedProperties
 {
+    /// <summary>
+    /// TabItem 附加属性
+    /// 
+    /// 用途：为 TabItem 的选中状态变化添加命令支持
+    /// 
+    /// 内存安全：使用 WeakEventManager 弱引用事件管理
+    /// </summary>
     public static class TabItemAttachedProperty
     {
+        #region Dependency Properties
+
+        /// <summary>
+        /// 标记是否已附加弱事件监听器
+        /// </summary>
+        private static readonly DependencyProperty WeakEventAttachedProperty =
+            DependencyProperty.RegisterAttached(
+                "WeakEventAttached",
+                typeof(bool),
+                typeof(TabItemAttachedProperty),
+                new PropertyMetadata(false)
+            );
+
+        private static bool GetWeakEventAttached(DependencyObject obj) =>
+            (bool)obj.GetValue(WeakEventAttachedProperty);
+
+        private static void SetWeakEventAttached(DependencyObject obj, bool value) =>
+            obj.SetValue(WeakEventAttachedProperty, value);
+
+        #endregion
+
         #region SelectedCommand 附加属性
 
         public static readonly DependencyProperty SelectedCommandProperty =
@@ -32,55 +59,49 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             DependencyPropertyChangedEventArgs e
         )
         {
-            if (d is TabItem tabItem)
+            if (d is TabItem tabItem && e.NewValue != null)
             {
-                // 清理旧的事件处理
-                CleanUp(tabItem);
-
-                // 设置新的事件处理
-                if (e.NewValue != null)
+                // 附加弱事件监听器（只需一次）
+                if (!GetWeakEventAttached(tabItem))
                 {
-                    Setup(tabItem);
+                    SetWeakEventAttached(tabItem, true);
+                    AttachWeakEventListeners(tabItem);
+                }
+
+                // 立即检查当前状态
+                if (tabItem.IsSelected)
+                {
+                    ExecuteCommand(tabItem);
                 }
             }
         }
 
-        private static void Setup(TabItem tabItem)
+        private static void AttachWeakEventListeners(TabItem tabItem)
         {
-            // 监听IsSelected属性变化
-            var binding = new Binding("IsSelected") { Source = tabItem, Mode = BindingMode.OneWay };
-
-            // 使用DependencyPropertyDescriptor来监听属性变化
-            var descriptor = System.ComponentModel.DependencyPropertyDescriptor.FromProperty(
-                TabItem.IsSelectedProperty,
-                typeof(TabItem)
+            // 使用弱引用监听 Loaded 事件
+            WeakEventManager<FrameworkElement, RoutedEventArgs>.AddHandler(
+                tabItem,
+                nameof(FrameworkElement.Loaded),
+                OnTabItemLoaded
             );
 
-            if (descriptor != null)
-            {
-                descriptor.AddValueChanged(tabItem, OnIsSelectedChanged);
-            }
+            // 使用弱引用监听 LayoutUpdated 事件（IsSelected 变化时会触发）
+            WeakEventManager<UIElement, EventArgs>.AddHandler(
+                tabItem,
+                nameof(UIElement.LayoutUpdated),
+                OnTabItemLayoutUpdated
+            );
+        }
 
-            // 保存引用以便清理
-            tabItem.Tag = descriptor;
-
-            // 立即检查当前状态
-            if (tabItem.IsSelected)
+        private static void OnTabItemLoaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is TabItem tabItem && tabItem.IsSelected)
             {
                 ExecuteCommand(tabItem);
             }
         }
 
-        private static void CleanUp(TabItem tabItem)
-        {
-            if (tabItem.Tag is System.ComponentModel.DependencyPropertyDescriptor descriptor)
-            {
-                descriptor.RemoveValueChanged(tabItem, OnIsSelectedChanged);
-                tabItem.Tag = null;
-            }
-        }
-
-        private static void OnIsSelectedChanged(object sender, System.EventArgs e)
+        private static void OnTabItemLayoutUpdated(object sender, EventArgs e)
         {
             if (sender is TabItem tabItem && tabItem.IsSelected)
             {
@@ -122,54 +143,5 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         }
 
         #endregion SelectedCommandParameter 附加属性
-
-        #region CleanupOnUnload 附加属性（可选）
-
-        public static readonly DependencyProperty CleanupOnUnloadProperty =
-            DependencyProperty.RegisterAttached(
-                "CleanupOnUnload",
-                typeof(bool),
-                typeof(TabItemAttachedProperty),
-                new PropertyMetadata(true, OnCleanupOnUnloadChanged)
-            );
-
-        public static bool GetCleanupOnUnload(TabItem tabItem)
-        {
-            return (bool)tabItem.GetValue(CleanupOnUnloadProperty);
-        }
-
-        public static void SetCleanupOnUnload(TabItem tabItem, bool value)
-        {
-            tabItem.SetValue(CleanupOnUnloadProperty, value);
-        }
-
-        private static void OnCleanupOnUnloadChanged(
-            DependencyObject d,
-            DependencyPropertyChangedEventArgs e
-        )
-        {
-            if (d is TabItem tabItem)
-            {
-                if ((bool)e.NewValue)
-                {
-                    tabItem.Unloaded += OnTabItemUnloaded;
-                }
-                else
-                {
-                    tabItem.Unloaded -= OnTabItemUnloaded;
-                }
-            }
-        }
-
-        private static void OnTabItemUnloaded(object sender, RoutedEventArgs e)
-        {
-            if (sender is TabItem tabItem)
-            {
-                CleanUp(tabItem);
-                tabItem.Unloaded -= OnTabItemUnloaded;
-            }
-        }
-
-        #endregion CleanupOnUnload 附加属性（可选）
     }
 }

@@ -13,9 +13,13 @@ namespace NarakaBladepoint.App.Shell.Behaviors
     /// 当属性变化时自动触发动画和计时逻辑：
     /// - IsQueuing = true: 从下往上滑出 + 淡入 + 启动计时
     /// - IsQueuing = false: 向下滑出 + 淡出 + 停止计时
+    /// 
+    /// 内存安全：使用 WeakEventManager 弱引用事件管理
     /// </summary>
     public class QueueAnimationBehavior : Behavior<FrameworkElement>
     {
+        #region Dependency Properties
+
         public static readonly DependencyProperty ShowStoryboardKeyProperty =
             DependencyProperty.Register(
                 nameof(ShowStoryboardKey),
@@ -72,11 +76,19 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             set => SetValue(QueueBorderNameProperty, value);
         }
 
+        #endregion
+
+        #region Fields
+
         private Storyboard _showStoryboard;
         private Storyboard _hideStoryboard;
         private Window _window;
         private INotifyPropertyChanged _viewModel;
         private System.Timers.Timer _queueTimer;
+
+        #endregion
+
+        #region Behavior Lifecycle
 
         protected override void OnAttached()
         {
@@ -89,61 +101,51 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 _hideStoryboard = window.Resources[HideStoryboardKey] as Storyboard;
             }
 
-            AssociatedObject.DataContextChanged += AssociatedObject_DataContextChanged;
+            // DataContextChanged 不是标准的 RoutedEvent，需要手动管理
+            // 但 Behavior 的 OnDetaching 会确保清理
+            AssociatedObject.DataContextChanged += OnDataContextChanged;
 
             // 立即处理当前 DataContext
-            if (AssociatedObject.DataContext is INotifyPropertyChanged vm)
-            {
-                _viewModel = vm;
-                _viewModel.PropertyChanged += ViewModel_PropertyChanged;
-            }
+            SubscribeViewModel(AssociatedObject.DataContext as INotifyPropertyChanged);
         }
 
         protected override void OnDetaching()
         {
-            AssociatedObject.DataContextChanged -= AssociatedObject_DataContextChanged;
-
-            if (_viewModel != null)
-            {
-                _viewModel.PropertyChanged -= ViewModel_PropertyChanged;
-                _viewModel = null;
-            }
-
+            AssociatedObject.DataContextChanged -= OnDataContextChanged;
             StopQueueTimer();
-
             base.OnDetaching();
         }
 
-        private void AssociatedObject_DataContextChanged(
-            object sender,
-            DependencyPropertyChangedEventArgs e
-        )
+        #endregion
+
+        #region Event Handlers
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            SubscribeViewModel(e.NewValue as INotifyPropertyChanged);
+        }
+
+        private void SubscribeViewModel(INotifyPropertyChanged newViewModel)
+        {
+            _viewModel = newViewModel;
+
             if (_viewModel != null)
             {
-                _viewModel.PropertyChanged -= ViewModel_PropertyChanged;
-            }
-
-            if (e.NewValue is INotifyPropertyChanged vm)
-            {
-                _viewModel = vm;
-                _viewModel.PropertyChanged += ViewModel_PropertyChanged;
-            }
-            else
-            {
-                _viewModel = null;
+                // 使用弱引用监听 PropertyChanged
+                PropertyChangedEventManager.AddHandler(
+                    _viewModel,
+                    OnViewModelPropertyChanged,
+                    string.Empty
+                );
             }
         }
 
-        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            // 确保在 UI 线程上执行，因为访问 DependencyProperty 也需要在 UI 线程上
-            if (
-                Application.Current?.Dispatcher != null
-                && !Application.Current.Dispatcher.CheckAccess()
-            )
+            // 确保在 UI 线程上执行
+            if (Application.Current?.Dispatcher != null && !Application.Current.Dispatcher.CheckAccess())
             {
-                Application.Current.Dispatcher.Invoke(() => ViewModel_PropertyChanged(sender, e));
+                Application.Current.Dispatcher.Invoke(() => OnViewModelPropertyChanged(sender, e));
                 return;
             }
 
@@ -152,6 +154,31 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 TriggerAnimation();
             }
         }
+
+        private void OnShowStoryboardCompleted(object sender, EventArgs e)
+        {
+            // 清理之前的隐藏回调（如果有）
+        }
+
+        private void OnHideStoryboardCompleted(object sender, EventArgs e)
+        {
+            if (_window == null)
+            {
+                return;
+            }
+
+            var queueGrid = _window.FindName("queue") as FrameworkElement;
+            if (queueGrid != null)
+            {
+                queueGrid.Visibility = Visibility.Collapsed;
+            }
+
+            StopQueueTimer();
+        }
+
+        #endregion
+
+        #region Animation Logic
 
         private void TriggerAnimation()
         {
@@ -162,7 +189,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
 
             var queueBorder = _window.FindName(QueueBorderName) as FrameworkElement;
             var queueGrid = _window.FindName("queue") as FrameworkElement;
-            
+
             if (queueBorder == null)
             {
                 return;
@@ -208,22 +235,28 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                     // 启动排队计时
                     StartQueueTimer();
 
-                    // 移除之前的完成回调
+                    // 使用弱引用监听 Storyboard.Completed
                     if (_showStoryboard != null)
                     {
-                        _showStoryboard.Completed -= ShowStoryboard_Completed;
-                        _showStoryboard.Completed += ShowStoryboard_Completed;
+                        WeakEventManager<Timeline, EventArgs>.AddHandler(
+                            _showStoryboard,
+                            nameof(Timeline.Completed),
+                            OnShowStoryboardCompleted
+                        );
                     }
 
                     _showStoryboard?.Begin();
                 }
                 else
                 {
-                    // 隐藏动画完成后的回调 - 此时才停止计时
+                    // 使用弱引用监听 Storyboard.Completed
                     if (_hideStoryboard != null)
                     {
-                        _hideStoryboard.Completed -= HideStoryboard_Completed;
-                        _hideStoryboard.Completed += HideStoryboard_Completed;
+                        WeakEventManager<Timeline, EventArgs>.AddHandler(
+                            _hideStoryboard,
+                            nameof(Timeline.Completed),
+                            OnHideStoryboardCompleted
+                        );
                     }
 
                     _hideStoryboard?.Begin();
@@ -231,40 +264,10 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
         }
 
-        /// <summary>
-        /// 显示动画完成后的回调 - 清理之前的隐藏回调
-        /// </summary>
-        private void ShowStoryboard_Completed(object sender, EventArgs e)
-        {
-            if (_hideStoryboard != null)
-            {
-                _hideStoryboard.Completed -= HideStoryboard_Completed;
-            }
-        }
+        #endregion
 
-        /// <summary>
-        /// 隐藏动画完成后的回调 - 隐藏排队容器并停止计时
-        /// </summary>
-        private void HideStoryboard_Completed(object sender, EventArgs e)
-        {
-            if (_window == null)
-            {
-                return;
-            }
+        #region Timer Logic
 
-            var queueGrid = _window.FindName("queue") as FrameworkElement;
-            if (queueGrid != null)
-            {
-                queueGrid.Visibility = Visibility.Collapsed;
-            }
-
-            // 停止计时
-            StopQueueTimer();
-        }
-
-        /// <summary>
-        /// 启动排队计时器
-        /// </summary>
         private void StartQueueTimer()
         {
             if (_viewModel == null)
@@ -272,7 +275,6 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 return;
             }
 
-            // 获取 ViewModel 中的 QueueTime 属性和 SetQueueTime 方法
             var queueTimeProperty = _viewModel.GetType().GetProperty("QueueTime");
             if (queueTimeProperty == null)
             {
@@ -288,7 +290,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 _queueTimer.Dispose();
             }
 
-            // 创建新的计时器，每秒触发一次
+            // 创建新的计时器
             _queueTimer = new System.Timers.Timer(1000);
             _queueTimer.Elapsed += (s, e) =>
             {
@@ -302,9 +304,6 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             _queueTimer.Start();
         }
 
-        /// <summary>
-        /// 停止排队计时器
-        /// </summary>
         private void StopQueueTimer()
         {
             if (_queueTimer != null)
@@ -314,15 +313,13 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 _queueTimer = null;
             }
 
-            // 重置计时
             if (_viewModel != null)
             {
                 var queueTimeProperty = _viewModel.GetType().GetProperty("QueueTime");
-                if (queueTimeProperty != null)
-                {
-                    queueTimeProperty.SetValue(_viewModel, 0);
-                }
+                queueTimeProperty?.SetValue(_viewModel, 0);
             }
         }
+
+        #endregion
     }
 }

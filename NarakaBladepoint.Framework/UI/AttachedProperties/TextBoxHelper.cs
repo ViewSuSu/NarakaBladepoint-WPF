@@ -264,19 +264,53 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             }
         }
 
+        /// <summary>
+        /// 标记是否已附加弱事件监听器
+        /// </summary>
+        private static readonly DependencyProperty WeakEventAttachedProperty =
+            DependencyProperty.RegisterAttached(
+                "WeakEventAttached",
+                typeof(bool),
+                typeof(TextBoxHelper),
+                new PropertyMetadata(false)
+            );
+
+        private static bool GetWeakEventAttached(DependencyObject obj) =>
+            (bool)obj.GetValue(WeakEventAttachedProperty);
+
+        private static void SetWeakEventAttached(DependencyObject obj, bool value) =>
+            obj.SetValue(WeakEventAttachedProperty, value);
+
         private static void AttachEvents(TextBox textBoxControl)
         {
-            if (!textBoxControl.IsLoaded)
+            // 只附加一次弱事件监听器
+            if (GetWeakEventAttached(textBoxControl))
             {
-                textBoxControl.Loaded -= TextBoxControl_Loaded;
-                textBoxControl.Loaded += TextBoxControl_Loaded;
+                return;
             }
 
-            textBoxControl.TextChanged -= TextBoxControl_TextChanged;
-            textBoxControl.TextChanged += TextBoxControl_TextChanged;
+            SetWeakEventAttached(textBoxControl, true);
 
-            textBoxControl.SizeChanged -= TextBoxControl_SizeChanged;
-            textBoxControl.SizeChanged += TextBoxControl_SizeChanged;
+            // 使用弱引用监听 Loaded 事件
+            WeakEventManager<FrameworkElement, RoutedEventArgs>.AddHandler(
+                textBoxControl,
+                nameof(FrameworkElement.Loaded),
+                TextBoxControl_Loaded
+            );
+
+            // 使用弱引用监听 TextChanged 事件
+            WeakEventManager<TextBox, TextChangedEventArgs>.AddHandler(
+                textBoxControl,
+                nameof(TextBox.TextChanged),
+                TextBoxControl_TextChanged
+            );
+
+            // 使用弱引用监听 SizeChanged 事件
+            WeakEventManager<FrameworkElement, SizeChangedEventArgs>.AddHandler(
+                textBoxControl,
+                nameof(FrameworkElement.SizeChanged),
+                TextBoxControl_SizeChanged
+            );
 
             // 确保初始状态正确
             UpdateAdornerVisibility(textBoxControl);
@@ -286,7 +320,6 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         {
             if (sender is TextBox textBoxControl)
             {
-                textBoxControl.Loaded -= TextBoxControl_Loaded;
                 GetOrCreateAdorner(textBoxControl, out _);
                 UpdateAdornerVisibility(textBoxControl);
             }

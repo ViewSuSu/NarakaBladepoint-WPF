@@ -5,6 +5,13 @@ using System.Windows.Media;
 
 namespace NarakaBladepoint.Framework.UI.AttachedProperties
 {
+    /// <summary>
+    /// ScrollViewer 扩展附加属性
+    /// 
+    /// 用途：为 ScrollViewer 添加水平滚动支持（鼠标滚轮）
+    /// 
+    /// 内存安全：使用 WeakEventManager 弱引用事件管理
+    /// </summary>
     public static class ScrollViewerExtensions
     {
         public static readonly DependencyProperty HorizontalScrollOnMouseWheelProperty =
@@ -28,11 +35,20 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         {
             if (d is UIElement element)
             {
-                element.PreviewMouseWheel -= OnPreviewMouseWheel;
+                // 使用弱引用事件管理
+                WeakEventManager<UIElement, MouseWheelEventArgs>.RemoveHandler(
+                    element,
+                    nameof(UIElement.PreviewMouseWheel),
+                    OnPreviewMouseWheel
+                );
 
                 if ((bool)e.NewValue)
                 {
-                    element.PreviewMouseWheel += OnPreviewMouseWheel;
+                    WeakEventManager<UIElement, MouseWheelEventArgs>.AddHandler(
+                        element,
+                        nameof(UIElement.PreviewMouseWheel),
+                        OnPreviewMouseWheel
+                    );
                 }
             }
         }

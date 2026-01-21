@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -36,6 +35,8 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
     /// 
     /// 实现方式：使用 TextEffect 实现高亮，不修改文本内容
     /// 
+    /// 内存安全：使用弱引用事件管理，避免内存泄漏
+    /// 
     /// 支持的数据类型：
     /// - 单个文本：使用 HighlightText 属性
     /// - 多个文本：使用 HighlightSegments 属性，支持 List&lt;string&gt; 或 HighlightSegmentCollection
@@ -54,6 +55,8 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
     /// </summary>
     public static class TextBlockHighlightAttachedProperty
     {
+        #region Dependency Properties
+
         /// <summary>
         /// 需要高亮的文本内容（单个文本）
         /// </summary>
@@ -62,7 +65,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 "HighlightText",
                 typeof(string),
                 typeof(TextBlockHighlightAttachedProperty),
-                new PropertyMetadata(null, OnHighlightTextChanged)
+                new PropertyMetadata(null, OnHighlightPropertyChanged)
             );
 
         /// <summary>
@@ -75,7 +78,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 typeof(TextBlockHighlightAttachedProperty),
                 new PropertyMetadata(
                     new SolidColorBrush(Color.FromArgb(255, 0xEA, 0xB1, 0x81)),
-                    OnHighlightForegroundChanged
+                    OnHighlightPropertyChanged
                 )
             );
 
@@ -87,8 +90,23 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 "HighlightSegments",
                 typeof(object),
                 typeof(TextBlockHighlightAttachedProperty),
-                new PropertyMetadata(null, OnHighlightSegmentsChanged)
+                new PropertyMetadata(null, OnHighlightPropertyChanged)
             );
+
+        /// <summary>
+        /// 标记是否已附加弱事件监听器
+        /// </summary>
+        private static readonly DependencyProperty WeakEventAttachedProperty =
+            DependencyProperty.RegisterAttached(
+                "WeakEventAttached",
+                typeof(bool),
+                typeof(TextBlockHighlightAttachedProperty),
+                new PropertyMetadata(false)
+            );
+
+        #endregion
+
+        #region Getters and Setters
 
         public static string GetHighlightText(DependencyObject obj) =>
             (string)obj.GetValue(HighlightTextProperty);
@@ -108,224 +126,142 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         public static void SetHighlightSegments(DependencyObject obj, object value) =>
             obj.SetValue(HighlightSegmentsProperty, value);
 
-        private static void OnHighlightTextChanged(
+        private static bool GetWeakEventAttached(DependencyObject obj) =>
+            (bool)obj.GetValue(WeakEventAttachedProperty);
+
+        private static void SetWeakEventAttached(DependencyObject obj, bool value) =>
+            obj.SetValue(WeakEventAttachedProperty, value);
+
+        #endregion
+
+        #region Property Changed Handlers
+
+        /// <summary>
+        /// 统一处理所有高亮相关属性的变化
+        /// </summary>
+        private static void OnHighlightPropertyChanged(
             DependencyObject d,
             DependencyPropertyChangedEventArgs e
         )
         {
-            if (d is TextBlock textBlock && e.NewValue is string highlightText && !string.IsNullOrEmpty(highlightText))
+            if (d is not TextBlock textBlock)
+                return;
+
+            // 附加弱事件监听器（只需一次）
+            if (!GetWeakEventAttached(textBlock))
             {
-                // 附加 Text 属性变化监听（只需一次）
-                if (!IsTextChangedListenerAttached(textBlock))
-                {
-                    SetTextChangedListenerAttached(textBlock, true);
-                    
-                    DependencyPropertyDescriptor.FromProperty(TextBlock.TextProperty, typeof(TextBlock))
-                        .AddValueChanged(textBlock, (s, args) =>
-                        {
-                            // 重新应用高亮
-                            var currentHighlightText = GetHighlightText(textBlock);
-                            if (!string.IsNullOrEmpty(currentHighlightText))
-                            {
-                                var segments = new HighlightSegmentCollection
-                                {
-                                    new HighlightSegment 
-                                    { 
-                                        Text = currentHighlightText,
-                                        Foreground = GetHighlightForeground(textBlock)
-                                    }
-                                };
-                                ApplyHighlighting(textBlock, segments);
-                            }
-                        });
-                }
-
-                // 如果 TextBlock 还没加载，监听加载事件
-                if (!textBlock.IsLoaded)
-                {
-                    RoutedEventHandler loadedHandler = null;
-                    loadedHandler = (s, args) =>
-                    {
-                        textBlock.Loaded -= loadedHandler;
-                        var segments = new HighlightSegmentCollection
-                        {
-                            new HighlightSegment 
-                            { 
-                                Text = highlightText,
-                                Foreground = GetHighlightForeground(textBlock)
-                            }
-                        };
-                        ApplyHighlighting(textBlock, segments);
-                    };
-                    textBlock.Loaded += loadedHandler;
-                }
-                else
-                {
-                    // TextBlock 已加载，直接应用
-                    var segments = new HighlightSegmentCollection
-                    {
-                        new HighlightSegment 
-                        { 
-                            Text = highlightText,
-                            Foreground = GetHighlightForeground(textBlock)
-                        }
-                    };
-                    ApplyHighlighting(textBlock, segments);
-                }
+                SetWeakEventAttached(textBlock, true);
+                AttachWeakEventListeners(textBlock);
             }
-        }
 
-        private static void OnHighlightForegroundChanged(
-            DependencyObject d,
-            DependencyPropertyChangedEventArgs e
-        )
-        {
-            if (d is TextBlock textBlock && e.NewValue is Brush newBrush)
-            {
-                string highlightText = GetHighlightText(textBlock);
-                if (!string.IsNullOrEmpty(highlightText))
-                {
-                    // 如果 TextBlock 还没加载，监听加载事件
-                    if (!textBlock.IsLoaded)
-                    {
-                        RoutedEventHandler loadedHandler = null;
-                        loadedHandler = (s, args) =>
-                        {
-                            textBlock.Loaded -= loadedHandler;
-                            var segments = new HighlightSegmentCollection
-                            {
-                                new HighlightSegment 
-                                { 
-                                    Text = highlightText,
-                                    Foreground = newBrush
-                                }
-                            };
-                            ApplyHighlighting(textBlock, segments);
-                        };
-                        textBlock.Loaded += loadedHandler;
-                    }
-                    else
-                    {
-                        var segments = new HighlightSegmentCollection
-                        {
-                            new HighlightSegment 
-                            { 
-                                Text = highlightText,
-                                Foreground = newBrush
-                            }
-                        };
-                        ApplyHighlighting(textBlock, segments);
-                    }
-                }
-            }
-        }
-
-        private static void OnHighlightSegmentsChanged(
-            DependencyObject d,
-            DependencyPropertyChangedEventArgs e
-        )
-        {
-            if (d is TextBlock textBlock && e.NewValue != null)
-            {
-                // 附加 Text 属性变化监听（只需一次）
-                if (!IsTextChangedListenerAttached(textBlock))
-                {
-                    SetTextChangedListenerAttached(textBlock, true);
-                    
-                    DependencyPropertyDescriptor.FromProperty(TextBlock.TextProperty, typeof(TextBlock))
-                        .AddValueChanged(textBlock, (s, args) =>
-                        {
-                            var currentSegments = GetHighlightSegments(textBlock);
-                            if (currentSegments != null)
-                            {
-                                ApplyHighlighting(textBlock, ConvertToSegments(currentSegments));
-                            }
-                        });
-                }
-
-                // 如果 TextBlock 还没加载，监听加载事件
-                if (!textBlock.IsLoaded)
-                {
-                    RoutedEventHandler loadedHandler = null;
-                    loadedHandler = (s, args) =>
-                    {
-                        textBlock.Loaded -= loadedHandler;
-                        ApplyHighlighting(textBlock, ConvertToSegments(e.NewValue));
-                    };
-                    textBlock.Loaded += loadedHandler;
-                }
-                else
-                {
-                    // TextBlock 已加载，直接应用
-                    ApplyHighlighting(textBlock, ConvertToSegments(e.NewValue));
-                }
-            }
+            // 应用高亮
+            ApplyHighlightingDelayed(textBlock);
         }
 
         /// <summary>
-        /// 标记 TextBlock 的 Text 变化是否已被监听
+        /// 附加弱事件监听器
         /// </summary>
-        private static readonly DependencyProperty TextChangedListenerAttachedProperty =
-            DependencyProperty.RegisterAttached(
-                "TextChangedListenerAttached",
-                typeof(bool),
-                typeof(TextBlockHighlightAttachedProperty),
-                new PropertyMetadata(false)
+        private static void AttachWeakEventListeners(TextBlock textBlock)
+        {
+            // 使用弱事件监听 Loaded 事件
+            WeakEventManager<FrameworkElement, RoutedEventArgs>.AddHandler(
+                textBlock,
+                nameof(FrameworkElement.Loaded),
+                OnTextBlockLoaded
             );
 
-        private static bool IsTextChangedListenerAttached(DependencyObject obj) =>
-            (bool)obj.GetValue(TextChangedListenerAttachedProperty);
-
-        private static void SetTextChangedListenerAttached(DependencyObject obj, bool value) =>
-            obj.SetValue(TextChangedListenerAttachedProperty, value);
-
-        /// <summary>
-        /// 将 List&lt;string&gt; 或 HighlightSegmentCollection 转换为 HighlightSegmentCollection
-        /// </summary>
-        private static HighlightSegmentCollection ConvertToSegments(object data)
-        {
-            if (data == null)
-                return null;
-
-            // 如果已经是 HighlightSegmentCollection，直接返回
-            if (data is HighlightSegmentCollection segments)
-                return segments;
-
-            // 如果是 List<string>，转换为 HighlightSegmentCollection
-            if (data is List<string> stringList)
-            {
-                var result = new HighlightSegmentCollection();
-                foreach (var text in stringList)
-                {
-                    if (!string.IsNullOrEmpty(text))
-                    {
-                        result.Add(new HighlightSegment { Text = text });
-                    }
-                }
-                return result.Count > 0 ? result : null;
-            }
-
-            return null;
+            // 使用弱事件监听 LayoutUpdated 事件（Text 属性变化时会触发）
+            WeakEventManager<UIElement, EventArgs>.AddHandler(
+                textBlock,
+                nameof(UIElement.LayoutUpdated),
+                OnTextBlockLayoutUpdated
+            );
         }
 
         /// <summary>
-        /// 应用高亮效果（使用 TextEffect）
+        /// TextBlock 加载完成事件处理
         /// </summary>
-        private static void ApplyHighlighting(TextBlock textBlock, HighlightSegmentCollection segments)
+        private static void OnTextBlockLoaded(object sender, RoutedEventArgs e)
         {
-            if (textBlock == null)
+            if (sender is TextBlock textBlock)
+            {
+                ApplyHighlighting(textBlock);
+            }
+        }
+
+        /// <summary>
+        /// TextBlock 布局更新事件处理（用于检测 Text 变化）
+        /// </summary>
+        private static void OnTextBlockLayoutUpdated(object sender, EventArgs e)
+        {
+            if (sender is TextBlock textBlock)
+            {
+                ApplyHighlighting(textBlock);
+            }
+        }
+
+        #endregion
+
+        #region Highlighting Logic
+
+        /// <summary>
+        /// 延迟应用高亮（处理 TextBlock 未加载的情况）
+        /// </summary>
+        private static void ApplyHighlightingDelayed(TextBlock textBlock)
+        {
+            if (textBlock.IsLoaded)
+            {
+                ApplyHighlighting(textBlock);
+            }
+            // 如果未加载，Loaded 事件会触发 ApplyHighlighting
+        }
+
+        /// <summary>
+        /// 应用高亮效果
+        /// </summary>
+        private static void ApplyHighlighting(TextBlock textBlock)
+        {
+            if (textBlock == null || string.IsNullOrEmpty(textBlock.Text))
             {
                 return;
             }
 
+            // 获取高亮配置
+            var segments = GetHighlightSegments(textBlock);
+            var highlightText = GetHighlightText(textBlock);
+            var highlightForeground = GetHighlightForeground(textBlock);
+
+            // 构建高亮片段集合
+            HighlightSegmentCollection highlightCollection = null;
+
+            if (segments != null)
+            {
+                highlightCollection = ConvertToSegments(segments);
+            }
+            else if (!string.IsNullOrEmpty(highlightText))
+            {
+                highlightCollection = new HighlightSegmentCollection
+                {
+                    new HighlightSegment
+                    {
+                        Text = highlightText,
+                        Foreground = highlightForeground
+                    }
+                };
+            }
+
+            // 应用 TextEffect
+            ApplyTextEffects(textBlock, highlightCollection);
+        }
+
+        /// <summary>
+        /// 应用 TextEffect 高亮效果
+        /// </summary>
+        private static void ApplyTextEffects(TextBlock textBlock, HighlightSegmentCollection segments)
+        {
             if (segments == null || segments.Count == 0)
             {
                 textBlock.TextEffects.Clear();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(textBlock.Text))
-            {
                 return;
             }
 
@@ -369,5 +305,36 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 // 忽略高亮应用错误
             }
         }
+
+        /// <summary>
+        /// 将 List&lt;string&gt; 或 HighlightSegmentCollection 转换为 HighlightSegmentCollection
+        /// </summary>
+        private static HighlightSegmentCollection ConvertToSegments(object data)
+        {
+            if (data == null)
+                return null;
+
+            // 如果已经是 HighlightSegmentCollection，直接返回
+            if (data is HighlightSegmentCollection segments)
+                return segments;
+
+            // 如果是 List<string>，转换为 HighlightSegmentCollection
+            if (data is List<string> stringList)
+            {
+                var result = new HighlightSegmentCollection();
+                foreach (var text in stringList)
+                {
+                    if (!string.IsNullOrEmpty(text))
+                    {
+                        result.Add(new HighlightSegment { Text = text });
+                    }
+                }
+                return result.Count > 0 ? result : null;
+            }
+
+            return null;
+        }
+
+        #endregion
     }
 }
