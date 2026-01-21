@@ -7,7 +7,7 @@
 		<UseWPF>true</UseWPF>
 		<LangVersion>latest</LangVersion>
 		<Authors>Su</Authors>
-		<NoWarn>$(NoWarn);CS8601;CS8603;CA1416</NoWarn>
+		    <NoWarn>$(NoWarn);CS8601;CS8603;CA1416;CS8618</NoWarn>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
