@@ -164,7 +164,7 @@
                     <TextBlock
                         Name="tipTextblock"
                         MaxWidth="800"
-                        attach:TextBlockExtensions.HighlightSegments="{Binding TipMessageHighlightTexts}"
+                        attach:TextBlockHighlightAttachedProperty.HighlightSegments="{Binding TipMessageHighlightTexts}"
                         Style="{StaticResource TipMessageTextBlockStyle}"
                         Text="{Binding TipMessage}" />
                 </Border>

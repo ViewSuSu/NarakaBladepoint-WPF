@@ -8,12 +8,12 @@ using System.Windows.Media;
 namespace NarakaBladepoint.Framework.UI.AttachedProperties
 {
     /// <summary>
-    /// 高亮文本片段
+    /// 高亮文本片段集合
     /// </summary>
     public class HighlightSegmentCollection : List<HighlightSegment> { }
 
     /// <summary>
-    /// 单个高京文本片段
+    /// 单个高亮文本片段
     /// </summary>
     public class HighlightSegment
     {
@@ -30,19 +30,38 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
     }
 
     /// <summary>
-    /// TextBlock 高亮扩展 - 使用 TextEffect 实现
-    /// 支持 List<string> 或 HighlightSegmentCollection
+    /// TextBlock 文本高亮附加属性
+    /// 
+    /// 用途：为 TextBlock 中的指定文本添加高亮效果（改变前景色）
+    /// 
+    /// 实现方式：使用 TextEffect 实现高亮，不修改文本内容
+    /// 
+    /// 支持的数据类型：
+    /// - 单个文本：使用 HighlightText 属性
+    /// - 多个文本：使用 HighlightSegments 属性，支持 List&lt;string&gt; 或 HighlightSegmentCollection
+    /// 
+    /// 使用示例：
+    /// <![CDATA[
+    /// <!-- 单个高亮 -->
+    /// <TextBlock Text="这是一段包含关键词的文本"
+    ///            attach:TextBlockHighlightAttachedProperty.HighlightText="关键词"
+    ///            attach:TextBlockHighlightAttachedProperty.HighlightForeground="Red" />
+    /// 
+    /// <!-- 多个高亮 -->
+    /// <TextBlock Text="这是一段包含多个关键词的文本"
+    ///            attach:TextBlockHighlightAttachedProperty.HighlightSegments="{Binding HighlightWords}" />
+    /// ]]>
     /// </summary>
-    public static class TextBlockExtensions
+    public static class TextBlockHighlightAttachedProperty
     {
         /// <summary>
-        /// 需要修改颜色的文本内容（单个文本，向后兼容）
+        /// 需要高亮的文本内容（单个文本）
         /// </summary>
         public static readonly DependencyProperty HighlightTextProperty =
             DependencyProperty.RegisterAttached(
                 "HighlightText",
                 typeof(string),
-                typeof(TextBlockExtensions),
+                typeof(TextBlockHighlightAttachedProperty),
                 new PropertyMetadata(null, OnHighlightTextChanged)
             );
 
@@ -53,7 +72,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             DependencyProperty.RegisterAttached(
                 "HighlightForeground",
                 typeof(Brush),
-                typeof(TextBlockExtensions),
+                typeof(TextBlockHighlightAttachedProperty),
                 new PropertyMetadata(
                     new SolidColorBrush(Color.FromArgb(255, 0xEA, 0xB1, 0x81)),
                     OnHighlightForegroundChanged
@@ -61,13 +80,13 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             );
 
         /// <summary>
-        /// 高亮文本列表（可以是 List<string> 或 HighlightSegmentCollection）
+        /// 高亮文本列表（可以是 List&lt;string&gt; 或 HighlightSegmentCollection）
         /// </summary>
         public static readonly DependencyProperty HighlightSegmentsProperty =
             DependencyProperty.RegisterAttached(
                 "HighlightSegments",
                 typeof(object),
-                typeof(TextBlockExtensions),
+                typeof(TextBlockHighlightAttachedProperty),
                 new PropertyMetadata(null, OnHighlightSegmentsChanged)
             );
 
@@ -94,19 +113,65 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             DependencyPropertyChangedEventArgs e
         )
         {
-            System.Diagnostics.Debug.WriteLine($"OnHighlightTextChanged: oldValue={e.OldValue}, newValue={e.NewValue}");
-            
             if (d is TextBlock textBlock && e.NewValue is string highlightText && !string.IsNullOrEmpty(highlightText))
             {
-                var segments = new HighlightSegmentCollection
+                // 附加 Text 属性变化监听（只需一次）
+                if (!IsTextChangedListenerAttached(textBlock))
                 {
-                    new HighlightSegment 
-                    { 
-                        Text = highlightText,
-                        Foreground = GetHighlightForeground(textBlock)
-                    }
-                };
-                ApplyHighlighting(textBlock, segments);
+                    SetTextChangedListenerAttached(textBlock, true);
+                    
+                    DependencyPropertyDescriptor.FromProperty(TextBlock.TextProperty, typeof(TextBlock))
+                        .AddValueChanged(textBlock, (s, args) =>
+                        {
+                            // 重新应用高亮
+                            var currentHighlightText = GetHighlightText(textBlock);
+                            if (!string.IsNullOrEmpty(currentHighlightText))
+                            {
+                                var segments = new HighlightSegmentCollection
+                                {
+                                    new HighlightSegment 
+                                    { 
+                                        Text = currentHighlightText,
+                                        Foreground = GetHighlightForeground(textBlock)
+                                    }
+                                };
+                                ApplyHighlighting(textBlock, segments);
+                            }
+                        });
+                }
+
+                // 如果 TextBlock 还没加载，监听加载事件
+                if (!textBlock.IsLoaded)
+                {
+                    RoutedEventHandler loadedHandler = null;
+                    loadedHandler = (s, args) =>
+                    {
+                        textBlock.Loaded -= loadedHandler;
+                        var segments = new HighlightSegmentCollection
+                        {
+                            new HighlightSegment 
+                            { 
+                                Text = highlightText,
+                                Foreground = GetHighlightForeground(textBlock)
+                            }
+                        };
+                        ApplyHighlighting(textBlock, segments);
+                    };
+                    textBlock.Loaded += loadedHandler;
+                }
+                else
+                {
+                    // TextBlock 已加载，直接应用
+                    var segments = new HighlightSegmentCollection
+                    {
+                        new HighlightSegment 
+                        { 
+                            Text = highlightText,
+                            Foreground = GetHighlightForeground(textBlock)
+                        }
+                    };
+                    ApplyHighlighting(textBlock, segments);
+                }
             }
         }
 
@@ -115,22 +180,42 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             DependencyPropertyChangedEventArgs e
         )
         {
-            System.Diagnostics.Debug.WriteLine($"OnHighlightForegroundChanged: oldValue={e.OldValue}, newValue={e.NewValue}");
-            
-            if (d is TextBlock textBlock && e.NewValue is Brush)
+            if (d is TextBlock textBlock && e.NewValue is Brush newBrush)
             {
                 string highlightText = GetHighlightText(textBlock);
                 if (!string.IsNullOrEmpty(highlightText))
                 {
-                    var segments = new HighlightSegmentCollection
+                    // 如果 TextBlock 还没加载，监听加载事件
+                    if (!textBlock.IsLoaded)
                     {
-                        new HighlightSegment 
-                        { 
-                            Text = highlightText,
-                            Foreground = (Brush)e.NewValue
-                        }
-                    };
-                    ApplyHighlighting(textBlock, segments);
+                        RoutedEventHandler loadedHandler = null;
+                        loadedHandler = (s, args) =>
+                        {
+                            textBlock.Loaded -= loadedHandler;
+                            var segments = new HighlightSegmentCollection
+                            {
+                                new HighlightSegment 
+                                { 
+                                    Text = highlightText,
+                                    Foreground = newBrush
+                                }
+                            };
+                            ApplyHighlighting(textBlock, segments);
+                        };
+                        textBlock.Loaded += loadedHandler;
+                    }
+                    else
+                    {
+                        var segments = new HighlightSegmentCollection
+                        {
+                            new HighlightSegment 
+                            { 
+                                Text = highlightText,
+                                Foreground = newBrush
+                            }
+                        };
+                        ApplyHighlighting(textBlock, segments);
+                    }
                 }
             }
         }
@@ -140,8 +225,6 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             DependencyPropertyChangedEventArgs e
         )
         {
-            System.Diagnostics.Debug.WriteLine($"OnHighlightSegmentsChanged: newValue type={e.NewValue?.GetType().Name}, value={e.NewValue}");
-            
             if (d is TextBlock textBlock && e.NewValue != null)
             {
                 // 附加 Text 属性变化监听（只需一次）
@@ -149,12 +232,9 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 {
                     SetTextChangedListenerAttached(textBlock, true);
                     
-                    System.Diagnostics.Debug.WriteLine("OnHighlightSegmentsChanged: Attaching Text property changed listener");
-                    
                     DependencyPropertyDescriptor.FromProperty(TextBlock.TextProperty, typeof(TextBlock))
                         .AddValueChanged(textBlock, (s, args) =>
                         {
-                            System.Diagnostics.Debug.WriteLine("OnHighlightSegmentsChanged: Text changed, reapplying highlights");
                             var currentSegments = GetHighlightSegments(textBlock);
                             if (currentSegments != null)
                             {
@@ -166,12 +246,9 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 // 如果 TextBlock 还没加载，监听加载事件
                 if (!textBlock.IsLoaded)
                 {
-                    System.Diagnostics.Debug.WriteLine("OnHighlightSegmentsChanged: TextBlock not loaded yet, waiting for Loaded event");
-                    
                     RoutedEventHandler loadedHandler = null;
                     loadedHandler = (s, args) =>
                     {
-                        System.Diagnostics.Debug.WriteLine("OnHighlightSegmentsChanged: TextBlock Loaded event triggered");
                         textBlock.Loaded -= loadedHandler;
                         ApplyHighlighting(textBlock, ConvertToSegments(e.NewValue));
                     };
@@ -180,7 +257,6 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 else
                 {
                     // TextBlock 已加载，直接应用
-                    System.Diagnostics.Debug.WriteLine("OnHighlightSegmentsChanged: TextBlock already loaded, applying immediately");
                     ApplyHighlighting(textBlock, ConvertToSegments(e.NewValue));
                 }
             }
@@ -193,7 +269,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             DependencyProperty.RegisterAttached(
                 "TextChangedListenerAttached",
                 typeof(bool),
-                typeof(TextBlockExtensions),
+                typeof(TextBlockHighlightAttachedProperty),
                 new PropertyMetadata(false)
             );
 
@@ -204,7 +280,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             obj.SetValue(TextChangedListenerAttachedProperty, value);
 
         /// <summary>
-        /// 将 List<string> 或 HighlightSegmentCollection 转换为 HighlightSegmentCollection
+        /// 将 List&lt;string&gt; 或 HighlightSegmentCollection 转换为 HighlightSegmentCollection
         /// </summary>
         private static HighlightSegmentCollection ConvertToSegments(object data)
         {
@@ -229,7 +305,6 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 return result.Count > 0 ? result : null;
             }
 
-            System.Diagnostics.Debug.WriteLine($"ConvertToSegments: Unsupported type {data.GetType().Name}");
             return null;
         }
 
@@ -240,32 +315,26 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         {
             if (textBlock == null)
             {
-                System.Diagnostics.Debug.WriteLine("ApplyHighlighting: textBlock is null");
                 return;
             }
 
             if (segments == null || segments.Count == 0)
             {
-                System.Diagnostics.Debug.WriteLine("ApplyHighlighting: segments is null or empty");
                 textBlock.TextEffects.Clear();
                 return;
             }
 
             if (string.IsNullOrEmpty(textBlock.Text))
             {
-                System.Diagnostics.Debug.WriteLine("ApplyHighlighting: textBlock.Text is empty");
                 return;
             }
 
             try
             {
-                System.Diagnostics.Debug.WriteLine($"ApplyHighlighting: text='{textBlock.Text}', segments count={segments.Count}");
-
                 // 清空现有的文本效果
                 textBlock.TextEffects.Clear();
 
                 string text = textBlock.Text;
-                int effectCount = 0;
 
                 // 为每个高亮片段添加文本效果
                 foreach (var segment in segments)
@@ -273,11 +342,8 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                     if (string.IsNullOrEmpty(segment.Text))
                         continue;
 
-                    System.Diagnostics.Debug.WriteLine($"  Processing segment: '{segment.Text}'");
-
                     // 查找所有匹配的位置
                     int startIndex = 0;
-                    int matchCount = 0;
                     while (startIndex < text.Length)
                     {
                         int index = text.IndexOf(segment.Text, startIndex, StringComparison.Ordinal);
@@ -293,22 +359,14 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                         };
 
                         textBlock.TextEffects.Add(textEffect);
-                        effectCount++;
-                        matchCount++;
-
-                        System.Diagnostics.Debug.WriteLine($"    Added TextEffect at position {index}, length {segment.Text.Length}");
 
                         startIndex = index + segment.Text.Length;
                     }
-
-                    System.Diagnostics.Debug.WriteLine($"  Segment '{segment.Text}' found {matchCount} times");
                 }
-
-                System.Diagnostics.Debug.WriteLine($"ApplyHighlighting completed: {effectCount} TextEffects added");
             }
-            catch (Exception ex)
+            catch
             {
-                System.Diagnostics.Debug.WriteLine($"ApplyHighlighting error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                // 忽略高亮应用错误
             }
         }
     }
