@@ -36,7 +36,7 @@
             <TextBlock
                 Margin="10,0,0,0"
                 VerticalAlignment="Center"
-                d:Text="野排牢张"
+                d:Text="国服张起灵"
                 FontSize="20"
                 Foreground="White"
                 Text="{Binding CurrentUserInfoModel.Name}" />

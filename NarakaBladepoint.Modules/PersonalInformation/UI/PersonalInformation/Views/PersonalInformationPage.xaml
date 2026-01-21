@@ -75,7 +75,7 @@
                     <TextBlock
                         Margin="5,0,0,0"
                         VerticalAlignment="Center"
-                        d:Text="野排牢张"
+                        d:Text="国服张起灵"
                         Foreground="White"
                         Text="{Binding UserInfoModel.Name, Mode=OneWay}" />
                 </StackPanel>

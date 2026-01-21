@@ -72,7 +72,7 @@
                                     <TextBlock
                                         Margin="5,0"
                                         VerticalAlignment="Center"
-                                        d:Text="野排牢张"
+                                        d:Text="国服张起灵"
                                         FontSize="18"
                                         Foreground="White"
                                         Text="{Binding CurrentUserBasicInformationModel.Name, Mode=OneWay}" />

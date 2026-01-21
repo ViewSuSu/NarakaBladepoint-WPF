@@ -11,7 +11,17 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         private readonly ICurrentUserInfoProvider currentUserInformationProvider;
         private readonly ITipMessageService tipMessageService;
 
-        public List<FriendDataItem> Friends { get; set; } = [];
+        private List<FriendDataItem> _friends = [];
+
+        public List<FriendDataItem> Friends
+        {
+            get { return _friends; }
+            set
+            {
+                _friends = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private bool _isHaveVilidTag;
 
@@ -88,9 +98,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
         private DelegateCommand<string> _searchCommand;
 
         public DelegateCommand<string> SearchCommand =>
-            _searchCommand ??= new DelegateCommand<string>(keyword =>
+            _searchCommand ??= new DelegateCommand<string>(async keyword =>
             {
-                Friends = currentUserInformationProvider.GetFriendsAsync(keyword).Result;
+                Friends = await currentUserInformationProvider.GetFriendsAsync(keyword);
             });
 
         private DelegateCommand _copyIdCommand;

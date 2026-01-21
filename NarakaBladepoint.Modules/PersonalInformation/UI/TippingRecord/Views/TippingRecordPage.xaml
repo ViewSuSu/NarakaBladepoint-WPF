@@ -32,7 +32,7 @@
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    d:Text="野排牢张"
+                    d:Text="国服张起灵"
                     FontSize="24"
                     FontWeight="Bold"
                     Text="{Binding CurrentUserModel.Name, Mode=OneWay}" />
