@@ -54,6 +54,10 @@ namespace NarakaBladepoint.Modules.PersonalInformation.Module
                 PersonalInformationDetailsPage,
                 PersonalInformationDetailsPageViewModel
             >();
+
+            containerRegistry.RegisterForNavigation<EditGenderPage, EditGenderPageViewModel>();
+            containerRegistry.RegisterForNavigation<EditNamePage, EditNamePageViewModel>();
+
             containerRegistry.RegisterForNavigation<AvatarFramePage, AvatarFramePageViewModel>();
             containerRegistry.RegisterForNavigation<
                 CareerAchievementsPage,

@@ -62,6 +62,12 @@
     <Compile Update="PersonalInformation\UI\IllustratedCollection\Views\IllustratedCollectionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\EditGenderPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\EditNamePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\HeroTagPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,6 +5,7 @@
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -77,15 +78,77 @@
                                         Foreground="White"
                                         Text="{Binding CurrentUserBasicInformationModel.Name, Mode=OneWay}" />
                                     <Image
+                                        Name="changeGender"
                                         Width="30"
                                         HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png">
-                                        <b:Interaction.Triggers>
-                                            <b:EventTrigger EventName="MouseLeftButtonDown">
-                                                <b:InvokeCommandAction Command="{Binding ChangeInfoCommand}" />
-                                            </b:EventTrigger>
-                                        </b:Interaction.Triggers>
-                                    </Image>
+                                        MouseLeftButtonUp="ChangeGender_MouseLeftButtonUp"
+                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png" />
+                                    <Popup
+                                        Name="EditMenuPopup"
+                                        AllowsTransparency="True"
+                                        Placement="Right"
+                                        PlacementTarget="{Binding ElementName=changeGender}"
+                                        StaysOpen="True"
+                                        VerticalOffset="0">
+                                        <Border
+                                            Background="#2C2C2C"
+                                            BorderBrush="#CCCCCC"
+                                            BorderThickness="0.5">
+                                            <StackPanel Margin="0" Orientation="Vertical">
+                                                <Border Padding="15,10">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent" />
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#555555" />
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        Foreground="White"
+                                                        Text="编辑名称" />
+                                                    <b:Interaction.Triggers>
+                                                        <b:EventTrigger EventName="MouseLeftButtonUp">
+                                                            <b:InvokeCommandAction Command="{Binding EditNameCommand}" />
+                                                            <core:ChangePropertyAction
+                                                                PropertyName="IsOpen"
+                                                                TargetObject="{Binding ElementName=EditMenuPopup}"
+                                                                Value="False" />
+                                                        </b:EventTrigger>
+                                                    </b:Interaction.Triggers>
+                                                </Border>
+                                                <Separator Background="#444444" />
+                                                <Border Padding="15,10">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent" />
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#555555" />
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        Foreground="White"
+                                                        Text="修改性别" />
+                                                    <b:Interaction.Triggers>
+                                                        <b:EventTrigger EventName="MouseLeftButtonUp">
+                                                            <b:InvokeCommandAction Command="{Binding EditGenderCommand}" />
+                                                            <core:ChangePropertyAction
+                                                                PropertyName="IsOpen"
+                                                                TargetObject="{Binding ElementName=EditMenuPopup}"
+                                                                Value="False" />
+                                                        </b:EventTrigger>
+                                                    </b:Interaction.Triggers>
+                                                </Border>
+                                            </StackPanel>
+                                        </Border>
+                                    </Popup>
                                 </Grid>
                             </Border>
                             <Grid Grid.Column="1" VerticalAlignment="Center">

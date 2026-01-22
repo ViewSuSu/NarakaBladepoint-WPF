@@ -121,12 +121,38 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
                 try
                 {
                     Clipboard.SetText(CurrentUserBasicInformationModel.Id.ToString());
-                    await tipMessageService.ShowTipMessageAsync(new TipMessageWithHighlightArgs("已复制ID"));
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs("复制成功")
+                    );
                 }
                 catch
                 {
-                    await tipMessageService.ShowTipMessageAsync(new TipMessageWithHighlightArgs("复制失败"));
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs("复制失败")
+                    );
                 }
+            });
+
+        private DelegateCommand _editNameCommand;
+
+        public DelegateCommand EditNameCommand =>
+            _editNameCommand ??= new DelegateCommand(() =>
+            {
+                // TODO: 编辑名称的逻辑
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs("EditNamePage"));
+            });
+
+        private DelegateCommand _editGenderCommand;
+
+        public DelegateCommand EditGenderCommand =>
+            _editGenderCommand ??= new DelegateCommand(() =>
+            {
+                // TODO: 修改性别的逻辑
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs("EditGenderPage"));
             });
     }
 }

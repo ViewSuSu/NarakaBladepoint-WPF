@@ -1,0 +1,84 @@
+<bases:UserControlBase
+    x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views.EditNamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels"
+    d:Background="Gray"
+    d:DataContext="{d:DesignInstance Type=viewmodels:EditNamePageViewModel}"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    mc:Ignorable="d">
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  标题  -->
+        <TextBlock
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="White"
+            Text="修改您的名字(每7天可修改一次)" />
+
+        <!--  输入框  -->
+        <Grid Grid.Row="1" Margin="0,30,0,0">
+            <TextBox
+                Name="NameInputTextBox"
+                Width="500"
+                Height="40"
+                Padding="15,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="{Binding NewName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Image
+                Width="30"
+                Height="30"
+                Margin="0,0,20,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/dice.png" />
+        </Grid>
+
+        <!--  按钮区域  -->
+        <Grid Grid.Row="2" Margin="0,40,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--  确认按钮  -->
+            <Button
+                Grid.Column="0"
+                Width="200"
+                Height="40"
+                Margin="0,0,20,0"
+                HorizontalAlignment="Center"
+                Command="{Binding ConfirmCommand}"
+                Foreground="White">
+                <TextBlock Text="确认" />
+            </Button>
+
+            <!--  取消按钮  -->
+            <Button
+                Grid.Column="1"
+                Width="200"
+                Height="40"
+                Margin="20,0,0,0"
+                HorizontalAlignment="Center"
+                Command="{Binding CancelCommand}"
+                Foreground="White">
+                <TextBlock Text="取消" />
+            </Button>
+        </Grid>
+    </Grid>
+</bases:UserControlBase>

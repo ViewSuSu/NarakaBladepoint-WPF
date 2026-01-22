@@ -66,7 +66,7 @@
                     Background="Transparent"
                     Header="个人信息"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="30" />
+                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="20" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -74,7 +74,7 @@
                     Background="Transparent"
                     Header="英雄数据"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <heroData:HeroDataPage Margin="30" />
+                    <heroData:HeroDataPage Margin="20" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -82,7 +82,7 @@
                     Background="Transparent"
                     Header="赛季数据"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <seasonData:SeasonDataPage Margin="40" />
+                    <seasonData:SeasonDataPage Margin="30" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
