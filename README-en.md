@@ -30,53 +30,53 @@ This project provides the following learning opportunities for WPF developers:
 ## Main Interface Preview
 
 <div align="center">
-  <img src="./docs/MainWindows.png" alt="Main Window Interface" width="800" />
+  <img src="./docs/MainWindows.png" alt="Main Window Interface" width="100%" />
   <br/>
   <em>Figure 1: Main Window</em>
 </div>
 
-<table align="center">
+<table align="center" width="100%">
   <tr>
-    <td align="center">
-      <img src="./docs/HeroList.png" alt="Hero List Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/HeroList.png" alt="Hero List Interface" width="100%" /><br/>
       <em>Figure 2: Hero List</em>
     </td>
-    <td align="center">
-      <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection Interface" width="100%" /><br/>
       <em>Figure 3: Illustrated Collection</em>
     </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="./docs/PersonalInfo.png" alt="Personal Info Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/PersonalInfo.png" alt="Personal Info Interface" width="100%" /><br/>
       <em>Figure 4: Personal Info</em>
     </td>
-    <td align="center">
-      <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="380" /><br/>
-      <em>Figure 5: Avatar List</em>
-    </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="./docs/HistoryData.png" alt="History Data Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="100%" /><br/>
+      <em>Figure 5: Avatar List</em>
+    </td>
+    <td align="center" width="33.33%">
+      <img src="./docs/HistoryData.png" alt="History Data Interface" width="100%" /><br/>
       <em>Figure 6: History Data</em>
     </td>
-    <td align="center">
-      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
       <em>Figure 7: Social Tag</em>
     </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="./docs/Tag.png" alt="Tag Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/Tag.png" alt="Tag Interface" width="100%" /><br/>
       <em>Figure 8: Tag</em>
     </td>
-    <td align="center">
-      <img src="./docs/Weapon.png" alt="Weapon Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/Weapon.png" alt="Weapon Interface" width="100%" /><br/>
       <em>Figure 9: Weapon</em>
     </td>
+    <td width="33.33%"></td>
   </tr>
 </table>
+
 
 ## Project Architecture
 

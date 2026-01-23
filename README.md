@@ -30,53 +30,53 @@
 ## 主要界面
 
 <div align="center">
-  <img src="./docs/MainWindows.png" alt="Main Window Interface" width="800" />
+  <img src="./docs/MainWindows.png" alt="Main Window Interface" width="100%" />
   <br/>
   <em>Figure 1: 主界面</em>
 </div>
 
-<table align="center">
+<table align="center" width="100%">
   <tr>
-    <td align="center">
-      <img src="./docs/HeroList.png" alt="Hero List Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/HeroList.png" alt="Hero List Interface" width="100%" /><br/>
       <em>Figure 2: 英雄列表</em>
     </td>
-    <td align="center">
-      <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection Interface" width="100%" /><br/>
       <em>Figure 3: 仓库</em>
     </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="./docs/PersonalInfo.png" alt="Personal Info Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/PersonalInfo.png" alt="Personal Info Interface" width="100%" /><br/>
       <em>Figure 4: 个人信息</em>
     </td>
-    <td align="center">
-      <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="380" /><br/>
-      <em>Figure 5: 头像</em>
-    </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="./docs/HistoryData.png" alt="History Data Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="100%" /><br/>
+      <em>Figure 5: 头像</em>
+    </td>
+    <td align="center" width="33.33%">
+      <img src="./docs/HistoryData.png" alt="History Data Interface" width="100%" /><br/>
       <em>Figure 6: 历史记录</em>
     </td>
-    <td align="center">
-      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
       <em>Figure 7: 社交标签</em>
     </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="./docs/Tag.png" alt="Tag Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/Tag.png" alt="Tag Interface" width="100%" /><br/>
       <em>Figure 8: 标签</em>
     </td>
-    <td align="center">
-      <img src="./docs/Weapon.png" alt="Weapon Interface" width="380" /><br/>
+    <td align="center" width="33.33%">
+      <img src="./docs/Weapon.png" alt="Weapon Interface" width="100%" /><br/>
       <em>Figure 9: 武器列表</em>
     </td>
+    <td width="33.33%"></td>
   </tr>
 </table>
+
 
 ## 项目架构
 
