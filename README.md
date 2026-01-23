@@ -1,6 +1,6 @@
 [English](README-en.md) | [中文](README.md)
 
-[![下载](https://img.shields.io/badge/下载-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
+[![下载安装包](https://img.shields.io/badge/下载安装包-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
 
 
 # 永劫无间客户端 (WPF)
