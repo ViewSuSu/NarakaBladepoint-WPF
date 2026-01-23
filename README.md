@@ -78,6 +78,31 @@
   </tr>
 </table>
 
+## 项目架构
+
+本项目采用基于 **Prism** 的模块化分层设计。
+
+```mermaid
+graph TD
+    App[NarakaBladepoint.App] --> Modules[NarakaBladepoint.Modules]
+    App --> Framework[NarakaBladepoint.Framework]
+    App --> Resources[NarakaBladepoint.Resources]
+    
+    Modules --> Framework
+    Modules --> Controls[NarakaBladepoint.Controls]
+    Modules --> Shared[NarakaBladepoint.Shared]
+    
+    Controls --> Framework
+    Shared --> Framework
+```
+
+- **App**: 入口 Shell，负责容器初始化与模块聚合。
+- **Modules**: 功能业务层（社交、活动中心等），模块间通过 Region 隔离。
+- **Controls**: 复用组件库，包含仿真的自定义控件库。
+- **Framework**: 底层支撑（MVVM基类、附加属性、弱事件等）。
+- **Shared**: 跨模块协议（DTO、接口契约）。
+- **Resources**: 静态素材（图标、背景等）。
+
 ## 核心技术特点
 
 ### 1. 架构设计

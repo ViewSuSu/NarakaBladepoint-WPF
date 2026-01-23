@@ -78,6 +78,31 @@ This project provides the following learning opportunities for WPF developers:
   </tr>
 </table>
 
+## Project Architecture
+
+This project adopts a modular layered design based on **Prism**.
+
+```mermaid
+graph TD
+    App[NarakaBladepoint.App] --> Modules[NarakaBladepoint.Modules]
+    App --> Framework[NarakaBladepoint.Framework]
+    App --> Resources[NarakaBladepoint.Resources]
+    
+    Modules --> Framework
+    Modules --> Controls[NarakaBladepoint.Controls]
+    Modules --> Shared[NarakaBladepoint.Shared]
+    
+    Controls --> Framework
+    Shared --> Framework
+```
+
+- **App**: Entry Shell, responsible for container initialization and module aggregation.
+- **Modules**: Business logic layer (Social, Event Center, etc.), isolated by Regions.
+- **Controls**: Reusable UI component library containing high-fidelity custom controls.
+- **Framework**: Fundamental technical support (MVVM bases, attached properties, weak events, etc.).
+- **Shared**: Cross-module contracts (DTOs, interface definitions).
+- **Resources**: Static assets (icons, background images, etc.).
+
 ## Core Technical Features
 
 ### 1. Architecture Design
