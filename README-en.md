@@ -1,13 +1,18 @@
+![.NET 6](https://img.shields.io/badge/.NET%206-Windows%20Desktop-purple)
+![Platform](https://img.shields.io/badge/Platform-WPF-orange)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 [English](README-en.md) | [中文](README.md)
 
 [![Download Installer](https://img.shields.io/badge/Download_Installer-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
 
+> [!TIP]
+> If it fails to run, ensure [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) or later is installed.
+
+
 
 # Naraka Bladepoint Client (WPF)
 
-![.NET 6](https://img.shields.io/badge/.NET%206-Windows%20Desktop-purple)
-![Platform](https://img.shields.io/badge/Platform-WPF-orange)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ## Project Introduction
 

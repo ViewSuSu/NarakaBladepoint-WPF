@@ -1,13 +1,18 @@
+![.NET 6](https://img.shields.io/badge/.NET%206-Windows%20Desktop-purple)
+![Platform](https://img.shields.io/badge/Platform-WPF-orange)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 [English](README-en.md) | [中文](README.md)
 
 [![下载安装包](https://img.shields.io/badge/下载安装包-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
 
+> [!TIP]
+> 运行失败请确保已安装 [.NET 6.0 SDK](https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0) 或更高版本。
+
+
 
 # 永劫无间客户端 (WPF)
 
-![.NET 6](https://img.shields.io/badge/.NET%206-Windows%20Desktop-purple)
-![Platform](https://img.shields.io/badge/Platform-WPF-orange)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ## 项目介绍
 
