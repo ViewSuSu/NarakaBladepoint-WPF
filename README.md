@@ -96,9 +96,9 @@ Run `NarakaBladepoint.App`
 
 The project uses the following NuGet packages:
 
-- **Mapster** Version 7.4.0 - High-performance object mapping
-- **Newtonsoft.Json** Version 13.0.4 - JSON data processing
-- **Prism.DryIoc** Version 9.0.537 - Modular framework and dependency injection
+- **Mapster** Version 7.4.0 
+- **Newtonsoft.Json** Version 13.0.4 
+- **Prism.DryIoc** Version 9.0.537 
 
 ## Learning Value
 
