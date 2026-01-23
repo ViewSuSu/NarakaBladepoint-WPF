@@ -7,7 +7,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
     /// <summary>
     /// 编辑名字页面ViewModel
     /// </summary>
-    public class EditNamePageViewModel : ViewModelBase
+    public class EditNamePageViewModel : CanRemoveHomePageRegionViewModelBase
     {
         private string _newName;
         public string NewName
@@ -16,16 +16,22 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             set => SetProperty(ref _newName, value);
         }
 
-        public DelegateCommand ConfirmCommand { get; }
-        public DelegateCommand CancelCommand { get; }
+        private DelegateCommand _submitCommand;
+        public DelegateCommand SubmitCommand => _submitCommand ??= new DelegateCommand(OnSubmit);
 
-        public EditNamePageViewModel()
+        private DelegateCommand _randomNameCommand;
+        public DelegateCommand RandomNameCommand => _randomNameCommand ??= new DelegateCommand(OnRandomName);
+
+        public EditNamePageViewModel() { }
+
+        private void OnRandomName()
         {
-            ConfirmCommand = new DelegateCommand(OnConfirm);
-            CancelCommand = new DelegateCommand(OnCancel);
+            var names = new[] { "宁红夜", "特木尔", "迦南", "季沧海", "胡桃", "天海", "妖刀姬", "崔三娘", "岳山", "无尘", "顾清寒", "武田信忠", "殷紫萍", "沈妙", "胡为", "季莹莹", "玉玲珑", "哈迪", "魏轻", "刘炼" };
+            var random = new Random();
+            NewName = names[random.Next(names.Length)] + random.Next(100, 999);
         }
 
-        private void OnConfirm()
+        private void OnSubmit()
         {
             // TODO: 实现确认修改名字的逻辑
         }

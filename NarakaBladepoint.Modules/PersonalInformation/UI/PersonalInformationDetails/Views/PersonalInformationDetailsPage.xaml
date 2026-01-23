@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views.PersonalInformationDetailsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
@@ -81,6 +82,7 @@
                                         Name="changeGender"
                                         Width="30"
                                         HorizontalAlignment="Right"
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                         MouseLeftButtonUp="ChangeGender_MouseLeftButtonUp"
                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png" />
                                     <Popup
@@ -160,15 +162,17 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/9.png" />
-                                    <Image
-                                        Width="20"
-                                        Margin="5,0,0,0"
-                                        HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png">
+                                     <Image
+                                         Width="20"
+                                         HorizontalAlignment="Right"
+                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/9.png" />
+                                     <Image
+                                         Width="20"
+                                         Margin="5,0,0,0"
+                                         HorizontalAlignment="Right"
+                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="MouseLeftButtonDown">
                                                 <b:InvokeCommandAction Command="{Binding CopyUserIdCommand}" />
@@ -196,14 +200,15 @@
                                         VerticalAlignment="Center"
                                         Foreground="White"
                                         Text="未选择称号" />
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png" />
+                                     <Image
+                                         Width="20"
+                                         HorizontalAlignment="Right"
+                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png" />
                                 </Grid>
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseLeftButtonDown">
-                                        <b:InvokeCommandAction Command="{Binding ChoseChengHaoCommand}" />
+                                        <b:InvokeCommandAction Command="{Binding ChoseTitleTagCommand}" />
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
                             </Border>

@@ -55,6 +55,7 @@
                                             </b:Interaction.Triggers>
                                             <Grid>
                                                 <Image
+                                                    attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
@@ -91,6 +92,7 @@
                                             </b:Interaction.Triggers>
                                             <Grid>
                                                 <Image
+                                                    attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
@@ -127,6 +129,7 @@
                                             </b:Interaction.Triggers>
                                             <Grid>
                                                 <Image
+                                                    attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
@@ -163,6 +166,7 @@
                                             </b:Interaction.Triggers>
                                             <Grid>
                                                 <Image
+                                                    attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
@@ -199,6 +203,7 @@
                                             </b:Interaction.Triggers>
                                             <Grid>
                                                 <Image
+                                                    attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                                     d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />

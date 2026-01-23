@@ -14,71 +14,86 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid VerticalAlignment="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <Grid>
+        <Grid VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <!--  标题  -->
-        <TextBlock
-            Grid.Row="0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Foreground="White"
-            Text="修改您的名字(每7天可修改一次)" />
-
-        <!--  输入框  -->
-        <Grid Grid.Row="1" Margin="0,30,0,0">
-            <TextBox
-                Name="NameInputTextBox"
-                Width="500"
-                Height="40"
-                Padding="15,10"
+            <!--  标题  -->
+            <TextBlock
+                Grid.Row="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Foreground="White"
-                Text="{Binding NewName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <Image
-                Width="30"
-                Height="30"
-                Margin="0,0,20,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/dice.png" />
+                Text="修改您的名字(每7天可修改一次)" />
+
+            <!--  输入框  -->
+            <Grid Grid.Row="1" Margin="0,30,0,0">
+                <TextBox
+                    Name="NameInputTextBox"
+                    Width="500"
+                    Height="40"
+                    Padding="15,10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Text="{Binding NewName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Image
+                    Width="30"
+                    Height="30"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/修行.png">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseDown">
+                            <b:InvokeCommandAction Command="{Binding RandomNameCommand}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </Image>
+            </Grid>
+
+            <!--  按钮区域  -->
+            <Grid Grid.Row="2" Margin="0,40,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--  确认按钮  -->
+                <Button
+                    Grid.Column="0"
+                    Width="200"
+                    Height="40"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding SubmitCommand}"
+                    Foreground="White"
+                    Style="{StaticResource SettingBackToGameCommandButtonStyle}">
+                    <TextBlock Text="确认" />
+                </Button>
+
+                <!--  取消按钮  -->
+                <Button
+                    Grid.Column="1"
+                    Width="200"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ReturnCommand}"
+                    Foreground="White"
+                    Style="{StaticResource CleanButtonStyle}">
+                    <TextBlock Text="取消" />
+                </Button>
+            </Grid>
         </Grid>
-
-        <!--  按钮区域  -->
-        <Grid Grid.Row="2" Margin="0,40,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <!--  确认按钮  -->
-            <Button
-                Grid.Column="0"
-                Width="200"
-                Height="40"
-                Margin="0,0,20,0"
-                HorizontalAlignment="Center"
-                Command="{Binding ConfirmCommand}"
-                Foreground="White">
-                <TextBlock Text="确认" />
-            </Button>
-
-            <!--  取消按钮  -->
-            <Button
-                Grid.Column="1"
-                Width="200"
-                Height="40"
-                Margin="20,0,0,0"
-                HorizontalAlignment="Center"
-                Command="{Binding CancelCommand}"
-                Foreground="White">
-                <TextBlock Text="取消" />
-            </Button>
-        </Grid>
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
     </Grid>
 </bases:UserControlBase>

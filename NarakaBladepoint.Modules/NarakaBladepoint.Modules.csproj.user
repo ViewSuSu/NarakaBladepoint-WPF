@@ -74,6 +74,9 @@
     <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\PersonalInformationDetailsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\TitleTagPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PersonalInformation\UI\SeasonData\Views\SeasonDataPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,0 +1,140 @@
+﻿<bases:UserControlBase
+    x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views.TitleTagPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:TitleTagPageViewModel}"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    mc:Ignorable="d">
+    <Grid Background="Transparent">
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="Transparent">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="MouseLeftButtonDown">
+                        <b:InvokeCommandAction Command="{Binding ReturnCommand}" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </Grid>
+            <Grid Grid.Column="1" Background="#B3000000">
+                <Grid Margin="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*" />
+                        <RowDefinition Height="0.1*" />
+                        <RowDefinition />
+                        <RowDefinition Height="0.1*" />
+                        <RowDefinition Height="0.1*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        Foreground="White"
+                        Text="称号" />
+                    <Grid Grid.Row="1">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="装配英雄印：" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Foreground="White">
+                            <Run d:Text="0" Text="{Binding SelectedCount, Mode=OneWay}" />
+                            <Run Text="/" />
+                            <Run d:Text="10" Text="{Binding TotalCount, Mode=OneWay}" />
+                        </TextBlock>
+                    </Grid>
+                    <ItemsControl
+                        Grid.Row="2"
+                        Margin="0,0,0,30"
+                        d:ItemsSource="{d:SampleData ItemCount=10}"
+                        ItemsSource="{Binding ItemModels}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="1" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <!--<ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="5">
+                                    <Rectangle
+                                        Panel.ZIndex="1"
+                                        Fill="#E8000000"
+                                        Opacity="0.5">
+                                        <Rectangle.Visibility>
+                                            <MultiBinding Converter="{StaticResource OutRangeMaskVisibilityConverter}">
+                                                <Binding Path="DataContext.SelectedCount" RelativeSource="{RelativeSource AncestorType=ItemsControl}" />
+                                                <Binding Path="IsSelected" />
+                                                <Binding Path="DataContext.TotalCount" RelativeSource="{RelativeSource AncestorType=UserControl, Mode=FindAncestor}" />
+                                            </MultiBinding>
+                                        </Rectangle.Visibility>
+                                    </Rectangle>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
+                                        <Image Source="{Binding HeroTagModel.Icon, Mode=OneWay}" Stretch="Uniform" />
+                                        <CheckBox
+                                            Name="heroTagCheckBox"
+                                            Width="20"
+                                            Height="20"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Top"
+                                            Foreground="White"
+                                            IsChecked="{Binding IsSelected}"
+                                            Style="{StaticResource DiamondCheckBoxStyle}" />
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Bottom"
+                                            Foreground="White"
+                                            Text="{Binding HeroTagModel.Name, Mode=OneWay}" />
+                                    </Grid>
+                                    <Grid.IsEnabled>
+                                        <MultiBinding Converter="{StaticResource OutRangeEnableConverter}">
+                                            <Binding Path="DataContext.SelectedCount" RelativeSource="{RelativeSource AncestorType=ItemsControl}" />
+                                            <Binding Path="IsSelected" />
+                                            <Binding Path="DataContext.TotalCount" RelativeSource="{RelativeSource AncestorType=UserControl, Mode=FindAncestor}" />
+                                        </MultiBinding>
+                                    </Grid.IsEnabled>
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                                            <core:ChangePropertyAction
+                                                PropertyName="IsChecked"
+                                                TargetObject="{Binding ElementName=heroTagCheckBox}"
+                                                Value="{Binding IsSelected, Mode=TwoWay, Converter={StaticResource InverseBoolConverter}}" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>-->
+                    </ItemsControl>
+                    <Button
+                        Grid.Row="3"
+                        Height="35"
+                        Command="{Binding SaveCommand}"
+                        Content="保存"
+                        FontSize="15"
+                        Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
+    </Grid>
+</bases:UserControlBase>

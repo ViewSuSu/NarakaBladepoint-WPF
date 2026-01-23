@@ -114,7 +114,6 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _copyUserIdCommand;
-
         public DelegateCommand CopyUserIdCommand =>
             _copyUserIdCommand ??= new DelegateCommand(async () =>
             {
@@ -134,25 +133,30 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _editNameCommand;
-
         public DelegateCommand EditNameCommand =>
             _editNameCommand ??= new DelegateCommand(() =>
             {
-                // TODO: 编辑名称的逻辑
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(new NavigationArgs("EditNamePage"));
+                    .Publish(new NavigationArgs(nameof(EditNamePage)));
             });
 
         private DelegateCommand _editGenderCommand;
-
         public DelegateCommand EditGenderCommand =>
             _editGenderCommand ??= new DelegateCommand(() =>
             {
-                // TODO: 修改性别的逻辑
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(new NavigationArgs("EditGenderPage"));
+                    .Publish(new NavigationArgs(nameof(EditGenderPage)));
+            });
+
+        private DelegateCommand _choseTitleTagCommand;
+        public DelegateCommand ChoseTitleTagCommand =>
+            _choseTitleTagCommand ??= new DelegateCommand(() =>
+            {
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(TitleTagPage)));
             });
     }
 }
