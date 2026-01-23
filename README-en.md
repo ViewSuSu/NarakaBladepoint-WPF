@@ -1,5 +1,7 @@
 [English](README-en.md) | [中文](README.md)
 
+[![Download](https://img.shields.io/badge/Download-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
+
 
 # Naraka Bladepoint Client (WPF)
 
