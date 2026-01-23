@@ -96,9 +96,9 @@
 
 项目使用以下NuGet包:
 
-- **Mapster** Version 7.4.0 - 高性能对象映射
-- **Newtonsoft.Json** Version 13.0.4 - JSON数据处理
-- **Prism.DryIoc** Version 9.0.537 - 模块化框架和依赖注入
+- **Mapster** Version 7.4.0 
+- **Newtonsoft.Json** Version 13.0.4 
+- **Prism.DryIoc** Version 9.0.537 
 
 ## 学习价值
 
