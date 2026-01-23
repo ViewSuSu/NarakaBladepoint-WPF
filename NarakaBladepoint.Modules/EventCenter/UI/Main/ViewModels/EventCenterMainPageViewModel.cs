@@ -167,57 +167,102 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         protected override void OnNavigatedToExecute(NavigationContext navigationContext)
         {
             // 尝试从导航参数中获取各个Tab的选中状态
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedLatestNews), out bool isSelectedLatestNews))
+            if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedLatestNews),
+                    out bool isSelectedLatestNews
+                )
+            )
             {
                 this.IsSelectedLatestNews = isSelectedLatestNews;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedLimitedEvent), out bool isSelectedLimitedEvent))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedLimitedEvent),
+                    out bool isSelectedLimitedEvent
+                )
+            )
             {
                 this.IsSelectedLimitedEvent = isSelectedLimitedEvent;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedMoonGazingPavilion), out bool isSelectedMoonGazingPavilion))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedMoonGazingPavilion),
+                    out bool isSelectedMoonGazingPavilion
+                )
+            )
             {
                 this.IsSelectedMoonGazingPavilion = isSelectedMoonGazingPavilion;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedBaiZeCard), out bool isSelectedBaiZeCard))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedBaiZeCard),
+                    out bool isSelectedBaiZeCard
+                )
+            )
             {
                 this.IsSelectedBaiZeCard = isSelectedBaiZeCard;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedBindReward), out bool isSelectedBindReward))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedBindReward),
+                    out bool isSelectedBindReward
+                )
+            )
             {
                 this.IsSelectedBindReward = isSelectedBindReward;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedWelcomeBack), out bool isSelectedWelcomeBack))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedWelcomeBack),
+                    out bool isSelectedWelcomeBack
+                )
+            )
             {
                 this.IsSelectedWelcomeBack = isSelectedWelcomeBack;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedPassingTheFlame), out bool isSelectedPassingTheFlame))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedPassingTheFlame),
+                    out bool isSelectedPassingTheFlame
+                )
+            )
             {
                 this.IsSelectedPassingTheFlame = isSelectedPassingTheFlame;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedPenglaiGuide), out bool isSelectedPenglaiGuide))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedPenglaiGuide),
+                    out bool isSelectedPenglaiGuide
+                )
+            )
             {
                 this.IsSelectedPenglaiGuide = isSelectedPenglaiGuide;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedPatchNote), out bool isSelectedPatchNote))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedPatchNote),
+                    out bool isSelectedPatchNote
+                )
+            )
             {
                 this.IsSelectedPatchNote = isSelectedPatchNote;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedNetEasePayRewards), out bool isSelectedNetEasePayRewards))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedNetEasePayRewards),
+                    out bool isSelectedNetEasePayRewards
+                )
+            )
             {
                 this.IsSelectedNetEasePayRewards = isSelectedNetEasePayRewards;
             }
-
-            if (navigationContext.Parameters.TryGetValue(nameof(NavigatedToEventCenterParameter.IsSelectedTargetedChestGuarantee), out bool isSelectedTargetedChestGuarantee))
+            else if (
+                navigationContext.Parameters.TryGetValue(
+                    nameof(NavigatedToEventCenterParameter.IsSelectedTargetedChestGuarantee),
+                    out bool isSelectedTargetedChestGuarantee
+                )
+            )
             {
                 this.IsSelectedTargetedChestGuarantee = isSelectedTargetedChestGuarantee;
             }

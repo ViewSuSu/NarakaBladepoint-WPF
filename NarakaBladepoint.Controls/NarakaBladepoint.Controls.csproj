@@ -4,11 +4,11 @@
 	<TargetFramework>net6-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <UseWPF>true</UseWPF>
-	  <LangVersion>latest</LangVersion>
-	  <Authors>Su</Authors>
-	      <NoWarn>$(NoWarn);CS8601;CS8603;CA1416;CS8618</NoWarn>
-	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <UseWPF>true</UseWPF>
+   <LangVersion>latest</LangVersion>
+   <Authors>XiaoChuang</Authors>
+   <NoWarn>$(NoWarn);CS8601;CS8603;CA1416;CS8618</NoWarn>
+   <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>

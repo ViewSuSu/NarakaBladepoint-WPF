@@ -2,6 +2,7 @@
   <Folder Name="/解决方案项/">
     <File Path="README.md" />
     <File Path="README-en.md" />
+    <File Path="scripts/inno setup.iss" />
   </Folder>
   <Project Path="NarakaBladepoint.App/NarakaBladepoint.App.csproj" />
   <Project Path="NarakaBladepoint.Controls/NarakaBladepoint.Controls.csproj" />
