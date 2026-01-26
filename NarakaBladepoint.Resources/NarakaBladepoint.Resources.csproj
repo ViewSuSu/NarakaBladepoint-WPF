@@ -169,16 +169,6 @@
 	  <None Remove="Image\Hero\迦南.png" />
 	  <None Remove="Image\Hero\顾清寒.png" />
 	  <None Remove="Image\Hero\魏轻.png" />
-	  <None Remove="Image\HisitoryMatchRecord\1.png" />
-	  <None Remove="Image\HisitoryMatchRecord\10.png" />
-	  <None Remove="Image\HisitoryMatchRecord\2.png" />
-	  <None Remove="Image\HisitoryMatchRecord\3.png" />
-	  <None Remove="Image\HisitoryMatchRecord\4.png" />
-	  <None Remove="Image\HisitoryMatchRecord\5.png" />
-	  <None Remove="Image\HisitoryMatchRecord\6.png" />
-	  <None Remove="Image\HisitoryMatchRecord\7.png" />
-	  <None Remove="Image\HisitoryMatchRecord\8.png" />
-	  <None Remove="Image\HisitoryMatchRecord\9.png" />
 	  <None Remove="Image\Icon.png" />
 	  <None Remove="Image\InventoryProps\1.png" />
 	  <None Remove="Image\InventoryProps\10.png" />
@@ -707,16 +697,15 @@
 	  <Resource Include="Image\Hero\魏轻.png">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Resource>
-	  <Resource Include="Image\HisitoryMatchRecord\1.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\10.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\2.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\3.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\4.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\5.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\6.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\7.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\8.png" />
-	  <Resource Include="Image\HisitoryMatchRecord\9.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\助攻.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\血刃.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\招魂.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\战神.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\奔跑者.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\兵器大师.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\守护者.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\挥金如土.png" />
+	  <Resource Include="Image\HisitoryMatchRecord\回阳.png" />
 	  <Resource Include="Image\Icon.png" />
 	  <Resource Include="Image\InventoryProps\1.png" />
 	  <Resource Include="Image\InventoryProps\10.png" />

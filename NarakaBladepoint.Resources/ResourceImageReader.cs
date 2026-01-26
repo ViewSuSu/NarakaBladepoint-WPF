@@ -20,12 +20,15 @@ namespace NarakaBladepoint.Resources
         private static readonly List<ImageSource> _inventoryPropImages = new();
 
         // Weapon 子文件夹：Key = 武器名称, Value = (技能图片列表, 背景图)
-        private static readonly Dictionary<string, (List<ImageSource> Skills, ImageSource Background)> _weaponFolderImages = new();
+        private static readonly Dictionary<
+            string,
+            (List<ImageSource> Skills, ImageSource Background)
+        > _weaponFolderImages = new();
 
         // Map 相关：Key = 静态图，Value = Gif（可为空）
         private static readonly Dictionary<ImageSource, ImageSource> _mapImagePairs = new();
 
-        // HisitoryMatchRecord 相关：image/hisitorymatchrecord/*.png (数字命名，从1开始)
+        // HisitoryMatchRecord 相关：image/hisitorymatchrecord/*.png (按加载顺序分配索引，从0开始)
         private static readonly Dictionary<int, ImageSource> _historyMatchRecordImages = new();
 
         static ResourceImageReader()
@@ -150,7 +153,7 @@ namespace NarakaBladepoint.Resources
                                 var image = LoadBitmapFromResource(assembly, key);
                                 // 使用扩展方法获取正确的文件名
                                 var fileName = image.GetFileNameWithExtension();
-                                
+
                                 // 从路径中获取武器文件夹名（需要从原始 URI 中获取正确大小写）
                                 var uri = ((BitmapImage)image).UriSource;
                                 var pathParts = uri.LocalPath.Split('/');
@@ -158,10 +161,18 @@ namespace NarakaBladepoint.Resources
 
                                 if (!_weaponFolderImages.ContainsKey(weaponName))
                                 {
-                                    _weaponFolderImages[weaponName] = (new List<ImageSource>(), null);
+                                    _weaponFolderImages[weaponName] = (
+                                        new List<ImageSource>(),
+                                        null
+                                    );
                                 }
 
-                                if (fileName.Equals("background.png", StringComparison.OrdinalIgnoreCase))
+                                if (
+                                    fileName.Equals(
+                                        "background.png",
+                                        StringComparison.OrdinalIgnoreCase
+                                    )
+                                )
                                 {
                                     var current = _weaponFolderImages[weaponName];
                                     _weaponFolderImages[weaponName] = (current.Skills, image);
@@ -212,15 +223,15 @@ namespace NarakaBladepoint.Resources
                     var relative = key["image/hisitorymatchrecord/".Length..];
                     if (!relative.Contains("/"))
                     {
-                        var fileNameWithoutExtension = relative[..^4]; // 去掉 .png
-                        if (int.TryParse(fileNameWithoutExtension, out var index))
+                        try
                         {
-                            try
-                            {
-                                _historyMatchRecordImages[index] = LoadBitmapFromResource(assembly, key);
-                            }
-                            catch { }
+                            var index = _historyMatchRecordImages.Count;
+                            _historyMatchRecordImages[index] = LoadBitmapFromResource(
+                                assembly,
+                                key
+                            );
                         }
+                        catch { }
                     }
                 }
             }
@@ -348,8 +359,9 @@ namespace NarakaBladepoint.Resources
         /// </summary>
         public static ImageSource GetWeaponBackground(string weaponName)
         {
-            var key = _weaponFolderImages.Keys.FirstOrDefault(k => 
-                string.Equals(k, weaponName, StringComparison.OrdinalIgnoreCase));
+            var key = _weaponFolderImages.Keys.FirstOrDefault(k =>
+                string.Equals(k, weaponName, StringComparison.OrdinalIgnoreCase)
+            );
             if (key != null && _weaponFolderImages.TryGetValue(key, out var data))
             {
                 return data.Background;
@@ -362,8 +374,9 @@ namespace NarakaBladepoint.Resources
         /// </summary>
         public static List<ImageSource> GetWeaponSkillImages(string weaponName)
         {
-            var key = _weaponFolderImages.Keys.FirstOrDefault(k => 
-                string.Equals(k, weaponName, StringComparison.OrdinalIgnoreCase));
+            var key = _weaponFolderImages.Keys.FirstOrDefault(k =>
+                string.Equals(k, weaponName, StringComparison.OrdinalIgnoreCase)
+            );
             if (key != null && _weaponFolderImages.TryGetValue(key, out var data))
             {
                 return data.Skills;
