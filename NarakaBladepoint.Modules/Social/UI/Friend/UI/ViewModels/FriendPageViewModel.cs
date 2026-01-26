@@ -112,7 +112,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
                 {
                     Clipboard.SetText(CurrentUserInfoModel.Id.ToString());
                     await tipMessageService.ShowTipMessageAsync(
-                        new TipMessageWithHighlightArgs("已复制")
+                        new TipMessageWithHighlightArgs("复制成功")
                     );
                 }
                 catch

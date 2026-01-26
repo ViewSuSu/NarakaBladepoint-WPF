@@ -90,32 +90,31 @@
 本项目采用基于 **Prism** 的模块化分层设计。
 
 ```mermaid
-graph TD
-    App[NarakaBladepoint.App] --> Modules[NarakaBladepoint.Modules]
-    App --> Framework[NarakaBladepoint.Framework]
-    App --> Resources[NarakaBladepoint.Resources]
+graph LR
+    App["<b>App</b><br/>应用入口"]
+    Modules["<b>Modules</b><br/>业务逻辑"]
+    Shared["<b>Shared</b><br/>共享协议"]
+    Controls["<b>Controls</b><br/>UI组件库"]
+    Resources["<b>Resources</b><br/>静态资源"]
     
-    Modules --> Framework
-    Modules --> Controls[NarakaBladepoint.Controls]
-    Modules --> Shared[NarakaBladepoint.Shared]
+    App -->|引用| Modules
+    Modules -->|引用| Shared
+    Shared -->|引用| Controls
+    Controls -->|引用| Resources
     
-    Controls --> Framework
-    Shared --> Framework
-    
-    style App fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
+    style App fill:#0d1f2d,stroke:#00a8e8,stroke-width:3px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
     style Modules fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Framework fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Resources fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Controls fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Shared fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
+    style Shared fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+    style Controls fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+    style Resources fill:#3a7a9f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
 ```
 
 - **App**: 入口 Shell，负责容器初始化与模块聚合。
 - **Modules**: 功能业务层（社交、活动中心等），模块间通过 Region 隔离。
+- **Shared**: 跨模块协议（DTO、接口契约、服务抽象）。
 - **Controls**: 复用组件库，包含仿真的自定义控件库。
-- **Framework**: 底层支撑（MVVM基类、附加属性、弱事件等）。
-- **Shared**: 跨模块协议（DTO、接口契约）。
 - **Resources**: 静态素材（图标、背景等）。
+- **Framework**: 核心基础支撑层，提供 MVVM 基类、附加属性、弱事件等，由上述各层直接使用。
 
 ## 核心技术特点
 

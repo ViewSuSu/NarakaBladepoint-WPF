@@ -19,7 +19,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformation.Vi
         public DelegateCommand NavigateToPersonalInfomationCommand =>
             _navigateToPersonalInfomationCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>()
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
                     .Publish(new NavigationArgs(nameof(PersonalInformationDetailMainContentPage)));
             });
         public UserInformationData UserInfoModel { get; }

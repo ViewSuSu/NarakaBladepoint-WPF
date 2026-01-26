@@ -90,32 +90,31 @@ This project provides the following learning opportunities for WPF developers:
 This project adopts a modular layered design based on **Prism**.
 
 ```mermaid
-graph TD
-    App[NarakaBladepoint.App] --> Modules[NarakaBladepoint.Modules]
-    App --> Framework[NarakaBladepoint.Framework]
-    App --> Resources[NarakaBladepoint.Resources]
+graph LR
+    App["<b>App</b><br/>Entry Point"]
+    Modules["<b>Modules</b><br/>Business Logic"]
+    Shared["<b>Shared</b><br/>Contracts"]
+    Controls["<b>Controls</b><br/>UI Components"]
+    Resources["<b>Resources</b><br/>Static Assets"]
     
-    Modules --> Framework
-    Modules --> Controls[NarakaBladepoint.Controls]
-    Modules --> Shared[NarakaBladepoint.Shared]
+    App -->|References| Modules
+    Modules -->|References| Shared
+    Shared -->|References| Controls
+    Controls -->|References| Resources
     
-    Controls --> Framework
-    Shared --> Framework
-    
-    style App fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
+    style App fill:#0d1f2d,stroke:#00a8e8,stroke-width:3px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
     style Modules fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Framework fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Resources fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Controls fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
-    style Shared fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
+    style Shared fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+    style Controls fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+    style Resources fill:#3a7a9f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
 ```
 
 - **App**: Entry Shell, responsible for container initialization and module aggregation.
 - **Modules**: Business logic layer (Social, Event Center, etc.), isolated by Regions.
+- **Shared**: Cross-module contracts (DTOs, interface definitions, service abstractions).
 - **Controls**: Reusable UI component library containing high-fidelity custom controls.
-- **Framework**: Fundamental technical support (MVVM bases, attached properties, weak events, etc.).
-- **Shared**: Cross-module contracts (DTOs, interface definitions).
 - **Resources**: Static assets (icons, background images, etc.).
+- **Framework**: Core foundation layer, providing MVVM bases, attached properties, weak events, etc., used directly by the above layers.
 
 ## Core Technical Features
 

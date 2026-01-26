@@ -28,7 +28,7 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         /// 提示消息参数，包含消息内容和需要高亮的文本列表
         ///
         /// 示例用途：
-        /// - new TipMessageWithHighlightArgs("已复制") - 用户操作成功反馈
+        /// - new TipMessageWithHighlightArgs("复制成功") - 用户操作成功反馈
         /// - new TipMessageWithHighlightArgs("获得 500 金币", new List&lt;string&gt; { "500" }) - 高亮关键数字
         /// - new TipMessageWithHighlightArgs("操作失败，请重试") - 操作失败提示
         /// - new TipMessageWithHighlightArgs("获得奖励", new List&lt;string&gt; { "获得", "奖励" }) - 高亮多个关键词
