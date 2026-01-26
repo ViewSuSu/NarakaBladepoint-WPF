@@ -8,16 +8,16 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
-        <Setter Property="MinHeight" Value="45" />
+        <Setter Property="Height" Value="45" />
         <Setter Property="FontSize" Value="10" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">
-                    <StackPanel Orientation="Horizontal">
+                    <Grid x:Name="RootGrid">
                         <Border
                             x:Name="PART_Border"
-                            Height="{TemplateBinding Height}"
+                            Height="{Binding ActualHeight, ElementName=RootGrid}"
                             Background="{TemplateBinding Background}"
                             SnapsToDevicePixels="True">
                             <ContentPresenter
@@ -29,7 +29,7 @@
                                 TextElement.FontSize="{TemplateBinding FontSize}"
                                 TextElement.Foreground="{TemplateBinding Foreground}" />
                         </Border>
-                    </StackPanel>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background">

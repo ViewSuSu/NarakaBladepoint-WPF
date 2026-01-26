@@ -108,21 +108,57 @@
                     Style="{StaticResource CommonFunctionTabItem}">
                     <socialAvatarPage:SocialAvatarPage />
                 </TabItem>
-                <!--<TabItem
+                <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="头像框"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <avatarFramePage:AvatarFramePage />
-                </TabItem>-->
-                <!--<TabItem
+                </TabItem>
+                <TabItem
+                    Name="tabShengya"
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="生涯成就"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <careerAchievementsPage:CareerAchievementsPage  />
+                    <Grid>
+                        <TabControl Background="Transparent" BorderThickness="0">
+                            <TabItem
+                                Width="465"
+                                Height="25"
+                                Header=""
+                                Style="{StaticResource CommonFunctionTabItem}"
+                                Visibility="Hidden">
+                                <careerAchievementsPage:CareerAchievementsPage />
+                            </TabItem>
+                            <TabItem
+                                Name="tabItem1"
+                                Width="80"
+                                Height="25"
+                                Background="#1A000000"
+                                Header="英雄印"
+                                IsSelected="True"
+                                Style="{StaticResource CommonFunctionTabItem}">
+                                <careerAchievementsPage:CareerAchievementsPage />
+                            </TabItem>
+                            <TabItem
+                                Name="tabItem2"
+                                Width="80"
+                                Height="25"
+                                Background="#1A000000"
+                                Header="龙魂宝藏"
+                                Style="{StaticResource CommonFunctionTabItem}" />
+                            <TabItem
+                                Name="tabItem3"
+                                Width="80"
+                                Height="25"
+                                Background="#1A000000"
+                                Header="金乌宝藏"
+                                Style="{StaticResource CommonFunctionTabItem}" />
+                        </TabControl>
+                    </Grid>
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -130,16 +166,16 @@
                     Background="Transparent"
                     Header="图鉴收集"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <illustratedCollectionPage:IllustratedCollectionPage  />
+                    <illustratedCollectionPage:IllustratedCollectionPage />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="信誉分"
-                    Style="{StaticResource CommonFunctionTabItem}" />-->
+                    Style="{StaticResource CommonFunctionTabItem}" />
                 <TabItem
-                    Width="400"
+                    Width="150"
                     VerticalAlignment="Center"
                     Background="Transparent"
                     Visibility="Hidden" />
