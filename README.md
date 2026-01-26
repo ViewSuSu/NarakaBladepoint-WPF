@@ -96,17 +96,21 @@ graph LR
     Shared["<b>Shared</b><br/>共享协议"]
     Controls["<b>Controls</b><br/>UI组件库"]
     Resources["<b>Resources</b><br/>静态资源"]
+    Framework["<b>Framework</b><br/>基础框架"]
     
     App -->|引用| Modules
     Modules -->|引用| Shared
     Shared -->|引用| Controls
     Controls -->|引用| Resources
+    Resources -->|引用| Framework
     
     style App fill:#0d1f2d,stroke:#00a8e8,stroke-width:3px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
     style Modules fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
     style Shared fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
     style Controls fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
     style Resources fill:#3a7a9f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+    style Framework fill:#4a8a9f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+
 ```
 
 - **App**: 入口 Shell，负责容器初始化与模块聚合。

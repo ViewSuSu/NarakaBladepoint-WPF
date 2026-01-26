@@ -96,17 +96,21 @@ graph LR
     Shared["<b>Shared</b><br/>Contracts"]
     Controls["<b>Controls</b><br/>UI Components"]
     Resources["<b>Resources</b><br/>Static Assets"]
+    Framework["<b>Framework</b><br/>Core Foundation"]
     
     App -->|References| Modules
     Modules -->|References| Shared
     Shared -->|References| Controls
     Controls -->|References| Resources
+    Resources -->|References| Framework
     
     style App fill:#0d1f2d,stroke:#00a8e8,stroke-width:3px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
     style Modules fill:#1e3a5f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:13px,font-weight:bold
     style Shared fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
     style Controls fill:#2a5a7f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
     style Resources fill:#3a7a9f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+    style Framework fill:#4a8a9f,stroke:#0066cc,stroke-width:2px,color:#e0f0ff,font-family:Monaco,font-size:12px,font-weight:bold
+
 ```
 
 - **App**: Entry Shell, responsible for container initialization and module aggregation.
