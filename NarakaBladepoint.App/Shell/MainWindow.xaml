@@ -7,7 +7,7 @@
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:battlePass="clr-namespace:NarakaBladepoint.Modules.BattlePass.UI.BattlePass.Views;assembly=NarakaBladepoint.Modules"
     xmlns:commonfunction="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views;assembly=NarakaBladepoint.Modules"
-    xmlns:consts="clr-namespace:NarakaBladepoint.Shared.Consts;assembly=NarakaBladepoint.Shared"
+    xmlns:consts="clr-namespace:NarakaBladepoint.Framework.Core.Consts;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:converters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

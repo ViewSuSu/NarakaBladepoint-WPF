@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NarakaBladepoint.Framework.Core.Infrastructure;
+using NarakaBladepoint.Modules.CommonFunction.Domain.Events;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Domain.Bases
 {
-    internal abstract class CommonFunctionPageViewModelBase : ViewModelBase
+    internal abstract class CommonFunctionPageViewModelBase : ViewModelBase, IActiveAware
     {
-        public CommonFunctionPageViewModelBase() { }
+        internal static event EventHandler? MainContentNavigator_Removed;
+
+        public CommonFunctionPageViewModelBase()
+        {
+            MainContentNavigator.Removed += MainContentNavigator_Removed;
+        }
 
         private DelegateCommand _returnToHallCommand;
 
@@ -18,7 +25,23 @@ namespace NarakaBladepoint.Modules.CommonFunction.Domain.Bases
         public DelegateCommand ReturnToHallCommand =>
             _returnToHallCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
+                eventAggregator.GetEvent<NavigateToHallEvent>().Publish();
             });
+
+        public event EventHandler IsActiveChanged;
+
+        private bool _isActive;
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set
+            {
+                _isActive = value;
+                if (!value)
+                {
+                    MainContentNavigator_Removed?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using NarakaBladepoint.Shared.Consts;
+using NarakaBladepoint.Framework.Core.Consts;
 
 namespace NarakaBladepoint.Shared.Enums
 {

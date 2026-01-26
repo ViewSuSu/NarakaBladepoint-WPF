@@ -1,13 +1,16 @@
-﻿using System;
+using System;
 using System.Linq;
 using NarakaBladepoint.Framework.Core.Attrbuites;
-using NarakaBladepoint.Shared.Consts;
+using NarakaBladepoint.Framework.Core.Consts;
+using Prism.Navigation.Regions;
 
-namespace NarakaBladepoint.App.Shell.Infrastructure
+namespace NarakaBladepoint.Framework.Core.Infrastructure
 {
     [Component(ComponentLifetime.Singleton)]
-    internal class HomePageVisualNavigator
+    public class HomePageVisualNavigator
     {
+        public static event EventHandler? Removed;
+
         public HomePageVisualNavigator(IRegionManager regionManager)
         {
             _regionManager = regionManager;
@@ -69,6 +72,7 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
                 if (region.ActiveViews.Any())
                 {
                     region.RemoveAll();
+                    Removed?.Invoke(this, EventArgs.Empty);
 
                     if (i > 0)
                     {
@@ -101,6 +105,7 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
                     region.RemoveAll();
                 }
             }
+            Removed?.Invoke(this, EventArgs.Empty);
         }
     }
 }

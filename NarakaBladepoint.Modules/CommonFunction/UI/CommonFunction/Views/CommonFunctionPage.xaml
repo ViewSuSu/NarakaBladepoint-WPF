@@ -2,6 +2,8 @@
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views.CommonFunctionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
@@ -30,7 +32,13 @@
         <TabItem
             Header="大厅"
             IsSelected="{Binding IsSelectedHall}"
-            Style="{StaticResource CommonFunctionTabItem}" />
+            Style="{StaticResource CommonFunctionTabItem}">
+            <b:Interaction.Triggers>
+                <core:DataTrigger Binding="{Binding IsSelectedHall}" Value="True">
+                    <b:InvokeCommandAction Command="{Binding RemoveMainContentCommand}" />
+                </core:DataTrigger>
+            </b:Interaction.Triggers>
+        </TabItem>
         <TabItem
             Header="排行榜"
             IsSelected="{Binding IsSelectedLeaderboard}"

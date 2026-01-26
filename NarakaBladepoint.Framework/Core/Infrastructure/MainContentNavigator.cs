@@ -1,23 +1,27 @@
 using System;
+using System.Linq;
 using NarakaBladepoint.Framework.Core.Attrbuites;
-using NarakaBladepoint.Shared.Consts;
+using NarakaBladepoint.Framework.Core.Consts;
+using Prism.Navigation.Regions;
 
-namespace NarakaBladepoint.App.Shell.Infrastructure
+namespace NarakaBladepoint.Framework.Core.Infrastructure
 {
     /// <summary>
-    /// Ö÷ÄÚÈİÇøÓòµ¼º½Æ÷
+    /// ä¸»å†…å®¹åŒºåŸŸå¯¼èˆªå™¨
     ///
-    /// ÓÃÍ¾£º¹ÜÀí MainContentRegion µÄµ¼º½ºÍÄÚÈİÇĞ»»
-    /// ÌØµã£ºÒ»´ÎÖ»ÏÔÊ¾Ò»¸öÄÚÈİ£¬ĞÂÄÚÈİ»áÌæ»»¾ÉÄÚÈİ£¨Ïà±È HomePageVisualNavigator µÄ¶ÑµşÏÔÊ¾£©
+    /// ç”¨é€”ï¼šç®¡ç† MainContentRegion çš„å¯¼èˆªå’Œå†…å®¹åˆ‡æ¢
+    /// ç‰¹ç‚¹ï¼šä¸€æ¬¡åªæ˜¾ç¤ºä¸€ä¸ªå†…å®¹ï¼Œæ–°å†…å®¹ä¼šæ›¿æ¢æ—§å†…å®¹ï¼ˆç›¸æ¯” HomePageVisualNavigator çš„å †å æ˜¾ç¤ºï¼‰
     ///
-    /// Ê¹ÓÃ³¡¾°£º
-    /// - ÁĞ±íÒ³ÃæÇĞ»»
-    /// - ÏêÇéÒ³ÃæÏÔÊ¾
-    /// - ÄÚÈİÇøÓòµÄÄÚÈİÌæ»»
+    /// ä½¿ç”¨åœºæ™¯ï¼š
+    /// - åˆ—è¡¨é¡µé¢åˆ‡æ¢
+    /// - è¯¦æƒ…é¡µé¢æ˜¾ç¤º
+    /// - å†…å®¹åŒºåŸŸçš„å†…å®¹æ›¿æ¢
     /// </summary>
     [Component(ComponentLifetime.Singleton)]
-    internal class MainContentNavigator
+    public class MainContentNavigator
     {
+        public static event EventHandler? Removed;
+
         public MainContentNavigator(IRegionManager regionManager)
         {
             _regionManager = regionManager;
@@ -28,10 +32,10 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
         private readonly IRegionManager _regionManager;
 
         /// <summary>
-        /// ÊÇ·ñÓĞ»îÔ¾µÄÖ÷ÄÚÈİ
+        /// æ˜¯å¦æœ‰æ´»è·ƒçš„ä¸»å†…å®¹
         ///
-        /// ÓÃÍ¾£º¼ì²é MainContentRegion ÊÇ·ñ°üº¬»îÔ¾µÄÊÓÍ¼
-        /// ³£ÓÃÓÚÅĞ¶ÏÊÇ·ñÓĞÖ÷ÄÚÈİÒ³Ãæ´ò¿ª
+        /// ç”¨é€”ï¼šæ£€æŸ¥ MainContentRegion æ˜¯å¦åŒ…å«æ´»è·ƒçš„è§†å›¾
+        /// å¸¸ç”¨äºåˆ¤æ–­æ˜¯å¦æœ‰ä¸»å†…å®¹é¡µé¢æ‰“å¼€
         /// </summary>
         public bool HasActiveContent
         {
@@ -42,8 +46,8 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
         }
 
         /// <summary>
-        /// µ¼º½µ½Ö¸¶¨ÄÚÈİ
-        /// ĞÂÄÚÈİ»áÌæ»»¾ÉÄÚÈİ£¨²»ÊÇ¶ÑµşÏÔÊ¾£©
+        /// å¯¼èˆªåˆ°æŒ‡å®šå†…å®¹
+        /// æ–°å†…å®¹ä¼šæ›¿æ¢æ—§å†…å®¹ï¼ˆä¸æ˜¯å †å æ˜¾ç¤ºï¼‰
         /// </summary>
         public void RequestNavigate(
             string viewName,
@@ -65,7 +69,7 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
         }
 
         /// <summary>
-        /// Çå³ıÖ÷ÄÚÈİÇøÓòµÄËùÓĞÊÓÍ¼
+        /// æ¸…é™¤ä¸»å†…å®¹åŒºåŸŸçš„æ‰€æœ‰è§†å›¾
         /// </summary>
         public void Remove()
         {
@@ -73,11 +77,12 @@ namespace NarakaBladepoint.App.Shell.Infrastructure
             if (region.Views.Any())
             {
                 region.RemoveAll();
+                Removed?.Invoke(this, EventArgs.Empty);
             }
         }
 
         /// <summary>
-        /// »ñÈ¡µ±Ç°»îÔ¾µÄÄÚÈİÊÓÍ¼Ãû³Æ
+        /// è·å–å½“å‰æ´»è·ƒçš„å†…å®¹è§†å›¾åç§°
         /// </summary>
         public string GetActiveContentName()
         {

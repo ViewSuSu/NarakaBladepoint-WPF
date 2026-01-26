@@ -137,7 +137,7 @@
                                 Name="tabItem1"
                                 Width="80"
                                 Height="25"
-                                Background="#1A000000"
+                                Background="{StaticResource DefaultBlackBackground2}"
                                 Header="英雄印"
                                 IsSelected="True"
                                 Style="{StaticResource CommonFunctionTabItem}">
@@ -147,14 +147,14 @@
                                 Name="tabItem2"
                                 Width="80"
                                 Height="25"
-                                Background="#1A000000"
+                                Background="{StaticResource DefaultBlackBackground2}"
                                 Header="龙魂宝藏"
                                 Style="{StaticResource CommonFunctionTabItem}" />
                             <TabItem
                                 Name="tabItem3"
                                 Width="80"
                                 Height="25"
-                                Background="#1A000000"
+                                Background="{StaticResource DefaultBlackBackground2}"
                                 Header="金乌宝藏"
                                 Style="{StaticResource CommonFunctionTabItem}" />
                         </TabControl>

@@ -261,6 +261,6 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Panel.ZIndex="5"
-            Command="{Binding ReturnCommand}" />
+            Command="{Binding ReturnToHallCommand}" />
     </Grid>
 </base:UserControlBase>

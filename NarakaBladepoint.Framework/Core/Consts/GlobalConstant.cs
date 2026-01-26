@@ -1,4 +1,4 @@
-﻿namespace NarakaBladepoint.Shared.Consts
+namespace NarakaBladepoint.Framework.Core.Consts
 {
     public static class GlobalConstant
     {

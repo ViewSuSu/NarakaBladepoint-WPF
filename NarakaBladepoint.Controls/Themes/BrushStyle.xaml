@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ImageBrush x:Key="DefaultHighlightBackground" ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background4.png" />
+    <ImageBrush
+        x:Key="Background2"
+        ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png"
+        Stretch="UniformToFill" />
+    <SolidColorBrush x:Key="DefaultBlackBackground" Color="#1A000000" />
+    <SolidColorBrush x:Key="DefaultBlackBackground2" Color="#5A000000" />
+</ResourceDictionary>

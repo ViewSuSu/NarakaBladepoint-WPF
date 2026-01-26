@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NarakaBladepoint.App.Shell.Infrastructure;
+using NarakaBladepoint.Framework.Core.Infrastructure;
 using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
 using NarakaBladepoint.Modules.TopUp.UI.Views;
-using NarakaBladepoint.Shared.Consts;
+using NarakaBladepoint.Framework.Core.Consts;
 
 namespace NarakaBladepoint.App.Shell
 {

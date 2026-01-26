@@ -7,6 +7,7 @@
     <converterts:InverseBoolConverter x:Key="InverseBoolConverter" />
     <converterts:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/BrushStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ExpandStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ButtonStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/TabItemStyle.xaml" />

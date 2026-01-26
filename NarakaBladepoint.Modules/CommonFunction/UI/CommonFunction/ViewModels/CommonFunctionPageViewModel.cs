@@ -1,4 +1,5 @@
 using NarakaBladepoint.Framework.Core.Evens;
+using NarakaBladepoint.Framework.Core.Infrastructure;
 using NarakaBladepoint.Modules.CommonFunction.Domain.Events;
 using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Hero.Views;
@@ -7,6 +8,7 @@ using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Store.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Views;
+using Prism.Commands;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
 {
@@ -19,7 +21,18 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
                 .Subscribe(() =>
                 {
                     IsSelectedHall = true;
+                    RemoveMainContentCommand.Execute();
                 });
+            MainContentNavigator.Removed += MainContentNavigator_Removed;
+        }
+
+        private DelegateCommand _removeMainContentCommand;
+        public DelegateCommand RemoveMainContentCommand =>
+            _removeMainContentCommand ??= new DelegateCommand(OnRemoveMainContent);
+
+        private void OnRemoveMainContent()
+        {
+            eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
         }
 
         #region Tab Selection Properties
@@ -83,10 +96,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             {
                 _isSelectedHall = value;
                 RaisePropertyChanged();
-                if (value)
-                {
-                    eventAggregator.GetEvent<RemoveMainContentRegionEvent>().Publish();
-                }
             }
         }
 
@@ -142,6 +151,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedCustomMatch;
+
         public bool IsSelectedCustomMatch
         {
             get => _isSelectedCustomMatch;
@@ -159,5 +169,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         #endregion
+
+        private void MainContentNavigator_Removed(object? sender, EventArgs e)
+        {
+            IsSelectedHall = true;
+        }
     }
 }
