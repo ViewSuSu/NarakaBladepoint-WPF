@@ -2,7 +2,7 @@
 ![Platform](https://img.shields.io/badge/Platform-WPF-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-[English](README-en.md) | [中文](README.md)
+[English](README-en.md) | [简体中文](README.md)
 
 [![下载安装包](https://img.shields.io/badge/下载安装包-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
 
