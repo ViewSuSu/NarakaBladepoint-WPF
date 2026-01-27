@@ -18,7 +18,7 @@
             <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
         </Grid.Background>
         <Grid>
-            <TabControl Background="Transparent" BorderThickness="0">
+            <TabControl>
                 <TabItem
                     Width="300"
                     Header=""
@@ -29,7 +29,16 @@
                     Background="{StaticResource DefaultBlackBackground2}"
                     Header="排行榜"
                     IsSelected="True"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <Grid>
+                        <TabControl Style="{StaticResource AverageTabControlStyle}">
+                            <controls:IconTabItem />
+                            <controls:IconTabItem />
+                            <controls:IconTabItem />
+                            <controls:IconTabItem />
+                        </TabControl>
+                    </Grid>
+                </TabItem>
                 <TabItem
                     Width="80"
                     Height="30"

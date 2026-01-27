@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:converter="clr-namespace:NarakaBladepoint.Controls.Converters">
     <converter:IconTabItemConverter x:Key="IconTabItemConverter" />
     <Style x:Key="CommonFunctionTabItem" TargetType="TabItem">
@@ -25,6 +26,7 @@
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
+                                attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                 ContentSource="Header"
                                 TextElement.FontSize="{TemplateBinding FontSize}"
                                 TextElement.Foreground="{TemplateBinding Foreground}" />
@@ -76,6 +78,7 @@
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
+                            attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                             ContentSource="Header"
                             TextElement.FontSize="{TemplateBinding FontSize}"
                             TextElement.Foreground="{TemplateBinding Foreground}" />
@@ -127,6 +130,7 @@
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
+                            attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                             ContentSource="Header"
                             TextElement.FontSize="{TemplateBinding FontSize}"
                             TextElement.Foreground="{TemplateBinding Foreground}" />

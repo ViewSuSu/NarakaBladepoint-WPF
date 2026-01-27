@@ -124,7 +124,10 @@
                     Header="生涯成就"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <Grid>
-                        <TabControl Background="Transparent" BorderThickness="0">
+                        <TabControl
+                            Margin="0,-3,0,0"
+                            Background="Transparent"
+                            BorderThickness="0">
                             <TabItem
                                 Width="465"
                                 Height="25"
