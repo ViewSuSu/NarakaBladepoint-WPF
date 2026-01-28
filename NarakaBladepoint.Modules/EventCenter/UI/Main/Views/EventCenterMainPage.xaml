@@ -1,10 +1,10 @@
-<bases:UserControlBase
+﻿<bases:UserControlBase
 x:Class="NarakaBladepoint.Modules.EventCenter.UI.Main.Views.EventCenterMainPage"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
 xmlns:baize="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.BaiZeCard.Views"
-xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
 xmlns:bindReward="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.BindReward.Views"
 xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

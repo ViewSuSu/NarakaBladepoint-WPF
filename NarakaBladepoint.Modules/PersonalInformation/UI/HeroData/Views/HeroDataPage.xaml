@@ -1,9 +1,9 @@
-<bases:UserControlBase
+﻿<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Views.HeroDataPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
-    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     xmlns:consts="clr-namespace:NarakaBladepoint.Framework.Core.Consts;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:converters="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.Domain.Converters"

@@ -4,6 +4,9 @@
         x:Key="Background2"
         ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png"
         Stretch="UniformToFill" />
-    <SolidColorBrush x:Key="DefaultBlackBackground" Color="#1A000000" />
-    <SolidColorBrush x:Key="DefaultBlackBackground2" Color="#5A000000" />
+    <SolidColorBrush x:Key="DefaultTransientBlackBackground" Color="#1A000000" />
+    <SolidColorBrush x:Key="DefaultTransientBlackBackground2" Color="#2A000000" />
+    <SolidColorBrush x:Key="DefaultTransientBlackBackground3" Color="#3A000000" />
+    <SolidColorBrush x:Key="DefaultTransientBlackBackground4" Color="#4A000000" />
+    <SolidColorBrush x:Key="DefaultTransientBlackBackground5" Color="#5A000000" />
 </ResourceDictionary>

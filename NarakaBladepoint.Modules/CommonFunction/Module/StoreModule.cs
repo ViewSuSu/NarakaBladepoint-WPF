@@ -10,6 +10,13 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<StorePage, StorePageViewModel>();
+            containerRegistry.RegisterForNavigation<StoreHeroTagPage, StoreHeroTagPageViewModel>();
+            containerRegistry.RegisterForNavigation<StoreDailyPage, StoreDailyPageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                StoreOverviewPage,
+                StoreOverviewPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<StoreRecommendPage>();
         }
     }
 }

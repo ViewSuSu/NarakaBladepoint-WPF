@@ -1,5 +1,7 @@
-using NarakaBladepoint.Modules.TopUp.UI.ViewModels;
-using NarakaBladepoint.Modules.TopUp.UI.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Content.ViewModels;
+using NarakaBladepoint.Modules.TopUp.UI.Content.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Main.ViewModels;
+using NarakaBladepoint.Modules.TopUp.UI.Main.Views;
 
 namespace NarakaBladepoint.Modules.TopUp.Module
 {
@@ -10,6 +12,7 @@ namespace NarakaBladepoint.Modules.TopUp.Module
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<TopUpPage, TopUpPageViewModel>();
+            containerRegistry.RegisterForNavigation<TopUpContentPage, TopUpContentPageViewModel>();
         }
     }
 }

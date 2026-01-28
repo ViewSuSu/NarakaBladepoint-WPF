@@ -1,8 +1,8 @@
-<base:UserControlBase
+﻿<base:UserControlBase
 x:Class="NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views.SkillPointPage"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
 xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views"

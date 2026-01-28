@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using NarakaBladepoint.Framework.Core.Infrastructure;
 using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
-using NarakaBladepoint.Modules.TopUp.UI.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Main.Views;
 using NarakaBladepoint.Framework.Core.Consts;
 
 namespace NarakaBladepoint.App.Shell

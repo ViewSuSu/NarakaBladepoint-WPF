@@ -1,8 +1,8 @@
-<base:UserControlBase
+﻿<base:UserControlBase
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views.LeaderboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases;assembly=NarakaBladepoint.Framework"
+    xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views"
@@ -26,7 +26,7 @@
                 <TabItem
                     Width="80"
                     Height="30"
-                    Background="{StaticResource DefaultBlackBackground2}"
+                    Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="排行榜"
                     IsSelected="True"
                     Style="{StaticResource CommonFunctionTabItem}">
@@ -42,31 +42,31 @@
                 <TabItem
                     Width="80"
                     Height="30"
-                    Background="{StaticResource DefaultBlackBackground2}"
+                    Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="收藏榜"
                     Style="{StaticResource CommonFunctionTabItem}" />
                 <TabItem
                     Width="80"
                     Height="30"
-                    Background="{StaticResource DefaultBlackBackground2}"
+                    Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="聚义榜"
                     Style="{StaticResource CommonFunctionTabItem}" />
                 <TabItem
                     Width="80"
                     Height="30"
-                    Background="{StaticResource DefaultBlackBackground2}"
+                    Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="英雄榜"
                     Style="{StaticResource CommonFunctionTabItem}" />
                 <TabItem
                     Width="80"
                     Height="30"
-                    Background="{StaticResource DefaultBlackBackground2}"
+                    Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="高校榜"
                     Style="{StaticResource CommonFunctionTabItem}" />
                 <TabItem
                     Width="80"
                     Height="30"
-                    Background="{StaticResource DefaultBlackBackground2}"
+                    Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="赛事冠军"
                     Style="{StaticResource CommonFunctionTabItem}" />
             </TabControl>

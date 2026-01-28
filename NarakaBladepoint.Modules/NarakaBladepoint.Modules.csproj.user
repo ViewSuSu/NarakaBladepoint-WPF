@@ -5,6 +5,18 @@
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommonFunction\UI\Store\Views\StoreDailyPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Store\Views\StoreHeroTagPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Store\Views\StoreOverviewPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Store\Views\StoreRecommendPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\Weapon\Views\WeaponPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +105,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="StartGame\UI\MapChose\Views\MapChosePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TopUp\UI\Content\Views\TopUpContentPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

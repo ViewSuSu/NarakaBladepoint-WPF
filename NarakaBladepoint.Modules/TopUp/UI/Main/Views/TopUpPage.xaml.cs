@@ -1,4 +1,4 @@
-namespace NarakaBladepoint.Modules.TopUp.UI.Views
+namespace NarakaBladepoint.Modules.TopUp.UI.Main.Views
 {
     /// <summary>
     /// TopUpUserControl.xaml 的交互逻辑

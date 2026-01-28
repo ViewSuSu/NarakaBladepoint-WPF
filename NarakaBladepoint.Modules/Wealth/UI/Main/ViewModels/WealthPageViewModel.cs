@@ -1,5 +1,5 @@
 using NarakaBladepoint.Framework.Core.Evens;
-using NarakaBladepoint.Modules.TopUp.UI.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Main.Views;
 using NarakaBladepoint.Shared.Datas;
 using NarakaBladepoint.Shared.Services.Abstractions;
 
