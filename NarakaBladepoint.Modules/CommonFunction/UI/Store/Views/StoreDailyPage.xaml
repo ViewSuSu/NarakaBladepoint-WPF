@@ -10,10 +10,7 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush d:ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
-        </Grid.Background>
+    <Grid Background="{StaticResource Background2}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />

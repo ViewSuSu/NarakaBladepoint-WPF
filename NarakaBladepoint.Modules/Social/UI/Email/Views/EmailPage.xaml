@@ -14,10 +14,7 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
     d:DesignWidth="1080"
     x:ClassModifier="internal"
     mc:Ignorable="d">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
-        </Grid.Background>
+    <Grid Background="{StaticResource Background2}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />

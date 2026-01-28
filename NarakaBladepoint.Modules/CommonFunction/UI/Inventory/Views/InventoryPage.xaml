@@ -19,10 +19,7 @@
     <UserControl.Resources>
         <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />
     </UserControl.Resources>
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" Stretch="UniformToFill" />
-        </Grid.Background>
+    <Grid Background="{StaticResource Background2}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -264,3 +261,7 @@
             Command="{Binding ReturnToHallCommand}" />
     </Grid>
 </base:UserControlBase>
+
+
+
+
