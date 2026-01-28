@@ -56,7 +56,13 @@
     <Compile Update="PersonalInformation\UI\AvatarFrame\Views\AvatarFramePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PersonalInformation\UI\CareerAchievements\Views\CareerAchievementsPage.xaml.cs">
+    <Compile Update="PersonalInformation\UI\CareerAchievements\Views\CareerAchievementsDragonSoulPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\CareerAchievements\Views\CareerAchievementsGoldenCrowPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\CareerAchievements\Views\CareerAchievementsHeroTagPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\CreditScore\Views\CreditScorePage.xaml.cs">

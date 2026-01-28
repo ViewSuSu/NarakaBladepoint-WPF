@@ -56,17 +56,15 @@
             <StackPanel
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="20,15,20,15"
+                Margin="20,0,20,15"
                 Orientation="Horizontal">
                 <StackPanel VerticalAlignment="Center" Orientation="Vertical">
                     <TextBlock
-                        FontSize="12"
                         Foreground="Gray"
                         Text="英雄印点数" />
                     <TextBlock
                         Margin="0,5,0,0"
                         FontSize="32"
-                        FontWeight="Bold"
                         Foreground="Gold"
                         Text="4075" />
                 </StackPanel>

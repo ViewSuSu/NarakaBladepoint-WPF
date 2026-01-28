@@ -130,9 +130,7 @@
                                 Height="25"
                                 Header=""
                                 Style="{StaticResource CommonFunctionTabItem}"
-                                Visibility="Hidden">
-                                <careerAchievementsPage:CareerAchievementsPage />
-                            </TabItem>
+                                Visibility="Hidden" />
                             <TabItem
                                 Name="tabItem1"
                                 Width="80"
@@ -141,7 +139,7 @@
                                 Header="英雄印"
                                 IsSelected="True"
                                 Style="{StaticResource CommonFunctionTabItem}">
-                                <careerAchievementsPage:CareerAchievementsPage />
+                                <careerAchievementsPage:CareerAchievementsHeroTagPage />
                             </TabItem>
                             <TabItem
                                 Name="tabItem2"
@@ -149,14 +147,18 @@
                                 Height="25"
                                 Background="{StaticResource DefaultTransientBlackBackground5}"
                                 Header="龙魂宝藏"
-                                Style="{StaticResource CommonFunctionTabItem}" />
+                                Style="{StaticResource CommonFunctionTabItem}">
+                                <careerAchievementsPage:CareerAchievementsDragonSoulPage />
+                            </TabItem>
                             <TabItem
                                 Name="tabItem3"
                                 Width="80"
                                 Height="25"
                                 Background="{StaticResource DefaultTransientBlackBackground5}"
                                 Header="金乌宝藏"
-                                Style="{StaticResource CommonFunctionTabItem}" />
+                                Style="{StaticResource CommonFunctionTabItem}">
+                                <careerAchievementsPage:CareerAchievementsGoldenCrowPage />
+                            </TabItem>
                         </TabControl>
                     </Grid>
                 </TabItem>
