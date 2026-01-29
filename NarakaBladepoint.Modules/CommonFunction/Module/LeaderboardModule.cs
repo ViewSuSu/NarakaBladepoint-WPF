@@ -9,9 +9,30 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<LeaderboardPage, LeaderboardPageViewModel>();
             containerRegistry.RegisterForNavigation<
-                LeaderboardPage,
-                LeaderboardPageViewModel
+                LeaderboardContentPage,
+                LeaderboardContentPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                HeroLeaderboardPage,
+                HeroLeaderboardPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                CollectionScoreRankingPage,
+                CollectionScoreRankingPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                BrotherhoodRankingPage,
+                BrotherhoodRankingPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                TournamentChampionPage,
+                TournamentChampionPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                UniversityLeaderboard,
+                UniversityLeaderboardViewModel
             >();
         }
     }

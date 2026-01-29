@@ -27,45 +27,48 @@
                     Header="排行榜"
                     IsSelected="True"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <Grid>
-                        <TabControl Style="{StaticResource AverageTabControlStyle}">
-                            <controls:IconTabItem />
-                            <controls:IconTabItem />
-                            <controls:IconTabItem />
-                            <controls:IconTabItem />
-                        </TabControl>
-                    </Grid>
+                    <local:LeaderboardContentPage />
                 </TabItem>
                 <TabItem
                     Width="80"
                     Height="30"
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="收藏榜"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <local:CollectionScoreRankingPage />
+                </TabItem>
                 <TabItem
                     Width="80"
                     Height="30"
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="聚义榜"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <local:BrotherhoodRankingPage />
+                </TabItem>
                 <TabItem
                     Width="80"
                     Height="30"
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="英雄榜"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <local:HeroLeaderboardPage />
+                </TabItem>
                 <TabItem
                     Width="80"
                     Height="30"
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="高校榜"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <local:UniversityLeaderboard />
+                </TabItem>
                 <TabItem
                     Width="80"
                     Height="30"
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="赛事冠军"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}">
+                    <local:TournamentChampionPage />
+                </TabItem>
             </TabControl>
             <controls:EscBackControl
                 HorizontalAlignment="Right"

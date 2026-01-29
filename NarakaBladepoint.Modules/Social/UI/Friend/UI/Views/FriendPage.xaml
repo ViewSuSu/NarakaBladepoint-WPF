@@ -192,12 +192,12 @@
                         <TabItem
                             Height="30"
                             Header="找搭子"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                         <TabItem
                             Height="30"
                             Header="联系人"
                             IsSelected="True"
-                            Style="{StaticResource FriendListTabItem}">
+                            Style="{StaticResource CommonFunctionTabItem2}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -284,7 +284,7 @@
                         <TabItem
                             Height="30"
                             Header="最近"
-                            Style="{StaticResource FriendListTabItem}">
+                            Style="{StaticResource CommonFunctionTabItem2}">
                             <ListBox
                                 HorizontalContentAlignment="Stretch"
                                 d:ItemsSource="{d:SampleData ItemCount=5}"
@@ -335,7 +335,7 @@
                         <TabItem
                             Height="30"
                             Header="附近"
-                            Style="{StaticResource FriendListTabItem}">
+                            Style="{StaticResource CommonFunctionTabItem2}">
                             <Expander
                                 Grid.Row="0"
                                 HorizontalContentAlignment="Stretch"
@@ -346,7 +346,7 @@
                         <TabItem
                             Height="30"
                             Header="申请"
-                            Style="{StaticResource FriendListTabItem}">
+                            Style="{StaticResource CommonFunctionTabItem2}">
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"

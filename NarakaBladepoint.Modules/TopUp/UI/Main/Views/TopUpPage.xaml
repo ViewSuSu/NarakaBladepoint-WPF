@@ -1,4 +1,4 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.TopUp.UI.Main.Views.TopUpPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -55,7 +55,3 @@
             Command="{Binding ReturnCommand}" />
     </Grid>
 </bases:UserControlBase>
-
-
-
-

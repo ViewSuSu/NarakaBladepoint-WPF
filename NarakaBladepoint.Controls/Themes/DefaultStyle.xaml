@@ -21,5 +21,6 @@
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/TextBlackStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ScrollViewerStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/TextBoxStyle.xaml" />
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/DataGridStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

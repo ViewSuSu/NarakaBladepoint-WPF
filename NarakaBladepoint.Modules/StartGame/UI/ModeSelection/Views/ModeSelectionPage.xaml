@@ -644,17 +644,17 @@
                             Name="tabItem1"
                             Header="单排"
                             IsSelected="{Binding IsSoloMode}"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                         <TabItem
                             Name="tabItem2"
                             Header="双排"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                         <TabItem
                             Name="tabItem3"
                             d:IsSelected="True"
                             Header="三排"
                             IsSelected="True"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                     </TabControl>
                     <Button
                         Grid.Row="1"

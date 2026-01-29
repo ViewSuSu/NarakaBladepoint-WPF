@@ -49,7 +49,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="FriendListTabItem" TargetType="TabItem">
+    <Style x:Key="CommonFunctionTabItem2" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="#1A000000" />
         <Setter Property="BorderThickness" Value="0" />

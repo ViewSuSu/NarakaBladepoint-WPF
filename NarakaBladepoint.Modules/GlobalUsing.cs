@@ -6,3 +6,4 @@ global using NarakaBladepoint.Framework.Core.Extensions;
 global using NarakaBladepoint.Shared.Datas;
 global using NarakaBladepoint.Shared.Enums;
 global using NarakaBladepoint.Shared.Services.Abstractions;
+global using Prism.Commands;

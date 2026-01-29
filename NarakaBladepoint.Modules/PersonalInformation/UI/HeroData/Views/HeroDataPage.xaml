@@ -58,15 +58,15 @@
                         <TabItem
                             Background="#1A000000"
                             Header="{x:Static consts:TeamSizeConstant.Solo}"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                         <TabItem
                             Background="#1A000000"
                             Header="{x:Static consts:TeamSizeConstant.Duo}"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                         <TabItem
                             Background="#1A000000"
                             Header="{x:Static consts:TeamSizeConstant.Trio}"
-                            Style="{StaticResource FriendListTabItem}" />
+                            Style="{StaticResource CommonFunctionTabItem2}" />
                     </TabControl>
                     <controls:ToggleButtonComboBox
                         Grid.Row="0"

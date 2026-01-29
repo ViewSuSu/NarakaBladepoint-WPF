@@ -120,47 +120,45 @@
                     Background="Transparent"
                     Header="生涯成就"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <Grid>
-                        <TabControl
-                            Margin="0,-3,0,0"
-                            Background="Transparent"
-                            BorderThickness="0">
-                            <TabItem
-                                Width="465"
-                                Height="25"
-                                Header=""
-                                Style="{StaticResource CommonFunctionTabItem}"
-                                Visibility="Hidden" />
-                            <TabItem
-                                Name="tabItem1"
-                                Width="80"
-                                Height="25"
-                                Background="{StaticResource DefaultTransientBlackBackground5}"
-                                Header="英雄印"
-                                IsSelected="True"
-                                Style="{StaticResource CommonFunctionTabItem}">
-                                <careerAchievementsPage:CareerAchievementsHeroTagPage />
-                            </TabItem>
-                            <TabItem
-                                Name="tabItem2"
-                                Width="80"
-                                Height="25"
-                                Background="{StaticResource DefaultTransientBlackBackground5}"
-                                Header="龙魂宝藏"
-                                Style="{StaticResource CommonFunctionTabItem}">
-                                <careerAchievementsPage:CareerAchievementsDragonSoulPage />
-                            </TabItem>
-                            <TabItem
-                                Name="tabItem3"
-                                Width="80"
-                                Height="25"
-                                Background="{StaticResource DefaultTransientBlackBackground5}"
-                                Header="金乌宝藏"
-                                Style="{StaticResource CommonFunctionTabItem}">
-                                <careerAchievementsPage:CareerAchievementsGoldenCrowPage />
-                            </TabItem>
-                        </TabControl>
-                    </Grid>
+                    <TabControl
+                        Margin="0,-3,0,0"
+                        Background="Transparent"
+                        BorderThickness="0">
+                        <TabItem
+                            Width="465"
+                            Height="25"
+                            Header=""
+                            Style="{StaticResource CommonFunctionTabItem}"
+                            Visibility="Hidden" />
+                        <TabItem
+                            Name="tabItem1"
+                            Width="80"
+                            Height="25"
+                            Background="{StaticResource DefaultTransientBlackBackground5}"
+                            Header="英雄印"
+                            IsSelected="True"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <careerAchievementsPage:CareerAchievementsHeroTagPage />
+                        </TabItem>
+                        <TabItem
+                            Name="tabItem2"
+                            Width="80"
+                            Height="25"
+                            Background="{StaticResource DefaultTransientBlackBackground5}"
+                            Header="龙魂宝藏"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <careerAchievementsPage:CareerAchievementsDragonSoulPage />
+                        </TabItem>
+                        <TabItem
+                            Name="tabItem3"
+                            Width="80"
+                            Height="25"
+                            Background="{StaticResource DefaultTransientBlackBackground5}"
+                            Header="金乌宝藏"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <careerAchievementsPage:CareerAchievementsGoldenCrowPage />
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -168,7 +166,35 @@
                     Background="Transparent"
                     Header="图鉴收集"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <illustratedCollectionPage:IllustratedCollectionPage />
+                    <TabControl
+                        Margin="0,-3,0,0"
+                        Background="Transparent"
+                        BorderThickness="0">
+                        <TabItem
+                            Width="575"
+                            Height="25"
+                            Header=""
+                            Style="{StaticResource CommonFunctionTabItem}"
+                            Visibility="Hidden" />
+                        <TabItem
+                            Width="60"
+                            Height="25"
+                            d:IsSelected="True"
+                            Background="{StaticResource DefaultTransientBlackBackground5}"
+                            Header="总览"
+                            IsSelected="True"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <illustratedCollectionPage:IllustratedCollectioOverviewPage />
+                        </TabItem>
+                        <TabItem
+                            Width="60"
+                            Height="25"
+                            Background="{StaticResource DefaultTransientBlackBackground5}"
+                            Header="套装"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <illustratedCollectionPage:IllustratedCollectioSuitPage />
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"

@@ -72,9 +72,14 @@ namespace NarakaBladepoint.Modules.PersonalInformation.Module
                 CareerAchievementsHeroTagPage,
                 CareerAchievementsHeroTagPageViewModel
             >();
+
             containerRegistry.RegisterForNavigation<
-                IllustratedCollectionPage,
-                IllustratedCollectionPageViewModel
+                IllustratedCollectioSuitPage,
+                IllustratedCollectioSuitPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                IllustratedCollectioOverviewPage,
+                IllustratedCollectioOverviewPageViewModel
             >();
             containerRegistry.RegisterForNavigation<CreditScorePage, CreditScorePageViewModel>();
             containerRegistry.RegisterForNavigation<SeasonDataPage, SeasonDataPageViewModel>();

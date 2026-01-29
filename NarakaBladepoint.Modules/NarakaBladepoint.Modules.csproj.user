@@ -5,6 +5,24 @@
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\BrotherhoodRankingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\CollectionScoreRankingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\HeroLeaderboardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\LeaderboardContentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\TournamentChampionPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Leaderboard\Views\UniversityLeaderboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\Store\Views\StoreDailyPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -77,7 +95,10 @@
     <Compile Update="PersonalInformation\UI\HistoryMatchRecord\Views\HistoryMatchRecordPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PersonalInformation\UI\IllustratedCollection\Views\IllustratedCollectionPage.xaml.cs">
+    <Compile Update="PersonalInformation\UI\IllustratedCollection\Views\IllustratedCollectioOverviewPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PersonalInformation\UI\IllustratedCollection\Views\IllustratedCollectioSuitPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PersonalInformation\UI\PersonalInformationDetails\Views\EditGenderPage.xaml.cs">

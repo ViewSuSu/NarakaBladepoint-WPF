@@ -45,7 +45,7 @@
                     <TabItem
                         x:Name="rangedTabItem"
                         Header="远程"
-                        Style="{StaticResource FriendListTabItem}">
+                        Style="{StaticResource CommonFunctionTabItem2}">
                         <ItemsControl
                             HorizontalContentAlignment="Stretch"
                             d:ItemsSource="{d:SampleData ItemCount=10}"
@@ -121,7 +121,7 @@
                     <TabItem
                         x:Name="meleeTabItem"
                         Header="近战"
-                        Style="{StaticResource FriendListTabItem}">
+                        Style="{StaticResource CommonFunctionTabItem2}">
                         <ItemsControl
                             HorizontalContentAlignment="Stretch"
                             d:ItemsSource="{d:SampleData ItemCount=3}"
