@@ -270,5 +270,4 @@
     <!--  默认ScrollView  -->
     <!--
     <Style BasedOn="{StaticResource for_scrollviewer}" TargetType="ScrollViewer" />-->
-
 </ResourceDictionary>

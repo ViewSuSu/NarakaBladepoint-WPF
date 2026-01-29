@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -30,24 +28,24 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
 
     /// <summary>
     /// TextBlock 文本高亮附加属性
-    /// 
+    ///
     /// 用途：为 TextBlock 中的指定文本添加高亮效果（改变前景色）
-    /// 
+    ///
     /// 实现方式：使用 TextEffect 实现高亮，不修改文本内容
-    /// 
+    ///
     /// 内存安全：使用弱引用事件管理，避免内存泄漏
-    /// 
+    ///
     /// 支持的数据类型：
     /// - 单个文本：使用 HighlightText 属性
     /// - 多个文本：使用 HighlightSegments 属性，支持 List&lt;string&gt; 或 HighlightSegmentCollection
-    /// 
+    ///
     /// 使用示例：
     /// <![CDATA[
     /// <!-- 单个高亮 -->
     /// <TextBlock Text="这是一段包含关键词的文本"
     ///            attach:TextBlockHighlightAttachedProperty.HighlightText="关键词"
     ///            attach:TextBlockHighlightAttachedProperty.HighlightForeground="Red" />
-    /// 
+    ///
     /// <!-- 多个高亮 -->
     /// <TextBlock Text="这是一段包含多个关键词的文本"
     ///            attach:TextBlockHighlightAttachedProperty.HighlightSegments="{Binding HighlightWords}" />
@@ -104,7 +102,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 new PropertyMetadata(false)
             );
 
-        #endregion
+        #endregion Dependency Properties
 
         #region Getters and Setters
 
@@ -132,7 +130,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         private static void SetWeakEventAttached(DependencyObject obj, bool value) =>
             obj.SetValue(WeakEventAttachedProperty, value);
 
-        #endregion
+        #endregion Getters and Setters
 
         #region Property Changed Handlers
 
@@ -200,7 +198,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             }
         }
 
-        #endregion
+        #endregion Property Changed Handlers
 
         #region Highlighting Logic
 
@@ -242,11 +240,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             {
                 highlightCollection = new HighlightSegmentCollection
                 {
-                    new HighlightSegment
-                    {
-                        Text = highlightText,
-                        Foreground = highlightForeground
-                    }
+                    new HighlightSegment { Text = highlightText, Foreground = highlightForeground },
                 };
             }
 
@@ -257,7 +251,10 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         /// <summary>
         /// 应用 TextEffect 高亮效果
         /// </summary>
-        private static void ApplyTextEffects(TextBlock textBlock, HighlightSegmentCollection segments)
+        private static void ApplyTextEffects(
+            TextBlock textBlock,
+            HighlightSegmentCollection segments
+        )
         {
             if (segments == null || segments.Count == 0)
             {
@@ -282,7 +279,11 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                     int startIndex = 0;
                     while (startIndex < text.Length)
                     {
-                        int index = text.IndexOf(segment.Text, startIndex, StringComparison.Ordinal);
+                        int index = text.IndexOf(
+                            segment.Text,
+                            startIndex,
+                            StringComparison.Ordinal
+                        );
                         if (index == -1)
                             break;
 
@@ -291,7 +292,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                         {
                             Foreground = segment.Foreground,
                             PositionStart = index,
-                            PositionCount = segment.Text.Length
+                            PositionCount = segment.Text.Length,
                         };
 
                         textBlock.TextEffects.Add(textEffect);
@@ -335,6 +336,6 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             return null;
         }
 
-        #endregion
+        #endregion Highlighting Logic
     }
 }

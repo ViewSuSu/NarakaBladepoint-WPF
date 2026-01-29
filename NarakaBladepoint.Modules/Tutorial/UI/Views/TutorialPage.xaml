@@ -93,7 +93,3 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Tutorial.UI.ViewModels"
             Command="{Binding ReturnCommand}" />
     </Grid>
 </bases:UserControlBase>
-
-
-
-

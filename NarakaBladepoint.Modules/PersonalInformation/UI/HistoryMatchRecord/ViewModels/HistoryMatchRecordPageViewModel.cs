@@ -1,7 +1,5 @@
-using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.Views;
 using NarakaBladepoint.Shared.Jsons;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.ViewModels
 {
@@ -12,9 +10,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Vie
 
         private DelegateCommand<MatchDataItem> _detailCommand;
 
-        public HistoryMatchRecordPageViewModel(
-            ICurrentUserInfoProvider matchDataInfomation
-        )
+        public HistoryMatchRecordPageViewModel(ICurrentUserInfoProvider matchDataInfomation)
         {
             this.currentUserBasicInformation = matchDataInfomation;
             this.MatchDataItems = this.currentUserBasicInformation.GetMatchDataItemsAsync().Result;

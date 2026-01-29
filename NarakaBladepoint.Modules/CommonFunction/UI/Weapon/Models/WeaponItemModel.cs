@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Windows.Media;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Models
@@ -32,6 +31,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Models
         public int Headshots { get; set; }
 
         private bool _isSelected;
+
         public bool IsSelected
         {
             get => _isSelected;

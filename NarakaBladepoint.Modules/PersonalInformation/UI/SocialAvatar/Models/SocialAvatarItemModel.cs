@@ -15,15 +15,14 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.Models
         public bool IsHave { get; set; }
 
         private bool _isSelected;
+
         public bool IsSelected
         {
             get => _isSelected;
             set => SetProperty(ref _isSelected, value);
         }
 
-        public SocialAvatarItemModel()
-        {
-        }
+        public SocialAvatarItemModel() { }
 
         public SocialAvatarItemModel(AvatarData avatarData)
         {

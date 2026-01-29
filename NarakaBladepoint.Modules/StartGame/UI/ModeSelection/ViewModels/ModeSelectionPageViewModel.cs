@@ -1,8 +1,6 @@
 using System.Windows.Media;
-using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.StartGame.UI.HeroChose.Views;
 using NarakaBladepoint.Modules.StartGame.UI.MapChose.Views;
-using NarakaBladepoint.Shared.Services.Abstractions;
 using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
@@ -115,7 +113,9 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
         public DelegateCommand ChoseHeroCommand =>
             _choseHeroCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(HeroChosePage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(HeroChosePage)));
             });
 
         private DelegateCommand _choseMapCommand;
@@ -123,7 +123,9 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
         public DelegateCommand ChoseMapCommand =>
             _choseMapCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(MapChosePage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(MapChosePage)));
             });
 
         protected override void OnNavigatedToExecute(NavigationContext navigationContext)

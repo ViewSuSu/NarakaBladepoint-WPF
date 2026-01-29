@@ -1,8 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Shapes;
 
 namespace NarakaBladepoint.Controls
 {
@@ -19,6 +17,7 @@ namespace NarakaBladepoint.Controls
             get => (int)GetValue(SurvivalProperty);
             set => SetValue(SurvivalProperty, value);
         }
+
         public static readonly DependencyProperty SurvivalProperty = DependencyProperty.Register(
             nameof(Survival),
             typeof(int),
@@ -35,6 +34,7 @@ namespace NarakaBladepoint.Controls
             get => (int)GetValue(ControlProperty);
             set => SetValue(ControlProperty, value);
         }
+
         public static readonly DependencyProperty ControlProperty = DependencyProperty.Register(
             nameof(Control),
             typeof(int),
@@ -51,6 +51,7 @@ namespace NarakaBladepoint.Controls
             get => (int)GetValue(MobilityProperty);
             set => SetValue(MobilityProperty, value);
         }
+
         public static readonly DependencyProperty MobilityProperty = DependencyProperty.Register(
             nameof(Mobility),
             typeof(int),
@@ -67,6 +68,7 @@ namespace NarakaBladepoint.Controls
             get => (int)GetValue(DamageProperty);
             set => SetValue(DamageProperty, value);
         }
+
         public static readonly DependencyProperty DamageProperty = DependencyProperty.Register(
             nameof(Damage),
             typeof(int),
@@ -83,6 +85,7 @@ namespace NarakaBladepoint.Controls
             get => (int)GetValue(SupportProperty);
             set => SetValue(SupportProperty, value);
         }
+
         public static readonly DependencyProperty SupportProperty = DependencyProperty.Register(
             nameof(Support),
             typeof(int),

@@ -6,13 +6,13 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
 {
     /// <summary>
     /// ScrollViewer 水平滚动附加属性
-    /// 
+    ///
     /// 用途：为 ScrollViewer 添加鼠标滚轮水平滚动支持
-    /// 
+    ///
     /// 使用场景：当 ScrollViewer 只有水平滚动条时，允许用户使用鼠标滚轮进行水平滚动
-    /// 
+    ///
     /// 内存安全：使用 WeakEventManager 弱引用事件管理
-    /// 
+    ///
     /// 使用示例：
     /// <![CDATA[
     /// <ScrollViewer attach:ScrollViewerHorizontalScrollAttachedProperty.EnableMouseWheelScroll="True"
@@ -76,7 +76,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             if (scrollViewer.ScrollableWidth > 0)
             {
                 if (e.Delta > 0)
-                    scrollViewer.LineLeft();  // 向左滚动
+                    scrollViewer.LineLeft(); // 向左滚动
                 else
                     scrollViewer.LineRight(); // 向右滚动
 

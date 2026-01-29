@@ -1,6 +1,3 @@
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Services.Abstractions;
-
 namespace NarakaBladepoint.Modules.Social.UI.Email.ViewModels
 {
     internal class EmailPageViewModel : CanRemoveHomePageRegionViewModelBase
@@ -21,9 +18,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Email.ViewModels
             }
         }
 
-        public EmailPageViewModel(
-            IEmailItemDataProvider emailItemDataProvider
-        )
+        public EmailPageViewModel(IEmailItemDataProvider emailItemDataProvider)
         {
             this.emailItemDataProvider = emailItemDataProvider;
             this.EmailDatas = emailItemDataProvider.GetEmailItemDatasAsync().Result;

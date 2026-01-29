@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media.Animation;
@@ -95,7 +94,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             set => SetValue(TipTextblockNameProperty, value);
         }
 
-        #endregion
+        #endregion Dependency Properties
 
         #region Fields
 
@@ -104,7 +103,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         private bool _controlsInitialized = false;
         private INotifyPropertyChanged _viewModel;
 
-        #endregion
+        #endregion Fields
 
         #region Behavior Lifecycle
 
@@ -133,7 +132,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             base.OnDetaching();
         }
 
-        #endregion
+        #endregion Behavior Lifecycle
 
         #region Event Handlers
 
@@ -189,7 +188,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
         }
 
-        #endregion
+        #endregion Event Handlers
 
         #region Animation Logic
 
@@ -270,6 +269,6 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             _storyboard?.Begin();
         }
 
-        #endregion
+        #endregion Animation Logic
     }
 }

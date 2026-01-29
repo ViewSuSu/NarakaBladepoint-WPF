@@ -1,7 +1,5 @@
-using System;
 using System.Globalization;
 using System.Windows.Data;
-using NarakaBladepoint.Shared.Enums;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.Domain.Converters
 {
@@ -17,7 +15,12 @@ namespace NarakaBladepoint.Modules.PersonalInformation.Domain.Converters
             return 0;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(
+            object value,
+            Type targetType,
+            object parameter,
+            CultureInfo culture
+        )
         {
             if (value is int index)
             {

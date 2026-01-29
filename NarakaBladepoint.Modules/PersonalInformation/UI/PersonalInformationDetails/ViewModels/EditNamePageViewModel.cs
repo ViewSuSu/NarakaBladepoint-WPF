@@ -1,7 +1,3 @@
-using NarakaBladepoint.Framework.Core.Bases;
-using Prism.Commands;
-using Prism.Events;
-
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
 {
     /// <summary>
@@ -10,6 +6,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
     public class EditNamePageViewModel : CanRemoveHomePageRegionViewModelBase
     {
         private string _newName;
+
         public string NewName
         {
             get => _newName;
@@ -20,13 +17,36 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public DelegateCommand SubmitCommand => _submitCommand ??= new DelegateCommand(OnSubmit);
 
         private DelegateCommand _randomNameCommand;
-        public DelegateCommand RandomNameCommand => _randomNameCommand ??= new DelegateCommand(OnRandomName);
+        public DelegateCommand RandomNameCommand =>
+            _randomNameCommand ??= new DelegateCommand(OnRandomName);
 
         public EditNamePageViewModel() { }
 
         private void OnRandomName()
         {
-            var names = new[] { "宁红夜", "特木尔", "迦南", "季沧海", "胡桃", "天海", "妖刀姬", "崔三娘", "岳山", "无尘", "顾清寒", "武田信忠", "殷紫萍", "沈妙", "胡为", "季莹莹", "玉玲珑", "哈迪", "魏轻", "刘炼" };
+            var names = new[]
+            {
+                "宁红夜",
+                "特木尔",
+                "迦南",
+                "季沧海",
+                "胡桃",
+                "天海",
+                "妖刀姬",
+                "崔三娘",
+                "岳山",
+                "无尘",
+                "顾清寒",
+                "武田信忠",
+                "殷紫萍",
+                "沈妙",
+                "胡为",
+                "季莹莹",
+                "玉玲珑",
+                "哈迪",
+                "魏轻",
+                "刘炼",
+            };
             var random = new Random();
             NewName = names[random.Next(names.Length)] + random.Next(100, 999);
         }

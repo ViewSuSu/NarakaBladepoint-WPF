@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NarakaBladepoint.Framework.Core.Infrastructure;
+﻿using NarakaBladepoint.Framework.Core.Infrastructure;
 using NarakaBladepoint.Modules.CommonFunction.Domain.Events;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Domain.Bases
@@ -31,6 +26,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.Domain.Bases
         public event EventHandler IsActiveChanged;
 
         private bool _isActive;
+
         public bool IsActive
         {
             get { return _isActive; }

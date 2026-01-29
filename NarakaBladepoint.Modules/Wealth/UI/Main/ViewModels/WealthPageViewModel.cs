@@ -1,7 +1,4 @@
-using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.TopUp.UI.Main.Views;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
 {
@@ -11,9 +8,7 @@ namespace NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels
 
         private DelegateCommand _navigateToTopUpCommand;
 
-        public WealthPageViewModel(
-            ICurrentUserInfoProvider currentUserInfoProvider
-        )
+        public WealthPageViewModel(ICurrentUserInfoProvider currentUserInfoProvider)
         {
             this.CurrentUserModel = currentUserInfoProvider.GetCurrentUserInfoAsync().Result;
         }

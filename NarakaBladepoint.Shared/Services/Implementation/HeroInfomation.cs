@@ -1,6 +1,4 @@
-﻿using System.Windows.Media;
-using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Resources;
+﻿using NarakaBladepoint.Resources;
 
 namespace NarakaBladepoint.Shared.Services.Implementation
 {

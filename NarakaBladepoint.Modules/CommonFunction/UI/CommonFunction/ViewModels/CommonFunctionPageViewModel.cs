@@ -1,4 +1,3 @@
-using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Framework.Core.Infrastructure;
 using NarakaBladepoint.Modules.CommonFunction.Domain.Events;
 using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
@@ -8,7 +7,6 @@ using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Store.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Views;
-using Prism.Commands;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
 {
@@ -27,6 +25,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private DelegateCommand _removeMainContentCommand;
+
         public DelegateCommand RemoveMainContentCommand =>
             _removeMainContentCommand ??= new DelegateCommand(OnRemoveMainContent);
 
@@ -38,6 +37,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         #region Tab Selection Properties
 
         private bool _isSelectedHero;
+
         public bool IsSelectedHero
         {
             get => _isSelectedHero;
@@ -55,6 +55,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedWeapon;
+
         public bool IsSelectedWeapon
         {
             get => _isSelectedWeapon;
@@ -72,6 +73,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedSkillPoint;
+
         public bool IsSelectedSkillPoint
         {
             get => _isSelectedSkillPoint;
@@ -89,6 +91,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedHall = true;
+
         public bool IsSelectedHall
         {
             get => _isSelectedHall;
@@ -100,6 +103,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedLeaderboard;
+
         public bool IsSelectedLeaderboard
         {
             get => _isSelectedLeaderboard;
@@ -117,6 +121,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedInventory;
+
         public bool IsSelectedInventory
         {
             get => _isSelectedInventory;
@@ -134,6 +139,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
         }
 
         private bool _isSelectedStore;
+
         public bool IsSelectedStore
         {
             get => _isSelectedStore;
@@ -168,7 +174,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
             }
         }
 
-        #endregion
+        #endregion Tab Selection Properties
 
         private void MainContentNavigator_Removed(object? sender, EventArgs e)
         {

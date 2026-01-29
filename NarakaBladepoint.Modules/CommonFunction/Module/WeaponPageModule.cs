@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels;
-using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
-using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.ViewModels;
+﻿using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.ViewModels;
 using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Views;
 
 namespace NarakaBladepoint.Modules.CommonFunction.Module

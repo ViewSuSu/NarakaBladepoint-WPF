@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NarakaBladepoint.Modules.CommonFunction.Domain.Bases;
+﻿using NarakaBladepoint.Modules.CommonFunction.Domain.Bases;
 using NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Models;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.ViewModels
@@ -13,6 +11,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.ViewModels
         public List<WeaponItemModel> RangedWeaponModels { get; }
 
         private WeaponItemModel _selectedWeapon;
+
         public WeaponItemModel SelectedWeapon
         {
             get => _selectedWeapon;
@@ -28,23 +27,18 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.ViewModels
 
         public DelegateCommand<WeaponItemModel> SelectWeaponCommand { get; }
 
-        public WeaponPageViewModel(
-            IWeaponProvider weaponProvider
-        )
+        public WeaponPageViewModel(IWeaponProvider weaponProvider)
         {
             this.weaponProvider = weaponProvider;
 
             // 远程武器
             this.RangedWeaponModels = weaponProvider
                 .GetRangedWeaponDatasAsync()
-                .Result
-                .Select(x => new WeaponItemModel(x))
+                .Result.Select(x => new WeaponItemModel(x))
                 .ToList();
 
             // 近战武器
-            List<WeaponData> meleeWeaponDatas = weaponProvider
-                .GetMeleeWeaponDatasAsync()
-                .Result;
+            List<WeaponData> meleeWeaponDatas = weaponProvider.GetMeleeWeaponDatasAsync().Result;
             this.MeleeWeaponModels = meleeWeaponDatas
                 .GroupBy(x => x.Group)
                 .Select(g => new MeleeWeaponModel(g.Select(x => new WeaponItemModel(x)).ToList()))

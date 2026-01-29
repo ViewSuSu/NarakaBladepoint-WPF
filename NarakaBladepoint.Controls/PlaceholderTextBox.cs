@@ -16,7 +16,7 @@ namespace NarakaBladepoint.Controls
         private readonly Border _placeholderContainer = new Border();
         private readonly VisualBrush _placeholderVisualBrush = new VisualBrush();
 
-        #endregion
+        #endregion Fields
 
         #region Dependency Properties
 
@@ -43,7 +43,7 @@ namespace NarakaBladepoint.Controls
                 new FrameworkPropertyMetadata(new Thickness(0))
             );
 
-        #endregion
+        #endregion Dependency Properties
 
         #region CLR Properties
 
@@ -65,7 +65,7 @@ namespace NarakaBladepoint.Controls
             set => SetValue(PlaceholderMarginProperty, value);
         }
 
-        #endregion
+        #endregion CLR Properties
 
         #region Constructor
 
@@ -97,7 +97,7 @@ namespace NarakaBladepoint.Controls
             TextChanged += PlaceholderTextBox_TextChanged;
         }
 
-        #endregion
+        #endregion Constructor
 
         #region Event Handling
 
@@ -111,6 +111,6 @@ namespace NarakaBladepoint.Controls
             Background = string.IsNullOrEmpty(Text) ? _placeholderVisualBrush : null;
         }
 
-        #endregion
+        #endregion Event Handling
     }
 }

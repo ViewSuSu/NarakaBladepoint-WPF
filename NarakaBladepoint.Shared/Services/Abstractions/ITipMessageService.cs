@@ -1,9 +1,4 @@
 using NarakaBladepoint.Framework.Core.Evens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NarakaBladepoint.Shared.Services.Abstractions
 {
@@ -38,7 +33,7 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         /// <code>
         /// // 简单消息，不高亮
         /// await tipMessageService.ShowTipMessageAsync(new TipMessageWithHighlightArgs("操作成功"));
-        /// 
+        ///
         /// // 带高亮的消息
         /// await tipMessageService.ShowTipMessageAsync(new TipMessageWithHighlightArgs(
         ///     "恭喜获得 500 金币",

@@ -168,7 +168,3 @@ xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.Welcome
         <ContentControl prism:RegionManager.RegionName="123" />
     </Grid>
 </bases:UserControlBase>
-
-
-
-

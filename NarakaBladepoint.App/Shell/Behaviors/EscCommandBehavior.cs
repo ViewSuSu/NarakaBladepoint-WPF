@@ -1,16 +1,14 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 using Microsoft.Xaml.Behaviors;
 
 namespace NarakaBladepoint.App.Shell.Behaviors
 {
     /// <summary>
     /// ESC 键命令行为
-    /// 
+    ///
     /// 用途：全局监听 ESC 键按下，只在窗口处于激活状态时触发命令
     /// 使用 Windows 键盘钩子实现全局键盘监听
     /// </summary>
@@ -47,7 +45,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
 
-        #endregion
+        #endregion Windows API
 
         #region Dependency Properties
 
@@ -78,7 +76,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
                 new PropertyMetadata(null)
             );
 
-        #endregion
+        #endregion Dependency Properties
 
         #region Fields
 
@@ -86,7 +84,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         private LowLevelKeyboardProc _hookProc;
         private Window _window;
 
-        #endregion
+        #endregion Fields
 
         #region Behavior Lifecycle
 
@@ -110,7 +108,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             base.OnDetaching();
         }
 
-        #endregion
+        #endregion Behavior Lifecycle
 
         #region Hook Methods
 
@@ -159,6 +157,6 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
         }
 
-        #endregion
+        #endregion Hook Methods
     }
 }

@@ -1,10 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Enums;
-using NarakaBladepoint.Shared.Services.Abstractions;
-
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.ViewModels
 {
     internal class SeasonDataPageViewModel : ViewModelBase
@@ -40,6 +33,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.ViewModels
 
         // 选中的赛季
         private SeasonDataModel _selectedSeasonDataModel;
+
         public SeasonDataModel SelectedSeasonDataModel
         {
             get { return _selectedSeasonDataModel; }
@@ -56,6 +50,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.ViewModels
 
         // 赛季统计数据
         private SeasonStatisticsDataModel _seasonStatistics;
+
         public SeasonStatisticsDataModel SeasonStatistics
         {
             get { return _seasonStatistics; }
@@ -68,6 +63,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.ViewModels
 
         // 选中的队伍规模
         private TeamSize _selectedTeamSize = TeamSize.Trio;
+
         public TeamSize SelectedTeamSize
         {
             get { return _selectedTeamSize; }
@@ -90,6 +86,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SeasonData.ViewModels
 
         // 选中的游戏模式
         private GameMode _selectedGameMode = GameMode.Ranked;
+
         public GameMode SelectedGameMode
         {
             get { return _selectedGameMode; }

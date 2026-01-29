@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Models
+﻿namespace NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Models
 {
     internal class MeleeWeaponModel : BindableBase
     {

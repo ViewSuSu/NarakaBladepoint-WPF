@@ -802,7 +802,3 @@
             Command="{Binding ReturnCommand}" />
     </Grid>
 </base:UserControlBase>
-
-
-
-

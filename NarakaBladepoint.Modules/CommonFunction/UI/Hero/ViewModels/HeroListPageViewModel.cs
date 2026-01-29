@@ -21,9 +21,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.ViewModels
             }
         }
 
-        public HeroListPageViewModel(
-            IHeroInfoProvider heroInfoProvider
-        )
+        public HeroListPageViewModel(IHeroInfoProvider heroInfoProvider)
         {
             this.heroInfoProvider = heroInfoProvider;
             this.HeroAvatarModels = heroInfoProvider
@@ -34,6 +32,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.ViewModels
         }
 
         private DelegateCommand<HeroListItemModel> selectedCommand;
+
         public DelegateCommand<HeroListItemModel> SelectedCommand =>
             selectedCommand
             ?? new DelegateCommand<HeroListItemModel>(item =>

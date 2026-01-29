@@ -6,5 +6,4 @@
     <Style x:Key="GrayForegroundTextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="LightGray" />
     </Style>
-
 </ResourceDictionary>

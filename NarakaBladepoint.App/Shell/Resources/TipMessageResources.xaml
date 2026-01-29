@@ -72,6 +72,4 @@
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
-
 </ResourceDictionary>
-

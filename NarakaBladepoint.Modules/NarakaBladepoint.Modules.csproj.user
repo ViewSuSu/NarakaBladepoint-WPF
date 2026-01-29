@@ -2,6 +2,18 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassContentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassContentTabOnePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassContentTabThreePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassContentTabTwoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

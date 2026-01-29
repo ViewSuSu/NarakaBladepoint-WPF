@@ -1,6 +1,4 @@
-﻿using NarakaBladepoint.Shared.Datas;
-
-namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.Models
+﻿namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.Models
 {
     internal class MapChoseItemModel : BindableBase
     {

@@ -271,5 +271,3 @@
             Command="{Binding ReturnCommand}" />
     </Grid>
 </bases:UserControlBase>
-
-

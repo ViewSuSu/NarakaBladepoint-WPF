@@ -1,6 +1,5 @@
 using System.Windows.Media;
 using NarakaBladepoint.Modules.StartGame.UI.HeroChose.Models;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 {

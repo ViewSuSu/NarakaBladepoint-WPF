@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.Models;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModels
 {
@@ -10,9 +6,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
     {
         private static readonly Random _random = new();
 
-        public SocialAvatarPageViewModel(
-            IAvatarProvider avatarProvider
-        )
+        public SocialAvatarPageViewModel(IAvatarProvider avatarProvider)
         {
             var avatarDatas = avatarProvider.GetAvatarsAsync().Result;
             InitializeAvatarLists(avatarDatas);
@@ -20,6 +14,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 全部头像列表（第一个Tab）
         private List<SocialAvatarItemModel> _allAvatarModels;
+
         public List<SocialAvatarItemModel> AllAvatarModels
         {
             get { return _allAvatarModels; }
@@ -32,6 +27,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 英雄头像列表（第二个Tab）
         private List<SocialAvatarItemModel> _heroAvatarModels;
+
         public List<SocialAvatarItemModel> HeroAvatarModels
         {
             get { return _heroAvatarModels; }
@@ -44,6 +40,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 武器头像列表（第三个Tab）
         private List<SocialAvatarItemModel> _weaponAvatarModels;
+
         public List<SocialAvatarItemModel> WeaponAvatarModels
         {
             get { return _weaponAvatarModels; }
@@ -56,6 +53,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 赛季奖励头像列表（第四个Tab）
         private List<SocialAvatarItemModel> _seasonRewardAvatarModels;
+
         public List<SocialAvatarItemModel> SeasonRewardAvatarModels
         {
             get { return _seasonRewardAvatarModels; }
@@ -68,6 +66,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 隐族秘宝头像列表（第五个Tab）
         private List<SocialAvatarItemModel> _hiddenTreasureAvatarModels;
+
         public List<SocialAvatarItemModel> HiddenTreasureAvatarModels
         {
             get { return _hiddenTreasureAvatarModels; }
@@ -80,6 +79,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 限时活动头像列表（第六个Tab）
         private List<SocialAvatarItemModel> _limitedEventAvatarModels;
+
         public List<SocialAvatarItemModel> LimitedEventAvatarModels
         {
             get { return _limitedEventAvatarModels; }
@@ -92,6 +92,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
 
         // 其他头像列表（第七个Tab）
         private List<SocialAvatarItemModel> _otherAvatarModels;
+
         public List<SocialAvatarItemModel> OtherAvatarModels
         {
             get { return _otherAvatarModels; }
@@ -103,6 +104,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
         }
 
         private SocialAvatarItemModel _selectedAvatar;
+
         public SocialAvatarItemModel SelectedAvatar
         {
             get => _selectedAvatar;
@@ -117,6 +119,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
         }
 
         private DelegateCommand<SocialAvatarItemModel> _selectAvatarCommand;
+
         public DelegateCommand<SocialAvatarItemModel> SelectAvatarCommand =>
             _selectAvatarCommand ??= new DelegateCommand<SocialAvatarItemModel>(avatar =>
             {
@@ -144,7 +147,10 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModel
         }
 
         // 获取随机顺序的列表副本
-        private static List<SocialAvatarItemModel> GetRandomizedList(List<AvatarData> originalList, int maxCount)
+        private static List<SocialAvatarItemModel> GetRandomizedList(
+            List<AvatarData> originalList,
+            int maxCount
+        )
         {
             var shuffled = originalList
                 .OrderBy(_ => _random.Next())

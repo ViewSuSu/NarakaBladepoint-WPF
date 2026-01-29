@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using NarakaBladepoint.Modules.SocialTag.Domain.Events;
 using NarakaBladepoint.Modules.SocialTag.UI.Models;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
 {

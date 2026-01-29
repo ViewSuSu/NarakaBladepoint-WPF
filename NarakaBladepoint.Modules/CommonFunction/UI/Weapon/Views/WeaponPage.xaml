@@ -387,8 +387,3 @@
             Command="{Binding ReturnToHallCommand}" />
     </Grid>
 </bases:UserControlBase>
-
-
-
-
-

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NarakaBladepoint.Shared.Services.Abstractions
+﻿namespace NarakaBladepoint.Shared.Services.Abstractions
 {
     /// <summary>
     /// 社交标签提供者接口
@@ -16,6 +10,7 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         /// </summary>
         /// <returns></returns>
         Task<List<SocialTagData>> GetSocialTags();
+
         Task<SocialTagData> GetSocialTagByIndex(int index);
 
         /// <summary>
@@ -37,9 +32,11 @@ namespace NarakaBladepoint.Shared.Services.Abstractions
         Task<SocialTagOnlineData> GetSocialTagOnlineDataByIndex(int index);
 
         Task<List<SocialTagMicData>> GetSocialTagMicDatas();
+
         Task<List<SocialTagOnlineData>> GetSocialTagOnlineDatas();
 
         Task<bool> GetSocialTagMicDataIsSelectedByIndex(int index);
+
         Task<bool> GetSocialTagOnlineDataIsSelectedByIndex(int index);
     }
 }

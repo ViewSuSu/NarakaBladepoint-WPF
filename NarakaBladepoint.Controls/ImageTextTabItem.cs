@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -16,7 +15,6 @@ namespace NarakaBladepoint.Controls
         }
 
         #region 依赖属性
-
 
         public Thickness ContentMargin
         {
@@ -163,6 +161,6 @@ namespace NarakaBladepoint.Controls
                 new PropertyMetadata(new SolidColorBrush(Colors.Transparent))
             );
 
-        #endregion
+        #endregion 依赖属性
     }
 }

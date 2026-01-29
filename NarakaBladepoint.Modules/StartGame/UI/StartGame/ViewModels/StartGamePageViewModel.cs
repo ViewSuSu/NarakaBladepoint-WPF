@@ -1,4 +1,3 @@
-using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.EventCenter.UI.Main.Views;
 using NarakaBladepoint.Modules.StartGame.UI.ModeSelection.Views;
 
@@ -25,9 +24,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.StartGame.ViewModels
 
         public string StartGameContent => IsLoadingGame ? "取消" : "开始游戏";
 
-        public StartGamePageViewModel(
-            ITipMessageService tipMessageService
-        )
+        public StartGamePageViewModel(ITipMessageService tipMessageService)
         {
             this.tipMessageService = tipMessageService;
             eventAggregator

@@ -9,8 +9,23 @@ namespace NarakaBladepoint.Modules.BattlePass.Module
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<BattlePassPage>();
-            containerRegistry.Register<BattlePassPageViewModel>();
+            containerRegistry.RegisterForNavigation<BattlePassPage, BattlePassPageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                BattlePassContentPage,
+                BattlePassContentPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                BattlePassContentTabOnePage,
+                BattlePassContentTabOnePageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                BattlePassContentTabTwoPage,
+                BattlePassContentTabTwoPageViewModel
+            >();
+            containerRegistry.RegisterForNavigation<
+                BattlePassContentTabThreePage,
+                BattlePassContentTabThreePageViewModel
+            >();
         }
     }
 }

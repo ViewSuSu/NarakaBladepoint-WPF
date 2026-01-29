@@ -1,5 +1,4 @@
 ﻿using System.Windows.Media;
-using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Resources;
 using Newtonsoft.Json;
 

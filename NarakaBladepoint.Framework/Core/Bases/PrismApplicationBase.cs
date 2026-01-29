@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace NarakaBladepoint.Framework.Core.Bases
 {
@@ -16,6 +11,7 @@ namespace NarakaBladepoint.Framework.Core.Bases
         }
 
         protected abstract Window CreateShellExecute();
+
         internal static IContainerProvider ContainerProvider { get; private set; }
     }
 }

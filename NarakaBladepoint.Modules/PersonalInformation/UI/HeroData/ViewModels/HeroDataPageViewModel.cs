@@ -1,11 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Models;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Enums;
-using NarakaBladepoint.Shared.Services.Abstractions;
-
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 {
     internal class HeroDataPageViewModel : ViewModelBase
@@ -54,6 +46,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 
         // 英雄数据列表
         private List<Models.HeroDataItemModel> _heroDataList;
+
         public List<Models.HeroDataItemModel> HeroDataList
         {
             get { return _heroDataList; }
@@ -66,6 +59,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 
         // 选中的英雄数据
         private Models.HeroDataItemModel _selectedHeroData;
+
         public Models.HeroDataItemModel SelectedHeroData
         {
             get { return _selectedHeroData; }
@@ -78,6 +72,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 
         // 选中的排位模式
         private TeamSize _selectedTeamSize = TeamSize.Trio;
+
         public TeamSize SelectedTeamSize
         {
             get { return _selectedTeamSize; }
@@ -100,6 +95,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 
         // 选中的游戏模式
         private GameMode _selectedGameMode = GameMode.Ranked;
+
         public GameMode SelectedGameMode
         {
             get { return _selectedGameMode; }
@@ -122,6 +118,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.ViewModels
 
         // 选中的英雄对比排序类型
         private HeroCompareSortType _selectedHeroCompareSortType;
+
         public HeroCompareSortType SelectedHeroCompareSortType
         {
             get { return _selectedHeroCompareSortType; }

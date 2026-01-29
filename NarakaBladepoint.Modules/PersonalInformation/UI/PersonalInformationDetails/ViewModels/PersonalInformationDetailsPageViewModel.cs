@@ -1,14 +1,10 @@
 using System.Collections.ObjectModel;
 using System.Windows;
-using NarakaBladepoint.Framework.Core.Evens;
-using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Modules.PersonalInformation.Domain.Events;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models;
 using NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views;
 using NarakaBladepoint.Modules.SocialTag.Domain.Events;
 using NarakaBladepoint.Modules.SocialTag.UI.Views;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Services.Abstractions;
 using NarakaBladepoint.Shared.Services.Models;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
@@ -105,6 +101,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _changeTagCommand;
+
         public DelegateCommand ChangeTagCommand =>
             _changeTagCommand ??= new DelegateCommand(() =>
             {
@@ -114,6 +111,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _copyUserIdCommand;
+
         public DelegateCommand CopyUserIdCommand =>
             _copyUserIdCommand ??= new DelegateCommand(async () =>
             {
@@ -133,6 +131,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _editNameCommand;
+
         public DelegateCommand EditNameCommand =>
             _editNameCommand ??= new DelegateCommand(() =>
             {
@@ -142,6 +141,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _editGenderCommand;
+
         public DelegateCommand EditGenderCommand =>
             _editGenderCommand ??= new DelegateCommand(() =>
             {
@@ -151,6 +151,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             });
 
         private DelegateCommand _choseTitleTagCommand;
+
         public DelegateCommand ChoseTitleTagCommand =>
             _choseTitleTagCommand ??= new DelegateCommand(() =>
             {

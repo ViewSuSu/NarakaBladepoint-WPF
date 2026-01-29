@@ -16,6 +16,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels
         public BindingList<InventoryItemModel> BountyItems { get; set; } = [];
 
         private InventoryItemModel _selectedItem;
+
         public InventoryItemModel SelectedItem
         {
             get => _selectedItem;
@@ -30,6 +31,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels
         }
 
         private DelegateCommand<InventoryItemModel> _selectItemCommand;
+
         public DelegateCommand<InventoryItemModel> SelectItemCommand =>
             _selectItemCommand ??= new DelegateCommand<InventoryItemModel>(item =>
             {

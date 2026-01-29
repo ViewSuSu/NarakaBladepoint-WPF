@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels
 {
@@ -22,8 +21,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                         new RewardViewModel(),
                         new RewardViewModel(),
                         new RewardViewModel(),
-                        new RewardViewModel()
-                    }
+                        new RewardViewModel(),
+                    },
                 },
                 new SuitCollectionViewModel
                 {
@@ -34,8 +33,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                     {
                         new RewardViewModel(),
                         new RewardViewModel(),
-                        new RewardViewModel()
-                    }
+                        new RewardViewModel(),
+                    },
                 },
                 new SuitCollectionViewModel
                 {
@@ -46,8 +45,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                     {
                         new RewardViewModel(),
                         new RewardViewModel(),
-                        new RewardViewModel()
-                    }
+                        new RewardViewModel(),
+                    },
                 },
                 new SuitCollectionViewModel
                 {
@@ -59,9 +58,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                         new RewardViewModel(),
                         new RewardViewModel(),
                         new RewardViewModel(),
-                        new RewardViewModel()
-                    }
-                }
+                        new RewardViewModel(),
+                    },
+                },
             };
         }
     }

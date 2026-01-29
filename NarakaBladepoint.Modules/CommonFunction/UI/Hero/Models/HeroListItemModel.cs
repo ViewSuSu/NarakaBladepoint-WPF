@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
 {
@@ -37,6 +32,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         public ImageSource ShowImage => _heroAvatarModel.ShowImage;
 
         private string _name;
+
         public string Name
         {
             get => _name;
@@ -48,6 +44,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private string _voiceActor;
+
         public string VoiceActor
         {
             get => _voiceActor;
@@ -59,6 +56,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private string _shortDescription;
+
         public string ShortDescription
         {
             get => _shortDescription;
@@ -70,6 +68,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private string _description;
+
         public string Description
         {
             get => _description;
@@ -81,6 +80,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private double _heroAccessibilityDifficulty;
+
         public double HeroAccessibilityDifficulty
         {
             get => _heroAccessibilityDifficulty;
@@ -92,6 +92,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private int _survival;
+
         public int Survival
         {
             get => _survival;
@@ -103,6 +104,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private int _control;
+
         public int Control
         {
             get => _control;
@@ -114,6 +116,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private int _mobility;
+
         public int Mobility
         {
             get => _mobility;
@@ -125,6 +128,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private int _damage;
+
         public int Damage
         {
             get => _damage;
@@ -136,6 +140,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Hero.Models
         }
 
         private int _support;
+
         public int Support
         {
             get => _support;

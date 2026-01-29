@@ -1631,7 +1631,7 @@
       "AverageData": 36.96
     }
   },
-  
+
   // 崔三娘 - 快速比赛 - 单排
   {
     "HeroIndex": 0,
@@ -1769,7 +1769,7 @@
       "AverageData": 27.8
     }
   },
-  
+
   // 顾清寒 - 快速比赛 - 单排
   {
     "HeroIndex": 1,
@@ -1907,7 +1907,7 @@
       "AverageData": 30.5
     }
   },
-  
+
   // 哈迪 - 快速比赛 - 单排
   {
     "HeroIndex": 2,
@@ -2045,7 +2045,7 @@
       "AverageData": 29.5
     }
   },
-  
+
   // 胡桃 - 快速比赛 - 单排
   {
     "HeroIndex": 3,
@@ -2183,7 +2183,7 @@
       "AverageData": 28.0
     }
   },
-  
+
   // 胡为 - 快速比赛 - 单排
   {
     "HeroIndex": 4,
@@ -2321,7 +2321,7 @@
       "AverageData": 27.5
     }
   },
-  
+
   // 季莹莹 - 快速比赛 - 单排
   {
     "HeroIndex": 5,
@@ -2459,7 +2459,7 @@
       "AverageData": 29.8
     }
   },
-  
+
   // 崔三娘 - 快速比赛 - 双排
   {
     "HeroIndex": 0,
@@ -2597,7 +2597,7 @@
       "AverageData": 30.2
     }
   },
-  
+
   // 顾清寒 - 快速比赛 - 双排
   {
     "HeroIndex": 1,
@@ -2735,7 +2735,7 @@
       "AverageData": 32.5
     }
   },
-  
+
   // 哈迪 - 快速比赛 - 双排
   {
     "HeroIndex": 2,
@@ -2873,7 +2873,7 @@
       "AverageData": 31.8
     }
   },
-  
+
   // 胡桃 - 快速比赛 - 双排
   {
     "HeroIndex": 3,
@@ -3011,7 +3011,7 @@
       "AverageData": 30.2
     }
   },
-  
+
   // 胡为 - 快速比赛 - 双排
   {
     "HeroIndex": 4,
@@ -3149,7 +3149,7 @@
       "AverageData": 29.5
     }
   },
-  
+
   // 季莹莹 - 快速比赛 - 双排
   {
     "HeroIndex": 5,
@@ -3287,7 +3287,7 @@
       "AverageData": 32.2
     }
   },
-  
+
   // 快速比赛 - 三排 (GameMode=1, TeamSize=3)
   {
     "HeroIndex": 0,

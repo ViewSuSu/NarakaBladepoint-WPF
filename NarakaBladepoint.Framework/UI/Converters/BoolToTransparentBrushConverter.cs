@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -17,6 +12,7 @@ namespace NarakaBladepoint.Framework.UI.Converters
     public class BoolToTransparentBrushConverter : IValueConverter
     {
         private static readonly SolidColorBrush WhiteBrush = new SolidColorBrush(Colors.White);
+
         private static readonly SolidColorBrush TransparentBrush = new SolidColorBrush(
             Colors.Transparent
         );

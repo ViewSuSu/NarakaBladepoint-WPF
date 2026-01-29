@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media.Animation;
@@ -13,7 +12,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
     /// 当属性变化时自动触发动画和计时逻辑：
     /// - IsQueuing = true: 从下往上滑出 + 淡入 + 启动计时
     /// - IsQueuing = false: 向下滑出 + 淡出 + 停止计时
-    /// 
+    ///
     /// 内存安全：使用 WeakEventManager 弱引用事件管理
     /// </summary>
     public class QueueAnimationBehavior : Behavior<FrameworkElement>
@@ -76,7 +75,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             set => SetValue(QueueBorderNameProperty, value);
         }
 
-        #endregion
+        #endregion Dependency Properties
 
         #region Fields
 
@@ -86,7 +85,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         private INotifyPropertyChanged _viewModel;
         private System.Timers.Timer _queueTimer;
 
-        #endregion
+        #endregion Fields
 
         #region Behavior Lifecycle
 
@@ -116,7 +115,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             base.OnDetaching();
         }
 
-        #endregion
+        #endregion Behavior Lifecycle
 
         #region Event Handlers
 
@@ -143,7 +142,10 @@ namespace NarakaBladepoint.App.Shell.Behaviors
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             // 确保在 UI 线程上执行
-            if (Application.Current?.Dispatcher != null && !Application.Current.Dispatcher.CheckAccess())
+            if (
+                Application.Current?.Dispatcher != null
+                && !Application.Current.Dispatcher.CheckAccess()
+            )
             {
                 Application.Current.Dispatcher.Invoke(() => OnViewModelPropertyChanged(sender, e));
                 return;
@@ -176,7 +178,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             StopQueueTimer();
         }
 
-        #endregion
+        #endregion Event Handlers
 
         #region Animation Logic
 
@@ -264,7 +266,7 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
         }
 
-        #endregion
+        #endregion Animation Logic
 
         #region Timer Logic
 
@@ -320,6 +322,6 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
         }
 
-        #endregion
+        #endregion Timer Logic
     }
 }

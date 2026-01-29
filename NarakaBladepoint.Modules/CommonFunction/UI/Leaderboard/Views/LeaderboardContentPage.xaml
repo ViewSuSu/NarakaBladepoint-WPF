@@ -8,6 +8,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels"
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     d:Background="Gray"
+    d:DataContext="{d:DesignInstance Type=viewmodels:LeaderboardContentPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
@@ -29,26 +30,26 @@
                         AutoGenerateColumns="False"
                         ColumnHeaderHeight="30"
                         ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
-                        GridLinesVisibility="None"
-                        HeadersVisibility="Column"
                         IsReadOnly="True"
                         ItemsSource="{Binding PlayersSolo}"
-                        RowHeight="56"
+                        RowHeight="50"
                         RowStyle="{StaticResource TransparentDataGridRowStyle}"
                         Style="{StaticResource TransparentDataGridStyle}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn
-                                Width="80"
-                                Binding="{Binding Rank}"
-                                Header="排名">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Width="80" Header="排名">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Image />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="White"
+                                                Text="{Binding Name}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTemplateColumn Width="*" Header="斗士">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

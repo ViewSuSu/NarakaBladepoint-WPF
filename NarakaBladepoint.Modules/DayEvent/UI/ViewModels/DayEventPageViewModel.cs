@@ -8,6 +8,7 @@ namespace NarakaBladepoint.Modules.DayEvent.UI.ViewModels
         public DayEventPageViewModel() { }
 
         private DelegateCommand _taskDetailsComamnd;
+
         public DelegateCommand TaskDetailsComamnd =>
             _taskDetailsComamnd ??= new DelegateCommand(() =>
             {

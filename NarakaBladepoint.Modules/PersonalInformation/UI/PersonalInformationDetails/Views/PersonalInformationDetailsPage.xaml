@@ -252,7 +252,6 @@
                             </Grid>
                         </Grid>
 
-
                         <Border
                             Grid.Row="2"
                             Height="30"

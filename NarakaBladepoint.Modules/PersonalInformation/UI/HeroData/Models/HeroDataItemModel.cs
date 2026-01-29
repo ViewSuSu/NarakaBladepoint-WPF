@@ -1,9 +1,5 @@
 using System.Windows.Media;
-using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Resources;
-using NarakaBladepoint.Shared.Datas;
-using NarakaBladepoint.Shared.Enums;
-using Prism.Mvvm;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Models
 {

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NarakaBladepoint.Shared.Datas;
-
-namespace NarakaBladepoint.Modules.SocialTag.UI.Models
+﻿namespace NarakaBladepoint.Modules.SocialTag.UI.Models
 {
     internal class SocialTagModel : BindableBase
     {

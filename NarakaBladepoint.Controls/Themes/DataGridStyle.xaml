@@ -62,7 +62,6 @@
                 </Style>
             </Setter.Value>
         </Setter>
-
     </Style>
     <Style x:Key="TransparentDataGridRowStyle" TargetType="DataGridRow">
         <Setter Property="Background" Value="Transparent" />
@@ -89,5 +88,4 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
 </ResourceDictionary>

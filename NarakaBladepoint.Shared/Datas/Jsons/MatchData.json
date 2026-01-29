@@ -13,7 +13,7 @@
       "Score": 3150,
       "ChangeScore": 25,
       "IsAdd": true,
-      "AchievementIndexes": [1, 3, 5, 7]
+      "AchievementIndexes": [ 1, 3, 5, 7 ]
     },
     {
       "AvatarIndex": 7,
@@ -28,7 +28,7 @@
       "Score": 3120,
       "ChangeScore": 30,
       "IsAdd": false,
-      "AchievementIndexes": [2, 4, 8]
+      "AchievementIndexes": [ 2, 4, 8 ]
     },
     {
       "AvatarIndex": 5,
@@ -43,7 +43,7 @@
       "Score": 3145,
       "ChangeScore": 25,
       "IsAdd": true,
-      "AchievementIndexes": [1, 6, 9, 10]
+      "AchievementIndexes": [ 1, 6, 9, 10 ]
     },
     {
       "AvatarIndex": 2,
@@ -58,7 +58,7 @@
       "Score": 3110,
       "ChangeScore": 35,
       "IsAdd": false,
-      "AchievementIndexes": [3, 5, 7]
+      "AchievementIndexes": [ 3, 5, 7 ]
     },
     {
       "AvatarIndex": 9,
@@ -73,7 +73,7 @@
       "Score": 3075,
       "ChangeScore": 35,
       "IsAdd": false,
-      "AchievementIndexes": [2, 4, 6, 8, 10]
+      "AchievementIndexes": [ 2, 4, 6, 8, 10 ]
     },
     {
       "AvatarIndex": 1,
@@ -88,7 +88,7 @@
       "Score": 3140,
       "ChangeScore": 65,
       "IsAdd": true,
-      "AchievementIndexes": [1, 2, 3, 4, 5]
+      "AchievementIndexes": [ 1, 2, 3, 4, 5 ]
     },
     {
       "AvatarIndex": 4,
@@ -103,7 +103,7 @@
       "Score": 3105,
       "ChangeScore": 35,
       "IsAdd": false,
-      "AchievementIndexes": [6, 7, 8]
+      "AchievementIndexes": [ 6, 7, 8 ]
     },
     {
       "AvatarIndex": 6,
@@ -118,7 +118,7 @@
       "Score": 3080,
       "ChangeScore": 25,
       "IsAdd": false,
-      "AchievementIndexes": [9, 10]
+      "AchievementIndexes": [ 9, 10 ]
     },
     {
       "AvatarIndex": 8,
@@ -133,7 +133,7 @@
       "Score": 3050,
       "ChangeScore": 30,
       "IsAdd": false,
-      "AchievementIndexes": [1, 5, 9]
+      "AchievementIndexes": [ 1, 5, 9 ]
     },
     {
       "AvatarIndex": 10,
@@ -148,7 +148,7 @@
       "Score": 3115,
       "ChangeScore": 65,
       "IsAdd": true,
-      "AchievementIndexes": [2, 3, 6, 8]
+      "AchievementIndexes": [ 2, 3, 6, 8 ]
     },
     {
       "AvatarIndex": 3,
@@ -163,7 +163,7 @@
       "Score": 3070,
       "ChangeScore": 45,
       "IsAdd": false,
-      "AchievementIndexes": [4, 7, 10]
+      "AchievementIndexes": [ 4, 7, 10 ]
     },
     {
       "AvatarIndex": 2,
@@ -178,7 +178,7 @@
       "Score": 3130,
       "ChangeScore": 60,
       "IsAdd": true,
-      "AchievementIndexes": [1, 2, 4, 5, 7, 9]
+      "AchievementIndexes": [ 1, 2, 4, 5, 7, 9 ]
     },
     {
       "AvatarIndex": 5,
@@ -193,7 +193,7 @@
       "Score": 3090,
       "ChangeScore": 40,
       "IsAdd": false,
-      "AchievementIndexes": [3, 6, 8]
+      "AchievementIndexes": [ 3, 6, 8 ]
     },
     {
       "AvatarIndex": 7,
@@ -208,7 +208,7 @@
       "Score": 3060,
       "ChangeScore": 30,
       "IsAdd": false,
-      "AchievementIndexes": [1, 10]
+      "AchievementIndexes": [ 1, 10 ]
     },
     {
       "AvatarIndex": 1,
@@ -223,7 +223,7 @@
       "Score": 3000,
       "ChangeScore": 60,
       "IsAdd": false,
-      "AchievementIndexes": [1, 2, 3, 5, 6, 7, 8, 9, 10]
+      "AchievementIndexes": [ 1, 2, 3, 5, 6, 7, 8, 9, 10 ]
     }
   ]
 }

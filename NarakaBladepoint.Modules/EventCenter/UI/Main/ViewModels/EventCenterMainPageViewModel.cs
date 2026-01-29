@@ -1,5 +1,4 @@
 using NarakaBladepoint.Modules.EventCenter.Domain.EventParameters;
-using NarakaBladepoint.Modules.EventCenter.Domain.Events;
 
 namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
 {
@@ -9,6 +8,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中近期热点Tab
         /// </summary>
         private bool _isSelectedLatestNews = false;
+
         public bool IsSelectedLatestNews
         {
             get { return _isSelectedLatestNews; }
@@ -23,6 +23,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中限时活动Tab
         /// </summary>
         private bool _isSelectedLimitedEvent = false;
+
         public bool IsSelectedLimitedEvent
         {
             get { return _isSelectedLimitedEvent; }
@@ -37,6 +38,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中揽月阁Tab
         /// </summary>
         private bool _isSelectedMoonGazingPavilion = false;
+
         public bool IsSelectedMoonGazingPavilion
         {
             get { return _isSelectedMoonGazingPavilion; }
@@ -51,6 +53,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中白泽月卡Tab
         /// </summary>
         private bool _isSelectedBaiZeCard = false;
+
         public bool IsSelectedBaiZeCard
         {
             get { return _isSelectedBaiZeCard; }
@@ -65,6 +68,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中绑定有礼Tab
         /// </summary>
         private bool _isSelectedBindReward = false;
+
         public bool IsSelectedBindReward
         {
             get { return _isSelectedBindReward; }
@@ -79,6 +83,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中英雄归来Tab
         /// </summary>
         private bool _isSelectedWelcomeBack = false;
+
         public bool IsSelectedWelcomeBack
         {
             get { return _isSelectedWelcomeBack; }
@@ -93,6 +98,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中传火Tab
         /// </summary>
         private bool _isSelectedPassingTheFlame = false;
+
         public bool IsSelectedPassingTheFlame
         {
             get { return _isSelectedPassingTheFlame; }
@@ -107,6 +113,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中蓬莱指南Tab
         /// </summary>
         private bool _isSelectedPenglaiGuide = false;
+
         public bool IsSelectedPenglaiGuide
         {
             get { return _isSelectedPenglaiGuide; }
@@ -121,6 +128,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中更新公告Tab
         /// </summary>
         private bool _isSelectedPatchNote = false;
+
         public bool IsSelectedPatchNote
         {
             get { return _isSelectedPatchNote; }
@@ -135,6 +143,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中网易支付好礼Tab
         /// </summary>
         private bool _isSelectedNetEasePayRewards = false;
+
         public bool IsSelectedNetEasePayRewards
         {
             get { return _isSelectedNetEasePayRewards; }
@@ -149,6 +158,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// 是否选中宝箱定向保底Tab
         /// </summary>
         private bool _isSelectedTargetedChestGuarantee = false;
+
         public bool IsSelectedTargetedChestGuarantee
         {
             get { return _isSelectedTargetedChestGuarantee; }

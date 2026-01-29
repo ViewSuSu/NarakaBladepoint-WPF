@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NarakaBladepoint.App.Shell.Infrastructure
+﻿namespace NarakaBladepoint.App.Shell.Infrastructure
 {
-    internal class TipMessageBox
-    {
-    }
+    internal class TipMessageBox { }
 }

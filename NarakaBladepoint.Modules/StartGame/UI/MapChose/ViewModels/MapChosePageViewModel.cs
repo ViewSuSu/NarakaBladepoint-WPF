@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using System.Windows.Media;
 using NarakaBladepoint.Modules.StartGame.UI.MapChose.Models;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
 {

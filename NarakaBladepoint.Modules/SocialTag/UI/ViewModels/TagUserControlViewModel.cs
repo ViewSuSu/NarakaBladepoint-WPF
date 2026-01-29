@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Linq;
 using NarakaBladepoint.Modules.SocialTag.Domain.Events;
 using NarakaBladepoint.Modules.SocialTag.UI.Models;
-using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
 {
@@ -155,6 +153,7 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
         }
 
         private BindingList<SocialTagOnlineModel> _socialTagOnlineModels;
+
         public BindingList<SocialTagOnlineModel> SocialTagOnlineModels
         {
             get { return _socialTagOnlineModels; }

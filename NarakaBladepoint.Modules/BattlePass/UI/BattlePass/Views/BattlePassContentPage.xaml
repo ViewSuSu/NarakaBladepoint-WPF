@@ -1,0 +1,43 @@
+﻿<views:UserControlBase
+    x:Class="NarakaBladepoint.Modules.BattlePass.UI.BattlePass.Views.BattlePassContentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Modules.BattlePass.UI.BattlePass.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels"
+    xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
+    d:DataContext="{d:DesignInstance Type=viewmodels:BattlePassContentPageViewModel}"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    Background="Gray"
+    mc:Ignorable="d">
+    <Grid>
+        <TabControl>
+            <TabItem
+                Width="80"
+                Header="通行证"
+                IsSelected="True"
+                Style="{StaticResource CommonFunctionTabItem3}">
+                <local:BattlePassContentTabOnePage />
+            </TabItem>
+            <TabItem
+                Width="80"
+                Header="任务"
+                Style="{StaticResource CommonFunctionTabItem3}">
+                <local:BattlePassContentTabTwoPage />
+            </TabItem>
+            <TabItem
+                Width="80"
+                Header="赛季任务"
+                Style="{StaticResource CommonFunctionTabItem3}">
+                <local:BattlePassContentTabThreePage />
+            </TabItem>
+        </TabControl>
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
+    </Grid>
+</views:UserControlBase>

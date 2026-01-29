@@ -4,9 +4,7 @@ namespace NarakaBladepoint.Modules.MainWindowRightEvent.UI.ViewModels
     {
         private readonly ITipMessageService tipMessageService;
 
-        public MainWindowRightEventPageViewModel(
-            ITipMessageService tipMessageService
-        )
+        public MainWindowRightEventPageViewModel(ITipMessageService tipMessageService)
         {
             this.tipMessageService = tipMessageService;
         }

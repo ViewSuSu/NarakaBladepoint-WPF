@@ -1,4 +1,3 @@
-using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.Social.UI.Email.Views;
 using NarakaBladepoint.Modules.Social.UI.Friend.UI.Views;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
@@ -15,7 +14,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
         public DelegateCommand NavigateToMusicCommand =>
             _navigateToMusicCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(TutorialPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(TutorialPage)));
             });
 
         private DelegateCommand _navigateToTutorialCommand;
@@ -23,7 +24,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
         public DelegateCommand NavigateToTutorialCommand =>
             _navigateToTutorialCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(TutorialPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(TutorialPage)));
             });
 
         private DelegateCommand _navigateToEmailCommand;
@@ -31,7 +34,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
         public DelegateCommand NavigateToEmailCommand =>
             _navigateToEmailCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(EmailPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(EmailPage)));
             });
 
         private DelegateCommand _navigateToSettingCommand;
@@ -39,7 +44,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
         public DelegateCommand NavigateToSettingCommand =>
             _navigateToSettingCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(SettingPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(SettingPage)));
             });
 
         private DelegateCommand _navigateToFrendListCommand;
@@ -47,7 +54,9 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
         public DelegateCommand NavigateToFrendListCommand =>
             _navigateToFrendListCommand ??= new DelegateCommand(() =>
             {
-                eventAggregator.GetEvent<LoadHomePageRegionEvent>().Publish(new NavigationArgs(nameof(FriendPage)));
+                eventAggregator
+                    .GetEvent<LoadHomePageRegionEvent>()
+                    .Publish(new NavigationArgs(nameof(FriendPage)));
             });
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Windows.Media;
 using NarakaBladepoint.Framework.Core.Extensions;
 using NarakaBladepoint.Resources;

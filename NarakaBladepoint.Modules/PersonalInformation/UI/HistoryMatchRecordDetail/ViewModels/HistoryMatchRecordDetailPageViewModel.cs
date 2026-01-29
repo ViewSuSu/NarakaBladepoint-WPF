@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Media;
 using NarakaBladepoint.Shared.Jsons;
 using NarakaBladepoint.Shared.Services.Models;
-using Prism.Common;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.ViewModels
 {

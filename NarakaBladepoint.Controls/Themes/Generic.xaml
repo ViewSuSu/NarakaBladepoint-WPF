@@ -1,10 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
+    xmlns:local="clr-namespace:NarakaBladepoint.Controls"
     xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters"
-    xmlns:frameworkConverters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
-    xmlns:local="clr-namespace:NarakaBladepoint.Controls">
+    xmlns:frameworkConverters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework">
     <converters:LTopLeftConverter x:Key="LTopLeftConverter" />
     <converters:LTopRightConverter x:Key="LTopRightConverter" />
     <converters:LBottomLeftConverter x:Key="LBottomLeftConverter" />

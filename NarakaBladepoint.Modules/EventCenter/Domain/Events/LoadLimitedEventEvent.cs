@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NarakaBladepoint.Modules.EventCenter.Domain.Events
+﻿namespace NarakaBladepoint.Modules.EventCenter.Domain.Events
 {
-    class LoadLimitedEventEvent : PubSubEvent { }
+    internal class LoadLimitedEventEvent : PubSubEvent { }
 }

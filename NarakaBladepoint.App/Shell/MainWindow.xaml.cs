@@ -6,7 +6,7 @@ namespace NarakaBladepoint.App.Shell
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// 
+    ///
     /// 注意：此文件仅包含 UI 相关的逻辑（如窗口初始化、Windows API 调用等）
     /// 业务逻辑已提取到 Behavior 中处理
     /// </summary>
@@ -33,4 +33,3 @@ namespace NarakaBladepoint.App.Shell
         }
     }
 }
-

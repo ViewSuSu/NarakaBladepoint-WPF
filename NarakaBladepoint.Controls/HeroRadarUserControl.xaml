@@ -93,6 +93,5 @@
             Canvas.Top="75"
             Foreground="#80FFFFFF"
             Text="支援" />
-
     </Canvas>
 </UserControl>

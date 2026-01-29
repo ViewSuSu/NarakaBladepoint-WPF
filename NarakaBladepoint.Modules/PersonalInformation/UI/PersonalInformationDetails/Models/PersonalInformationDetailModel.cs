@@ -1,7 +1,4 @@
-﻿using NarakaBladepoint.Framework.Core.Extensions;
-using NarakaBladepoint.Shared.Enums;
-
-namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models
+﻿namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Models
 {
     internal class PersonalInformationDetailModel : BindableBase
     {
