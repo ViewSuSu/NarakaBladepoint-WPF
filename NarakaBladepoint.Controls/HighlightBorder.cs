@@ -13,9 +13,30 @@ namespace NarakaBladepoint.Controls
 
         public HighlightBorder()
         {
-            this.MouseEnter += OnMouseEnter;
-            this.MouseLeave += OnMouseLeave;
-            this.Unloaded += OnUnloaded;
+            // Use weak event subscriptions to avoid memory leaks from event handlers
+            System.Windows.WeakEventManager<
+                UIElement,
+                System.Windows.Input.MouseEventArgs
+            >.AddHandler(
+                this,
+                nameof(MouseEnter),
+                new EventHandler<System.Windows.Input.MouseEventArgs>(OnMouseEnter)
+            );
+
+            System.Windows.WeakEventManager<
+                UIElement,
+                System.Windows.Input.MouseEventArgs
+            >.AddHandler(
+                this,
+                nameof(MouseLeave),
+                new EventHandler<System.Windows.Input.MouseEventArgs>(OnMouseLeave)
+            );
+
+            System.Windows.WeakEventManager<FrameworkElement, RoutedEventArgs>.AddHandler(
+                this,
+                nameof(Unloaded),
+                new EventHandler<RoutedEventArgs>(OnUnloaded)
+            );
         }
 
         #region 依赖属性
@@ -25,7 +46,7 @@ namespace NarakaBladepoint.Controls
                 "HighlightThickness",
                 typeof(Thickness),
                 typeof(HighlightBorder),
-                new PropertyMetadata(new Thickness(2))
+                new PropertyMetadata(new Thickness(1))
             );
 
         public Thickness HighlightThickness
@@ -104,29 +125,21 @@ namespace NarakaBladepoint.Controls
             {
                 Rect adornedElementRect = new Rect(this.AdornedElement.RenderSize);
 
-                Pen pen = new Pen(_brush, 1);
+                // Use the provided thickness (use Left as scalar) and draw the border inside the element bounds
+                double thickness = Math.Max(1.0, _thickness.Left);
+                var pen = new Pen(_brush, thickness);
                 pen.Freeze();
 
-                // 绘制四边
-                drawingContext.DrawRectangle(null, pen, adornedElementRect);
+                // Inset the rectangle by half the pen thickness so the stroke stays inside the element
+                double half = thickness / 2.0;
+                var innerRect = new Rect(
+                    adornedElementRect.Left + half,
+                    adornedElementRect.Top + half,
+                    Math.Max(0.0, adornedElementRect.Width - thickness),
+                    Math.Max(0.0, adornedElementRect.Height - thickness)
+                );
 
-                // 如果边框粗细大于1，绘制额外的线
-                if (_thickness.Left > 1)
-                {
-                    for (int i = 1; i < _thickness.Left; i++)
-                    {
-                        drawingContext.DrawRectangle(
-                            null,
-                            pen,
-                            new Rect(
-                                adornedElementRect.Left - i,
-                                adornedElementRect.Top - i,
-                                adornedElementRect.Width + i * 2,
-                                adornedElementRect.Height + i * 2
-                            )
-                        );
-                    }
-                }
+                drawingContext.DrawRectangle(null, pen, innerRect);
             }
         }
     }

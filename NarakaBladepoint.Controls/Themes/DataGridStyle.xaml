@@ -8,12 +8,10 @@
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/BrushStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--  Converters  -->
     <converters:ColumnHeaderMarginConverter x:Key="ColumnHeaderMarginConverter" />
 
-    <!--  DataGrid column header style: gray background and centered text  -->
     <Style x:Key="TransparentDataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
-        <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+        <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground}" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -24,15 +22,14 @@
                 <ControlTemplate TargetType="DataGridColumnHeader">
                     <Border Background="{TemplateBinding Background}">
                         <Grid>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                <ContentPresenter.Margin>
-                                    <MultiBinding Converter="{StaticResource ColumnHeaderMarginConverter}">
-                                        <Binding Path="DisplayIndex" RelativeSource="{RelativeSource TemplatedParent}" />
-                                        <Binding Path="Columns.Count" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
-                                    </MultiBinding>
-                                </ContentPresenter.Margin>
-                            </ContentPresenter>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Grid>
+                        <Border.Margin>
+                            <MultiBinding Converter="{StaticResource ColumnHeaderMarginConverter}">
+                                <Binding Path="DisplayIndex" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Columns.Count" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                            </MultiBinding>
+                        </Border.Margin>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -74,13 +71,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridRow">
-                    <controls:HighlightBorder HighlightBrush="Transparent" HighlightThickness="0">
-                        <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            <Grid>
-                                <DataGridCellsPresenter />
-                                <DataGridDetailsPresenter />
-                            </Grid>
-                        </Border>
+                    <controls:HighlightBorder SnapsToDevicePixels="True">
+                        <Grid>
+                            <DataGridCellsPresenter />
+                            <DataGridDetailsPresenter />
+                        </Grid>
                     </controls:HighlightBorder>
                 </ControlTemplate>
             </Setter.Value>
@@ -88,8 +83,6 @@
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
-                <!--  keep highlight border transparent; if you want a visible highlight, change HighlightBrush here  -->
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Transparent" />

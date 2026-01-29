@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
 {
-    internal class HeroLeaderboardPageViewModel
+    internal class HeroLeaderboardPageViewModel : ViewModelBase
     {
     }
 }

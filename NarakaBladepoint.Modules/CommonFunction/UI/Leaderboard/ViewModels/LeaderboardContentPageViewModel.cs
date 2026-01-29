@@ -1,11 +1,12 @@
-﻿using System;
+﻿using NarakaBladepoint.Framework.Core.Bases.ViewModels;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
 {
-    internal class LeaderboardContentPageViewModel : INotifyPropertyChanged
+    internal class LeaderboardContentPageViewModel : ViewModelBase
     {
         public ObservableCollection<LeaderboardRowViewModel> PlayersSolo { get; } = new();
         public ObservableCollection<LeaderboardRowViewModel> PlayersDuo { get; } = new();
@@ -64,11 +65,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
             };
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged([CallerMemberName] string? name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        // ViewModelBase/BindableBase already provides property change notification.
     }
 
     internal class LeaderboardRowViewModel

@@ -24,7 +24,6 @@
             SelectedIndex="0">
             <TabItem Header="单人模式" Style="{StaticResource CommonFunctionTabItem2}">
                 <TabItem.Content>
-                    <!--  DataGrid for single mode  -->
                     <DataGrid
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         AutoGenerateColumns="False"
@@ -41,7 +40,15 @@
                             <DataGridTextColumn
                                 Width="80"
                                 Binding="{Binding Rank}"
-                                Header="排名" />
+                                Header="排名">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTemplateColumn Width="*" Header="斗士">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -69,6 +76,7 @@
                                     <DataTemplate>
                                         <StackPanel
                                             Margin="8,0"
+                                            HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Orientation="Horizontal">
                                             <Image
@@ -88,11 +96,27 @@
                             <DataGridTextColumn
                                 Width="120"
                                 Binding="{Binding Score}"
-                                Header="总积分" />
+                                Header="总积分">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="120"
                                 Binding="{Binding Matches}"
-                                Header="游戏场次" />
+                                Header="游戏场次">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem.Content>
@@ -113,7 +137,15 @@
                             <DataGridTextColumn
                                 Width="80"
                                 Binding="{Binding Rank}"
-                                Header="排名" />
+                                Header="排名">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTemplateColumn Width="*" Header="斗士">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -160,11 +192,27 @@
                             <DataGridTextColumn
                                 Width="120"
                                 Binding="{Binding Score}"
-                                Header="总积分" />
+                                Header="总积分">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="120"
                                 Binding="{Binding Matches}"
-                                Header="游戏场次" />
+                                Header="游戏场次">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem.Content>
@@ -232,7 +280,15 @@
                             <DataGridTextColumn
                                 Width="120"
                                 Binding="{Binding Score}"
-                                Header="总积分" />
+                                Header="总积分">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="TextAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="120"
                                 Binding="{Binding Matches}"

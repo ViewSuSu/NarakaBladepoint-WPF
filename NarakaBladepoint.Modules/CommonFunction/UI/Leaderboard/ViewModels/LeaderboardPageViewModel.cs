@@ -1,8 +1,8 @@
-using NarakaBladepoint.Modules.CommonFunction.Domain.Bases;
+using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
 {
-    internal class LeaderboardPageViewModel : CommonFunctionPageViewModelBase
+    internal class LeaderboardPageViewModel : ViewModelBase
     {
         public LeaderboardPageViewModel() { }
     }
