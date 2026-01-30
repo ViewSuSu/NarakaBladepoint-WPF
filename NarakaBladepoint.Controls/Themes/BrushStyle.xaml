@@ -9,4 +9,5 @@
     <SolidColorBrush x:Key="DefaultTransientBlackBackground3" Color="#3A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground4" Color="#4A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground5" Color="#5A000000" />
+    <SolidColorBrush x:Key="DefaultOrangeBrush" Color="#EAB181" />
 </ResourceDictionary>

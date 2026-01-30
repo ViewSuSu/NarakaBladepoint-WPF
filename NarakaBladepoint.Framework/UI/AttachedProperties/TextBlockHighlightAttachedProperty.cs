@@ -23,7 +23,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
         /// 高亮文本的前景色
         /// </summary>
         public Brush Foreground { get; set; } =
-            new SolidColorBrush(Color.FromArgb(255, 0xEA, 0xB1, 0x81));
+            (Brush)System.Windows.Application.Current.Resources["DefaultOrangeBrush"];
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                 typeof(Brush),
                 typeof(TextBlockHighlightAttachedProperty),
                 new PropertyMetadata(
-                    new SolidColorBrush(Color.FromArgb(255, 0xEA, 0xB1, 0x81)),
+                    (Brush)System.Windows.Application.Current.Resources["DefaultOrangeBrush"],
                     OnHighlightPropertyChanged
                 )
             );

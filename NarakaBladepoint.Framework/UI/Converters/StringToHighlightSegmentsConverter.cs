@@ -15,8 +15,8 @@ namespace NarakaBladepoint.Framework.UI.Converters
         /// <summary>
         /// 默认高亮颜色 #EAB181
         /// </summary>
-        public Brush DefaultHighlightBrush { get; set; } =
-            new SolidColorBrush(Color.FromArgb(255, 0xEA, 0xB1, 0x81));
+        public Brush DefaultOrangeBrush { get; set; } =
+            (Brush)System.Windows.Application.Current.Resources["DefaultOrangeBrush"];
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -33,7 +33,7 @@ namespace NarakaBladepoint.Framework.UI.Converters
                     continue;
 
                 segments.Add(
-                    new HighlightSegment { Text = text.Trim(), Foreground = DefaultHighlightBrush }
+                    new HighlightSegment { Text = text.Trim(), Foreground = DefaultOrangeBrush }
                 );
             }
 
