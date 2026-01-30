@@ -99,7 +99,7 @@
                 <Button
                     Content="聚宝阁"
                     FontSize="9"
-                    Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle2}" />
                 <controls:HighlightBorder Grid.Row="1">
                     <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/聚宝阁.png" Stretch="Fill" />
                 </controls:HighlightBorder>

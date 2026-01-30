@@ -73,7 +73,7 @@
                     HorizontalAlignment="Center"
                     Command="{Binding SubmitCommand}"
                     Foreground="White"
-                    Style="{StaticResource SettingBackToGameCommandButtonStyle}">
+                    Style="{StaticResource CommandButtonStyle2}">
                     <TextBlock Text="确认" />
                 </Button>
 
@@ -86,7 +86,7 @@
                     HorizontalAlignment="Center"
                     Command="{Binding ReturnCommand}"
                     Foreground="White"
-                    Style="{StaticResource CleanButtonStyle}">
+                    Style="{StaticResource CommandButtonStyle3}">
                     <TextBlock Text="取消" />
                 </Button>
             </Grid>

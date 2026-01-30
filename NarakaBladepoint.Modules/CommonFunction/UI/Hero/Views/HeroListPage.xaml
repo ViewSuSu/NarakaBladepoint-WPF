@@ -74,11 +74,11 @@
                     <Button
                         Margin="5,0"
                         Content="外观"
-                        Style="{StaticResource CleanButtonStyle}" />
+                        Style="{StaticResource CommandButtonStyle3}" />
                     <Button
                         Margin="5,0"
                         Content="易容"
-                        Style="{StaticResource CleanButtonStyle}" />
+                        Style="{StaticResource CommandButtonStyle3}" />
                 </UniformGrid>
             </Grid>
             <Grid Grid.Column="2">
@@ -184,7 +184,7 @@
                     <Button
                         Height="30"
                         Content="大厅展示"
-                        Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                        Style="{StaticResource CommandButtonStyle2}" />
                 </StackPanel>
             </Grid>
         </Grid>

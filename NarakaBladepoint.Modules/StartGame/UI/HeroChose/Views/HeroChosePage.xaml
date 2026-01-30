@@ -190,13 +190,13 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.StartGame.UI.HeroChose.
                             Margin="0,0,30,0"
                             Command="{Binding SaveCommand}"
                             Content="确定"
-                            Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                            Style="{StaticResource CommandButtonStyle2}" />
                         <Button
                             Height="30"
                             Margin="30,0,0,0"
                             Command="{Binding ClearCommand}"
                             Content="一键清空"
-                            Style="{StaticResource CleanButtonStyle}" />
+                            Style="{StaticResource CommandButtonStyle3}" />
                     </UniformGrid>
                 </Grid>
             </Grid>

@@ -134,7 +134,7 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.
                         Command="{Binding SaveCommand}"
                         Content="保存"
                         FontSize="15"
-                        Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                        Style="{StaticResource CommandButtonStyle2}" />
                 </Grid>
             </Grid>
         </Grid>

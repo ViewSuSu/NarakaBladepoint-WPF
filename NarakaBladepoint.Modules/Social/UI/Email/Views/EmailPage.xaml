@@ -154,13 +154,13 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
                                 Margin="0,0,5,0"
                                 Content="删除已读"
                                 Foreground="White"
-                                Style="{StaticResource CleanButtonStyle}" />
+                                Style="{StaticResource CommandButtonStyle3}" />
                             <Button
                                 Height="{Binding ElementName=button, Path=ActualHeight}"
                                 Margin="5,0,0,0"
                                 Content="领取全部"
                                 Foreground="White"
-                                Style="{StaticResource CleanButtonStyle}" />
+                                Style="{StaticResource CommandButtonStyle3}" />
                         </UniformGrid>
                         <Grid Grid.Column="1" Margin="30,0">
                             <Grid.RowDefinitions>
@@ -206,7 +206,7 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
                             HorizontalAlignment="Right"
                             Content="删除"
                             Foreground="White"
-                            Style="{StaticResource CleanButtonStyle}" />
+                            Style="{StaticResource CommandButtonStyle3}" />
                     </Grid>
                 </TabItem>
                 <TabItem

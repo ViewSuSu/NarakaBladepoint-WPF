@@ -359,7 +359,7 @@
                 Height="30"
                 VerticalAlignment="Center"
                 Content="更换头像"
-                Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                Style="{StaticResource CommandButtonStyle2}" />
         </Grid>
     </Grid>
 </bases:UserControlBase>

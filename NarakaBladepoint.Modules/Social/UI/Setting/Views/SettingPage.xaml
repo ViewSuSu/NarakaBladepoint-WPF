@@ -44,57 +44,57 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Setting.ViewM
                     Margin="0,5"
                     Command="{Binding ReturnCommand}"
                     Content="回到游戏"
-                    Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle2}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Command="{Binding NavigateToTutorialCommand}"
                     Content="战斗百科"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Content="按键设置"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Content="选项设置"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Content="联系客服"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Content="开场视频"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Content="礼物码兑换"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Content="返回登录界面"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
                 <Button
                     Width="240"
                     Height="30"
                     Margin="0,5"
                     Command="{Binding ExitCommand}"
                     Content="退至桌面"
-                    Style="{StaticResource SettingCommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle1}" />
             </StackPanel>
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="MouseLeftButtonDown">

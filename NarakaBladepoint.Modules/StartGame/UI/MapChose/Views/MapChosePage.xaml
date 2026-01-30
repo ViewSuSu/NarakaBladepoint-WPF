@@ -121,7 +121,7 @@
                             HorizontalAlignment="Right"
                             Command="{Binding SaveCommand}"
                             Content="确定"
-                            Style="{StaticResource SettingBackToGameCommandButtonStyle}" />
+                            Style="{StaticResource CommandButtonStyle2}" />
                         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                             <TextBlock
                                 Margin="0,5,0,0"

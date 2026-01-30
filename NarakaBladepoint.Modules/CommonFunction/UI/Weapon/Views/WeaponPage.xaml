@@ -221,7 +221,7 @@
                     Height="30"
                     VerticalAlignment="Bottom"
                     Content="外观"
-                    Style="{StaticResource CleanButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle3}" />
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
