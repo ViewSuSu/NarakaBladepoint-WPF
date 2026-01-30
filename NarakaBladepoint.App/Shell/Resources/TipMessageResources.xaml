@@ -25,11 +25,11 @@
             To="1"
             Duration="0:0:0.1" />
 
-        <!--  Phase 2: Display message (0.5s - 1.0s) - no animation, just display  -->
+        <!--  Phase 2: Display message (0.5s - 2.5s) - no animation, just display  -->
 
-        <!--  Phase 3: Move up and fade out (1.0s - 1.5s)  -->
+        <!--  Phase 3: Move up and fade out (2.5s - 3.0s)  -->
         <DoubleAnimation
-            BeginTime="0:0:1.0"
+            BeginTime="0:0:2.5"
             Storyboard.TargetName="tipBorder"
             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
             From="0"
@@ -40,9 +40,9 @@
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
 
-        <!--  Fade out (1.0s - 1.5s)  -->
+        <!--  Fade out (2.5s - 3.0s)  -->
         <DoubleAnimation
-            BeginTime="0:0:1.0"
+            BeginTime="0:0:2.5"
             Storyboard.TargetName="tipBorder"
             Storyboard.TargetProperty="Opacity"
             From="1"
