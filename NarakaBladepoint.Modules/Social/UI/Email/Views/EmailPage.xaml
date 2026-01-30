@@ -1,4 +1,4 @@
-﻿<base:UserControlBase
+<base:UserControlBase
 x:Class="NarakaBladepoint.Modules.Social.UI.Email.Views.EmailPage"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -98,7 +98,7 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
                                                             <ColumnDefinition Width="40" />
                                                             <ColumnDefinition />
                                                         </Grid.ColumnDefinitions>
-                                                        <Image Width="25" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/Icon.png" />
+                                                        <Image Width="25" Source="{StaticResource EmailIconImage}" />
                                                         <Grid Grid.Column="1">
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition />

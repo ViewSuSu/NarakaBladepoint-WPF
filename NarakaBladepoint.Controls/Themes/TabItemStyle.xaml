@@ -1,8 +1,11 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converter="clr-namespace:NarakaBladepoint.Controls.Converters"
     xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <converter:IconTabItemConverter x:Key="IconTabItemConverter" />
     <Style x:Key="CommonFunctionTabItem" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
@@ -36,7 +39,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CommonFunctionButtonBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource CommonFunctionButtonBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -87,7 +90,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/FriendTabItemBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource FriendTabItemBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -190,7 +193,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HistoryMatchRecordBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource HistoryMatchRecordBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>

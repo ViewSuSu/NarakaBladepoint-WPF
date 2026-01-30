@@ -1,8 +1,14 @@
-using NarakaBladepoint.Framework.Core.Bases.ViewModels;
-using NarakaBladepoint.Framework.Core.Consts;
-using NarakaBladepoint.Framework.Core.Evens;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using NarakaBladepoint.Framework.Core.Infrastructure;
+using NarakaBladepoint.Framework.Core.Bases.ViewModels;
+using NarakaBladepoint.Framework.Core.Evens;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
+using NarakaBladepoint.Modules.TopUp.UI.Main.Views;
+using NarakaBladepoint.Framework.Core.Consts;
 
 namespace NarakaBladepoint.App.Shell
 {
@@ -17,7 +23,6 @@ namespace NarakaBladepoint.App.Shell
         /// 提示消息文本
         /// </summary>
         private string _tipMessage;
-
         public string TipMessage
         {
             get => _tipMessage;
@@ -33,7 +38,6 @@ namespace NarakaBladepoint.App.Shell
         /// 直接存储需要高亮的字符串列表
         /// </summary>
         private List<string> _tipMessageHighlightTexts;
-
         public List<string> TipMessageHighlightTexts
         {
             get => _tipMessageHighlightTexts;
@@ -48,7 +52,6 @@ namespace NarakaBladepoint.App.Shell
         /// 是否正在排队
         /// </summary>
         private bool _isQueuing;
-
         public bool IsQueuing
         {
             get => _isQueuing;
@@ -66,7 +69,6 @@ namespace NarakaBladepoint.App.Shell
         /// 排队耗时（秒）
         /// </summary>
         private int _queueTime;
-
         public int QueueTime
         {
             get => _queueTime;

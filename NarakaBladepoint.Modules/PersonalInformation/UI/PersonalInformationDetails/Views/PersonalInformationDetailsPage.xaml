@@ -1,4 +1,4 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.Views.PersonalInformationDetailsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -308,7 +308,7 @@
                                             d:BorderBrush="White"
                                             d:BorderThickness="0.5">
                                             <controls:HighlightBorder.Background>
-                                                <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" Stretch="UniformToFill" />
+                                                <ImageBrush ImageSource="{StaticResource PersonalInfoDetails19Image}" Stretch="UniformToFill" />
                                             </controls:HighlightBorder.Background>
                                             <Image Source="{Binding Icon, Mode=OneWay}" Stretch="Uniform" />
                                             <b:Interaction.Triggers>
@@ -451,7 +451,7 @@
                                 Margin="0,5"
                                 HorizontalAlignment="Stretch">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/listboxitembackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource PersonalInfoDetailsListBoxItemBackgroundImage}" Stretch="Fill" />
                                 </Grid.Background>
                                 <Grid Margin="5,0" VerticalAlignment="Center">
                                     <Grid.ColumnDefinitions>

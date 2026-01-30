@@ -1,4 +1,4 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converterts="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework">
@@ -7,6 +7,7 @@
     <converterts:InverseBoolConverter x:Key="InverseBoolConverter" />
     <converterts:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/BrushStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ExpandStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ButtonStyle.xaml" />

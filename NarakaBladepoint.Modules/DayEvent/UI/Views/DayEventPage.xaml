@@ -1,4 +1,4 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.DayEvent.UI.Views.DayEventPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -51,10 +51,10 @@
         </Border>
         <Border Grid.Row="1" Margin="0,5">
             <Border.Background>
-                <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务背景1.png" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="{StaticResource DailyTaskBackground1Image}" Stretch="UniformToFill" />
             </Border.Background>
             <controls:HighlightBorder Height="80" HorizontalAlignment="Right">
-                <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务奖励.png" Stretch="Uniform" />
+                <Image Source="{StaticResource DailyTaskRewardImage}" Stretch="Uniform" />
             </controls:HighlightBorder>
         </Border>
         <UniformGrid

@@ -1,5 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <Style x:Key="BattleEncyclopediaButtonStyle" TargetType="Button">
         <Setter Property="Template">
             <Setter.Value>
@@ -85,14 +88,14 @@
                         <Trigger Property="IsMouseOver" Value="False">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/SettingCommandDefaultBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource SettingCommandDefaultBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/SettingCommandHightlightBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource SettingCommandHighlightBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -129,14 +132,14 @@
                         <Trigger Property="IsMouseOver" Value="False">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/DetaulBackGameBackgound.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource DefaultBackGameBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HilightBackGameBackgound.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource HighlightBackGameBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -172,14 +175,14 @@
                         <Trigger Property="IsMouseOver" Value="False">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CleanButtonDefaultBackgound.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource CleanButtonDefaultBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CleanButtonHilightBackgound.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource CleanButtonHighlightBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -216,14 +219,14 @@
                         <!--<Trigger Property="IsMouseOver" Value="False">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HistoryMatchRecordBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource HistoryMatchRecordBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="BackgroundBorder" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HistoryMatchRecordBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource HistoryMatchRecordBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>

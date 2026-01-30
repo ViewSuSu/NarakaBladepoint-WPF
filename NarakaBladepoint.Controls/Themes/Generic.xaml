@@ -1,10 +1,13 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters"
     xmlns:frameworkConverters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
     xmlns:local="clr-namespace:NarakaBladepoint.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <converters:LTopLeftConverter x:Key="LTopLeftConverter" />
     <converters:LTopRightConverter x:Key="LTopRightConverter" />
     <converters:LBottomLeftConverter x:Key="LBottomLeftConverter" />
@@ -187,7 +190,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CommonFunctionButtonBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource CommonFunctionButtonBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -331,7 +334,7 @@
     </Style>
     <ImageBrush
         x:Key="DefaultSelectedBackground"
-        ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabBackgournd.png"
+        ImageSource="{StaticResource ModeSelectionTabBackgroundImage}"
         Stretch="Fill" />
     <Style BasedOn="{StaticResource {x:Type TabItem}}" TargetType="{x:Type local:ImageTextTabItem}">
         <Setter Property="Foreground" Value="White" />

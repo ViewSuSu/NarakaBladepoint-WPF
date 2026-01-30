@@ -1,0 +1,97 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Background Images -->
+    <BitmapImage x:Key="BackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background.png" />
+    <BitmapImage x:Key="Background3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background3.png" />
+    <BitmapImage x:Key="Background4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background4.png" />
+    <BitmapImage x:Key="Background2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png" />
+    
+    <!-- Button Images -->
+    <BitmapImage x:Key="CommonFunctionButtonBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CommonFunctionButtonBackground.png" />
+    <BitmapImage x:Key="FriendTabItemBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/FriendTabItemBackground.png" />
+    <BitmapImage x:Key="HistoryMatchRecordBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HistoryMatchRecordBackground.png" />
+    <BitmapImage x:Key="SettingCommandDefaultBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/SettingCommandDefaultBackground.png" />
+    <BitmapImage x:Key="SettingCommandHighlightBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/SettingCommandHightlightBackground.png" />
+    <BitmapImage x:Key="DefaultBackGameBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/DetaulBackGameBackgound.png" />
+    <BitmapImage x:Key="HighlightBackGameBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HilightBackGameBackgound.png" />
+    <BitmapImage x:Key="CleanButtonDefaultBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CleanButtonDefaultBackgound.png" />
+    <BitmapImage x:Key="CleanButtonHighlightBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CleanButtonHilightBackgound.png" />
+    <BitmapImage x:Key="WeaponLevelImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/武器等级.png" />
+    <BitmapImage x:Key="GoldBrickImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/金砖.png" />
+    <BitmapImage x:Key="AncientCoinsImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/古币.png" />
+    <BitmapImage x:Key="HuanSiImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/幻丝.png" />
+    
+    <!-- Status Images -->
+    <BitmapImage x:Key="IsQueuingImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/IsQueuing.png" />
+    <BitmapImage x:Key="StarImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/星.png" />
+    
+    <!-- Mode Selection Images -->
+    <BitmapImage x:Key="ModeSelectionTabBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabBackgournd.png" />
+    <BitmapImage x:Key="ModeSelectionTabItem1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem1.png" />
+    <BitmapImage x:Key="ModeSelectionTabItem2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem2.png" />
+    <BitmapImage x:Key="ModeSelectionTabItem3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem3.png" />
+    <BitmapImage x:Key="ModeSelectionTabItem4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem4.png" />
+    <BitmapImage x:Key="ModeSelectionTabItem5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem5.png" />
+    <BitmapImage x:Key="ModeSelectionIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+    <BitmapImage x:Key="ModeSelectionIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon2.png" />
+    <BitmapImage x:Key="ModeSelectionIcon4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon4.png" />
+    
+    <!-- Start Game Images -->
+    <BitmapImage x:Key="StartGameEventCenterImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/活动中心.png" />
+    <BitmapImage x:Key="StartGameRankImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/段位.png" />
+    <BitmapImage x:Key="StartGameModeSelectionImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/模式选择.png" />
+    <BitmapImage x:Key="StartGameStartImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/开始游戏.png" />
+    
+    <!-- Social Tag Images -->
+    <BitmapImage x:Key="SocialTagBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" />
+    <BitmapImage x:Key="SocialTagTabItemIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon1.png" />
+    <BitmapImage x:Key="SocialTagTabItemIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon2.png" />
+    <BitmapImage x:Key="SocialTagTabItemIcon3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon3.png" />
+    <BitmapImage x:Key="SocialTagTabItemIcon4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon4.png" />
+    <BitmapImage x:Key="SocialTagTabItemIcon5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon5.png" />
+    
+    <!-- Personal Info Details Images -->
+    <BitmapImage x:Key="PersonalInfoDetails19Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsListBoxItemBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/listboxitembackground.png" />
+    <BitmapImage x:Key="PersonalInfoDetails1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/1.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsHero1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero1.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsHero2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero2.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsHero3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero3.png" />
+    <BitmapImage x:Key="PersonalInfoDetails20Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/20.png" />
+    
+    <!-- Hero Data Images -->
+    <BitmapImage x:Key="HeroData1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/1.png" />
+    <BitmapImage x:Key="HeroData2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/2.png" />
+    
+    <!-- Event Center Images -->
+    <BitmapImage x:Key="BattlePassBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/BattlePassBackground.png" />
+    <BitmapImage x:Key="BaizeBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/background.png" />
+    <BitmapImage x:Key="BaizeTextblockBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/textblockBackground.png" />
+    <BitmapImage x:Key="LatestNews1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/1.png" />
+    <BitmapImage x:Key="LatestNews2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/2.png" />
+    <BitmapImage x:Key="LatestNews3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/3.png" />
+    <BitmapImage x:Key="LatestNews4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/4.png" />
+    <BitmapImage x:Key="LatestNews5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/5.png" />
+    
+    <!-- Day Event Images -->
+    <BitmapImage x:Key="TaskDetailsImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/任务详情.png" />
+    <BitmapImage x:Key="DailyTaskBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务背景1.png" />
+    <BitmapImage x:Key="DailyTaskRewardImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务奖励.png" />
+    <BitmapImage x:Key="TreasurePavilionImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/聚宝阁.png" />
+    
+    <!-- Social Images -->
+    <BitmapImage x:Key="SearchMagnifierImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/搜索放大镜.png" />
+    <BitmapImage x:Key="EmailIconImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/Icon.png" />
+    
+    <!-- Wealth Images -->
+    <BitmapImage x:Key="Wealth1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/Wealth/1.png" />
+    
+    <!-- Top Up Images -->
+    <BitmapImage x:Key="TopUp1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/TopUp/1.png" />
+    <BitmapImage x:Key="TopUp2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/TopUp/2.png" />
+    <BitmapImage x:Key="TopUp3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/TopUp/3.png" />
+    <BitmapImage x:Key="TopUp4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/TopUp/4.png" />
+    <BitmapImage x:Key="TopUp5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/TopUp/5.png" />
+    
+    <!-- Other Images -->
+    <BitmapImage x:Key="HeroShowImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" />
+</ResourceDictionary>

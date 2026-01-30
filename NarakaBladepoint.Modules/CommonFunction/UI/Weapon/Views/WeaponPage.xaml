@@ -1,4 +1,4 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.Weapon.Views.WeaponPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -232,7 +232,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top">
                         <Grid.Background>
-                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/武器等级.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="{StaticResource WeaponLevelImage}" Stretch="UniformToFill" />
                         </Grid.Background>
                         <TextBlock
                             HorizontalAlignment="Center"

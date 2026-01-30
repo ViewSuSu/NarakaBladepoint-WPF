@@ -1,4 +1,4 @@
-﻿<base:UserControlBase
+<base:UserControlBase
     x:Class="NarakaBladepoint.Modules.StartGame.UI.ModeSelection.Views.ModeSelectionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -41,7 +41,7 @@
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
-                ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem1.png"
+                ImageSource="{StaticResource ModeSelectionTabItem1Image}"
                 ImageWidth="30"
                 Text="生存">
                 <UniformGrid Columns="4">
@@ -282,7 +282,7 @@
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
-                ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem2.png"
+                ImageSource="{StaticResource ModeSelectionTabItem2Image}"
                 ImageWidth="30"
                 Text="娱乐">
                 <StackPanel
@@ -385,7 +385,7 @@
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
-                ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem3.png"
+                ImageSource="{StaticResource ModeSelectionTabItem3Image}"
                 ImageWidth="30"
                 Text="训练">
                 <StackPanel
@@ -438,7 +438,7 @@
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
-                ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem4.png"
+                ImageSource="{StaticResource ModeSelectionTabItem4Image}"
                 ImageWidth="30"
                 Text="休闲">
                 <StackPanel
@@ -491,7 +491,7 @@
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
-                ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/TabItem5.png"
+                ImageSource="{StaticResource ModeSelectionTabItem5Image}"
                 ImageWidth="30"
                 Text="紫禁之巅">
                 <Grid>
@@ -583,7 +583,7 @@
                     Margin="0,0,30,0"
                     VerticalAlignment="Top">
                     <controls:HighlightBorder.Background>
-                        <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon2.png" Stretch="Uniform" />
+                        <ImageBrush ImageSource="{StaticResource ModeSelectionIcon2Image}" Stretch="Uniform" />
                     </controls:HighlightBorder.Background>
                     <Grid>
                         <StackPanel

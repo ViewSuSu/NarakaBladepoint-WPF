@@ -1,4 +1,4 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Views.HeroDataPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -134,7 +134,7 @@
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=(ItemsControl.AlternationIndex)}" Value="0">
                                                     <Setter Property="Background">
                                                         <Setter.Value>
-                                                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background4.png" Stretch="UniformToFill" />
+                                                            <ImageBrush ImageSource="{StaticResource Background4Image}" Stretch="UniformToFill" />
                                                         </Setter.Value>
                                                     </Setter>
                                                 </DataTrigger>
@@ -181,7 +181,7 @@
                         Text="{Binding SelectedHeroData.HeroName}" />
                     <Grid Grid.Row="1">
                         <Grid.Background>
-                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/2.png" Stretch="Fill" />
+                            <ImageBrush ImageSource="{StaticResource HeroData2Image}" Stretch="Fill" />
                         </Grid.Background>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.35*" />
@@ -305,7 +305,7 @@
                             <UniformGrid Rows="4">
                                 <Grid>
                                     <Grid.Background>
-                                        <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/20.png" Stretch="UniformToFill" />
+                                        <ImageBrush ImageSource="{StaticResource PersonalInfoDetails20Image}" Stretch="UniformToFill" />
                                     </Grid.Background>
                                     <Grid Margin="0,20,0,0">
                                         <Grid.ColumnDefinitions>

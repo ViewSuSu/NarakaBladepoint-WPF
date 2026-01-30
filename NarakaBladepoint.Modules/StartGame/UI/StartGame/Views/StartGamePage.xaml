@@ -1,4 +1,4 @@
-﻿<base:UserControlBase
+<base:UserControlBase
     x:Class="NarakaBladepoint.Modules.StartGame.UI.StartGame.Views.StartGamePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
             <controls:HighlightBorder Grid.Row="0">
                 <controls:HighlightBorder.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/活动中心.png" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="{StaticResource StartGameEventCenterImage}" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>
                 <Grid Background="Transparent">
                     <Grid.RowDefinitions>
@@ -56,7 +56,7 @@
             </controls:HighlightBorder>
             <controls:HighlightBorder Grid.Row="1" Margin="0,2">
                 <controls:HighlightBorder.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/段位.png" Stretch="Fill" />
+                    <ImageBrush ImageSource="{StaticResource StartGameRankImage}" Stretch="Fill" />
                 </controls:HighlightBorder.Background>
                 <StackPanel
                     Margin="10,0,0,0"
@@ -85,7 +85,7 @@
             </Grid>
             <controls:HighlightBorder Grid.Row="3" Margin="0,2">
                 <controls:HighlightBorder.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/模式选择.png" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="{StaticResource StartGameModeSelectionImage}" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>
                 <Grid Margin="10,3,5,3">
                     <StackPanel
@@ -127,7 +127,7 @@
             </controls:HighlightBorder>
             <controls:HighlightBorder Grid.Row="4">
                 <controls:HighlightBorder.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/开始游戏.png" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="{StaticResource StartGameStartImage}" Stretch="UniformToFill" />
                 </controls:HighlightBorder.Background>
                 <TextBlock
                     Grid.Row="3"

@@ -1,4 +1,4 @@
-﻿<bases:UserControlBase
+<bases:UserControlBase
     x:Class="NarakaBladepoint.Modules.SocialTag.UI.Views.SocialTagPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -207,7 +207,7 @@
                                     Margin="0,5"
                                     d:IsSelected="True"
                                     Background="#1A000000"
-                                    ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon1.png"
+                                    ImageSource="{StaticResource SocialTagTabItemIcon1Image}"
                                     IsMouseOverHilightBoder="True"
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
@@ -223,7 +223,7 @@
                                                 <DataTemplate>
                                                     <Border Margin="2">
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                                                            <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
                                                         </Border.Background>
                                                         <Border.Style>
                                                             <Style TargetType="Border">
@@ -299,7 +299,7 @@
                                     Margin="0,5"
                                     d:IsSelected="True"
                                     Background="#1A000000"
-                                    ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon2.png"
+                                    ImageSource="{StaticResource SocialTagTabItemIcon2Image}"
                                     IsMouseOverHilightBoder="True"
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
@@ -315,7 +315,7 @@
                                                 <DataTemplate>
                                                     <Border Margin="2">
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                                                            <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
                                                         </Border.Background>
                                                         <Border.Style>
                                                             <Style TargetType="Border">
@@ -391,7 +391,7 @@
                                     Margin="0,5"
                                     d:IsSelected="True"
                                     Background="#1A000000"
-                                    ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon3.png"
+                                    ImageSource="{StaticResource SocialTagTabItemIcon3Image}"
                                     IsMouseOverHilightBoder="True"
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
@@ -407,7 +407,7 @@
                                                 <DataTemplate>
                                                     <Border Margin="2">
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                                                            <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
                                                         </Border.Background>
                                                         <Border.Style>
                                                             <Style TargetType="Border">
@@ -483,7 +483,7 @@
                                     Margin="0,5"
                                     d:IsSelected="True"
                                     Background="#1A000000"
-                                    ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon4.png"
+                                    ImageSource="{StaticResource SocialTagTabItemIcon4Image}"
                                     IsMouseOverHilightBoder="True"
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
@@ -499,7 +499,7 @@
                                                 <DataTemplate>
                                                     <Border Margin="2">
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                                                            <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
                                                         </Border.Background>
                                                         <Border.Style>
                                                             <Style TargetType="Border">
@@ -575,7 +575,7 @@
                                     Margin="0,5"
                                     d:IsSelected="True"
                                     Background="#1A000000"
-                                    ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/tabItemIcon5.png"
+                                    ImageSource="{StaticResource SocialTagTabItemIcon5Image}"
                                     IsMouseOverHilightBoder="True"
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"

@@ -34,6 +34,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/TipMessageResources.xaml" />
                 <ResourceDictionary Source="Resources/QueueResources.xaml" />
+                <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -47,7 +48,7 @@
     </b:Interaction.Behaviors>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background.png" Stretch="UniformToFill" />
+            <ImageBrush ImageSource="{StaticResource BackgroundImage}" Stretch="UniformToFill" />
         </Grid.Background>
         <Grid>
             <Grid.RowDefinitions>
@@ -56,7 +57,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background3.png" Stretch="Fill" />
+                    <ImageBrush ImageSource="{StaticResource Background3Image}" Stretch="Fill" />
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*" />
@@ -95,7 +96,7 @@
                             Grid.Row="1"
                             Grid.Column="0"
                             Background="#000000">
-                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/IsQueuing.png" />
+                            <Image Source="{StaticResource IsQueuingImage}" />
                         </Grid>
                         <controls:HighlightBorder
                             Grid.Row="0"

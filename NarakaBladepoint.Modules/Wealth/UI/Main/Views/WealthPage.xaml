@@ -1,4 +1,4 @@
-﻿<base:UserControlBase
+<base:UserControlBase
     x:Class="NarakaBladepoint.Modules.Wealth.UI.Main.Views.WealthPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -14,15 +14,15 @@
     <UniformGrid Grid.Column="2" Columns="3">
         <controls:IconTextBlockCustomControl
             d:Text="12500"
+            Icon="{StaticResource AncientCoinsImage}"
             Spacing="-5"
-            Style="{StaticResource AncientCoins}"
             Text="{Binding CurrentUserModel.AncientCoins}" />
         <Grid x:Name="GoldBrickPopup">
             <controls:IconTextBlockCustomControl
                 d:Text="12600"
                 Command="{Binding NavigateToTopUpCommand}"
+                Icon="{StaticResource GoldBrickImage}"
                 Spacing="-5"
-                Style="{StaticResource GoldBrick}"
                 Text="{Binding CurrentUserModel.GoldBrick}" />
         </Grid>
         <Popup
@@ -31,12 +31,12 @@
             Placement="Bottom"
             PlacementTarget="{Binding ElementName=GoldBrickControl}"
             StaysOpen="True">
-            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/Wealth/1.png" />
+            <Image Source="{StaticResource Wealth1Image}" />
         </Popup>
         <controls:IconTextBlockCustomControl
             d:Text="12500"
+            Icon="{StaticResource HuanSiImage}"
             Spacing="-5"
-            Style="{StaticResource HuanSi}"
             Text="{Binding CurrentUserModel.HuanSi}" />
     </UniformGrid>
 </base:UserControlBase>
