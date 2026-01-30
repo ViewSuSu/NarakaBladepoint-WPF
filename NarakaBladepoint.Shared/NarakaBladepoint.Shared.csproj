@@ -12,6 +12,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Consts\**" />
+	  <EmbeddedResource Remove="Consts\**" />
+	  <None Remove="Consts\**" />
+	  <Page Remove="Consts\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\NarakaBladepoint.Controls\NarakaBladepoint.Controls.csproj" />
 	</ItemGroup>
 
@@ -55,10 +62,6 @@
 	  <None Update="Datas\Jsons\UserInformationData.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Consts\" />
 	</ItemGroup>
 
 </Project>
