@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -24,12 +25,22 @@ namespace NarakaBladepoint.App.Shell
         public MainWindow()
         {
             InitializeComponent();
-            this.SourceInitialized += delegate
+            // Use weak event pattern so the handler does not keep the window alive.
+            WeakEventManager<Window, EventArgs>.AddHandler(
+                this,
+                nameof(SourceInitialized),
+                OnSourceInitialized
+            );
+        }
+
+        private void OnSourceInitialized(object? sender, EventArgs e)
+        {
+            if (sender is Window window)
             {
-                IntPtr hwnd = new WindowInteropHelper(this).Handle;
+                IntPtr hwnd = new WindowInteropHelper(window).Handle;
                 uint extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
                 SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_TRANSPARENT);
-            };
+            }
         }
     }
 }

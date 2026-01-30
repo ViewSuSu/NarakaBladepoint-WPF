@@ -25,7 +25,7 @@
     Height="720"
     d:DataContext="{d:DesignInstance Type=shell:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png"
+    Icon="{StaticResource AppIconImage}"
     ResizeMode="NoResize"
     mc:Ignorable="d">
     <Window.Resources>
