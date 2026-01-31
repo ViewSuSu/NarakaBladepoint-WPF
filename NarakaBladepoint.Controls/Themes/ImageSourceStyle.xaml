@@ -57,6 +57,7 @@
     <BitmapImage x:Key="PersonalInfoDetailsHero2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero2.png" />
     <BitmapImage x:Key="PersonalInfoDetailsHero3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero3.png" />
     <BitmapImage x:Key="PersonalInfoDetails20Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/20.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Backgound.png" />
     <!--  Personal Info Achievements  -->
     <BitmapImage x:Key="PersonalInfoDetailsAchievements1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/1.png" />
     <BitmapImage x:Key="PersonalInfoDetailsAchievements2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/2.png" />
@@ -76,6 +77,15 @@
     <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/3.png" />
     <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/4.png" />
     <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/5.png" />
+
+    <!--  Illustrated Collection Images  -->
+    <BitmapImage x:Key="IllustratedCollection1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/1.png" />
+    <BitmapImage x:Key="IllustratedCollection2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/2.png" />
+    <BitmapImage x:Key="IllustratedCollection3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/3.png" />
+    <BitmapImage x:Key="IllustratedCollection4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/4.png" />
+    <BitmapImage x:Key="IllustratedCollection5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/5.png" />
+    <BitmapImage x:Key="IllustratedCollectionOverviewImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/Overview.png" />
+    <BitmapImage x:Key="IllustratedCollectionBuFanImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/IllustratedCollection/Images/不凡.png" />
 
     <!--  Personal Info Achievement icon variants  -->
     <BitmapImage x:Key="PersonalInfoDetailsAchievementIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/icon1.png" />

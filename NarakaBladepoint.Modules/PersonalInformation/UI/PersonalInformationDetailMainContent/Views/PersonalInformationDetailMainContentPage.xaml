@@ -27,25 +27,29 @@
     <Grid Background="{StaticResource Background2}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.15*" />
+                <RowDefinition Height="50" />
                 <RowDefinition />
                 <RowDefinition Height="0.1*" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="50,10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.2*" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FontSize="30"
-                    Foreground="White"
-                    Text="名片" />
-                <wealth:WealthPage
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top" />
+            <Grid Grid.Row="0" Background="{StaticResource PersonalInfoDetailsBackgroundBrush}">
+                <Grid Margin="50,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="25"
+                        Foreground="White"
+                        Text="名片" />
+                    <wealth:WealthPage
+                        Grid.Column="1"
+                        Width="140"
+                        Margin="0,0,80,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center" />
+                </Grid>
             </Grid>
             <TabControl
                 Grid.Row="0"
@@ -63,7 +67,7 @@
                     Background="Transparent"
                     Header="个人信息"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="20" />
+                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="40" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -71,7 +75,7 @@
                     Background="Transparent"
                     Header="英雄数据"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <heroData:HeroDataPage Margin="20" />
+                    <heroData:HeroDataPage Margin="40" />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"
@@ -103,7 +107,7 @@
                     Background="Transparent"
                     Header="社交头像"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <socialAvatarPage:SocialAvatarPage Margin="50,30,50,50"/>
+                    <socialAvatarPage:SocialAvatarPage Margin="50,30,50,50" />
                 </TabItem>
                 <!--<TabItem
                     VerticalAlignment="Center"
@@ -177,6 +181,7 @@
                             Style="{StaticResource CommonFunctionTabItem}"
                             Visibility="Hidden" />
                         <TabItem
+                            Name="overview"
                             Width="60"
                             Height="25"
                             d:IsSelected="True"
@@ -184,7 +189,10 @@
                             Header="总览"
                             IsSelected="True"
                             Style="{StaticResource CommonFunctionTabItem}">
-                            <illustratedCollectionPage:IllustratedCollectioOverviewPage />
+                            <Image
+                                Margin="0,-30,0,0"
+                                Source="{StaticResource IllustratedCollectionOverviewImage}"
+                                Stretch="Fill" />
                         </TabItem>
                         <TabItem
                             Width="60"
@@ -192,7 +200,7 @@
                             Background="{StaticResource DefaultTransientBlackBackground5}"
                             Header="套装"
                             Style="{StaticResource CommonFunctionTabItem}">
-                            <illustratedCollectionPage:IllustratedCollectioSuitPage />
+                            <illustratedCollectionPage:IllustratedCollectioSuitPage Margin="50,0,50,40" />
                         </TabItem>
                     </TabControl>
                 </TabItem>

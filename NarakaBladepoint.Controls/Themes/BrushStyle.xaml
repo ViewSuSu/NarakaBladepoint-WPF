@@ -8,8 +8,16 @@
         ImageSource="{StaticResource Background2Image}"
         Stretch="UniformToFill" />
     <ImageBrush
+        x:Key="IllustratedCollectionOverviewBrush"
+        ImageSource="{StaticResource IllustratedCollectionOverviewImage}"
+        Stretch="Uniform" />
+    <ImageBrush
         x:Key="Background2"
         ImageSource="{StaticResource Background2Image}"
+        Stretch="UniformToFill" />
+    <ImageBrush
+        x:Key="PersonalInfoDetailsBackgroundBrush"
+        ImageSource="{StaticResource PersonalInfoDetailsBackgroundImage}"
         Stretch="UniformToFill" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground" Color="#1A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground2" Color="#2A000000" />

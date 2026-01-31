@@ -33,6 +33,9 @@ namespace NarakaBladepoint.Resources
         
         // PersonalInfoDetails Achievements: image/personalinfodetails/achievements/images/*.png
         private static readonly List<ImageSource> _personalInfoAchievementImages = new();
+        // IllustratedCollection images: root images and foldered images (e.g. 套装/图鉴子集)
+        private static readonly List<ImageSource> _illustratedCollectionRootImages = new();
+        private static readonly Dictionary<string, List<ImageSource>> _illustratedCollectionFolderImages = new();
 
         static ResourceImageReader()
         {
@@ -250,6 +253,30 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+
+                // ===================== PersonalInfoDetails IllustratedCollection Images =====================
+                // Support both images directly under IllustratedCollection and images organized in subfolders
+                if (key.StartsWith("image/personalinfodetails/illustratedcollection/images/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/personalinfodetails/illustratedcollection/images/".Length..];
+                    try
+                    {
+                        var image = LoadBitmapFromResource(assembly, key);
+                        if (!relative.Contains("/"))
+                        {
+                            _illustratedCollectionRootImages.Add(image);
+                        }
+                        else
+                        {
+                            var parts = relative.Split('/');
+                            var folder = parts[0];
+                            if (!_illustratedCollectionFolderImages.ContainsKey(folder))
+                                _illustratedCollectionFolderImages[folder] = new List<ImageSource>();
+                            _illustratedCollectionFolderImages[folder].Add(image);
+                        }
+                    }
+                    catch { }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -428,5 +455,51 @@ namespace NarakaBladepoint.Resources
         public static IReadOnlyList<ImageSource> GetAllPersonalInfoAchievementImages() => _personalInfoAchievementImages.AsReadOnly();
 
         public static int PersonalInfoAchievementCount => _personalInfoAchievementImages.Count;
+
+        // ===================== IllustratedCollection API =====================
+
+        public static ImageSource GetIllustratedCollectionRootImage(int index) =>
+            index >= 0 && index < _illustratedCollectionRootImages.Count ? _illustratedCollectionRootImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllIllustratedCollectionRootImages() => _illustratedCollectionRootImages.AsReadOnly();
+
+        public static IReadOnlyDictionary<string, List<ImageSource>> GetAllIllustratedCollectionFolderImages() => _illustratedCollectionFolderImages;
+
+        // 直接使用下面的独立资源加载属性来获取 IllustratedCollection 的 3.png/4.png/5.png
+
+        // 直接从资源路径独立加载指定文件（位于 Image/PersonalInfoDetails/IllustratedCollection）
+        private static ImageSource TryLoadImageByResourceKey(string resourceKey)
+        {
+            if (string.IsNullOrWhiteSpace(resourceKey))
+                return null;
+            try
+            {
+                return LoadBitmapFromResource(typeof(ResourceImageReader).Assembly, resourceKey);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // 独立属性：直接读取 Image/PersonalInfoDetails/IllustratedCollection 下的 3.png/4.png/5.png
+        public static ImageSource IllustratedCollectionImage_3 => TryLoadImageByResourceKey("image/personalinfodetails/illustratedcollection/3.png");
+        public static ImageSource IllustratedCollectionImage_4 => TryLoadImageByResourceKey("image/personalinfodetails/illustratedcollection/4.png");
+        public static ImageSource IllustratedCollectionImage_5 => TryLoadImageByResourceKey("image/personalinfodetails/illustratedcollection/5.png");
+
+        // 兼容旧属性名，保持对现有代码的引用不变
+        public static ImageSource IllustratedCollectionRootImage3 => IllustratedCollectionImage_3;
+        public static ImageSource IllustratedCollectionRootImage4 => IllustratedCollectionImage_4;
+        public static ImageSource IllustratedCollectionRootImage5 => IllustratedCollectionImage_5;
+
+        public static List<ImageSource> GetIllustratedCollectionImagesByFolder(string folderName)
+        {
+            if (string.IsNullOrWhiteSpace(folderName))
+                return new List<ImageSource>();
+            var key = _illustratedCollectionFolderImages.Keys.FirstOrDefault(k => string.Equals(k, folderName, StringComparison.OrdinalIgnoreCase));
+            if (key != null && _illustratedCollectionFolderImages.TryGetValue(key, out var list))
+                return list;
+            return new List<ImageSource>();
+        }
     }
 }
