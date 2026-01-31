@@ -63,6 +63,20 @@
     <BitmapImage x:Key="PersonalInfoDetailsAchievements3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/3.png" />
     <BitmapImage x:Key="PersonalInfoDetailsAchievements4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/4.png" />
 
+    <!--  Personal Info Achievements - Images2 (1..5)  -->
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages2_1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images2/1.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages2_2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images2/2.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages2_3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images2/3.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages2_4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images2/4.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages2_5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images2/5.png" />
+
+    <!--  Personal Info Achievements - Images3 (1..5)  -->
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/1.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/2.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/3.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/4.png" />
+    <BitmapImage x:Key="PersonalInfoDetailsAchievementsImages3_5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images3/5.png" />
+
     <!--  Personal Info Achievement icon variants  -->
     <BitmapImage x:Key="PersonalInfoDetailsAchievementIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/icon1.png" />
     <BitmapImage x:Key="PersonalInfoDetailsAchievementIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/icon2.png" />

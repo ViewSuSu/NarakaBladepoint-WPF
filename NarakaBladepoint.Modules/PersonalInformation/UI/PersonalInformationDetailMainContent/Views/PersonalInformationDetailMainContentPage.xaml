@@ -103,16 +103,16 @@
                     Background="Transparent"
                     Header="社交头像"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <socialAvatarPage:SocialAvatarPage />
+                    <socialAvatarPage:SocialAvatarPage Margin="50,30,50,50"/>
                 </TabItem>
-                <TabItem
+                <!--<TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="头像框"
                     Style="{StaticResource CommonFunctionTabItem}">
                     <avatarFramePage:AvatarFramePage />
-                </TabItem>
+                </TabItem>-->
                 <TabItem
                     Name="tabShengya"
                     VerticalAlignment="Center"
@@ -125,7 +125,7 @@
                         Background="Transparent"
                         BorderThickness="0">
                         <TabItem
-                            Width="465"
+                            Width="445"
                             Height="25"
                             Header=""
                             Style="{StaticResource CommonFunctionTabItem}"
@@ -138,7 +138,7 @@
                             Header="英雄印"
                             IsSelected="True"
                             Style="{StaticResource CommonFunctionTabItem}">
-                            <careerAchievementsPage:CareerAchievementsHeroTagPage Margin="30,0,50,50" />
+                            <careerAchievementsPage:CareerAchievementsHeroTagPage />
                         </TabItem>
                         <TabItem
                             Name="tabItem2"
@@ -171,7 +171,7 @@
                         Background="Transparent"
                         BorderThickness="0">
                         <TabItem
-                            Width="575"
+                            Width="555"
                             Height="25"
                             Header=""
                             Style="{StaticResource CommonFunctionTabItem}"

@@ -237,6 +237,16 @@
 	  <None Remove="Image\PersonalInfoDetails\Achievements\icon5.png" />
 	  <None Remove="Image\PersonalInfoDetails\Achievements\icon6.png" />
 	  <None Remove="Image\PersonalInfoDetails\Achievements\icon7.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images2\1.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images2\2.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images2\3.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images2\4.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images2\5.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images3\1.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images3\2.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images3\3.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images3\4.png" />
+	  <None Remove="Image\PersonalInfoDetails\Achievements\Images3\5.png" />
 	  <None Remove="Image\PersonalInfoDetails\Achievements\Images\1.png" />
 	  <None Remove="Image\PersonalInfoDetails\Achievements\Images\10.png" />
 	  <None Remove="Image\PersonalInfoDetails\Achievements\Images\11.png" />
@@ -498,6 +508,16 @@
 	<ItemGroup>
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\3.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\4.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\1.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\2.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\4.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\5.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images3\1.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images3\2.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images3\3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images3\4.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images3\5.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images\10.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images\11.png" />
