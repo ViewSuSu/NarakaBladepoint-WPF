@@ -251,6 +251,7 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="IconWidth" Value="30" />
         <Setter Property="IconHeight" Value="30" />
         <Setter Property="BackgroundHeightFactor" Value="1.3" />
@@ -258,7 +259,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                    <StackPanel HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=HorizontalContentAlignment}" Orientation="Vertical">
                         <TextBlock
                             Name="PART_HeaderText"
                             Margin="{Binding RelativeSource={RelativeSource AncestorType=local:IconTabItem}, Path=TextSpacing}"
@@ -311,7 +312,7 @@
                             <ContentPresenter
                                 Name="PART_HeaderContent"
                                 Margin="{TemplateBinding Padding}"
-                                HorizontalAlignment="Center"
+                                HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
                                 ContentSource="Header"
                                 TextElement.FontSize="{TemplateBinding FontSize}" />

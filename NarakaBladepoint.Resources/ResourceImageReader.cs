@@ -30,6 +30,9 @@ namespace NarakaBladepoint.Resources
 
         // HisitoryMatchRecord 相关：image/hisitorymatchrecord/*.png (按加载顺序分配索引，从0开始)
         private static readonly Dictionary<int, ImageSource> _historyMatchRecordImages = new();
+        
+        // PersonalInfoDetails Achievements: image/personalinfodetails/achievements/images/*.png
+        private static readonly List<ImageSource> _personalInfoAchievementImages = new();
 
         static ResourceImageReader()
         {
@@ -234,6 +237,19 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+                // ===================== PersonalInfoDetails Achievements Images =====================
+                if (key.StartsWith("image/personalinfodetails/achievements/images/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/personalinfodetails/achievements/images/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _personalInfoAchievementImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -403,5 +419,14 @@ namespace NarakaBladepoint.Resources
             _historyMatchRecordImages;
 
         public static int HistoryMatchRecordCount => _historyMatchRecordImages.Count;
+
+        // ===================== PersonalInfoDetails Achievements API =====================
+
+        public static ImageSource GetPersonalInfoAchievementImage(int index) =>
+            index >= 0 && index < _personalInfoAchievementImages.Count ? _personalInfoAchievementImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllPersonalInfoAchievementImages() => _personalInfoAchievementImages.AsReadOnly();
+
+        public static int PersonalInfoAchievementCount => _personalInfoAchievementImages.Count;
     }
 }

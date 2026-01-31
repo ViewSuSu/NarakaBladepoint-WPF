@@ -138,7 +138,7 @@
                             Header="英雄印"
                             IsSelected="True"
                             Style="{StaticResource CommonFunctionTabItem}">
-                            <careerAchievementsPage:CareerAchievementsHeroTagPage />
+                            <careerAchievementsPage:CareerAchievementsHeroTagPage Margin="30,0,50,50" />
                         </TabItem>
                         <TabItem
                             Name="tabItem2"

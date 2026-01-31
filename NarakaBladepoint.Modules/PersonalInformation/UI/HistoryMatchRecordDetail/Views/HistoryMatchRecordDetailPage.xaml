@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.Views.HistoryMatchRecordDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
@@ -19,52 +20,68 @@
             <converters:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
             <converters:InverseBoolToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
         </Grid.Resources>
-        <Grid Name="grid" Margin="30">
+        <Grid Name="grid" Margin="30,80">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="1.25*" />
             </Grid.RowDefinitions>
-
-            <!--  称号部分  -->
-            <StackPanel Grid.Row="0" Orientation="Vertical">
-                <TextBlock
-                    Margin="0,0,0,15"
-                    FontSize="16"
-                    Foreground="White"
-                    Text="你的称号" />
-                <ItemsControl
-                    Name="itemControl"
-                    d:ItemsSource="{d:SampleData ItemCount=5}"
-                    ItemsSource="{Binding CurrentUserImageSouces}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel
-                                Margin="5,0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                                <Border Width="40">
-                                    <Image
-                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HisitoryMatchRecord/兵器大师.png"
-                                        Source="{Binding}"
-                                        Stretch="UniformToFill" />
-                                </Border>
-                                <TextBlock
-                                    Margin="0,5,0,0"
-                                    d:Text="兵器大师"
-                                    Foreground="White"
-                                    Text="{Binding Path=., Converter={StaticResource ImageSourceToFileNameConverter}}"
-                                    TextAlignment="Center" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="1.5*" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Image Source="{StaticResource HistoryMatchDetailsRecord1Image}" Stretch="Fill" />
+                        <Image
+                            Width="100"
+                            Height="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    </Grid>
+                    <ItemsControl
+                        Name="itemControl"
+                        Grid.Row="1"
+                        VerticalAlignment="Center"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        ItemsSource="{Binding CurrentUserImageSouces}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                                    Margin="5,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <Border>
+                                        <Image
+                                            Width="50"
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HisitoryMatchRecord/兵器大师.png"
+                                            Source="{Binding}"
+                                            Stretch="UniformToFill" />
+                                    </Border>
+                                    <TextBlock
+                                        Margin="0,5,0,0"
+                                        d:Text="兵器大师"
+                                        Foreground="White"
+                                        Text="{Binding Path=., Converter={StaticResource ImageSourceToFileNameConverter}}"
+                                        TextAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Image Source="{StaticResource HistoryMatchDetailsRecord2Image}" />
+                </Grid>
+            </Grid>
             <DataGrid
                 Grid.Row="1"
                 d:ItemsSource="{d:SampleData ItemCount=3}"
@@ -86,9 +103,8 @@
                         <Setter Property="Background" Value="Transparent" />
                         <Setter Property="BorderBrush" Value="#444444" />
                         <Setter Property="BorderThickness" Value="0,0,0,1" />
-                        <Setter Property="Foreground" Value="#444444" />
+                        <Setter Property="Foreground" Value="Gray" />
                         <Setter Property="FontSize" Value="13" />
-                        <Setter Property="Padding" Value="10,8,0,8" />
                         <Setter Property="TextBlock.TextAlignment" Value="Left" />
                         <Setter Property="HorizontalContentAlignment" Value="Left" />
                         <Setter Property="Template">
@@ -96,7 +112,7 @@
                                 <ControlTemplate TargetType="DataGridColumnHeader">
                                     <ControlTemplate.Resources>
                                         <Style TargetType="TextBlock">
-                                            <Setter Property="Foreground" Value="#444444" />
+                                            <Setter Property="Foreground" Value="Gray" />
                                             <Setter Property="FontSize" Value="13" />
                                         </Style>
                                     </ControlTemplate.Resources>
@@ -133,131 +149,175 @@
                 </DataGrid.Resources>
 
                 <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="Auto" Header="英雄">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image
+                                    Grid.Column="0"
+                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
+                                    Source="{Binding Avatar}"
+                                    Stretch="Uniform" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*" Header="玩家">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Grid Margin="0,0,5,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Image
-                                        Grid.Column="0"
-                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png"
-                                        Source="{Binding Avatar}"
-                                        Stretch="Fill" />
-                                    <UniformGrid
-                                        Grid.Column="1"
-                                        Margin="5"
-                                        Rows="2">
-                                        <TextBlock VerticalAlignment="Top" Text="{Binding Name}" />
-                                        <ItemsControl
-                                            VerticalAlignment="Bottom"
-                                            d:ItemsSource="{d:SampleData ItemCount=10}"
-                                            ItemsSource="{Binding Titles}">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Image
-                                                        Margin="0,0,5,0"
-                                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HisitoryMatchRecord/兵器大师.png"
-                                                        Source="{Binding}" />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </UniformGrid>
-                                </Grid>
+                                <UniformGrid
+                                    Grid.Column="1"
+                                    Margin="5"
+                                    Rows="2">
+                                    <TextBlock
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Text="{Binding Name}"
+                                        TextAlignment="Left" />
+                                    <ItemsControl
+                                        VerticalAlignment="Bottom"
+                                        d:ItemsSource="{d:SampleData ItemCount=10}"
+                                        ItemsSource="{Binding Titles}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Image
+                                                    Margin="0,0,5,0"
+                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HisitoryMatchRecord/兵器大师.png"
+                                                    Source="{Binding}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </UniformGrid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
                     <!--  生存时间列  -->
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding SurvivalTime}"
-                        FontSize="12"
-                        Foreground="White"
-                        Header="生存时间" />
-
-                    <DataGridTextColumn
-                        Width="80"
-                        Binding="{Binding TeamKills}"
-                        FontSize="12"
-                        Foreground="White"
-                        Header="击败数" />
-
-                    <!--  总伤害列  -->
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding TotalDamage}"
-                        FontSize="12"
-                        Foreground="White"
-                        Header="总伤害" />
-
-                    <!--  总治疗量列  -->
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding TotalHealing}"
-                        FontSize="12"
-                        Foreground="White"
-                        Header="总治疗量" />
-
-                    <!--  救援次数  -->
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding AwardedTeams}"
-                        FontSize="12"
-                        Foreground="White"
-                        Header="救援次数" />
-
-                    <!--  亲密度  -->
-                    <DataGridTemplateColumn Width="100" Header="亲密度">
+                    <DataGridTemplateColumn Width="100" Header="生存时间">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
                                     FontSize="12"
                                     Foreground="White"
-                                    Text="{Binding Experience}"
-                                    Visibility="{Binding IsCurrentUser, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
+                                    Text="{Binding SurvivalTime}"
+                                    TextAlignment="Left" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
+                    <DataGridTemplateColumn Width="80" Header="击败">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Foreground="White"
+                                    Text="{Binding TeamKills}"
+                                    TextAlignment="Left" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="80" Header="助攻">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Foreground="White"
+                                    Text="{Binding TeamKills}"
+                                    TextAlignment="Left" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--  总伤害列  -->
+                    <DataGridTemplateColumn Width="100" Header="伤害">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Foreground="White"
+                                    Text="{Binding TotalDamage}"
+                                    TextAlignment="Left" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--  总治疗量列  -->
+                    <DataGridTemplateColumn Width="100" Header="总治">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Foreground="White"
+                                    Text="{Binding TotalHealing}"
+                                    TextAlignment="Left" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--  救援次数  -->
+                    <DataGridTemplateColumn Width="100" Header="救援">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    d:Text="1"
+                                    FontSize="12"
+                                    Foreground="White"
+                                    Text="{Binding AwardedTeams}"
+                                    TextAlignment="Left" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
                     <!--  操作列  -->
-                    <DataGridTemplateColumn Width="80" Header="操作">
+                    <DataGridTemplateColumn Width="80" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel
-                                    Margin="5,0"
-                                    HorizontalAlignment="Left"
+                                    HorizontalAlignment="Center"
                                     Orientation="Horizontal"
                                     Visibility="{Binding IsCurrentUser, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-                                    <Button
+                                    <Image
                                         Width="24"
                                         Height="24"
                                         Margin="3,0"
-                                        Background="Transparent"
-                                        BorderBrush="Transparent"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.AddFriendCommand}"
-                                        CommandParameter="{Binding}"
-                                        Foreground="White">
-                                        👤
-                                    </Button>
-                                    <Button
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                        Source="{StaticResource HistoryMatchDetailsRecord3Image}"
+                                        Stretch="Uniform">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.AddFriendCommand}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </Image>
+                                    <Image
                                         Width="24"
-                                        Height="24"
                                         Margin="3,0"
-                                        Background="Transparent"
-                                        BorderBrush="Transparent"
-                                        Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.ReportCommand}"
-                                        CommandParameter="{Binding}"
-                                        Foreground="White">
-                                        ⚠
-                                    </Button>
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                        Source="{StaticResource HistoryMatchDetailsRecord4Image}"
+                                        Stretch="Uniform">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.ReportCommand}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </Image>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

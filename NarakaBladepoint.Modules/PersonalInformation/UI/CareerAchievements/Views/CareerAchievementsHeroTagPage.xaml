@@ -8,7 +8,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.ViewModels"
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
+    d:DataContext="{d:DesignInstance Type=viewmodels:CareerAchievementsHeroTagPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
@@ -17,194 +19,233 @@
             <ColumnDefinition Width="0.4*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.25*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Source="{StaticResource PersonalInfoDetailsAchievements4Image}" />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="达成该阶段可获得" />
+                <Image Grid.Row="1" Source="{StaticResource PersonalInfoDetailsAchievements3Image}" />
+                <controls:HighlightBorder Grid.Row="2" HorizontalAlignment="Center">
+                    <Image Source="{StaticResource PersonalInfoDetailsAchievements2Image}" />
+                </controls:HighlightBorder>
+            </Grid>
+            <Button
+                Grid.Row="2"
+                Content="英雄印"
+                Style="{StaticResource CommandButtonStyle2}" />
+        </Grid>
         <TabControl
             Grid.Column="1"
+            Margin="10,0,0,0"
             Background="Transparent"
             Style="{StaticResource AverageTabControlStyle}">
             <controls:IconTabItem Header="全部" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo1.png">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding AllItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="6" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <controls:HighlightBorder Margin="2">
-                                <Border BorderThickness="2">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                    <Grid>
+                <ScrollViewer>
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding AllItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="135" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                         <Image
                                             attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
-                                </Border>
-                            </controls:HighlightBorder>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </controls:IconTabItem>
-            <controls:IconTabItem Header="礼包" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo2.png">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding GiftPackItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="6" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <controls:HighlightBorder Margin="2">
-                                <Border BorderThickness="2">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                    <Grid>
+            <controls:IconTabItem Header="个人" Icon="{StaticResource PersonalInfoDetailsAchievementIcon2Image}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding PersonalItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="110" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                         <Image
                                             attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
-                                </Border>
-                            </controls:HighlightBorder>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </controls:IconTabItem>
-            <controls:IconTabItem Header="卡券" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo3.png">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding CouponItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="6" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <controls:HighlightBorder Margin="2">
-                                <Border BorderThickness="2">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                    <Grid>
+            <controls:IconTabItem Header="战斗" Icon="{StaticResource PersonalInfoDetailsAchievementIcon3Image}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding CombatItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="110" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                         <Image
                                             attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
-                                </Border>
-                            </controls:HighlightBorder>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </controls:IconTabItem>
-            <controls:IconTabItem Header="征神之路" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo4.png">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding ConquestItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="6" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <controls:HighlightBorder Margin="2">
-                                <Border BorderThickness="2">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                    <Grid>
+            <controls:IconTabItem Header="探索" Icon="{StaticResource PersonalInfoDetailsAchievementIcon4Image}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding ExplorationItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="110" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                         <Image
                                             attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
-                                </Border>
-                            </controls:HighlightBorder>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </controls:IconTabItem>
-            <controls:IconTabItem Header="无间镖客" Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo5.png">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding BountyItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="6" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <controls:HighlightBorder Margin="2">
-                                <Border BorderThickness="2">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="MouseLeftButtonDown">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                    <Grid>
+            <controls:IconTabItem Header="征神之路" Icon="{StaticResource PersonalInfoDetailsAchievementIcon5Image}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding DivineRoadItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="110" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
                                         <Image
                                             attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
-                                            Source="{Binding Icon}"
-                                            Stretch="Uniform" />
-                                        <TextBlock
-                                            Margin="0,0,2,2"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            d:Text="1"
-                                            FontSize="10"
-                                            Foreground="White"
-                                            Text="{Binding Count}" />
-                                    </Grid>
-                                </Border>
-                            </controls:HighlightBorder>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </controls:IconTabItem>
+            <controls:IconTabItem Header="娱乐" Icon="{StaticResource PersonalInfoDetailsAchievementIcon6Image}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding EntertainmentItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="110" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                        <Image
+                                            attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </controls:IconTabItem>
+            <controls:IconTabItem Header="限定" Icon="{StaticResource PersonalInfoDetailsAchievementIcon7Image}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding LimitedItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="110" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <controls:HighlightBorder Margin="0,5,5,0">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                        <Image
+                                            attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/Images/1.png"
+                                            Source="{Binding}" />
+                                    </controls:HighlightBorder>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </controls:IconTabItem>
         </TabControl>
     </Grid>
