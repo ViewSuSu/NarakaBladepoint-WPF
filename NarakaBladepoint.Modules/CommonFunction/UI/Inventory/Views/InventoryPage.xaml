@@ -230,7 +230,7 @@
                         Name="image"
                         Grid.Column="0"
                         Width="300"
-                        Height="300"
+                        Height="300"    
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/gaoqing.png"

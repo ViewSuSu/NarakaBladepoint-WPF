@@ -182,9 +182,32 @@ namespace NarakaBladepoint.App.Shell.Behaviors
             }
 
             var tipGrid = _window.FindName("tipGrid") as FrameworkElement;
+            var tipBorder = _window.FindName(TipBorderName) as FrameworkElement;
+            var tipTextblock = _window.FindName(TipTextblockName) as FrameworkElement;
+
+            // 隐藏 tipGrid 并禁用点击测试
             if (tipGrid != null)
             {
                 tipGrid.Visibility = Visibility.Collapsed;
+                tipGrid.IsHitTestVisible = false;
+            }
+
+            // 完全重置所有控件状态，确保动画不会留下任何残留
+            if (tipBorder != null)
+            {
+                // 停止所有动画
+                _storyboard?.Stop(_window);
+
+                // 重置 RenderTransform 和 Opacity
+                tipBorder.RenderTransform = new System.Windows.Media.TranslateTransform { Y = 100 };
+                tipBorder.Opacity = 0;
+            }
+
+            // 重置 TextBlock 的可见性和 Opacity
+            if (tipTextblock != null)
+            {
+                tipTextblock.Opacity = 1;
+                tipTextblock.Visibility = Visibility.Collapsed;
             }
         }
 

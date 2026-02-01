@@ -4,7 +4,7 @@
     <ExponentialEase x:Key="TipMessageEasingFunction" EasingMode="EaseOut" />
 
     <!--  Tip message animation sequence: move up and fade out  -->
-    <Storyboard x:Key="TipMessageAnimationStoryboard" x:Name="TipMessageAnimationStoryboard">
+    <Storyboard x:Key="TipMessageAnimationStoryboard" x:Name="TipMessageAnimationStoryboard" FillBehavior="Stop">
         <!--  Phase 1: Move from bottom to top (0s - 0.5s)  -->
         <DoubleAnimation
             Storyboard.TargetName="tipBorder"
@@ -54,6 +54,7 @@
     <Style x:Key="TipMessageBorderStyle" TargetType="Border">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Opacity" Value="0" />
+        <Setter Property="Height" Value="Auto" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0" />
         <Setter Property="RenderTransform">
             <Setter.Value>
