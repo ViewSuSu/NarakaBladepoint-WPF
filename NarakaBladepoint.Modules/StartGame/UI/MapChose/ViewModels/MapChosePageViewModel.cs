@@ -67,7 +67,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels
             {
                 datas[i].IsSelected = MapItems[i].IsSelected;
             }
-            configuration.SaveAll(datas);
+            configuration.SaveAllAsyn(datas);
             ReturnCommand.Execute();
         }
 

@@ -73,7 +73,8 @@
                                         Height="100"
                                         Margin="0,5"
                                         Background="#1A000000"
-                                        BorderThickness="0">
+                                        BorderThickness="0"
+                                        EnableMaskOnHover="True">
                                         <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
                                             <b:Interaction.Triggers>
                                                 <b:EventTrigger EventName="MouseLeftButtonDown">
@@ -166,7 +167,8 @@
                                                         Height="100"
                                                         Margin="0,2"
                                                         Background="#1A000000"
-                                                        BorderThickness="0">
+                                                        BorderThickness="0"
+                                                        EnableMaskOnHover="True">
                                                         <Border BorderBrush="{Binding IsSelected, Converter={StaticResource BoolToTransparentBrushConverter}}" BorderThickness="2">
                                                             <b:Interaction.Triggers>
                                                                 <b:EventTrigger EventName="MouseLeftButtonDown">

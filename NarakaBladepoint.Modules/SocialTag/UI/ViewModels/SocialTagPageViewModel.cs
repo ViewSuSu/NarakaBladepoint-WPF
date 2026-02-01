@@ -126,7 +126,7 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
                 tag.IsSelected = !tag.IsSelected;
                 var currentModel = this.currentUserInfoProvider.GetCurrentUserInfoAsync().Result;
                 currentModel.SelectedSocialTags = SelectedTagIndexArray;
-                this.configuration.Save(currentModel);
+                this.configuration.SaveAsync(currentModel);
                 eventAggregator.GetEvent<NoticeSocialTagChangeEvent>().Publish();
             });
 
@@ -148,7 +148,7 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
                 {
                     currentModel.SelectedSocialTagOnline = null;
                 }
-                configuration.Save(currentModel);
+                configuration.SaveAsync(currentModel);
                 eventAggregator.GetEvent<NoticeSocialTagChangeEvent>().Publish();
             });
 
@@ -170,7 +170,7 @@ namespace NarakaBladepoint.Modules.SocialTag.UI.ViewModels
                 {
                     currentModel.SelectedSocialTagMic = null;
                 }
-                configuration.Save(currentModel);
+                configuration.SaveAsync(currentModel);
                 eventAggregator.GetEvent<NoticeSocialTagChangeEvent>().Publish();
             });
 

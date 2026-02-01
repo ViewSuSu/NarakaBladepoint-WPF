@@ -50,8 +50,9 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             this.currentUserBasicInformation = currentUserBasicInformation;
             this.heroInfomation = heroInfomation;
             this.tipMessageService = tipMessageService;
-            Init();
             eventAggregator.GetEvent<NoticeSocialTagChangeEvent>().Subscribe(Init);
+            eventAggregator.GetEvent<SaveNameSuccessEvent>().Subscribe(Init);
+            Init();
         }
 
         private void Init()
@@ -62,6 +63,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             this.CurrentUserBasicInformationModel = currentUserBasicInformation
                 .GetCurrentUserInfoAsync()
                 .Result;
+            Name = CurrentUserBasicInformationModel.Name;
             IsHaveTags = CurrentUserBasicInformationModel.IsExsitAnyValidSocialTag;
             SelectedItem = PersonalSeasonDataModels.FirstOrDefault();
             SetHeroTags();
@@ -76,6 +78,18 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             set
             {
                 _isHaveTags = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
                 RaisePropertyChanged();
             }
         }

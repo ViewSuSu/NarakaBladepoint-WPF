@@ -313,6 +313,7 @@
 	  <None Remove="Image\PersonalInfoDetails\TippingRecord\Icon1.png" />
 	  <None Remove="Image\PersonalInfoDetails\TippingRecord\Icon2.png" />
 	  <None Remove="Image\PersonalInfoDetails\TippingRecord\Icon3.png" />
+	  <None Remove="Image\PersonalInfoDetails\TouZi.png" />
 	  <None Remove="Image\RankLogo\1.png" />
 	  <None Remove="Image\RankLogo\2.png" />
 	  <None Remove="Image\Region\1.png" />
@@ -535,6 +536,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\background5.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\3.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\4.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\1.png" />
@@ -673,6 +675,7 @@
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\Icon1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\Icon2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\Icon3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\TouZi.png" />
 	  <Resource Include="Image\RankLogo\1.png" />
 	  <Resource Include="Image\RankLogo\2.png" />
 	  <Resource Include="Image\SocialTag\background.png" />

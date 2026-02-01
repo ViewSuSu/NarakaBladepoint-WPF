@@ -1,3 +1,5 @@
+using NarakaBladepoint.Modules.PersonalInformation.Domain.Events;
+
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels
 {
     /// <summary>
@@ -17,10 +19,17 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
         public DelegateCommand SubmitCommand => _submitCommand ??= new DelegateCommand(OnSubmit);
 
         private DelegateCommand _randomNameCommand;
+        private readonly ICurrentUserInfoProvider currentUserInfoProvider;
+        private readonly IConfiguration configuration;
+
         public DelegateCommand RandomNameCommand =>
             _randomNameCommand ??= new DelegateCommand(OnRandomName);
 
-        public EditNamePageViewModel() { }
+        public EditNamePageViewModel(ICurrentUserInfoProvider currentUserInfoProvider, IConfiguration configuration)
+        {
+            this.currentUserInfoProvider = currentUserInfoProvider;
+            this.configuration = configuration;
+        }
 
         private void OnRandomName()
         {
@@ -51,14 +60,16 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
             NewName = names[random.Next(names.Length)] + random.Next(100, 999);
         }
 
-        private void OnSubmit()
+        private async void OnSubmit()
         {
-            // TODO: 实现确认修改名字的逻辑
-        }
-
-        private void OnCancel()
-        {
-            // TODO: 实现取消修改的逻辑
+            var currentUserModel = await currentUserInfoProvider.GetCurrentUserInfoAsync();
+            currentUserModel.Name = NewName;
+            var result = await configuration.SaveAsync(currentUserModel);
+            if (result)
+            {
+                eventAggregator.GetEvent<SaveNameSuccessEvent>().Publish();
+            }
+            ReturnCommand.Execute();
         }
     }
 }

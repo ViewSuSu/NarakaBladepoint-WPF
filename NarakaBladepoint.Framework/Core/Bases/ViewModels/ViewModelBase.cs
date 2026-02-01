@@ -3,11 +3,16 @@
     /// <summary>
     /// ViewModel基类
     /// </summary>
-    public abstract class ViewModelBase : BindableBase, INavigationAware
+    public abstract class ViewModelBase : BindableBase, INavigationAware, IActiveAware
     {
         protected readonly IEventAggregator eventAggregator;
         protected readonly IRegionManager regionManager;
         protected readonly IContainerProvider containerProvider;
+
+        public event EventHandler IsActiveChanged;
+
+        private bool isActive = false;
+        public bool IsActive { get => isActive; set => isActive = value; }
 
         protected ViewModelBase()
         {

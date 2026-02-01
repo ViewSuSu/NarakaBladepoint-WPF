@@ -77,7 +77,7 @@
                         VerticalAlignment="Center"
                         d:Text="国服张起灵"
                         Foreground="White"
-                        Text="{Binding UserInfoModel.Name, Mode=OneWay}" />
+                        Text="{Binding Name, Mode=OneWay}" />
                 </StackPanel>
                 <!--<ProgressBar
              Grid.Row="1"

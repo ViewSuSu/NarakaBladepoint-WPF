@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.Views.CareerAchievementsGoldenCrowPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -18,13 +19,20 @@
         <Image Source="{StaticResource PersonalInfoDetailsAchievementsImages2_1Image}" />
         <UniformGrid
             Grid.Row="1"
-            Margin="0,10,0,0"
             VerticalAlignment="Top"
             Columns="4">
-            <Image Margin="5,0" Source="{StaticResource PersonalInfoDetailsAchievementsImages2_2Image}" />
-            <Image Margin="5,0" Source="{StaticResource PersonalInfoDetailsAchievementsImages2_3Image}" />
-            <Image Margin="5,0" Source="{StaticResource PersonalInfoDetailsAchievementsImages2_4Image}" />
-            <Image Margin="5,0" Source="{StaticResource PersonalInfoDetailsAchievementsImages2_5Image}" />
+            <controls:HighlightBorder Margin="5,10,5,0" EnableMaskOnHover="True">
+                <Image Source="{StaticResource PersonalInfoDetailsAchievementsImages2_2Image}" />
+            </controls:HighlightBorder>
+            <controls:HighlightBorder Margin="5,10,5,0" EnableMaskOnHover="True">
+                <Image Source="{StaticResource PersonalInfoDetailsAchievementsImages2_3Image}" />
+            </controls:HighlightBorder>
+            <controls:HighlightBorder Margin="5,10,5,0" EnableMaskOnHover="True">
+                <Image Source="{StaticResource PersonalInfoDetailsAchievementsImages2_4Image}" />
+            </controls:HighlightBorder>
+            <controls:HighlightBorder Margin="5,10,5,0" EnableMaskOnHover="True">
+                <Image Source="{StaticResource PersonalInfoDetailsAchievementsImages2_5Image}" />
+            </controls:HighlightBorder>
         </UniformGrid>
     </Grid>
 </views:UserControlBase>

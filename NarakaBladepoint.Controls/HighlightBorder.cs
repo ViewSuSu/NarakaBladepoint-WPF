@@ -10,6 +10,7 @@ namespace NarakaBladepoint.Controls
     {
         private AdornerLayer _adornerLayer;
         private HighlightAdorner _highlightAdorner;
+        private MaskAdorner _maskAdorner;
 
         public HighlightBorder()
         {
@@ -69,6 +70,20 @@ namespace NarakaBladepoint.Controls
             set { SetValue(HighlightBrushProperty, value); }
         }
 
+        public static readonly DependencyProperty EnableMaskOnHoverProperty =
+            DependencyProperty.Register(
+                "EnableMaskOnHover",
+                typeof(bool),
+                typeof(HighlightBorder),
+                new PropertyMetadata(false)
+            );
+
+        public bool EnableMaskOnHover
+        {
+            get { return (bool)GetValue(EnableMaskOnHoverProperty); }
+            set { SetValue(EnableMaskOnHoverProperty, value); }
+        }
+
         #endregion 依赖属性
 
         private void OnMouseEnter(object sender, MouseEventArgs e)
@@ -96,6 +111,13 @@ namespace NarakaBladepoint.Controls
                 _highlightAdorner = new HighlightAdorner(this, HighlightBrush, HighlightThickness);
                 _adornerLayer.Add(_highlightAdorner);
             }
+
+            // 如果启用了蒙版，则显示蒙版
+            if (EnableMaskOnHover && _adornerLayer != null && _maskAdorner == null)
+            {
+                _maskAdorner = new MaskAdorner(this);
+                _adornerLayer.Add(_maskAdorner);
+            }
         }
 
         private void HideHighlight()
@@ -104,6 +126,12 @@ namespace NarakaBladepoint.Controls
             {
                 _adornerLayer.Remove(_highlightAdorner);
                 _highlightAdorner = null;
+            }
+
+            if (_adornerLayer != null && _maskAdorner != null)
+            {
+                _adornerLayer.Remove(_maskAdorner);
+                _maskAdorner = null;
             }
         }
 
@@ -140,6 +168,30 @@ namespace NarakaBladepoint.Controls
                 );
 
                 drawingContext.DrawRectangle(null, pen, innerRect);
+            }
+        }
+
+        // 蒙版装饰器类
+        private class MaskAdorner : Adorner
+        {
+            private readonly Brush _maskBrush;
+
+            public MaskAdorner(UIElement adornedElement)
+                : base(adornedElement)
+            {
+                // 创建带透明度的白色朦胧蒙版（更淡）
+                _maskBrush = new SolidColorBrush(Color.FromArgb(60, 255, 255, 255)); // 白色透明（更淡）
+                _maskBrush.Freeze();
+
+                IsHitTestVisible = false;
+            }
+
+            protected override void OnRender(DrawingContext drawingContext)
+            {
+                Rect adornedElementRect = new Rect(this.AdornedElement.RenderSize);
+
+                // 绘制蒙版矩形（覆盖整个元素）
+                drawingContext.DrawRectangle(_maskBrush, null, adornedElementRect);
             }
         }
     }

@@ -69,7 +69,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDet
                     .Where(x => x.IsSelected)
                     ?.Select(x => ItemModels.IndexOf(x))
                     .ToArray();
-                var saveResult = await configuration.Save(userModel);
+                var saveResult = await configuration.SaveAsync(userModel);
                 if (saveResult)
                 {
                     eventAggregator.GetEvent<SaveHeroTagEvent>().Publish();

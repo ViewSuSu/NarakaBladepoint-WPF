@@ -16,9 +16,13 @@
         ImageSource="{StaticResource Background2Image}"
         Stretch="UniformToFill" />
     <ImageBrush
+        x:Key="Background5Brush"
+        ImageSource="{StaticResource Background5Image}"
+        Stretch="UniformToFill" />
+    <ImageBrush
         x:Key="PersonalInfoDetailsBackgroundBrush"
         ImageSource="{StaticResource PersonalInfoDetailsBackgroundImage}"
-        Stretch="UniformToFill" />
+        Stretch="Fill" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground" Color="#1A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground2" Color="#2A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground3" Color="#3A000000" />

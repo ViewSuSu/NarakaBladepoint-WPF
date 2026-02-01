@@ -26,9 +26,12 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                     return;
 
                 // 获取占位符样式属性
+                Brush placeholderForeground =
+                    TextBoxHelper.GetPlaceholderForeground(_textBox)
+                    ?? SystemColors.InactiveCaptionBrush;
                 Brush placeholderBrush =
                     TextBoxHelper.GetPlaceholderBrush(_textBox)
-                    ?? SystemColors.InactiveCaptionBrush;
+                    ?? placeholderForeground;
                 double placeholderFontSize =
                     TextBoxHelper.GetPlaceholderFontSize(_textBox) ?? _textBox.FontSize;
                 FontStyle placeholderFontStyle =
@@ -37,6 +40,8 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                     TextBoxHelper.GetPlaceholderFontWeight(_textBox) ?? _textBox.FontWeight;
                 FontFamily placeholderFontFamily =
                     TextBoxHelper.GetPlaceholderFontFamily(_textBox) ?? _textBox.FontFamily;
+                TextAlignment placeholderTextAlignment =
+                    TextBoxHelper.GetPlaceholderTextAlignment(_textBox) ?? TextAlignment.Left;
 
                 // 创建格式化文本对象
                 FormattedText text = new FormattedText(
@@ -94,8 +99,13 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
                     _textBox.ActualHeight - textHeight - _textBox.Padding.Bottom
                 );
 
-                // 文本应放置在左侧（考虑水平滚动）
-                double horizontalOffset = _textBox.Padding.Left;
+                // 根据文本对齐方式计算水平偏移
+                double horizontalOffset = placeholderTextAlignment switch
+                {
+                    TextAlignment.Center => _textBox.Padding.Left + (availableWidth - textWidth) / 2,
+                    TextAlignment.Right => Math.Max(_textBox.ActualWidth - _textBox.Padding.Right - textWidth, _textBox.Padding.Left),
+                    _ => _textBox.Padding.Left
+                };
 
                 // 限制文本宽度，防止超出TextBox
                 text.MaxTextWidth = Math.Max(availableWidth - horizontalOffset, 0);
@@ -149,6 +159,28 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             );
 
         #endregion PlaceholderBrush Property
+
+        #region PlaceholderForeground Property
+
+        public static Brush GetPlaceholderForeground(DependencyObject obj) =>
+            (Brush)obj.GetValue(PlaceholderForegroundProperty);
+
+        public static void SetPlaceholderForeground(DependencyObject obj, Brush value) =>
+            obj.SetValue(PlaceholderForegroundProperty, value);
+
+        public static readonly DependencyProperty PlaceholderForegroundProperty =
+            DependencyProperty.RegisterAttached(
+                "PlaceholderForeground",
+                typeof(Brush),
+                typeof(TextBoxHelper),
+                new FrameworkPropertyMetadata(
+                    defaultValue: null,
+                    FrameworkPropertyMetadataOptions.AffectsRender,
+                    propertyChangedCallback: OnPlaceholderStyleChanged
+                )
+            );
+
+        #endregion PlaceholderForeground Property
 
         #region PlaceholderFontSize Property
 
@@ -237,6 +269,28 @@ namespace NarakaBladepoint.Framework.UI.AttachedProperties
             );
 
         #endregion PlaceholderFontFamily Property
+
+        #region PlaceholderTextAlignment Property
+
+        public static TextAlignment? GetPlaceholderTextAlignment(DependencyObject obj) =>
+            (TextAlignment?)obj.GetValue(PlaceholderTextAlignmentProperty);
+
+        public static void SetPlaceholderTextAlignment(DependencyObject obj, TextAlignment? value) =>
+            obj.SetValue(PlaceholderTextAlignmentProperty, value);
+
+        public static readonly DependencyProperty PlaceholderTextAlignmentProperty =
+            DependencyProperty.RegisterAttached(
+                "PlaceholderTextAlignment",
+                typeof(TextAlignment?),
+                typeof(TextBoxHelper),
+                new FrameworkPropertyMetadata(
+                    defaultValue: null,
+                    FrameworkPropertyMetadataOptions.AffectsRender,
+                    propertyChangedCallback: OnPlaceholderStyleChanged
+                )
+            );
+
+        #endregion PlaceholderTextAlignment Property
 
         private static void OnPlaceholderChanged(
             DependencyObject d,

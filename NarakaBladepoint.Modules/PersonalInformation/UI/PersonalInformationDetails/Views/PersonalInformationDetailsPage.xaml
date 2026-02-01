@@ -77,7 +77,7 @@
                                         d:Text="国服张起灵"
                                         FontSize="18"
                                         Foreground="White"
-                                        Text="{Binding CurrentUserBasicInformationModel.Name, Mode=OneWay}" />
+                                        Text="{Binding Name, Mode=OneWay}" />
                                     <Image
                                         Name="changeGender"
                                         Width="30"

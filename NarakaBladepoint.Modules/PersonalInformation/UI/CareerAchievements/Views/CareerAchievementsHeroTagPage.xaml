@@ -37,7 +37,10 @@
                     VerticalAlignment="Center"
                     Text="达成该阶段可获得" />
                 <Image Grid.Row="1" Source="{StaticResource PersonalInfoDetailsAchievements3Image}" />
-                <controls:HighlightBorder Grid.Row="2" HorizontalAlignment="Center">
+                <controls:HighlightBorder
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    EnableMaskOnHover="True">
                     <Image Source="{StaticResource PersonalInfoDetailsAchievements2Image}" />
                 </controls:HighlightBorder>
             </Grid>

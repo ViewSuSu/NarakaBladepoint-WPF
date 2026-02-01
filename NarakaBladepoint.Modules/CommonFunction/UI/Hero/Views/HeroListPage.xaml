@@ -49,7 +49,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <controls:HighlightBorder Margin="2">
+                            <controls:HighlightBorder Margin="2" EnableMaskOnHover="True">
                                 <Grid>
                                     <Image
                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"

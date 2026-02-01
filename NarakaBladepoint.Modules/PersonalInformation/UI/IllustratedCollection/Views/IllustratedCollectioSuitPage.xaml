@@ -11,6 +11,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels"
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
+    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:IllustratedCollectioSuitPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
@@ -21,8 +22,7 @@
         <localconv:ProgressCompletedToVisibilityConverter x:Key="ProgressCompletedToVisibilityConverter" />
         <localconv:ProgressCompletedToVisibilityConverter x:Key="ProgressNotCompletedToVisibilityConverter" Invert="True" />
     </views:UserControlBase.Resources>
-
-    <Grid Background="{StaticResource Background2}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />

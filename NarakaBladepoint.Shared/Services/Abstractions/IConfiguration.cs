@@ -8,7 +8,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<bool> Save<T>(T entity);
+        Task<bool> SaveAsync<T>(T entity);
 
         /// <summary>
         /// 保存配置类集合对象到本地
@@ -16,6 +16,6 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="entities"></param>
         /// <returns></returns>
-        Task<bool> SaveAll<T>(IEnumerable<T> entities);
+        Task<bool> SaveAllAsyn<T>(IEnumerable<T> entities);
     }
 }

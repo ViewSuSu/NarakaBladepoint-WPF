@@ -191,7 +191,7 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
             currentUserModel.FirstPickHeroIndex = FirstHeroIndex;
             currentUserModel.SecondPickHeroIndex = SecondHeroIndex;
             currentUserModel.ThridPickHeroIndex = ThirdHeroIndex;
-            return await configuration.Save(currentUserModel);
+            return await configuration.SaveAsync(currentUserModel);
         }
     }
 }
