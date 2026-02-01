@@ -1,6 +1,7 @@
 using NarakaBladepoint.Framework.Core.Infrastructure;
 using NarakaBladepoint.Modules.CommonFunction.Domain.Events;
 using NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.Views;
+using NarakaBladepoint.Modules.CommonFunction.UI.GuildHall.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Hero.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views;
 using NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views;
@@ -170,6 +171,24 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
                     eventAggregator
                         .GetEvent<LoadMainContentRegionEvent>()
                         .Publish(new NavigationArgs(nameof(CustomMatchPage)));
+                }
+            }
+        }
+
+        private bool _isSelectedGuildHall;
+
+        public bool IsSelectedGuildHall
+        {
+            get => _isSelectedGuildHall;
+            set
+            {
+                _isSelectedGuildHall = value;
+                RaisePropertyChanged();
+                if (value)
+                {
+                    eventAggregator
+                        .GetEvent<LoadMainContentRegionEvent>()
+                        .Publish(new NavigationArgs(nameof(GuildHallMainContentPage)));
                 }
             }
         }

@@ -14,6 +14,9 @@
     <Compile Update="BattlePass\UI\BattlePass\Views\BattlePassContentTabTwoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommonFunction\UI\GuildHall\Views\GuildHallPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

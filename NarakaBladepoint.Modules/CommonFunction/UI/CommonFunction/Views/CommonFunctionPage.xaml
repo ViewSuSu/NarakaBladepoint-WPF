@@ -28,7 +28,10 @@
             Header="备战"
             IsSelected="{Binding IsSelectedSkillPoint}"
             Style="{StaticResource CommonFunctionTabItem}" />
-        <TabItem Header="聚义厅" Style="{StaticResource CommonFunctionTabItem}" />
+        <TabItem
+            Header="聚义厅"
+            IsSelected="{Binding IsSelectedGuildHall}"
+            Style="{StaticResource CommonFunctionTabItem}" />
         <TabItem
             Header="大厅"
             IsSelected="{Binding IsSelectedHall}"
