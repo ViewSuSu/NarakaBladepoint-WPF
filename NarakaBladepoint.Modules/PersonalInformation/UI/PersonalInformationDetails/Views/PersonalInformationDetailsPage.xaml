@@ -162,17 +162,17 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     Orientation="Horizontal">
-                                     <Image
-                                         Width="20"
-                                         HorizontalAlignment="Right"
-                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/9.png" />
-                                     <Image
-                                         Width="20"
-                                         Margin="5,0,0,0"
-                                         HorizontalAlignment="Right"
-                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Right"
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/9.png" />
+                                    <Image
+                                        Width="20"
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Right"
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="MouseLeftButtonDown">
                                                 <b:InvokeCommandAction Command="{Binding CopyUserIdCommand}" />
@@ -200,11 +200,11 @@
                                         VerticalAlignment="Center"
                                         Foreground="White"
                                         Text="未选择称号" />
-                                     <Image
-                                         Width="20"
-                                         HorizontalAlignment="Right"
-                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png" />
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Right"
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png" />
                                 </Grid>
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseLeftButtonDown">
@@ -701,22 +701,43 @@
                 </Grid>
                 <Grid Grid.Column="1" Margin="10,0,0,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.1*" />
-                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="100" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <controls:ToggleButtonComboBox
-                        Grid.Row="0"
-                        Width="100"
-                        HorizontalAlignment="Left"
-                        DisplayMemberPath="Season"
-                        ItemsSource="{Binding PersonalSeasonDataModels}"
-                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
-                    <TextBlock
-                        Grid.Row="0"
-                        HorizontalAlignment="Right"
-                        Foreground="White"
-                        Text="排位赛" />
+                    <Grid Background="#3A000000">
+                        <controls:ToggleButtonComboBox
+                            Grid.Row="0"
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            DisplayMemberPath="Season"
+                            ItemsSource="{Binding PersonalSeasonDataModels}"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+                        <StackPanel
+                            Grid.Row="0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Text="排位赛" />
+                            <Border
+                                Width="25"
+                                Height="25"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Background="#5A000000">
+                                <Image
+                                    Grid.Column="1"
+                                    Width="20"
+                                    Height="20"
+                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png"
+                                    Stretch="UniformToFill" />
+                            </Border>
+                        </StackPanel>
+                    </Grid>
                     <UniformGrid Grid.Row="1" Columns="3">
                         <Border Margin="0,5" Background="#1A000000">
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -775,8 +796,9 @@
                     </UniformGrid>
                     <Image
                         Grid.Row="2"
+                        VerticalAlignment="Top"
                         Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/18.png"
-                        Stretch="UniformToFill" />
+                        Stretch="Uniform" />
                 </Grid>
             </Grid>
         </Grid>

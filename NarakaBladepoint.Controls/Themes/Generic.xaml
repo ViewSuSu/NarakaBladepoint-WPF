@@ -212,12 +212,10 @@
                         <Grid Margin="{TemplateBinding CornerThickness}">
                             <Image Source="{TemplateBinding BackgroundImage}" Stretch="{TemplateBinding ImageStretch}" />
                             <Border Padding="4" VerticalAlignment="Bottom">
-                                <TextBox
+                                <TextBlock
+                                    HorizontalAlignment="Center"
                                     VerticalAlignment="Bottom"
-                                    HorizontalContentAlignment="Center"
                                     Background="Transparent"
-                                    BorderThickness="0"
-                                    FontWeight="Bold"
                                     Foreground="White"
                                     Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
                             </Border>

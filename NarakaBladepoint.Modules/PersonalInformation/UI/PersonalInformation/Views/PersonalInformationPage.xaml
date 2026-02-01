@@ -48,6 +48,7 @@
                     BackgroundImage="{Binding UserInfoModel.Avatar, Mode=OneWay}"
                     CornerLength="10"
                     CornerThickness="2"
+                    FontSize="7"
                     ImageStretch="Fill"
                     Value="425" />
                 <b:Interaction.Triggers>

@@ -209,7 +209,8 @@
                     d:IsSelected="True"
                     Background="Transparent"
                     Header="信誉分"
-                    Style="{StaticResource CommonFunctionTabItem}" />
+                    Style="{StaticResource CommonFunctionTabItem}"
+                    Visibility="Hidden" />
                 <TabItem
                     Width="150"
                     VerticalAlignment="Center"
