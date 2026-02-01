@@ -140,5 +140,15 @@ namespace NarakaBladepoint.Shared.Datas
             SelectedSocialTags.Any()
             || SelectedSocialTagMic.HasValue
             || SelectedSocialTagOnline.HasValue;
+
+        /// <summary>
+        /// 性别 0:未设置 1:男 2:女
+        /// </summary>
+        public int Gender { get; set; }
+
+        /// <summary>
+        /// 是否隐藏性别
+        /// </summary>
+        public bool IsHideGender { get; set; }
     }
 }

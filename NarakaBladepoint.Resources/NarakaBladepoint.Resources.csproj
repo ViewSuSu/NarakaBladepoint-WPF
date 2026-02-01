@@ -268,6 +268,8 @@
 	  <None Remove="Image\PersonalInfoDetails\Achievements\Images\8.png" />
 	  <None Remove="Image\PersonalInfoDetails\Achievements\Images\9.png" />
 	  <None Remove="Image\PersonalInfoDetails\Backgound.png" />
+	  <None Remove="Image\PersonalInfoDetails\EditGender\1.png" />
+	  <None Remove="Image\PersonalInfoDetails\EditGender\2.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero1.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero2.png" />
 	  <None Remove="Image\PersonalInfoDetails\hero3.png" />
@@ -648,6 +650,8 @@
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\icon6.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\icon7.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Backgound.png" />
+	  <Resource Include="Image\PersonalInfoDetails\EditGender\1.png" />
+	  <Resource Include="Image\PersonalInfoDetails\EditGender\2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\IllustratedCollection\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\IllustratedCollection\2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\IllustratedCollection\3.png" />

@@ -5,6 +5,7 @@
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converterts:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
     <converterts:InverseBoolConverter x:Key="InverseBoolConverter" />
+    <converterts:BoolToTransparentBrushConverter x:Key="BoolToWhiteBrushConverter" />
     <converterts:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />

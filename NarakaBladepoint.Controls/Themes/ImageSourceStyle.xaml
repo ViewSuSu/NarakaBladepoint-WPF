@@ -60,6 +60,11 @@
     <BitmapImage x:Key="PersonalInfoDetails20Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/20.png" />
     <BitmapImage x:Key="PersonalInfoDetailsBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Backgound.png" />
     <BitmapImage x:Key="PersonalInfoDetailsTouZiImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/TouZi.png" />
+
+    <!--  Edit Gender Images  -->
+    <BitmapImage x:Key="EditGenderPage1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/EditGender/1.png" />
+    <BitmapImage x:Key="EditGenderPage2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/EditGender/2.png" />
+
     <!--  Personal Info Achievements  -->
     <BitmapImage x:Key="PersonalInfoDetailsAchievements1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/1.png" />
     <BitmapImage x:Key="PersonalInfoDetailsAchievements2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Achievements/2.png" />
