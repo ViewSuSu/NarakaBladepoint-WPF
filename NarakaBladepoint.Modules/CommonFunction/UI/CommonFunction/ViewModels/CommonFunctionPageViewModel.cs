@@ -133,7 +133,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.ViewModels
                 {
                     eventAggregator
                         .GetEvent<LoadMainContentRegionEvent>()
-                        .Publish(new NavigationArgs(nameof(InventoryPage)));
+                        .Publish(new NavigationArgs(nameof(InventoryMainContentPage)));
                 }
             }
         }

@@ -6,7 +6,7 @@
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
-    xmlns:converters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,7 +19,7 @@
     <UserControl.Resources>
         <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />
     </UserControl.Resources>
-    <Grid Background="{StaticResource Background2}">
+    <Grid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -227,6 +227,7 @@
                         <ColumnDefinition Width="0.75*" />
                     </Grid.ColumnDefinitions>
                     <Image
+                        Name="image"
                         Grid.Column="0"
                         Width="300"
                         Height="300"
@@ -255,10 +256,5 @@
                 </Grid>
             </Grid>
         </Grid>
-        <controls:EscBackControl
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Panel.ZIndex="5"
-            Command="{Binding ReturnToHallCommand}" />
     </Grid>
 </base:UserControlBase>

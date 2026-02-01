@@ -14,7 +14,7 @@
     <ImageBrush
         x:Key="Background2"
         ImageSource="{StaticResource Background2Image}"
-        Stretch="UniformToFill" />
+        Stretch="Fill" />
     <ImageBrush
         x:Key="Background5Brush"
         ImageSource="{StaticResource Background5Image}"

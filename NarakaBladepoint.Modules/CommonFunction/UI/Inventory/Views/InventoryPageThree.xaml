@@ -1,0 +1,73 @@
+﻿<bases:UserControlBase
+    x:Class="NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views.InventoryPageThree"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
+    xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+    xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:converters="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:InventoryPageThreeViewModel}"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    mc:Ignorable="d">
+    <bases:UserControlBase.Resources>
+        <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />
+    </bases:UserControlBase.Resources>
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.65*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="50,50,0,0">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="可交易道具" />
+                <ItemsControl
+                    Margin="0,50,0,0"
+                    d:ItemsSource="{d:SampleData ItemCount=25}"
+                    ItemsSource="{Binding TradableItems}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="5" Rows="8" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:HighlightBorder Margin="2" EnableMaskOnHover="True">
+                                <Border Background="{StaticResource DefaultTransientBlackBackground2}">
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                                            <b:InvokeCommandAction Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
+                                    <Image
+                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                        Source="{Binding Icon}"
+                                        Stretch="Uniform" />
+                                </Border>
+                            </controls:HighlightBorder>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+            <Grid Grid.Column="1" Margin="20,100,0,150">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="暂时没有物品" />
+            </Grid>
+        </Grid>
+    </Grid>
+</bases:UserControlBase>

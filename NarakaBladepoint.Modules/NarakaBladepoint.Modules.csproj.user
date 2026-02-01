@@ -17,6 +17,15 @@
     <Compile Update="CommonFunction\UI\Hero\Views\HeroListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommonFunction\UI\Inventory\Views\InventoryMainContentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Inventory\Views\InventoryPageThree.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CommonFunction\UI\Inventory\Views\InventoryPageTwo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\Leaderboard\Views\BrotherhoodRankingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

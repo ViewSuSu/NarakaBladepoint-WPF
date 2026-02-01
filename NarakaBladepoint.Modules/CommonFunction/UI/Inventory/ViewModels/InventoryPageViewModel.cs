@@ -4,7 +4,7 @@ using NarakaBladepoint.Modules.CommonFunction.UI.Inventory.Models;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels
 {
-    internal class InventoryPageViewModel : CommonFunctionPageViewModelBase
+    internal class InventoryPageViewModel : ViewModelBase
     {
         private readonly IInventoryPropProvider _inventoryPropProvider;
         private static readonly Random _random = new();
