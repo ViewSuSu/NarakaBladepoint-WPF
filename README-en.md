@@ -59,28 +59,31 @@ This project provides the following learning opportunities for WPF developers:
   </tr>
   <tr>
     <td align="center" width="33.33%">
+      <img src="./docs/TippingRecord.png" alt="Tipping Record" width="100%" /><br/>
+      <em>Figure 5: Tipping Record</em>
+    </td>
+    <td align="center" width="33.33%">
       <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="100%" /><br/>
-      <em>Figure 5: Avatar List</em>
+      <em>Figure 6: Avatar List</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/HistoryData.png" alt="History Data Interface" width="100%" /><br/>
-      <em>Figure 6: History Data</em>
-    </td>
-    <td align="center" width="33.33%">
-      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
-      <em>Figure 7: Social Tag</em>
+      <em>Figure 7: History Data</em>
     </td>
   </tr>
   <tr>
     <td align="center" width="33.33%">
+      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
+      <em>Figure 8: Social Tag</em>
+    </td>
+    <td align="center" width="33.33%">
       <img src="./docs/Tag.png" alt="Tag Interface" width="100%" /><br/>
-      <em>Figure 8: Tag</em>
+      <em>Figure 9: Tag</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/Weapon.png" alt="Weapon Interface" width="100%" /><br/>
-      <em>Figure 9: Weapon</em>
+      <em>Figure 10: Weapon</em>
     </td>
-    <td width="33.33%"></td>
   </tr>
 </table>
 

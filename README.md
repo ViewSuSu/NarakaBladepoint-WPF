@@ -59,28 +59,31 @@
   </tr>
   <tr>
     <td align="center" width="33.33%">
+      <img src="./docs/TippingRecord.png" alt="打赏记录" width="100%" /><br/>
+      <em>Figure 5: 打赏记录</em>
+    </td>
+    <td align="center" width="33.33%">
       <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="100%" /><br/>
-      <em>Figure 5: 头像</em>
+      <em>Figure 6: 头像</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/HistoryData.png" alt="History Data Interface" width="100%" /><br/>
-      <em>Figure 6: 历史记录</em>
-    </td>
-    <td align="center" width="33.33%">
-      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
-      <em>Figure 7: 社交标签</em>
+      <em>Figure 7: 历史记录</em>
     </td>
   </tr>
   <tr>
     <td align="center" width="33.33%">
+      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
+      <em>Figure 8: 社交标签</em>
+    </td>
+    <td align="center" width="33.33%">
       <img src="./docs/Tag.png" alt="Tag Interface" width="100%" /><br/>
-      <em>Figure 8: 标签</em>
+      <em>Figure 9: 标签</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/Weapon.png" alt="Weapon Interface" width="100%" /><br/>
-      <em>Figure 9: 武器列表</em>
+      <em>Figure 10: 武器列表</em>
     </td>
-    <td width="33.33%"></td>
   </tr>
 </table>
 
