@@ -36,7 +36,7 @@
                     Orientation="Horizontal">
                     <Image
                         Width="50"
-                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png"
+                        d:Source="{StaticResource AppIconImage}"
                         Source="{Binding CurrentUserInformationModel.Avatar}" />
                     <TextBlock
                         Margin="10,0,0,0"
@@ -195,7 +195,7 @@
                             <Image
                                 Height="20"
                                 VerticalAlignment="Top"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/3.png" />
+                                Source="{StaticResource HeroData3Image}" />
                             <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock Foreground="White" Text="英雄积分" />
                                 <TextBlock
@@ -213,7 +213,7 @@
                             <Image
                                 Width="40"
                                 HorizontalAlignment="Center"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/16.png" />
+                                Source="{StaticResource PersonalInfoDetails16Image}" />
                             <StackPanel
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -233,9 +233,9 @@
                                     Foreground="White"
                                     Text="历史最高" />
                                 <Image
-                                    Width="30"
-                                    HorizontalAlignment="Center"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/14.png" />
+                                Width="30"
+                                HorizontalAlignment="Center"
+                                Source="{StaticResource PersonalInfoDetails14Image}" />
                                 <TextBlock
                                     Margin="0,5,0,0"
                                     HorizontalAlignment="Center"
@@ -317,7 +317,7 @@
                                                 <ColumnDefinition Width="0.15*" />
                                                 <ColumnDefinition />
                                             </Grid.ColumnDefinitions>
-                                            <Image VerticalAlignment="Top" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/1.png" />
+                                            <Image VerticalAlignment="Top" Source="{StaticResource HeroData1Image}" />
                                             <StackPanel
                                                 Grid.Column="1"
                                                 Margin="5,0,0,0"
@@ -485,7 +485,7 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" Stretch="UniformToFill" />
+            <Image Source="{StaticResource HeroShowImage}" Stretch="UniformToFill" />
         </Grid>
     </Grid>
 </bases:UserControlBase>

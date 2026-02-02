@@ -52,10 +52,10 @@
                             <controls:HighlightBorder Margin="2" EnableMaskOnHover="True">
                                 <Grid>
                                     <Image
-                                        attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                        d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png"
-                                        Source="{Binding Avatar, Mode=OneWay}"
-                                        Stretch="Uniform" />
+                                            attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
+                                            d:Source="{StaticResource HeroImage}"
+                                            Source="{Binding Avatar, Mode=OneWay}"
+                                            Stretch="Uniform" />
                                 </Grid>
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseLeftButtonDown">

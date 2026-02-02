@@ -49,7 +49,7 @@
                         <Image
                             Width="80"
                             HorizontalAlignment="Left"
-                            d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background2.png"
+                            d:Source="{StaticResource Background2Image}"
                             Source="{Binding CurrentUserModel.Avatar, Mode=OneWay}" />
                         <UniformGrid Grid.Column="1" Rows="2">
                             <TextBlock

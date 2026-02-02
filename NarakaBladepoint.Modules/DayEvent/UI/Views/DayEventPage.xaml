@@ -27,7 +27,7 @@
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                     <Image
                         Height="20"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务花.png"
+                        Source="{StaticResource DailyTaskFlowerImage}"
                         Stretch="Uniform" />
                     <TextBlock
                         Margin="5,0,0,0"
@@ -39,7 +39,7 @@
                     Width="60"
                     HorizontalAlignment="Right"
                     Background="#5A000000">
-                    <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/任务详情.png" Stretch="Uniform">
+                    <Image Source="{StaticResource TaskDetailsImage}" Stretch="Uniform">
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="MouseLeftButtonDown">
                                 <b:InvokeCommandAction Command="{Binding TaskDetailsComamnd}" />
@@ -101,7 +101,7 @@
                     FontSize="9"
                     Style="{StaticResource CommandButtonStyle2}" />
                 <controls:HighlightBorder Grid.Row="1">
-                    <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/聚宝阁.png" Stretch="Fill" />
+                    <Image Source="{StaticResource TreasurePavilionImage}" Stretch="Fill" />
                 </controls:HighlightBorder>
             </Grid>
         </Border>

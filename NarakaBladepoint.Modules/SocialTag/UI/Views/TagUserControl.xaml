@@ -15,15 +15,15 @@
             Margin="2,0"
             Visibility="{Binding IsSettingMic, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Grid.Background>
-                <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
             </Grid.Background>
             <Image
                 Height="20"
-                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/Icon1.png"
+                Source="{StaticResource SocialTagIcon1Image}"
                 Visibility="{Binding IsHaveMicAndSelected, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
             <Image
                 Height="20"
-                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/Icon2.png"
+                Source="{StaticResource SocialTagIcon2Image}"
                 Visibility="{Binding IsHaveMicAndSelected, Mode=OneWay, Converter={StaticResource InverseBoolToVisibilityConverter}}" />
         </Grid>
         <Grid
@@ -31,7 +31,7 @@
             Margin="2,0"
             Visibility="{Binding IsSettingOnline, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Grid.Background>
-                <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
             </Grid.Background>
             <TextBlock
                 Margin="5,0"
@@ -58,7 +58,7 @@
                         Height="{Binding RelativeSource={RelativeSource AncestorType=StackPanel, AncestorLevel=1, Mode=FindAncestor}, Path=ActualHeight}"
                         Margin="2,0">
                         <Border.Background>
-                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
                         </Border.Background>
                         <TextBlock
                             Margin="5,0"

@@ -1,4 +1,4 @@
-﻿<base:UserControlBase
+<base:UserControlBase
 x:Class="NarakaBladepoint.Modules.Social.UI.Setting.Views.SettingPage"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -31,7 +31,7 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Setting.ViewM
             <Image
                 Grid.Row="0"
                 Margin="0,50,0,0"
-                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/logo.png"
+                Source="{StaticResource LogoImage}"
                 Stretch="Uniform" />
             <StackPanel
                 Grid.Row="1"

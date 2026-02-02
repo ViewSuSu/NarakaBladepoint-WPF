@@ -54,7 +54,7 @@
                                             <Grid>
                                                 <Image
                                                     attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    d:Source="{StaticResource InventoryProps1Image}"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
                                                 <TextBlock
@@ -91,7 +91,7 @@
                                             <Grid>
                                                 <Image
                                                     attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    d:Source="{StaticResource InventoryProps1Image}"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
                                                 <TextBlock
@@ -128,7 +128,7 @@
                                             <Grid>
                                                 <Image
                                                     attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    d:Source="{StaticResource InventoryProps1Image}"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
                                                 <TextBlock
@@ -165,7 +165,7 @@
                                             <Grid>
                                                 <Image
                                                     attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    d:Source="{StaticResource InventoryProps1Image}"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
                                                 <TextBlock
@@ -202,7 +202,7 @@
                                             <Grid>
                                                 <Image
                                                     attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/1.png"
+                                                    d:Source="{StaticResource InventoryProps1Image}"
                                                     Source="{Binding Icon}"
                                                     Stretch="Uniform" />
                                                 <TextBlock

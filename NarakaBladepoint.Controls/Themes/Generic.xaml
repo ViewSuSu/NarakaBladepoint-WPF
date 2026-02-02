@@ -298,7 +298,7 @@
                                 Name="PART_BackgroundImage"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Bottom"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/TabItemBackground.png"
+                                Source="{StaticResource InventoryPropsTabItemBackgroundImage}"
                                 Stretch="Fill"
                                 Visibility="Collapsed">
                                 <Image.Height>

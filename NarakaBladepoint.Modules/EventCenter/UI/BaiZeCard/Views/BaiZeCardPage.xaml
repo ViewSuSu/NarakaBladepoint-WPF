@@ -27,7 +27,7 @@ mc:Ignorable="d">
                 Margin="0,0,0,80"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/tip.png" />
+                Source="{StaticResource BaizeTipImage}" />
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />
@@ -59,18 +59,18 @@ mc:Ignorable="d">
                             Panel.ZIndex="1"
                             Foreground="White"
                             Text="购买后立即获得" />
-                        <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/textblockBackground.png" Stretch="Fill" />
+                        <Image Source="{StaticResource BaizeTextblockBackgroundImage}" Stretch="Fill" />
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
                             <controls:HighlightBorder>
                                 <Image
                                     Width="50"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/1.png"
+                                    Source="{StaticResource Baize1Image}"
                                     Stretch="Uniform" />
                             </controls:HighlightBorder>
                             <controls:HighlightBorder Margin="10,0,0,0">
                                 <Image
                                     Width="50"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/2.png"
+                                    Source="{StaticResource Baize2Image}"
                                     Stretch="Uniform" />
                             </controls:HighlightBorder>
                         </StackPanel>
@@ -86,14 +86,14 @@ mc:Ignorable="d">
                             Panel.ZIndex="1"
                             Foreground="White"
                             Text="每日奖励" />
-                        <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/textblockBackground.png" />
+                        <Image Source="{StaticResource BaizeTextblockBackgroundImage}" />
                         <controls:HighlightBorder
                             Grid.Row="1"
                             Margin="0,0,20,0"
                             HorizontalAlignment="Left">
                             <Image
                                 Width="50"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/3.png"
+                                Source="{StaticResource Baize3Image}"
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                     </Grid>
@@ -109,36 +109,36 @@ mc:Ignorable="d">
                         Panel.ZIndex="1"
                         Foreground="White"
                         Text="购买后立即获得" />
-                    <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/textblockBackground.png" Stretch="Fill" />
+                    <Image Source="{StaticResource BaizeTextblockBackgroundImage}" Stretch="Fill" />
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <controls:HighlightBorder>
                             <Image
                                 Width="50"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/4.png"
+                                Source="{StaticResource Baize4Image}"
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                         <controls:HighlightBorder Margin="5,0">
                             <Image
                                 Width="50"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/5.png"
+                                Source="{StaticResource Baize5Image}"
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                         <controls:HighlightBorder Margin="5,0">
                             <Image
                                 Width="50"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/6.png"
+                                Source="{StaticResource Baize6Image}"
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                         <controls:HighlightBorder Margin="5,0">
                             <Image
                                 Width="50"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/8.png"
+                                Source="{StaticResource Baize8Image}"
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                         <controls:HighlightBorder Margin="5,0">
                             <Image
                                 Width="50"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/9.png"
+                                Source="{StaticResource Baize9Image}"
                                 Stretch="Uniform" />
                         </controls:HighlightBorder>
                     </StackPanel>
@@ -154,7 +154,7 @@ mc:Ignorable="d">
                         Panel.ZIndex="1"
                         Foreground="White"
                         Text="可在白泽馈赠中兑换大量奖励" />
-                    <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/textblockBackground.png" Stretch="Fill" />
+                    <Image Source="{StaticResource BaizeTextblockBackgroundImage}" Stretch="Fill" />
                     <ScrollViewer
                         Grid.Row="1 "
                         attach:ScrollViewerHorizontalScrollAttachedProperty.EnableMouseWheelScroll="True"
@@ -165,61 +165,61 @@ mc:Ignorable="d">
                                 <controls:HighlightBorder>
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/11.png"
+                                        Source="{StaticResource Baize11Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/12.png"
+                                        Source="{StaticResource Baize12Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/13.png"
+                                        Source="{StaticResource Baize13Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/14.png"
+                                        Source="{StaticResource Baize14Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/15.png"
+                                        Source="{StaticResource Baize15Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/16.png"
+                                        Source="{StaticResource Baize16Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/17.png"
+                                        Source="{StaticResource Baize17Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/18.png"
+                                        Source="{StaticResource Baize18Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/19.png"
+                                        Source="{StaticResource Baize19Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                                 <controls:HighlightBorder Margin="5,0">
                                     <Image
                                         Width="50"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Baize/20.png"
+                                        Source="{StaticResource Baize20Image}"
                                         Stretch="Uniform" />
                                 </controls:HighlightBorder>
                             </StackPanel>

@@ -141,7 +141,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CommonFunctionButtonBackground.png" Stretch="Fill" />
+                                    <ImageBrush ImageSource="{StaticResource CommonFunctionButtonBackgroundImage}" Stretch="Fill" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
