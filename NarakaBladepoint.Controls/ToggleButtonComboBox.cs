@@ -93,6 +93,12 @@ namespace NarakaBladepoint.Controls
             {
                 // 设置父ComboBox引用
                 containerItem.ParentComboBox = this;
+
+                // 设置项的高度与ComboBox的高度相同
+                if (!double.IsNaN(this.Height) && this.Height > 0)
+                {
+                    containerItem.Height = this.Height;
+                }
             }
         }
 

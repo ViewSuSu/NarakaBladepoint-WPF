@@ -12,7 +12,7 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid Background="{StaticResource Background2}">
+    <Grid d:Background="{StaticResource Background2}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
@@ -59,9 +59,7 @@
                 Margin="20,0,20,15"
                 Orientation="Horizontal">
                 <StackPanel VerticalAlignment="Center" Orientation="Vertical">
-                    <TextBlock
-                        Foreground="Gray"
-                        Text="英雄印点数" />
+                    <TextBlock Foreground="Gray" Text="英雄印点数" />
                     <TextBlock
                         Margin="0,5,0,0"
                         FontSize="32"
@@ -181,17 +179,18 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border
+                            <controls:HighlightBorder
                                 Margin="5"
                                 Background="{StaticResource DefaultTransientBlackBackground3}"
                                 BorderBrush="{StaticResource DefaultTransientBlackBackground4}"
-                                BorderThickness="1">
+                                BorderThickness="1"
+                                EnableMaskOnHover="True">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
                                         <RowDefinition Height="40" />
                                     </Grid.RowDefinitions>
-                                    <Rectangle Fill="Gray" />
+                                    <Image Stretch="UniformToFill" />
                                     <StackPanel
                                         Grid.Row="1"
                                         Margin="8"
@@ -207,7 +206,7 @@
                                             VerticalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
-                            </Border>
+                            </controls:HighlightBorder>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

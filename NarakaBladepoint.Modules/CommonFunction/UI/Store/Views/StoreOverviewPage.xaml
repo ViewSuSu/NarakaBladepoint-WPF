@@ -12,7 +12,7 @@
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid Background="{StaticResource Background2}">
+    <Grid d:Background="{StaticResource Background2}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
@@ -24,7 +24,12 @@
                     Margin="5,0,0,0"
                     d:IsChecked="True"
                     Style="{StaticResource DiamondCheckBoxStyle}" />
-                <controls:ToggleButtonComboBox Width="200" Margin="0,0,15,0" />
+                <controls:ToggleButtonComboBox
+                    Width="200"
+                    Height="30"
+                    Margin="0,0,15,0"
+                    ItemsSource="{Binding SortList}"
+                    SelectedIndex="{Binding SelectedSortIndex}" />
             </StackPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -35,11 +40,18 @@
                     Margin="10,5"
                     VerticalAlignment="Top"
                     Orientation="Vertical">
-                    <controls:ToggleButtonComboBox />
-                    <controls:ToggleButtonComboBox Margin="0,10,0,0" />
+                    <controls:ToggleButtonComboBox
+                        Height="30"
+                        ItemsSource="{Binding QualityList}"
+                        SelectedIndex="{Binding SelectedQualityIndex}" />
+                    <controls:ToggleButtonComboBox
+                        Height="30"
+                        Margin="0,10,0,0"
+                        ItemsSource="{Binding CategoryList}"
+                        SelectedIndex="{Binding SelectedCategoryIndex}" />
                 </StackPanel>
 
-                <ItemsControl Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=10}">
+                <ItemsControl Grid.Column="1" ItemsSource="{Binding OverviewImages}">
                     <ItemsControl.Template>
                         <ControlTemplate TargetType="ItemsControl">
                             <ScrollViewer Padding="{TemplateBinding Padding}">
@@ -54,7 +66,12 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Margin="5" Background="Gray" />
+                            <controls:HighlightBorder
+                                Margin="5"
+                                Background="Gray"
+                                EnableMaskOnHover="True">
+                                <Image Source="{Binding}" Stretch="UniformToFill" />
+                            </controls:HighlightBorder>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

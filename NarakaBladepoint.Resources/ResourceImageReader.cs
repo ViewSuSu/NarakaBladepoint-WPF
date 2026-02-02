@@ -37,6 +37,15 @@ namespace NarakaBladepoint.Resources
         private static readonly List<ImageSource> _illustratedCollectionRootImages = new();
         private static readonly Dictionary<string, List<ImageSource>> _illustratedCollectionFolderImages = new();
 
+        // Store 相关：image/store/overview/*.png
+        private static readonly List<ImageSource> _storeOverviewImages = new();
+        // Store Daily 道具：image/store/daily/prop/*.png
+        private static readonly List<ImageSource> _storeDailyPropImages = new();
+        // Store Daily 幻丝：image/store/daily/huansi/*.png
+        private static readonly List<ImageSource> _storeDailyHuanSiImages = new();
+        // Store Daily 赠礼：image/store/daily/gift/*.png
+        private static readonly List<ImageSource> _storeDailyGiftImages = new();
+
         static ResourceImageReader()
         {
             var assembly = typeof(ResourceImageReader).Assembly;
@@ -277,6 +286,62 @@ namespace NarakaBladepoint.Resources
                     }
                     catch { }
                 }
+
+                // ===================== Store Overview Images =====================
+                if (key.StartsWith("image/store/overview/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/store/overview/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _storeOverviewImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
+
+                // ===================== Store Daily Prop Images =====================
+                if (key.StartsWith("image/store/daily/prop/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/store/daily/prop/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _storeDailyPropImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
+
+                // ===================== Store Daily HuanSi Images =====================
+                if (key.StartsWith("image/store/daily/huansi/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/store/daily/huansi/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _storeDailyHuanSiImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
+
+                // ===================== Store Daily Gift Images =====================
+                if (key.StartsWith("image/store/daily/gift/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/store/daily/gift/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _storeDailyGiftImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -501,5 +566,45 @@ namespace NarakaBladepoint.Resources
                 return list;
             return new List<ImageSource>();
         }
+
+        // ===================== Store Overview API =====================
+
+        public static ImageSource GetStoreOverviewImage(int index) =>
+            index >= 0 && index < _storeOverviewImages.Count ? _storeOverviewImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllStoreOverviewImages() =>
+            _storeOverviewImages.AsReadOnly();
+
+        public static int StoreOverviewCount => _storeOverviewImages.Count;
+
+        // ===================== Store Daily Prop API =====================
+
+        public static ImageSource GetStoreDailyPropImage(int index) =>
+            index >= 0 && index < _storeDailyPropImages.Count ? _storeDailyPropImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllStoreDailyPropImages() =>
+            _storeDailyPropImages.AsReadOnly();
+
+        public static int StoreDailyPropCount => _storeDailyPropImages.Count;
+
+        // ===================== Store Daily HuanSi API =====================
+
+        public static ImageSource GetStoreDailyHuanSiImage(int index) =>
+            index >= 0 && index < _storeDailyHuanSiImages.Count ? _storeDailyHuanSiImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllStoreDailyHuanSiImages() =>
+            _storeDailyHuanSiImages.AsReadOnly();
+
+        public static int StoreDailyHuanSiCount => _storeDailyHuanSiImages.Count;
+
+        // ===================== Store Daily Gift API =====================
+
+        public static ImageSource GetStoreDailyGiftImage(int index) =>
+            index >= 0 && index < _storeDailyGiftImages.Count ? _storeDailyGiftImages[index] : null;
+
+        public static IReadOnlyList<ImageSource> GetAllStoreDailyGiftImages() =>
+            _storeDailyGiftImages.AsReadOnly();
+
+        public static int StoreDailyGiftCount => _storeDailyGiftImages.Count;
     }
 }
