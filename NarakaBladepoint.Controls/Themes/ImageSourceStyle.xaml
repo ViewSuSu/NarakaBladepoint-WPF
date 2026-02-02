@@ -7,6 +7,12 @@
     <BitmapImage x:Key="Background5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background5.png" />
 
     <!--  Button Images  -->
+    <BitmapImage x:Key="MusicImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/音乐.png" />
+    <BitmapImage x:Key="TutorialImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/教程.png" />
+    <BitmapImage x:Key="EmailButtonImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/邮箱.png" />
+    <BitmapImage x:Key="ContactImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/联系人.png" />
+    <BitmapImage x:Key="UserImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/用户.png" />
+    <BitmapImage x:Key="SettingButtonImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/设置.png" />
     <BitmapImage x:Key="CommonFunctionButtonBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/CommonFunctionButtonBackground.png" />
     <BitmapImage x:Key="FriendTabItemBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/FriendTabItemBackground.png" />
     <BitmapImage x:Key="HistoryMatchRecordBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/HistoryMatchRecordBackground.png" />
