@@ -37,7 +37,7 @@
                     <Image
                         Height="30"
                         VerticalAlignment="Top"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/13.png">
+                        Source="{StaticResource PersonalInfoDetails13Image}">
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="MouseLeftButtonDown">
                                 <b:InvokeCommandAction Command="{Binding ChangeMingPianCommand}" />
@@ -55,7 +55,7 @@
                         <Image
                             Width="40"
                             VerticalAlignment="Bottom"
-                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/5.png" />
+                            Source="{StaticResource PersonalInfoDetails5Image}" />
                     </StackPanel>
                     <Grid Grid.Column="2">
                         <Grid.RowDefinitions>
@@ -84,7 +84,7 @@
                                         HorizontalAlignment="Right"
                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
                                         MouseLeftButtonUp="ChangeGender_MouseLeftButtonUp"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png" />
+                                        Source="{StaticResource ClickSettingTagImage}" />
                                     <Popup
                                         Name="EditMenuPopup"
                                         AllowsTransparency="True"
@@ -166,13 +166,13 @@
                                         Width="20"
                                         HorizontalAlignment="Right"
                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/9.png" />
+                                        Source="{StaticResource PersonalInfoDetails9Image}" />
                                     <Image
                                         Width="20"
                                         Margin="5,0,0,0"
                                         HorizontalAlignment="Right"
                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/10.png">
+                                        Source="{StaticResource PersonalInfoDetails10Image}">
                                         <b:Interaction.Triggers>
                                             <b:EventTrigger EventName="MouseLeftButtonDown">
                                                 <b:InvokeCommandAction Command="{Binding CopyUserIdCommand}" />
@@ -204,7 +204,7 @@
                                         Width="20"
                                         HorizontalAlignment="Right"
                                         attach:HoverHighlightAttachedProperty.EnableHoverHighlight="True"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png" />
+                                        Source="{StaticResource PersonalInfoDetails12Image}" />
                                 </Grid>
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseLeftButtonDown">
@@ -220,7 +220,7 @@
                                     <Image
                                         Width="20"
                                         HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/6.png" />
+                                        Source="{StaticResource PersonalInfoDetails6Image}" />
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         d:Text="10000"
@@ -230,13 +230,13 @@
                                         Width="20"
                                         Margin="5,0,0,0"
                                         HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/8.png" />
+                                        Source="{StaticResource PersonalInfoDetails8Image}" />
 
                                     <Image
                                         Width="20"
                                         Margin="30,0,0,0"
                                         HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/7.png" />
+                                        Source="{StaticResource PersonalInfoDetails7Image}" />
                                     <TextBlock
                                         Margin="5,0,0,0"
                                         VerticalAlignment="Center"
@@ -247,7 +247,7 @@
                                         Width="20"
                                         Margin="5,0,0,0"
                                         HorizontalAlignment="Right"
-                                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/8.png" />
+                                        Source="{StaticResource PersonalInfoDetails8Image}" />
                                 </StackPanel>
                             </Grid>
                         </Grid>
@@ -274,9 +274,9 @@
                                     </b:Interaction.Triggers>
                                 </TextBlock>
                                 <Image
-                                    Height="25"
-                                    HorizontalAlignment="Right"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png">
+                                        Height="25"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource ClickSettingTagImage}">
                                     <b:Interaction.Triggers>
                                         <b:EventTrigger EventName="MouseLeftButtonDown">
                                             <b:InvokeCommandAction Command="{Binding ChangeTagCommand}" />
@@ -327,7 +327,7 @@
                                 Margin="0,0,5,0"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png"
+                                Source="{StaticResource PersonalInfoDetails12Image}"
                                 Stretch="UniformToFill">
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="MouseLeftButtonDown">
@@ -356,7 +356,7 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/1.png" Stretch="Uniform" />
+                            <Image Source="{StaticResource PersonalInfoDetails1Image}" Stretch="Uniform" />
                             <StackPanel VerticalAlignment="Center" Orientation="Vertical">
                                 <TextBlock
                                     FontSize="18"
@@ -410,33 +410,33 @@
                     </Grid>
                     <UniformGrid Grid.Row="1" Columns="3">
                         <Grid>
-                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero1.png" Stretch="Uniform" />
+                            <Image Source="{StaticResource PersonalInfoDetailsHero1Image}" Stretch="Uniform" />
                             <Image
                                 Height="30"
                                 Margin="0,10"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/14.png"
+                                Source="{StaticResource PersonalInfoDetails14Image}"
                                 Stretch="Uniform" />
                         </Grid>
                         <Grid>
-                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero2.png" Stretch="Uniform" />
+                            <Image Source="{StaticResource PersonalInfoDetailsHero2Image}" Stretch="Uniform" />
                             <Image
                                 Height="30"
                                 Margin="0,10"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/15.png"
+                                Source="{StaticResource PersonalInfoDetails15Image}"
                                 Stretch="Uniform" />
                         </Grid>
                         <Grid>
-                            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/hero3.png" Stretch="Uniform" />
+                            <Image Source="{StaticResource PersonalInfoDetailsHero3Image}" Stretch="Uniform" />
                             <Image
                                 Height="30"
                                 Margin="0,10"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/16.png"
+                                Source="{StaticResource PersonalInfoDetails16Image}"
                                 Stretch="Uniform" />
                         </Grid>
                     </UniformGrid>
@@ -733,7 +733,7 @@
                                     Grid.Column="1"
                                     Width="20"
                                     Height="20"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/12.png"
+                                    Source="{StaticResource PersonalInfoDetails12Image}"
                                     Stretch="UniformToFill" />
                             </Border>
                         </StackPanel>
@@ -743,7 +743,7 @@
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <Image
                                     Width="30"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/2.png"
+                                    Source="{StaticResource PersonalInfoDetails2Image}"
                                     Stretch="Uniform" />
                                 <StackPanel
                                     HorizontalAlignment="Center"
@@ -761,7 +761,7 @@
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <Image
                                     Width="30"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/3.png"
+                                    Source="{StaticResource PersonalInfoDetails3Image}"
                                     Stretch="Uniform" />
                                 <StackPanel
                                     Margin="5,0,0,0"
@@ -779,7 +779,7 @@
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <Image
                                     Width="30"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/4.png"
+                                    Source="{StaticResource PersonalInfoDetails4Image}"
                                     Stretch="Uniform" />
                                 <StackPanel
                                     Margin="5,0,0,0"
@@ -797,13 +797,13 @@
                     <Image
                         Grid.Row="2"
                         VerticalAlignment="Top"
-                        Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/18.png"
+                        Source="{StaticResource PersonalInfoDetails18Image}"
                         Stretch="Uniform" />
                 </Grid>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <Image Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" Stretch="UniformToFill" />
+            <Image Source="{StaticResource HeroShowImage}" Stretch="UniformToFill" />
         </Grid>
     </Grid>
 </bases:UserControlBase>

@@ -38,7 +38,7 @@
                         Orientation="Horizontal">
                         <Image
                             Width="15"
-                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/活动中心logo.png"
+                            Source="{StaticResource EventCenterLogoImage}"
                             Stretch="Uniform" />
                         <TextBlock
                             Margin="5,0,0,0"
@@ -65,7 +65,7 @@
                     Orientation="Vertical">
                     <TextBlock Foreground="White" Text="无相龙王" />
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="20" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/星.png" />
+                        <Image Width="20" Source="{StaticResource StarImage}" />
                         <TextBlock VerticalAlignment="Center" Foreground="White">
                             <Run Text="15" />
                         </TextBlock>

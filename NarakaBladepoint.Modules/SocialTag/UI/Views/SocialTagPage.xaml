@@ -591,7 +591,7 @@
                                                 <DataTemplate>
                                                     <Border Margin="2">
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" Stretch="UniformToFill" />
+                                                            <ImageBrush ImageSource="{StaticResource SocialTagBackgroundImage}" Stretch="UniformToFill" />
                                                         </Border.Background>
                                                         <Border.Style>
                                                             <Style TargetType="Border">

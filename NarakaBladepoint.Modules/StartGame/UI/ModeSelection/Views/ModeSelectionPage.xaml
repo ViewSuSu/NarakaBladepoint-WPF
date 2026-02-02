@@ -50,7 +50,7 @@
                             <Image
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/排位赛.png"
+                                Source="{StaticResource StartGameRankingMatchImage}"
                                 Stretch="UniformToFill" />
                             <Grid Panel.ZIndex="1">
                                 <StackPanel
@@ -59,9 +59,9 @@
                                     VerticalAlignment="Top"
                                     Orientation="Horizontal">
                                     <controls:HighlightBorder Background="#2A000000">
-                                        <Image Width="40" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon4.png" />
+                                        <Image Width="40" Source="{StaticResource ModeSelectionIcon4Image}" />
                                     </controls:HighlightBorder>
-                                    <Image Width="25" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+                                    <Image Width="25" Source="{StaticResource ModeSelectionIcon1Image}" />
                                 </StackPanel>
                                 <StackPanel
                                     HorizontalAlignment="Center"
@@ -90,7 +90,7 @@
                             <Image
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/快速比赛.png"
+                                Source="{StaticResource StartGameQuickMatchImage}"
                                 Stretch="UniformToFill" />
                             <Grid Panel.ZIndex="1">
                                 <Image
@@ -98,7 +98,7 @@
                                     Margin="5"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+                                    Source="{StaticResource ModeSelectionIcon1Image}" />
                                 <StackPanel
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Bottom"
@@ -126,7 +126,7 @@
                             <Image
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/天人之战.png"
+                                Source="{StaticResource StartGameHeavenlyBattleImage}"
                                 Stretch="UniformToFill" />
                             <Grid Panel.ZIndex="1">
                                 <StackPanel
@@ -135,9 +135,9 @@
                                     VerticalAlignment="Top"
                                     Orientation="Horizontal">
                                     <controls:HighlightBorder Background="#2A000000">
-                                        <Image Width="40" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon4.png" />
+                                        <Image Width="40" Source="{StaticResource ModeSelectionIcon4Image}" />
                                     </controls:HighlightBorder>
-                                    <Image Width="25" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+                                    <Image Width="25" Source="{StaticResource ModeSelectionIcon1Image}" />
                                 </StackPanel>
                                 <StackPanel
                                     HorizontalAlignment="Center"
@@ -169,7 +169,7 @@
                             <Image
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/人机演练.png"
+                                Source="{StaticResource StartGameAIPracticeImage}"
                                 Stretch="UniformToFill" />
                             <Grid Panel.ZIndex="1">
                                 <Image
@@ -177,7 +177,7 @@
                                     Margin="5"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Top"
-                                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+                                    Source="{StaticResource ModeSelectionIcon1Image}" />
                                 <StackPanel
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Bottom"
@@ -562,7 +562,7 @@
                                 Width="20"
                                 Margin="3,0"
                                 HorizontalAlignment="Right"
-                                Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon5.png" />
+                                Source="{StaticResource ModeSelectionIcon5Image}" />
                         </Grid>
                         <UniformGrid Grid.Row="1" Columns="3">
                             <Image d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png" Source="{Binding FirstHeroAvatar, Mode=OneWay}" />
@@ -591,7 +591,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Orientation="Horizontal">
-                            <Image Width="20" Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+                            <Image Width="20" Source="{StaticResource ModeSelectionIcon1Image}" />
                             <TextBlock
                                 VerticalAlignment="Center"
                                 Foreground="White"
@@ -601,7 +601,7 @@
                             Width="20"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon5.png" />
+                            Source="{StaticResource ModeSelectionIcon5Image}" />
                         <StackPanel
                             Margin="5,0,0,5"
                             HorizontalAlignment="Left"
@@ -685,7 +685,7 @@
                 <Image
                     Width="20"
                     Margin="5,0"
-                    Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/ModeSelection/Icon1.png" />
+                    Source="{StaticResource ModeSelectionIcon1Image}" />
                 <controls:UpwardComboBox
                     Width="150"
                     HorizontalContentAlignment="Stretch"

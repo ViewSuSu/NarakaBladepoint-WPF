@@ -68,7 +68,7 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
                             Style="{StaticResource AverageTabControlStyle}">
                             <controls:IconTabItem
                                 Header="全部"
-                                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/1.png"
+                                Icon="{StaticResource Email1Image}"
                                 IconWidth="20">
                                 <Grid>
                                     <TextBlock
@@ -131,19 +131,19 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
                             </controls:IconTabItem>
                             <controls:IconTabItem
                                 Header="通知"
-                                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/2.png"
+                                Icon="{StaticResource Email2Image}"
                                 IconWidth="20" />
                             <controls:IconTabItem
                                 Header="问卷"
-                                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/3.png"
+                                Icon="{StaticResource Email3Image}"
                                 IconWidth="20" />
                             <controls:IconTabItem
                                 Header="推广"
-                                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/4.png"
+                                Icon="{StaticResource Email4Image}"
                                 IconWidth="20" />
                             <controls:IconTabItem
                                 Header="活动"
-                                Icon="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/5.png"
+                                Icon="{StaticResource Email5Image}"
                                 IconWidth="20" />
                             <controls:IconTabItem Header="" Visibility="Hidden" />
                         </TabControl>

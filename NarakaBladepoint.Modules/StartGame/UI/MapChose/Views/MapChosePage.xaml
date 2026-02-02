@@ -1,4 +1,4 @@
-﻿<base:UserControlBase
+<base:UserControlBase
     x:Class="NarakaBladepoint.Modules.StartGame.UI.MapChose.Views.MapChosePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -88,7 +88,7 @@
                         <RowDefinition />
                         <RowDefinition Height="0.2*" />
                     </Grid.RowDefinitions>
-                    <Image d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png" Source="{Binding CurrentGifImageSource, Mode=OneWay}" />
+                    <Image d:Source="{StaticResource HeroImage}" Source="{Binding CurrentGifImageSource, Mode=OneWay}" />
                     <Border
                         Height="30"
                         VerticalAlignment="Bottom"
