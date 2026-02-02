@@ -19,15 +19,15 @@
             Grid.Row="0"
             VerticalAlignment="Bottom"
             Columns="3">
-            <controls:HighlightBorder>
+            <controls:HighlightBorder EnableMaskOnHover="True">
                 <Image Source="{StaticResource TopUp1Image}" Stretch="Uniform" />
             </controls:HighlightBorder>
 
-            <controls:HighlightBorder Margin="10,0">
+            <controls:HighlightBorder Margin="10,0" EnableMaskOnHover="True">
                 <Image Source="{StaticResource TopUp2Image}" Stretch="Uniform" />
             </controls:HighlightBorder>
 
-            <controls:HighlightBorder>
+            <controls:HighlightBorder EnableMaskOnHover="True">
                 <Image Source="{StaticResource TopUp3Image}" Stretch="Uniform" />
             </controls:HighlightBorder>
         </UniformGrid>
@@ -36,10 +36,10 @@
             Margin="0,10,0,0"
             VerticalAlignment="Top"
             Columns="2">
-            <controls:HighlightBorder>
+            <controls:HighlightBorder EnableMaskOnHover="True">
                 <Image Source="{StaticResource TopUp4Image}" Stretch="Uniform" />
             </controls:HighlightBorder>
-            <controls:HighlightBorder Margin="10,0,0,0">
+            <controls:HighlightBorder Margin="10,0,0,0" EnableMaskOnHover="True">
                 <Image Source="{StaticResource TopUp5Image}" Stretch="Uniform" />
             </controls:HighlightBorder>
         </UniformGrid>

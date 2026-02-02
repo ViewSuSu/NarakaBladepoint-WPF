@@ -21,7 +21,7 @@
                 <RowDefinition Height="60" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.3*" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
@@ -54,6 +54,7 @@
             </StackPanel>
 
             <StackPanel
+                Name="background"
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="20,0,20,15"
@@ -71,10 +72,12 @@
                     VerticalAlignment="Center"
                     Orientation="Vertical">
                     <TextBlock
+                        Name="textblock"
+                        d:Text="壹·青空阁"
                         FontSize="28"
                         FontWeight="Bold"
                         Foreground="White"
-                        Text="壹·青空阁" />
+                        Text="{Binding SelectedTagName}" />
                     <TextBlock
                         Margin="0,8,0,0"
                         FontSize="12"
@@ -85,6 +88,7 @@
 
             <!--  Left sidebar - Category list  -->
             <StackPanel
+                Name="stackpanel"
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Margin="10,10,10,10"
@@ -101,6 +105,12 @@
                         FontSize="14"
                         Foreground="White"
                         Text="壹·青空阁" />
+                    <controls:HighlightBorder.InputBindings>
+                        <MouseBinding
+                            Command="{Binding SelectTagCommand}"
+                            CommandParameter="1"
+                            MouseAction="LeftClick" />
+                    </controls:HighlightBorder.InputBindings>
                 </controls:HighlightBorder>
                 <controls:HighlightBorder
                     Height="45"
@@ -112,6 +122,12 @@
                         FontSize="14"
                         Foreground="White"
                         Text="贰·蓝蔚阁" />
+                    <controls:HighlightBorder.InputBindings>
+                        <MouseBinding
+                            Command="{Binding SelectTagCommand}"
+                            CommandParameter="2"
+                            MouseAction="LeftClick" />
+                    </controls:HighlightBorder.InputBindings>
                 </controls:HighlightBorder>
                 <controls:HighlightBorder
                     Height="45"
@@ -123,6 +139,12 @@
                         FontSize="14"
                         Foreground="White"
                         Text="叁·碧天阁" />
+                    <controls:HighlightBorder.InputBindings>
+                        <MouseBinding
+                            Command="{Binding SelectTagCommand}"
+                            CommandParameter="3"
+                            MouseAction="LeftClick" />
+                    </controls:HighlightBorder.InputBindings>
                 </controls:HighlightBorder>
                 <controls:HighlightBorder
                     Height="45"
@@ -134,6 +156,12 @@
                         FontSize="14"
                         Foreground="White"
                         Text="肆·赤霞阁" />
+                    <controls:HighlightBorder.InputBindings>
+                        <MouseBinding
+                            Command="{Binding SelectTagCommand}"
+                            CommandParameter="4"
+                            MouseAction="LeftClick" />
+                    </controls:HighlightBorder.InputBindings>
                 </controls:HighlightBorder>
                 <controls:HighlightBorder
                     Height="45"
@@ -145,6 +173,12 @@
                         FontSize="14"
                         Foreground="White"
                         Text="伍·橙云阁" />
+                    <controls:HighlightBorder.InputBindings>
+                        <MouseBinding
+                            Command="{Binding SelectTagCommand}"
+                            CommandParameter="5"
+                            MouseAction="LeftClick" />
+                    </controls:HighlightBorder.InputBindings>
                 </controls:HighlightBorder>
                 <controls:HighlightBorder
                     Height="45"
@@ -155,7 +189,13 @@
                         VerticalAlignment="Center"
                         FontSize="14"
                         Foreground="White"
-                        Text="陆·紫冥阁" />
+                        Text="{Binding SelectedTagName}" />
+                    <controls:HighlightBorder.InputBindings>
+                        <MouseBinding
+                            Command="{Binding SelectTagCommand}"
+                            CommandParameter="6"
+                            MouseAction="LeftClick" />
+                    </controls:HighlightBorder.InputBindings>
                 </controls:HighlightBorder>
             </StackPanel>
 
@@ -163,8 +203,8 @@
             <Grid
                 Grid.Row="2"
                 Grid.Column="1"
-                Margin="15,10,20,10">
-                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=12}">
+                Margin="15,10,20,0">
+                <ItemsControl d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding CurrentTagImages}">
                     <ItemsControl.Template>
                         <ControlTemplate TargetType="ItemsControl">
                             <ScrollViewer Padding="{TemplateBinding Padding}">
@@ -174,38 +214,16 @@
                     </ItemsControl.Template>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Columns="5" />
+                            <WrapPanel ItemHeight="180" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <controls:HighlightBorder
-                                Margin="5"
-                                Background="{StaticResource DefaultTransientBlackBackground3}"
-                                BorderBrush="{StaticResource DefaultTransientBlackBackground4}"
-                                BorderThickness="1"
-                                EnableMaskOnHover="True">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition />
-                                        <RowDefinition Height="40" />
-                                    </Grid.RowDefinitions>
-                                    <Image Stretch="UniformToFill" />
-                                    <StackPanel
-                                        Grid.Row="1"
-                                        Margin="8"
-                                        Orientation="Horizontal">
-                                        <TextBlock
-                                            d:Text="3000"
-                                            FontSize="13"
-                                            FontWeight="Bold"
-                                            Foreground="White" />
-                                        <Image
-                                            Width="18"
-                                            Margin="5,0,0,0"
-                                            VerticalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
+                            <controls:HighlightBorder Margin="5,0" EnableMaskOnHover="True">
+                                <Image
+                                    d:Source="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Store/HeroTag/6/1.png"
+                                    Source="{Binding}"
+                                    Stretch="Uniform" />
                             </controls:HighlightBorder>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -214,19 +232,14 @@
 
             <!--  Bottom button  -->
             <Grid
-                Grid.Row="3"
-                Grid.ColumnSpan="2"
-                Margin="0,10">
+                Grid.Row="2"
+                Margin="0,10"
+                VerticalAlignment="Bottom">
                 <Button
                     Width="250"
-                    Height="50"
-                    Margin="15,0,0,0"
+                    Height="30"
                     HorizontalAlignment="Left"
-                    Background="#CC3333"
                     Content="前往获取英雄印点数"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Foreground="White"
                     Style="{StaticResource CommandButtonStyle2}" />
             </Grid>
         </Grid>

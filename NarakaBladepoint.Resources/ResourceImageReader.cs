@@ -45,6 +45,9 @@ namespace NarakaBladepoint.Resources
         private static readonly List<ImageSource> _storeDailyHuanSiImages = new();
         // Store Daily 赠礼：image/store/daily/gift/*.png
         private static readonly List<ImageSource> _storeDailyGiftImages = new();
+        
+        // Store HeroTag Images: Key = Tag Index (1-6), Value = List of images in that tag folder
+        private static readonly Dictionary<int, List<ImageSource>> _storeHeroTagImages = new();
 
         static ResourceImageReader()
         {
@@ -342,6 +345,28 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+
+                // ===================== Store HeroTag Images =====================
+                if (key.StartsWith("image/store/herotag/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/store/herotag/".Length..];
+                    if (relative.Contains("/"))
+                    {
+                        var parts = relative.Split('/');
+                        if (parts.Length == 2 && int.TryParse(parts[0], out var tagIndex))
+                        {
+                            try
+                            {
+                                if (!_storeHeroTagImages.ContainsKey(tagIndex))
+                                {
+                                    _storeHeroTagImages[tagIndex] = new List<ImageSource>();
+                                }
+                                _storeHeroTagImages[tagIndex].Add(LoadBitmapFromResource(assembly, key));
+                            }
+                            catch { }
+                        }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -606,5 +631,24 @@ namespace NarakaBladepoint.Resources
             _storeDailyGiftImages.AsReadOnly();
 
         public static int StoreDailyGiftCount => _storeDailyGiftImages.Count;
+
+        // ===================== Store HeroTag API =====================
+
+        /// <summary>
+        /// 获取指定标签索引的所有英雄印图片（标签索引 1-6）
+        /// </summary>
+        public static IReadOnlyList<ImageSource> GetStoreHeroTagImages(int tagIndex) =>
+            _storeHeroTagImages.TryGetValue(tagIndex, out var images) ? images.AsReadOnly() : new List<ImageSource>().AsReadOnly();
+
+        /// <summary>
+        /// 获取所有英雄印标签的图片集合
+        /// </summary>
+        public static IReadOnlyDictionary<int, List<ImageSource>> GetAllStoreHeroTagImages() =>
+            _storeHeroTagImages;
+
+        /// <summary>
+        /// 获取英雄印标签的个数
+        /// </summary>
+        public static int StoreHeroTagCount => _storeHeroTagImages.Count;
     }
 }
