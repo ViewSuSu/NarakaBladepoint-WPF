@@ -19,7 +19,7 @@
     <Grid Background="{StaticResource Background2}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="0.8*" />
             <RowDefinition Height="0.4*" />
             <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
@@ -36,141 +36,197 @@
             Margin="50,0"
             Background="Transparent"
             BorderThickness="0"
+            SelectedIndex="{Binding SelectedTabIndex}"
             Style="{StaticResource AverageTabControlStyle}">
             <controls:ImageTextTabItem
+                Name="ModeSelectionTabItem1"
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
                 ImageSource="{StaticResource ModeSelectionTabItem1Image}"
                 ImageWidth="30"
                 Text="生存">
-                <UniformGrid Columns="4">
-                    <controls:HighlightBorder Margin="0,10,5,10" CornerRadius="8">
-                        <Grid attach:ClipToBoundsBehavior.IsEnabled="True">
+                <UniformGrid Margin="0,20,0,0" Columns="4">
+                    <Grid VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
                             <Image
+                                Name="image1"
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
                                 Source="{StaticResource StartGameRankingMatchImage}"
-                                Stretch="UniformToFill" />
-                            <Grid Panel.ZIndex="1">
-                                <StackPanel
-                                    Margin="5"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Top"
-                                    Orientation="Horizontal">
-                                    <controls:HighlightBorder Background="#2A000000">
-                                        <Image Width="40" Source="{StaticResource ModeSelectionIcon4Image}" />
-                                    </controls:HighlightBorder>
-                                    <Image Width="25" Source="{StaticResource ModeSelectionIcon1Image}" />
-                                </StackPanel>
-                                <StackPanel
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="0">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                Margin="5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <Image Width="40" Source="{StaticResource ModeSelectionIcon4Image}" />
+                                <Image Width="25" Source="{StaticResource ModeSelectionIcon1Image}" />
+                            </StackPanel>
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
                                     HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
-                                    Orientation="Vertical">
-                                    <TextBlock
-                                        Margin="10"
-                                        HorizontalAlignment="Center"
-                                        FontSize="18"
-                                        Foreground="White"
-                                        Text="排位赛" />
-                                    <TextBlock
-                                        Margin="10,0,10,10"
-                                        HorizontalAlignment="Center"
-                                        FontSize="10"
-                                        Foreground="#BBBBBB"
-                                        Text="天选之人" />
-                                </StackPanel>
-                            </Grid>
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="排位赛" />
+                                <TextBlock
+                                    Margin="10,0,10,10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="10"
+                                    Foreground="#BBBBBB"
+                                    Text="天选之人" />
+                            </StackPanel>
                         </Grid>
-                    </controls:HighlightBorder>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=0, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
 
-                    <controls:HighlightBorder Margin="5,10" CornerRadius="8">
-                        <Grid attach:ClipToBoundsBehavior.IsEnabled="True">
-
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
                             <Image
+                                Name="second"
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
                                 Source="{StaticResource StartGameQuickMatchImage}"
-                                Stretch="UniformToFill" />
-                            <Grid Panel.ZIndex="1">
-                                <Image
-                                    Width="25"
-                                    Margin="5"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Top"
-                                    Source="{StaticResource ModeSelectionIcon1Image}" />
-                                <StackPanel
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="1">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <Image
+                                Width="25"
+                                Margin="5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Source="{StaticResource ModeSelectionIcon1Image}" />
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
                                     HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
-                                    Orientation="Vertical">
-                                    <TextBlock
-                                        Margin="10"
-                                        HorizontalAlignment="Center"
-                                        FontSize="18"
-                                        Foreground="White"
-                                        Text="快速比赛" />
-                                    <TextBlock
-                                        Margin="10,0,10,10"
-                                        HorizontalAlignment="Center"
-                                        FontSize="10"
-                                        Foreground="#BBBBBB"
-                                        Text="天选之人" />
-                                </StackPanel>
-                            </Grid>
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="快速比赛" />
+                                <TextBlock
+                                    Margin="10,0,10,10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="10"
+                                    Foreground="#BBBBBB"
+                                    Text="天选之人" />
+                            </StackPanel>
                         </Grid>
-                    </controls:HighlightBorder>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=1, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
 
-                    <controls:HighlightBorder Margin="5,10" CornerRadius="8">
-                        <Grid attach:ClipToBoundsBehavior.IsEnabled="True">
-
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border ClipToBounds="True">
                             <Image
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
                                 Source="{StaticResource StartGameHeavenlyBattleImage}"
-                                Stretch="UniformToFill" />
-                            <Grid Panel.ZIndex="1">
-                                <StackPanel
-                                    Margin="5"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Top"
-                                    Orientation="Horizontal">
-                                    <controls:HighlightBorder Background="#2A000000">
-                                        <Image Width="40" Source="{StaticResource ModeSelectionIcon4Image}" />
-                                    </controls:HighlightBorder>
-                                    <Image Width="25" Source="{StaticResource ModeSelectionIcon1Image}" />
-                                </StackPanel>
-                                <StackPanel
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderThickness" Value="2" />
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="2">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                Margin="5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <Border Background="#2A000000" CornerRadius="4">
+                                    <Image Width="40" Source="{StaticResource ModeSelectionIcon4Image}" />
+                                </Border>
+                                <Image Width="25" Source="{StaticResource ModeSelectionIcon1Image}" />
+                            </StackPanel>
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
                                     HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
-                                    Orientation="Vertical">
-                                    <TextBlock
-                                        Margin="10"
-                                        HorizontalAlignment="Center"
-                                        FontSize="18"
-                                        Foreground="White"
-                                        Text="天人之战" />
-                                    <TextBlock
-                                        Margin="10,0,10,10"
-                                        HorizontalAlignment="Center"
-                                        FontSize="10"
-                                        Foreground="#EAB181"
-                                        Text="每日19:00-23:00开启" />
-                                </StackPanel>
-                            </Grid>
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="天人之战" />
+                                <TextBlock
+                                    Margin="10,0,10,10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="10"
+                                    Foreground="#EAB181"
+                                    Text="每日19:00-23:00开启" />
+                            </StackPanel>
                         </Grid>
-                    </controls:HighlightBorder>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=2, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
 
-                    <controls:HighlightBorder
+                    <Border
                         Name="ModeSelection"
-                        Margin="5,10"
-                        CornerRadius="8">
-                        <Grid attach:ClipToBoundsBehavior.IsEnabled="True">
-
+                        Margin="5,0"
+                        BorderThickness="2"
+                        ClipToBounds="True">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedModeIndex}" Value="3">
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid VerticalAlignment="Bottom">
                             <Image
                                 Panel.ZIndex="0"
                                 attach:ControlHoverBehavior.IsEnabled="True"
                                 Source="{StaticResource StartGameAIPracticeImage}"
-                                Stretch="UniformToFill" />
+                                Stretch="Fill" />
                             <Grid Panel.ZIndex="1">
                                 <Image
                                     Width="25"
@@ -183,14 +239,27 @@
                                     VerticalAlignment="Bottom"
                                     Orientation="Vertical">
                                     <TextBlock
+                                        Margin="10"
+                                        HorizontalAlignment="Center"
                                         FontSize="18"
                                         Foreground="White"
                                         Text="人机演练" />
-                                    <TextBlock Margin="10" Foreground="White" />
+                                    <TextBlock
+                                        Margin="10,0,10,10"
+                                        HorizontalAlignment="Center"
+                                        FontSize="10"
+                                        Foreground="#BBBBBB"
+                                        Text=""
+                                        Visibility="Hidden" />
                                 </StackPanel>
                             </Grid>
                         </Grid>
-                    </controls:HighlightBorder>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=3, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Border>
                 </UniformGrid>
                 <!--<Grid>
                 -->
@@ -285,100 +354,247 @@
                 ImageSource="{StaticResource ModeSelectionTabItem2Image}"
                 ImageWidth="30"
                 Text="娱乐">
-                <StackPanel
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
                         <Border
-                            Width="200"
-                            Height="150"
-                            Margin="0,0,20,10"
-                            Background="#34495E"
-                            CornerRadius="8">
-                            <StackPanel>
+                            Grid.Row="0"
+                            Margin="0,10,5,0"
+                            Background="{StaticResource DefaultTransientBlackBackground2}">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    Source="{StaticResource StartGameLimitedTimeIcon}" />
                                 <TextBlock
-                                    Margin="10"
-                                    Foreground="White"
-                                    Text="地脉之战" />
+                                    VerticalAlignment="Center"
+                                    FontSize="10"
+                                    Foreground="{StaticResource DefaultOrangeBrush}">
+                                    <Run d:Text="01" Text="{Binding EntertainmentLimitedTimeRemaining.Hours, StringFormat=D2, Mode=OneWay}" />
+                                    <Run d:Text=":" Text=":" />
+                                    <Run d:Text="57" Text="{Binding EntertainmentLimitedTimeRemaining.Minutes, StringFormat=D2, Mode=OneWay}" />
+                                    <Run d:Text=":" Text=":" />
+                                    <Run d:Text="32" Text="{Binding EntertainmentLimitedTimeRemaining.Seconds, StringFormat=D2, Mode=OneWay}" />
+                                </TextBlock>
                                 <TextBlock
-                                    Margin="10,0,10,10"
-                                    Foreground="#BBBBBB"
-                                    Text="00:24:32限时全开中" />
+                                    Margin="3,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="10"
+                                    Foreground="{StaticResource DefaultOrangeBrush}"
+                                    Text="限时全开中" />
                             </StackPanel>
                         </Border>
-                        <Border
-                            Width="200"
-                            Height="150"
-                            Margin="0,0,20,0"
-                            Background="#34495E"
-                            CornerRadius="8">
-                            <StackPanel>
-                                <TextBlock
-                                    Margin="10"
-                                    Foreground="White"
-                                    Text="暗域狂潮" />
-                                <TextBlock
-                                    Margin="10,0,10,10"
-                                    Foreground="#BBBBBB"
-                                    Text="狂潮1段" />
-                            </StackPanel>
+
+                        <Border Grid.Row="1" ClipToBounds="True">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderThickness" Value="2" />
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="4">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid>
+                                <Image
+                                    Panel.ZIndex="0"
+                                    Source="{StaticResource StartGameEntertainmentTerrainWarImage}"
+                                    Stretch="Uniform" />
+                                <StackPanel
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    Orientation="Vertical">
+                                    <TextBlock
+                                        Margin="10"
+                                        HorizontalAlignment="Center"
+                                        Foreground="White"
+                                        Text="地脉之战" />
+                                </StackPanel>
+                            </Grid>
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                    <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=4, Converter={StaticResource StringToIntConverter}}" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
                         </Border>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="200"
-                            Height="300"
-                            Margin="0,0,20,0"
-                            Background="#34495E"
-                            CornerRadius="8">
-                            <StackPanel>
+
+                        <Border Grid.Row="2" ClipToBounds="True">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderThickness" Value="2" />
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="5">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid>
+                                <Image
+                                    Panel.ZIndex="0"
+                                    Source="{StaticResource StartGameEntertainmentDarkTidImage}"
+                                    Stretch="Uniform" />
+                                <StackPanel
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    Orientation="Vertical">
+                                    <TextBlock
+                                        Margin="10"
+                                        HorizontalAlignment="Center"
+                                        Foreground="White"
+                                        Text="暗域狂潮" />
+                                </StackPanel>
+                            </Grid>
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="MouseLeftButtonDown">
+                                    <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=5, Converter={StaticResource StringToIntConverter}}" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Border>
+                    </Grid>
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        ClipToBounds="True">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="2" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedModeIndex}" Value="6">
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid VerticalAlignment="Bottom">
+                            <Image
+                                Panel.ZIndex="0"
+                                Source="{StaticResource StartGameEntertainmentHexagonalRaidImage}"
+                                Stretch="Uniform" />
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
                                 <TextBlock
                                     Margin="10"
+                                    HorizontalAlignment="Center"
                                     Foreground="White"
                                     Text="六芒劫" />
-                                <TextBlock
-                                    Margin="10,0,10,10"
-                                    Foreground="#BBBBBB"
-                                    Text="限时模式" />
                             </StackPanel>
-                        </Border>
-                        <Border
-                            Width="200"
-                            Height="300"
-                            Margin="0,0,20,0"
-                            Background="#34495E"
-                            CornerRadius="8">
-                            <StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=6, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Border>
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        ClipToBounds="True">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="2" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedModeIndex}" Value="7">
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid VerticalAlignment="Bottom">
+                            <Image
+                                Panel.ZIndex="0"
+                                Source="{StaticResource StartGameEntertainmentEndlessTrialImage}"
+                                Stretch="Uniform" />
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
                                 <TextBlock
                                     Margin="10"
+                                    HorizontalAlignment="Center"
                                     Foreground="White"
                                     Text="无尽试炼" />
-                                <TextBlock
-                                    Margin="10,0,10,10"
-                                    Foreground="#BBBBBB"
-                                    Text="试炼1段" />
                             </StackPanel>
-                        </Border>
-                        <Border
-                            Width="200"
-                            Height="300"
-                            Background="#34495E"
-                            CornerRadius="8">
-                            <StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=7, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Border>
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="3"
+                        ClipToBounds="True">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderThickness" Value="2" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedModeIndex}" Value="8">
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid VerticalAlignment="Bottom">
+                            <Image
+                                Panel.ZIndex="0"
+                                Source="{StaticResource StartGameEntertainmentMartialArtsPeakImage}"
+                                Stretch="Uniform" />
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
                                 <TextBlock
                                     Margin="10"
+                                    HorizontalAlignment="Center"
                                     Foreground="White"
                                     Text="武道争锋" />
-                                <TextBlock
-                                    Margin="10,0,10,10"
-                                    Foreground="#BBBBBB"
-                                    Text="武道1段" />
                             </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=8, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Border>
+                </Grid>
             </controls:ImageTextTabItem>
 
             <controls:ImageTextTabItem
@@ -388,149 +604,250 @@
                 ImageSource="{StaticResource ModeSelectionTabItem3Image}"
                 ImageWidth="30"
                 Text="训练">
-                <StackPanel
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Orientation="Horizontal">
-                    <Border
-                        Width="250"
-                        Height="300"
-                        Margin="0,0,20,0"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="10"
-                                Foreground="White"
-                                Text="操作教学" />
-                        </StackPanel>
-                    </Border>
-                    <Border
-                        Width="250"
-                        Height="300"
-                        Margin="0,0,20,0"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="10"
-                                Foreground="White"
-                                Text="进阶教学" />
-                        </StackPanel>
-                    </Border>
-                    <Border
-                        Width="250"
-                        Height="300"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="10"
-                                Foreground="White"
-                                Text="自由练习" />
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
+                <UniformGrid Margin="0,20,0,0" Columns="3">
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
+                            <Image
+                                Panel.ZIndex="0"
+                                attach:ControlHoverBehavior.IsEnabled="True"
+                                Source="{StaticResource StartGameTrainingOperationTeachingImage}"
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="9">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="操作教学" />
+                            </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=9, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
+
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
+                            <Image
+                                Panel.ZIndex="0"
+                                attach:ControlHoverBehavior.IsEnabled="True"
+                                Source="{StaticResource StartGameTrainingAdvancedTeachingImage}"
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="10">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="进阶教学" />
+                            </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=10, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
+
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
+                            <Image
+                                Panel.ZIndex="0"
+                                attach:ControlHoverBehavior.IsEnabled="True"
+                                Source="{StaticResource StartGameTrainingFreelyPracticeImage}"
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="11">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="自由练习" />
+                            </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=11, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
+                </UniformGrid>
             </controls:ImageTextTabItem>
 
             <controls:ImageTextTabItem
                 Background="#3A000000"
                 FontSize="18"
+                Name="ModeSelectionTabItem4"
                 ImageHeight="30"
                 ImageSource="{StaticResource ModeSelectionTabItem4Image}"
                 ImageWidth="30"
                 Text="休闲">
-                <StackPanel
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Orientation="Horizontal">
-                    <Border
-                        Width="250"
-                        Height="300"
-                        Margin="0,0,20,0"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="10"
-                                Foreground="White"
-                                Text="永劫掼蛋" />
-                        </StackPanel>
-                    </Border>
-                    <Border
-                        Width="250"
-                        Height="300"
-                        Margin="0,0,20,0"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="10"
-                                Foreground="White"
-                                Text="敬请期待" />
-                        </StackPanel>
-                    </Border>
-                    <Border
-                        Width="250"
-                        Height="300"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="10"
-                                Foreground="White"
-                                Text="敬请期待" />
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
+                <UniformGrid Margin="0,20,0,0" Columns="3">
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
+                            <Image
+                                Panel.ZIndex="0"
+                                attach:ControlHoverBehavior.IsEnabled="True"
+                                Source="{StaticResource StartGameLeisureDiceGameImage}"
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="12">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="永劫掼蛋" />
+                            </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=12, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
+
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
+                            <Image
+                                Panel.ZIndex="0"
+                                attach:ControlHoverBehavior.IsEnabled="True"
+                                Source="{StaticResource StartGameLeisureComingSoon1Image}"
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="13">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="敬请期待" />
+                            </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=13, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
+
+                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                        <Border BorderThickness="2" ClipToBounds="True">
+                            <Image
+                                Panel.ZIndex="0"
+                                attach:ControlHoverBehavior.IsEnabled="True"
+                                Source="{StaticResource StartGameLeisureComingSoon2Image}"
+                                Stretch="Fill" />
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedModeIndex}" Value="14">
+                                            <Setter Property="BorderBrush" Value="White" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Grid Panel.ZIndex="1">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical">
+                                <TextBlock
+                                    Margin="10"
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="敬请期待" />
+                            </StackPanel>
+                        </Grid>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonDown">
+                                <b:InvokeCommandAction Command="{Binding SelectModeCommand}" CommandParameter="{Binding Source=14, Converter={StaticResource StringToIntConverter}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </Grid>
+                </UniformGrid>
             </controls:ImageTextTabItem>
 
-            <controls:ImageTextTabItem
-                Background="#3A000000"
-                FontSize="18"
-                ImageHeight="30"
-                ImageSource="{StaticResource ModeSelectionTabItem5Image}"
-                ImageWidth="30"
-                Text="紫禁之巅">
-                <Grid>
-                    <Border
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="#34495E"
-                        CornerRadius="8">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Vertical">
-                            <TextBlock
-                                Margin="10"
-                                FontSize="24"
-                                Foreground="White"
-                                Text="紫禁之巅" />
-                            <TextBlock
-                                Margin="10"
-                                Foreground="#BBBBBB"
-                                Text="武道对决" />
-                            <TextBlock
-                                Margin="10"
-                                Foreground="#BBBBBB"
-                                Text="第一赛段·同兵论武" />
-                            <TextBlock
-                                Margin="10"
-                                Foreground="#BBBBBB"
-                                Text="12.22 04:00 - 12.30 07:00 每日19:00-21:00开启" />
-                            <Button
-                                Width="120"
-                                Height="40"
-                                Margin="10"
-                                Background="#E74C3C"
-                                Content="前往报名" />
-                        </StackPanel>
-                    </Border>
-                </Grid>
-            </controls:ImageTextTabItem>
+
+            <controls:ImageTextTabItem Visibility="Hidden" />
             <controls:ImageTextTabItem Visibility="Hidden" />
         </TabControl>
         <Grid Grid.Row="2" Margin="60,0">
@@ -539,14 +856,25 @@
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <controls:HighlightBorder
+                    Name="heroList"
                     Width="160"
                     Height="70"
                     Margin="0,0,10,0"
                     VerticalAlignment="Top"
+                    d:Visibility="Visible"
                     Background="Transparent"
                     BorderBrush="White"
-                    BorderThickness="0.1"
-                    Visibility="{Binding IsSoloMode, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+                    BorderThickness="0.1">
+                    <controls:HighlightBorder.Style>
+                        <Style TargetType="controls:HighlightBorder">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedTabIndex}" Value="0">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </controls:HighlightBorder.Style>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.5*" />
@@ -569,6 +897,7 @@
                             <Image d:Source="{StaticResource HeroGuQingHanImage}" Source="{Binding SecondHeroAvatar, Mode=OneWay}" />
                             <Image d:Source="{StaticResource HeroHaDiImage}" Source="{Binding ThirdHeroAvatar, Mode=OneWay}" />
                         </UniformGrid>
+
                     </Grid>
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="MouseLeftButtonDown">
@@ -578,10 +907,22 @@
                 </controls:HighlightBorder>
 
                 <controls:HighlightBorder
+                    Name="mapList"
                     Width="210"
                     Height="70"
                     Margin="0,0,30,0"
-                    VerticalAlignment="Top">
+                    VerticalAlignment="Top"
+                    d:Visibility="Visible">
+                    <controls:HighlightBorder.Style>
+                        <Style TargetType="controls:HighlightBorder">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedTabIndex}" Value="0">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </controls:HighlightBorder.Style>
                     <controls:HighlightBorder.Background>
                         <ImageBrush ImageSource="{StaticResource ModeSelectionIcon2Image}" Stretch="Uniform" />
                     </controls:HighlightBorder.Background>
@@ -636,10 +977,21 @@
                 </controls:HighlightBorder>
                 <StackPanel Orientation="Vertical">
                     <TabControl
+                        Name="modeList"
                         Width="{Binding ElementName=ModeSelection, Path=ActualWidth}"
                         VerticalAlignment="Top"
-                        Background="Transparent"
-                        Style="{StaticResource AverageTabControlStyle}">
+                        d:Visibility="Visible"
+                        Background="Transparent">
+                        <TabControl.Style>
+                            <Style BasedOn="{StaticResource AverageTabControlStyle}" TargetType="TabControl">
+                                <Setter Property="Visibility" Value="Hidden" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedTabIndex}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TabControl.Style>
                         <TabItem
                             Name="tabItem1"
                             Header="单排"
@@ -659,11 +1011,21 @@
                     <Button
                         Grid.Row="1"
                         Height="30"
+                        Name="button"
                         Margin="0,10,0,0"
                         VerticalAlignment="Top"
-                        Command="{Binding ReturnCommand}"
-                        Content="确定"
-                        Style="{StaticResource CommandButtonStyle2}" />
+                        Command="{Binding ReturnCommand}">
+                        <Button.Style>
+                            <Style BasedOn="{StaticResource CommandButtonStyle2}" TargetType="Button">
+                                <Setter Property="Content" Value="确定" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedTabIndex}" Value="3">
+                                        <Setter Property="Content" Value="打开" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                     <TextBlock
                         Margin="0,5,0,0"
                         HorizontalAlignment="Center"

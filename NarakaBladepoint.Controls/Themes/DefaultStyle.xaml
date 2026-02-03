@@ -7,6 +7,7 @@
     <converterts:InverseBoolConverter x:Key="InverseBoolConverter" />
     <converterts:BoolToTransparentBrushConverter x:Key="BoolToWhiteBrushConverter" />
     <converterts:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
+    <converterts:StringToIntConverter x:Key="StringToIntConverter" />
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/BrushStyle.xaml" />

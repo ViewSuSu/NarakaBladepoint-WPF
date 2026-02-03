@@ -30,7 +30,7 @@
     <BitmapImage x:Key="GoldBrickImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/金砖.png" />
     <BitmapImage x:Key="AncientCoinsImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/古币.png" />
     <BitmapImage x:Key="HuanSiImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/幻丝.png" />
-    
+
     <!--  Inventory Props Images  -->
     <BitmapImage x:Key="InventoryPropsLogo1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo1.png" />
     <BitmapImage x:Key="InventoryPropsLogo2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/InventoryProps/logo2.png" />
@@ -64,10 +64,28 @@
     <BitmapImage x:Key="StartGameRankImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/段位.png" />
     <BitmapImage x:Key="StartGameModeSelectionImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/模式选择.png" />
     <BitmapImage x:Key="StartGameStartImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/开始游戏.png" />
-    <BitmapImage x:Key="StartGameRankingMatchImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/排位赛.png" />
-    <BitmapImage x:Key="StartGameQuickMatchImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/快速比赛.png" />
-    <BitmapImage x:Key="StartGameHeavenlyBattleImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/天人之战.png" />
-    <BitmapImage x:Key="StartGameAIPracticeImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/人机演练.png" />
+    <BitmapImage x:Key="StartGameRankingMatchImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Survival/排位赛.png" />
+    <BitmapImage x:Key="StartGameQuickMatchImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Survival/快速比赛.png" />
+    <BitmapImage x:Key="StartGameHeavenlyBattleImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Survival/天人之战.png" />
+    <BitmapImage x:Key="StartGameAIPracticeImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Survival/人机演练.png" />
+
+    <!--  Entertainment Mode Images  -->
+    <BitmapImage x:Key="StartGameEntertainmentTerrainWarImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Entertainment/1.png" />
+    <BitmapImage x:Key="StartGameEntertainmentDarkTidImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Entertainment/2.png" />
+    <BitmapImage x:Key="StartGameEntertainmentHexagonalRaidImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Entertainment/3.png" />
+    <BitmapImage x:Key="StartGameEntertainmentEndlessTrialImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Entertainment/4.png" />
+    <BitmapImage x:Key="StartGameEntertainmentMartialArtsPeakImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Entertainment/5.png" />
+    <BitmapImage x:Key="StartGameLimitedTimeIcon" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/1.png" />
+
+    <!--  Training Mode Images  -->
+    <BitmapImage x:Key="StartGameTrainingOperationTeachingImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Training/1.png" />
+    <BitmapImage x:Key="StartGameTrainingAdvancedTeachingImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Training/2.png" />
+    <BitmapImage x:Key="StartGameTrainingFreelyPracticeImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Training/3.png" />
+
+    <!--  Leisure Mode Images  -->
+    <BitmapImage x:Key="StartGameLeisureDiceGameImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Leisure/1.png" />
+    <BitmapImage x:Key="StartGameLeisureComingSoon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Leisure/2.png" />
+    <BitmapImage x:Key="StartGameLeisureComingSoon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/StartGame/Leisure/2.png" />
 
     <!--  Social Tag Images  -->
     <BitmapImage x:Key="SocialTagBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/background.png" />
@@ -159,12 +177,12 @@
     <BitmapImage x:Key="HeroData1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/1.png" />
     <BitmapImage x:Key="HeroData2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/2.png" />
     <BitmapImage x:Key="HeroData3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroData/3.png" />
-    
+
     <!--  Hero Skill Images  -->
     <BitmapImage x:Key="HeroSkillIconImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/Skill/Icon.png" />
     <BitmapImage x:Key="HeroSkillF1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/Skill/F1.png" />
     <BitmapImage x:Key="HeroSkillV1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/Skill/V1.png" />
-    
+
     <!--  Button Images  -->
     <BitmapImage x:Key="ButtonBaiZeBaiKeImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/白泽百科.png" />
     <BitmapImage x:Key="ButtonXiuXingImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/修行.png" />
@@ -229,10 +247,10 @@
     <!--  App Icon  -->
     <BitmapImage x:Key="AppIconImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png" />
     <BitmapImage x:Key="LogoImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/logo.png" />
-    
+
     <!--  Avatar Images  -->
     <BitmapImage x:Key="Avatar1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Avatar/1.png" />
-    
+
     <!--  Event Center Images  -->
     <BitmapImage x:Key="EventCenterLogoImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/活动中心logo.png" />
 

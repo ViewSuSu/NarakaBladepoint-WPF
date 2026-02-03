@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Media;
 using NarakaBladepoint.Modules.StartGame.UI.HeroChose.Views;
 using NarakaBladepoint.Modules.StartGame.UI.MapChose.Views;
@@ -95,6 +96,51 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
             }
         }
 
+        private int _selectedModeIndex;
+
+        /// <summary>
+        /// 选中的模式索引
+        /// </summary>
+        public int SelectedModeIndex
+        {
+            get { return _selectedModeIndex; }
+            set
+            {
+                _selectedModeIndex = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private int _selectedTabIndex;
+
+        /// <summary>
+        /// 选中的标签页索引
+        /// </summary>
+        public int SelectedTabIndex
+        {
+            get { return _selectedTabIndex; }
+            set
+            {
+                _selectedTabIndex = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private TimeSpan _entertainmentLimitedTimeRemaining = TimeSpan.FromHours(3);
+
+        /// <summary>
+        /// 娱乐模式限时剩余时间
+        /// </summary>
+        public TimeSpan EntertainmentLimitedTimeRemaining
+        {
+            get { return _entertainmentLimitedTimeRemaining; }
+            set
+            {
+                _entertainmentLimitedTimeRemaining = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ModeSelectionPageViewModel(
             IServerInfoProvider serverInformation,
             ICurrentUserInfoProvider currentUserInformationProvider,
@@ -128,6 +174,17 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
                     .Publish(new NavigationArgs(nameof(MapChosePage)));
             });
 
+        private DelegateCommand<int?> _selectModeCommand;
+
+        public DelegateCommand<int?> SelectModeCommand =>
+            _selectModeCommand ??= new DelegateCommand<int?>(modeIndex =>
+            {
+                if (modeIndex.HasValue)
+                {
+                    SelectedModeIndex = modeIndex.Value;
+                }
+            });
+
         protected override void OnNavigatedToExecute(NavigationContext navigationContext)
         {
             this.ServerInfos = serverInformation.GeAlltServerInfosAsync().Result;
@@ -153,6 +210,32 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
                         .Result.Avatar
                     : null;
             this.SelectedMapCount = mapProvider.GetSelectedMapCountAsync().Result;
+
+            // 启动异步倒计时
+            StartEntertainmentCountdown();
+        }
+
+        private System.Threading.CancellationTokenSource _countdownCancellation;
+
+        private async void StartEntertainmentCountdown()
+        {
+            _countdownCancellation?.Cancel();
+            _countdownCancellation = new System.Threading.CancellationTokenSource();
+
+            try
+            {
+                EntertainmentLimitedTimeRemaining = TimeSpan.FromHours(3);
+
+                while (EntertainmentLimitedTimeRemaining > TimeSpan.Zero && !_countdownCancellation.Token.IsCancellationRequested)
+                {
+                    await System.Threading.Tasks.Task.Delay(1000, _countdownCancellation.Token);
+                    EntertainmentLimitedTimeRemaining = EntertainmentLimitedTimeRemaining.Subtract(TimeSpan.FromSeconds(1));
+                }
+            }
+            catch (System.Threading.Tasks.TaskCanceledException)
+            {
+                // 倒计时被取消
+            }
         }
     }
 }
