@@ -4,7 +4,7 @@
 
 [English](README-en.md) | [简体中文](README.md)
 
-[![下载安装包](https://img.shields.io/badge/下载安装包-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/download/v1.0.0/NarakaBladepoint-WPF.exe)
+[![下载最新安装包](https://img.shields.io/badge/下载最新安装包-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/latest/download/NarakaBladepoint-WPF.exe)
 
 > [!TIP]
 > 运行失败请确保已安装 [.NET 6.0 SDK](https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0) 或更高版本。
