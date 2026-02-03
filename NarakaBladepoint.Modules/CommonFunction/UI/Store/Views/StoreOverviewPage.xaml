@@ -42,6 +42,7 @@
                     Orientation="Vertical">
                     <controls:ToggleButtonComboBox
                         Height="30"
+                        Name="combobox1"
                         ItemsSource="{Binding QualityList}"
                         SelectedIndex="{Binding SelectedQualityIndex}" />
                     <controls:ToggleButtonComboBox

@@ -23,6 +23,16 @@
         x:Key="PersonalInfoDetailsBackgroundBrush"
         ImageSource="{StaticResource PersonalInfoDetailsBackgroundImage}"
         Stretch="Fill" />
+
+    <!--  Hero Tag Background Brushes  -->
+    <ImageBrush
+        x:Key="HeroTagBackground1Brush"
+        ImageSource="{StaticResource HeroTagBackground1Image}"
+        Stretch="Fill" />
+    <ImageBrush
+        x:Key="HeroTagBackground2Brush"
+        ImageSource="{StaticResource HeroTagBackground2Image}"
+        Stretch="Fill" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground" Color="#1A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground2" Color="#2A000000" />
     <SolidColorBrush x:Key="DefaultTransientBlackBackground3" Color="#3A000000" />

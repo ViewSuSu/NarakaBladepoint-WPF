@@ -12,6 +12,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
         private int _selectedTagIndex = 1;
         private string _selectedTagName = "壹·青空阁";
         private ObservableCollection<ImageSource> _currentTagImages;
+        private ObservableCollection<string> _qualityList;
+        private int _selectedQualityIndex = 0;
         private DelegateCommand<string> _selectTagCommand;
 
         // 标签索引与名称的映射
@@ -30,8 +32,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
             get => _selectedTagIndex;
             set
             {
-                if (SetProperty(ref _selectedTagIndex, value))
+                if (_selectedTagIndex != value)
                 {
+                    _selectedTagIndex = value;
+                    RaisePropertyChanged();
                     LoadTagImages(_selectedTagIndex);
                     // 更新选中的标签名称
                     if (TagNameMap.TryGetValue(value, out var tagName))
@@ -45,13 +49,65 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
         public string SelectedTagName
         {
             get => _selectedTagName;
-            set => SetProperty(ref _selectedTagName, value);
+            set
+            {
+                if (_selectedTagName != value)
+                {
+                    _selectedTagName = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public ObservableCollection<ImageSource> CurrentTagImages
         {
             get => _currentTagImages;
-            set => SetProperty(ref _currentTagImages, value);
+            set
+            {
+                if (_currentTagImages != value)
+                {
+                    _currentTagImages = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 品质列表（全部品质、良品、优品、极品、神品）
+        /// </summary>
+        public ObservableCollection<string> QualityList
+        {
+            get
+            {
+                if (_qualityList == null)
+                {
+                    _qualityList = new ObservableCollection<string>
+                    {
+                        "全部品质",
+                        "良品",
+                        "优品",
+                        "极品",
+                        "神品"
+                    };
+                }
+                return _qualityList;
+            }
+        }
+
+        /// <summary>
+        /// 选中的品质索引
+        /// </summary>
+        public int SelectedQualityIndex
+        {
+            get => _selectedQualityIndex;
+            set
+            {
+                if (_selectedQualityIndex != value)
+                {
+                    _selectedQualityIndex = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public DelegateCommand<string> SelectTagCommand =>

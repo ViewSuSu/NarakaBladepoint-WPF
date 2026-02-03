@@ -6,6 +6,10 @@
     <BitmapImage x:Key="Background4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background4.png" />
     <BitmapImage x:Key="Background5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background5.png" />
 
+    <!--  Hero Tag Background Images  -->
+    <BitmapImage x:Key="HeroTagBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Store/HeroTag/background1.png" />
+    <BitmapImage x:Key="HeroTagBackground2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Store/HeroTag/background2.png" />
+
     <!--  Button Images  -->
     <BitmapImage x:Key="MusicImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/音乐.png" />
     <BitmapImage x:Key="TutorialImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/教程.png" />
