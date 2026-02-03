@@ -14,7 +14,7 @@
     d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid d:Background="{StaticResource Background2}">
-        <Grid>
+        <Grid Margin="50,30,50,120">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
                 <RowDefinition />

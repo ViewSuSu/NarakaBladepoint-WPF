@@ -11,7 +11,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.Views
         public StoreDailyPage()
         {
             InitializeComponent();
-            this.DataContext = new StoreDailyPageViewModel();
         }
     }
 }

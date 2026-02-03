@@ -70,7 +70,7 @@
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="日常"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <views:StoreDailyPage Margin="50,30,50,120" />
+                    <views:StoreDailyPage />
                 </TabItem>
                 <TabItem
                     Width="35"
@@ -78,7 +78,7 @@
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="总览"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <views:StoreOverviewPage Margin="50,30,50,120" />
+                    <views:StoreOverviewPage />
                 </TabItem>
                 <TabItem
                     Width="35"
