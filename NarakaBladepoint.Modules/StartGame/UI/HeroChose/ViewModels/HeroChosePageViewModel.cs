@@ -85,8 +85,15 @@ namespace NarakaBladepoint.Modules.StartGame.UI.HeroChose.ViewModels
 
         private void SelectedHero(HeroChoseModuleItemModel selectedModel)
         {
-            selectedModel.IsSelected = true;
             var index = HeroChoseModuleItemModels.IndexOf(selectedModel);
+
+            // Check if the hero is already selected
+            if (index == FirstHeroIndex || index == SecondHeroIndex || index == ThirdHeroIndex)
+            {
+                return;
+            }
+
+            selectedModel.IsSelected = true;
             if (FirstHeroIndex == -1)
             {
                 FirstHeroIndex = index;
