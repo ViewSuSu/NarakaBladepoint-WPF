@@ -185,31 +185,28 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
                 }
             });
 
-        protected override void OnNavigatedToExecute(NavigationContext navigationContext)
+        protected override async void OnNavigatedToExecute(NavigationContext navigationContext)
         {
-            this.ServerInfos = serverInformation.GeAlltServerInfosAsync().Result;
+            this.ServerInfos = await serverInformation.GeAlltServerInfosAsync();
             SelectedItem = ServerInfos.FirstOrDefault();
 
-            var userModel = currentUserInformationProvider.GetCurrentUserInfoAsync().Result;
+            var userModel = await currentUserInformationProvider.GetCurrentUserInfoAsync();
             this.FirstHeroAvatar =
                 userModel.FirstPickHeroIndex != -1
-                    ? heroInfomation
-                        .GetHeroAvatarModelByIdAsync(userModel.FirstPickHeroIndex)
-                        .Result.Avatar
+                    ? (await heroInfomation
+                        .GetHeroAvatarModelByIdAsync(userModel.FirstPickHeroIndex)).Avatar
                     : null;
             this.SecondHeroAvatar =
                 userModel.SecondPickHeroIndex != -1
-                    ? heroInfomation
-                        .GetHeroAvatarModelByIdAsync(userModel.SecondPickHeroIndex)
-                        .Result.Avatar
+                    ? (await heroInfomation
+                        .GetHeroAvatarModelByIdAsync(userModel.SecondPickHeroIndex)).Avatar
                     : null;
             this.ThirdHeroAvatar =
                 userModel.ThridPickHeroIndex != -1
-                    ? heroInfomation
-                        .GetHeroAvatarModelByIdAsync(userModel.ThridPickHeroIndex)
-                        .Result.Avatar
+                    ? (await heroInfomation
+                        .GetHeroAvatarModelByIdAsync(userModel.ThridPickHeroIndex)).Avatar
                     : null;
-            this.SelectedMapCount = mapProvider.GetSelectedMapCountAsync().Result;
+            this.SelectedMapCount = await mapProvider.GetSelectedMapCountAsync();
 
             // 启动异步倒计时
             StartEntertainmentCountdown();
