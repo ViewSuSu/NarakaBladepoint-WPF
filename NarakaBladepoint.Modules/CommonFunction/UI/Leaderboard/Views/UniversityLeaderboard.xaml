@@ -2,12 +2,286 @@
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views.UniversityLeaderboard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels"
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
+    d:DataContext="{d:DesignInstance Type=viewmodels:UniversityLeaderboardViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid />
+    <Grid Background="{StaticResource Background2}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0.35*" />
+        </Grid.ColumnDefinitions>
+        <Grid Margin="0,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <!--  University Ranking Tabs  -->
+            <TabControl
+                Grid.Row="0"
+                Margin="8"
+                SelectedIndex="0">
+                <controls:ImageTextTabItem
+                    Background="#3A000000"
+                    ImageSource="{StaticResource LeaderboardUniversityTabItemImage}"
+                    Text="浙江省高校">
+                    <controls:ImageTextTabItem.SelectedBackground>
+                        <ImageBrush ImageSource="{StaticResource FriendTabItemBackgroundImage}" />
+                    </controls:ImageTextTabItem.SelectedBackground>
+                    <DataGrid
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        AutoGenerateColumns="False"
+                        ColumnHeaderHeight="30"
+                        ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding UniversityList1}"
+                        RowHeight="50"
+                        RowStyle="{StaticResource TransparentDataGridRowStyle}"
+                        Style="{StaticResource TransparentDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="80" Header="排名">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Image
+                                                x:Name="image1"
+                                                Width="30"
+                                                Height="30">
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                <Setter Property="Source" Value="{StaticResource LeaderboardRank1Image}" />
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                <Setter Property="Source" Value="{StaticResource LeaderboardRank2Image}" />
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                <Setter Property="Source" Value="{StaticResource LeaderboardRank3Image}" />
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                            </Image>
+                                            <TextBlock
+                                                Name="textblock"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                d:Text="1"
+                                                Foreground="White"
+                                                Text="{Binding Rank}">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="*" Header="斗士">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel
+                                            Margin="8,0"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                            <Image
+                                                Name="image2"
+                                                Width="40"
+                                                Height="40"
+                                                d:Source="{StaticResource Avatar1Image}"
+                                                Source="{Binding Avatar}"
+                                                Stretch="UniformToFill" />
+                                            <TextBlock
+                                                Margin="8,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="White"
+                                                Text="{Binding Name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="200" Header="高校">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="{Binding University}"
+                                            TextAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="120" Header="总积分">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="{Binding Score}"
+                                            TextAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </controls:ImageTextTabItem>
+                <controls:ImageTextTabItem
+                    Background="#3A000000"
+                    ImageSource="{StaticResource LeaderboardUniversityTabItemImage}"
+                    Text="全服">
+                    <controls:ImageTextTabItem.SelectedBackground>
+                        <ImageBrush ImageSource="{StaticResource FriendTabItemBackgroundImage}" />
+                    </controls:ImageTextTabItem.SelectedBackground>
+                    <DataGrid
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        AutoGenerateColumns="False"
+                        ColumnHeaderHeight="30"
+                        ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding UniversityList2}"
+                        RowHeight="50"
+                        RowStyle="{StaticResource TransparentDataGridRowStyle}"
+                        Style="{StaticResource TransparentDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="80" Header="排名">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Image
+                                                x:Name="image1"
+                                                Width="30"
+                                                Height="30">
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                <Setter Property="Source" Value="{StaticResource LeaderboardRank1Image}" />
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                <Setter Property="Source" Value="{StaticResource LeaderboardRank2Image}" />
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                <Setter Property="Source" Value="{StaticResource LeaderboardRank3Image}" />
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                            </Image>
+                                            <TextBlock
+                                                Name="textblock"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                d:Text="1"
+                                                Foreground="White"
+                                                Text="{Binding Rank}">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="*" Header="斗士">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel
+                                            Margin="8,0"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                            <Image
+                                                Name="image2"
+                                                Width="40"
+                                                Height="40"
+                                                d:Source="{StaticResource Avatar1Image}"
+                                                Source="{Binding Avatar}"
+                                                Stretch="UniformToFill" />
+                                            <TextBlock
+                                                Margin="8,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="White"
+                                                Text="{Binding Name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="200" Header="高校">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="{Binding University}"
+                                            TextAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="120" Header="总积分">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="White"
+                                            Text="{Binding Score}"
+                                            TextAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </controls:ImageTextTabItem>
+            </TabControl>
+        </Grid>
+        <Image
+            Grid.Column="1"
+            Source="{StaticResource HeroShowImage}"
+            Stretch="Uniform" />
+    </Grid>
 </views:UserControlBase>

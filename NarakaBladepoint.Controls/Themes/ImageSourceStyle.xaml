@@ -254,6 +254,11 @@
     <BitmapImage x:Key="LeaderboardCollectionScoreTabItemImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/Icon.png" />
     <BitmapImage x:Key="LeaderboardBrotherhoodRealmImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/聚义榜段位.png" />
     <BitmapImage x:Key="LeaderboardBrotherhoodScoreImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/积分按钮.png" />
+    <BitmapImage x:Key="LeaderboardHeroTabItem1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/Icon1.png" />
+    <BitmapImage x:Key="LeaderboardHeroTabItem2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/Icon2.png" />
+    <BitmapImage x:Key="LeaderboardHeroTabItem3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/Icon3.png" />
+    <BitmapImage x:Key="LeaderboardHeroTabItem4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/Icon4.png" />
+    <BitmapImage x:Key="LeaderboardUniversityTabItemImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/高校榜.png" />
 
     <!--  App Icon  -->
     <BitmapImage x:Key="AppIconImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png" />
