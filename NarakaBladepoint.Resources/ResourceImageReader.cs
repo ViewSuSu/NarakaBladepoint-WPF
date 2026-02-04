@@ -49,6 +49,9 @@ namespace NarakaBladepoint.Resources
         // Store HeroTag Images: Key = Tag Index (1-6), Value = List of images in that tag folder
         private static readonly Dictionary<int, List<ImageSource>> _storeHeroTagImages = new();
 
+        // Tournament Champion Images: image/personalinfodetails/leaderboard/champions/*.png
+        private static readonly List<ImageSource> _tournamentChampionImages = new();
+
         static ResourceImageReader()
         {
             var assembly = typeof(ResourceImageReader).Assembly;
@@ -367,6 +370,20 @@ namespace NarakaBladepoint.Resources
                         }
                     }
                 }
+
+                // ===================== Tournament Champion Images =====================
+                if (key.StartsWith("image/personalinfodetails/leaderboard/champions/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/personalinfodetails/leaderboard/champions/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _tournamentChampionImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -650,5 +667,26 @@ namespace NarakaBladepoint.Resources
         /// 获取英雄印标签的个数
         /// </summary>
         public static int StoreHeroTagCount => _storeHeroTagImages.Count;
+
+        // ===================== Tournament Champion API =====================
+
+        /// <summary>
+        /// 获取所有冠军图片列表
+        /// </summary>
+        public static IReadOnlyList<ImageSource> GetAllTournamentChampionImages() =>
+            _tournamentChampionImages.AsReadOnly();
+
+        /// <summary>
+        /// 获取冠军图片个数
+        /// </summary>
+        public static int TournamentChampionCount => _tournamentChampionImages.Count;
+
+        /// <summary>
+        /// 获取指定索引的冠军图片
+        /// </summary>
+        public static ImageSource GetTournamentChampionImage(int index) =>
+            index >= 0 && index < _tournamentChampionImages.Count ? _tournamentChampionImages[index] : null;
     }
 }
+
+
