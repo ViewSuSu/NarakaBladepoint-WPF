@@ -110,6 +110,7 @@
 	  <None Remove="Image\HeroData\2.png" />
 	  <None Remove="Image\HeroData\3.png" />
 	  <None Remove="Image\heroShow.png" />
+	  <None Remove="Image\HeroShow\1.png" />
 	  <None Remove="Image\HeroStandArt\岳山.png" />
 	  <None Remove="Image\HeroStandArt\胡为.png" />
 	  <None Remove="Image\HeroStandArt\胡桃.png" />
@@ -304,6 +305,11 @@
 	  <None Remove="Image\PersonalInfoDetails\IllustratedCollection\Images\铠甲勇士.png" />
 	  <None Remove="Image\PersonalInfoDetails\IllustratedCollection\Images\黑猫警长系列.png" />
 	  <None Remove="Image\PersonalInfoDetails\IllustratedCollection\Overview.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\1.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\2.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\3.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\日曜名宿.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\穹苍魁首.png" />
 	  <None Remove="Image\PersonalInfoDetails\listboxitembackground.png" />
 	  <None Remove="Image\PersonalInfoDetails\TippingRecord\1.png" />
 	  <None Remove="Image\PersonalInfoDetails\TippingRecord\2.png" />
@@ -657,6 +663,7 @@
 
 	<ItemGroup>
 	  <Resource Include="Image\background5.png" />
+	  <Resource Include="Image\HeroShow\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\3.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\4.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\1.png" />
@@ -787,6 +794,11 @@
 	  <Resource Include="Image\PersonalInfoDetails\IllustratedCollection\Images\铠甲勇士.png" />
 	  <Resource Include="Image\PersonalInfoDetails\IllustratedCollection\Images\黑猫警长系列.png" />
 	  <Resource Include="Image\PersonalInfoDetails\IllustratedCollection\Overview.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\1.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\2.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\日曜名宿.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\穹苍魁首.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\3.png" />
@@ -922,7 +934,6 @@
 	  <Resource Include="Image\HeroData\1.png" />
 	  <Resource Include="Image\HeroData\2.png" />
 	  <Resource Include="Image\HeroData\3.png" />
-	  <Resource Include="Image\heroShow.png" />
 	  <Resource Include="Image\HeroStandArt\岳山.png" />
 	  <Resource Include="Image\HeroStandArt\胡为.png" />
 	  <Resource Include="Image\HeroStandArt\胡桃.png" />

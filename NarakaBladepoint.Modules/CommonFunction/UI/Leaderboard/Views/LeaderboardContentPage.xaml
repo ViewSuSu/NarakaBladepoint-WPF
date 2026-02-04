@@ -7,341 +7,508 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels"
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
-    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:LeaderboardContentPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
     mc:Ignorable="d">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <!--  Mode tabs  -->
-        <TabControl
-            Grid.Row="0"
-            Margin="8"
-            SelectedIndex="0">
-            <TabItem Header="单人模式" Style="{StaticResource CommonFunctionTabItem2}">
-                <TabItem.Content>
-                    <DataGrid
-                        d:ItemsSource="{d:SampleData ItemCount=5}"
-                        AutoGenerateColumns="False"
-                        ColumnHeaderHeight="30"
-                        ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
-                        IsReadOnly="True"
-                        ItemsSource="{Binding PlayersSolo}"
-                        RowHeight="50"
-                        RowStyle="{StaticResource TransparentDataGridRowStyle}"
-                        Style="{StaticResource TransparentDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="80" Header="排名">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <Image />
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontSize="16"
-                                                Foreground="White"
-                                                Text="{Binding Name}" />
-                                        </Grid>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="*" Header="斗士">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
-                                            Margin="8,0"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image
-                                                Width="40"
-                                                Height="40"
-                                                Source="{Binding Avatar}"
-                                                Stretch="UniformToFill" />
-                                            <TextBlock
+    <Grid Background="{StaticResource Background2}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0.35*" />
+        </Grid.ColumnDefinitions>
+        <Grid Margin="0,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <!--  Mode tabs  -->
+            <TabControl
+                Grid.Row="0"
+                Margin="8"
+                SelectedIndex="0">
+                <TabItem Header="单人模式" Style="{StaticResource CommonFunctionTabItem2}">
+                    <TabItem.Content>
+                        <DataGrid
+                            d:ItemsSource="{d:SampleData ItemCount=5}"
+                            AutoGenerateColumns="False"
+                            ColumnHeaderHeight="30"
+                            ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding PlayersSolo}"
+                            RowHeight="50"
+                            RowStyle="{StaticResource TransparentDataGridRowStyle}"
+                            Style="{StaticResource TransparentDataGridStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="80" Header="排名">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Image
+                                                    x:Name="image1"
+                                                    Width="30"
+                                                    Height="30">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank1Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank2Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank3Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                                <TextBlock
+                                                    Name="textblock"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    d:Text="1"
+                                                    Foreground="White"
+                                                    Text="{Binding Rank}">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="*" Header="斗士">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                 Margin="8,0"
                                                 VerticalAlignment="Center"
-                                                FontSize="16"
-                                                Foreground="White"
-                                                Text="{Binding Name}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="200" Header="境界">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
-                                            Margin="8,0"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image
-                                                Width="28"
-                                                Height="28"
-                                                Source="{Binding RealmIcon}"
-                                                Stretch="Uniform" />
-                                            <TextBlock
+                                                Orientation="Horizontal">
+                                                <Image
+                                                    Name="image2"
+                                                    Width="40"
+                                                    Height="40"
+                                                    d:Source="{StaticResource Avatar1Image}"
+                                                    Source="{Binding Avatar}"
+                                                    Stretch="UniformToFill" />
+                                                <TextBlock
+                                                    Margin="8,0"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="White"
+                                                    Text="{Binding Name}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="200" Header="境界">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                 Margin="8,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <Image
+                                                    x:Name="image3"
+                                                    Width="30"
+                                                    Height="30"
+                                                    Stretch="Uniform">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Setter Property="Source" Value="{StaticResource LeaderboardRealmOtherImage}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                                <TextBlock
+                                                    Margin="8,0"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="White"
+                                                    Text="{Binding RealmName}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="总积分">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="White"
-                                                Text="{Binding RealmName}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn
-                                Width="120"
-                                Binding="{Binding Score}"
-                                Header="总积分">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn
-                                Width="120"
-                                Binding="{Binding Matches}"
-                                Header="游戏场次">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem Header="双人模式" Style="{StaticResource CommonFunctionTabItem2}">
-                <TabItem.Content>
-                    <DataGrid
-                        AutoGenerateColumns="False"
-                        ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
-                        GridLinesVisibility="None"
-                        HeadersVisibility="Column"
-                        IsReadOnly="True"
-                        ItemsSource="{Binding PlayersDuo}"
-                        RowHeight="56"
-                        RowStyle="{StaticResource TransparentDataGridRowStyle}"
-                        Style="{StaticResource TransparentDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                                Width="80"
-                                Binding="{Binding Rank}"
-                                Header="排名">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTemplateColumn Width="*" Header="斗士">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
-                                            Margin="8,0"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image
-                                                Width="40"
-                                                Height="40"
-                                                Source="{Binding Avatar}"
-                                                Stretch="UniformToFill" />
+                                                Text="{Binding Score}"
+                                                TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="游戏场次">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
                                             <TextBlock
-                                                Margin="8,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="16"
-                                                Foreground="White"
-                                                Text="{Binding Name}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="200" Header="境界">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
-                                            Margin="8,0"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image
-                                                Width="28"
-                                                Height="28"
-                                                Source="{Binding RealmIcon}"
-                                                Stretch="Uniform" />
-                                            <TextBlock
-                                                Margin="8,0"
+                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="White"
-                                                Text="{Binding RealmName}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn
-                                Width="120"
-                                Binding="{Binding Score}"
-                                Header="总积分">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn
-                                Width="120"
-                                Binding="{Binding Matches}"
-                                Header="游戏场次">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem Header="三人模式" Style="{StaticResource CommonFunctionTabItem2}">
-                <TabItem.Content>
-                    <DataGrid
-                        AutoGenerateColumns="False"
-                        ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
-                        GridLinesVisibility="None"
-                        HeadersVisibility="Column"
-                        IsReadOnly="True"
-                        ItemsSource="{Binding PlayersTrio}"
-                        RowHeight="56"
-                        RowStyle="{StaticResource TransparentDataGridRowStyle}"
-                        Style="{StaticResource TransparentDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                                Width="80"
-                                Binding="{Binding Rank}"
-                                Header="排名" />
-                            <DataGridTemplateColumn Width="*" Header="斗士">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
-                                            Margin="8,0"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image
-                                                Width="40"
-                                                Height="40"
-                                                Source="{Binding Avatar}"
-                                                Stretch="UniformToFill" />
-                                            <TextBlock
+                                                Text="{Binding Matches}"
+                                                TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="双人模式" Style="{StaticResource CommonFunctionTabItem2}">
+                    <TabItem.Content>
+                        <DataGrid
+                            d:ItemsSource="{d:SampleData ItemCount=5}"
+                            AutoGenerateColumns="False"
+                            ColumnHeaderHeight="30"
+                            ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding PlayersDuo}"
+                            RowHeight="50"
+                            RowStyle="{StaticResource TransparentDataGridRowStyle}"
+                            Style="{StaticResource TransparentDataGridStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="80" Header="排名">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Image
+                                                    x:Name="image1"
+                                                    Width="30"
+                                                    Height="30">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank1Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank2Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank3Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                                <TextBlock
+                                                    Name="textblock"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    d:Text="1"
+                                                    Foreground="White"
+                                                    Text="{Binding Rank}">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="*" Header="斗士">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                 Margin="8,0"
                                                 VerticalAlignment="Center"
-                                                FontSize="16"
-                                                Foreground="White"
-                                                Text="{Binding Name}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="200" Header="境界">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel
-                                            Margin="8,0"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image
-                                                Width="28"
-                                                Height="28"
-                                                Source="{Binding RealmIcon}"
-                                                Stretch="Uniform" />
-                                            <TextBlock
+                                                Orientation="Horizontal">
+                                                <Image
+                                                    Name="image2"
+                                                    Width="40"
+                                                    Height="40"
+                                                    d:Source="{StaticResource Avatar1Image}"
+                                                    Source="{Binding Avatar}"
+                                                    Stretch="UniformToFill" />
+                                                <TextBlock
+                                                    Margin="8,0"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="White"
+                                                    Text="{Binding Name}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="200" Header="境界">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
                                                 Margin="8,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <Image
+                                                    Width="30"
+                                                    Height="30"
+                                                    Stretch="Uniform">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Setter Property="Source" Value="{StaticResource LeaderboardRealmOtherImage}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                                <TextBlock
+                                                    Margin="8,0"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="White"
+                                                    Text="{Binding RealmName}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="总积分">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Foreground="White"
-                                                Text="{Binding RealmName}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn
-                                Width="120"
-                                Binding="{Binding Score}"
-                                Header="总积分">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                        <Setter Property="TextAlignment" Value="Center" />
-                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn
-                                Width="120"
-                                Binding="{Binding Matches}"
-                                Header="游戏场次" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem.Content>
-            </TabItem>
-        </TabControl>
-
-        <!--  Footer bar showing unranked row  -->
-        <Border
-            Grid.Row="2"
-            Margin="0,8,0,0"
-            Padding="8">
-            <DockPanel>
-                <TextBlock
-                    Margin="8,0"
-                    VerticalAlignment="Center"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    Text="未入榜" />
-                <StackPanel
-                    VerticalAlignment="Center"
-                    DockPanel.Dock="Right"
-                    Orientation="Horizontal">
-                    <Image
-                        Width="40"
-                        Height="40"
-                        Source="{Binding Unranked.Avatar}" />
-                    <TextBlock
-                        Margin="8,0"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        Text="{Binding Unranked.Name}" />
-                    <TextBlock
-                        Margin="16,0"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        Text="{Binding Unranked.RealmName}" />
-                    <TextBlock
-                        Margin="16,0"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        Text="{Binding Unranked.Score}" />
-                    <TextBlock
-                        Margin="16,0"
-                        VerticalAlignment="Center"
-                        Foreground="White"
-                        Text="{Binding Unranked.Matches}" />
-                </StackPanel>
-            </DockPanel>
-        </Border>
+                                                Text="{Binding Score}"
+                                                TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="游戏场次">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="White"
+                                                Text="{Binding Matches}"
+                                                TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="三人模式" Style="{StaticResource CommonFunctionTabItem2}">
+                    <TabItem.Content>
+                        <DataGrid
+                            d:ItemsSource="{d:SampleData ItemCount=5}"
+                            AutoGenerateColumns="False"
+                            ColumnHeaderHeight="30"
+                            ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding PlayersTrio}"
+                            RowHeight="50"
+                            RowStyle="{StaticResource TransparentDataGridRowStyle}"
+                            Style="{StaticResource TransparentDataGridStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="80" Header="排名">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Image
+                                                    x:Name="image1"
+                                                    Width="30"
+                                                    Height="30">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank1Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank2Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRank3Image}" />
+                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                                <TextBlock
+                                                    Name="textblock"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    d:Text="1"
+                                                    Foreground="White"
+                                                    Text="{Binding Rank}">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="*" Header="斗士">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
+                                                Margin="8,0"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <Image
+                                                    Name="image2"
+                                                    Width="40"
+                                                    Height="40"
+                                                    d:Source="{StaticResource Avatar1Image}"
+                                                    Source="{Binding Avatar}"
+                                                    Stretch="UniformToFill" />
+                                                <TextBlock
+                                                    Margin="8,0"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="White"
+                                                    Text="{Binding Name}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="200" Header="境界">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel
+                                                Margin="8,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <Image
+                                                    Width="30"
+                                                    Height="30"
+                                                    Stretch="Uniform">
+                                                    <Image.Style>
+                                                        <Style TargetType="Image">
+                                                            <Setter Property="Source" Value="{StaticResource LeaderboardRealmOtherImage}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="1">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="2">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding Rank}" Value="3">
+                                                                    <Setter Property="Source" Value="{StaticResource LeaderboardRealmTopImage}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Image.Style>
+                                                </Image>
+                                                <TextBlock
+                                                    Margin="8,0"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="White"
+                                                    Text="{Binding RealmName}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="总积分">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="White"
+                                                Text="{Binding Score}"
+                                                TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="游戏场次">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="White"
+                                                Text="{Binding Matches}"
+                                                TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Image
+            Grid.Column="1"
+            Source="{StaticResource HeroShowImage}"
+            Stretch="Uniform" />
     </Grid>
 </views:UserControlBase>

@@ -73,7 +73,7 @@
                     <controls:HighlightBorder SnapsToDevicePixels="True">
                         <Grid>
                             <DataGridCellsPresenter />
-                            <DataGridDetailsPresenter />
+                            <!--<DataGridDetailsPresenter />-->
                         </Grid>
                     </controls:HighlightBorder>
                 </ControlTemplate>

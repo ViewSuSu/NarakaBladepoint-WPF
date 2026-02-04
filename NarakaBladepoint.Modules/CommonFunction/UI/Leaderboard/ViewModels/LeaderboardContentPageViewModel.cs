@@ -1,25 +1,49 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Media;
+using NarakaBladepoint.Shared.Services.Abstractions;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
 {
     internal class LeaderboardContentPageViewModel : ViewModelBase
     {
+        private readonly IAvatarProvider _avatarProvider;
+        private List<ImageSource> _avatarSources = new();
+
         public ObservableCollection<LeaderboardRowViewModel> PlayersSolo { get; } = new();
         public ObservableCollection<LeaderboardRowViewModel> PlayersDuo { get; } = new();
         public ObservableCollection<LeaderboardRowViewModel> PlayersTrio { get; } = new();
 
         public LeaderboardRowViewModel Unranked { get; set; }
 
-        public LeaderboardContentPageViewModel()
+        public LeaderboardContentPageViewModel(IAvatarProvider avatarProvider)
         {
-            // design-time sample data (5 items)
-            for (int i = 1; i <= 5; i++)
+            _avatarProvider = avatarProvider;
+            InitializeData();
+        }
+
+        private async void InitializeData()
+        {
+            try
             {
+                var avatars = await _avatarProvider.GetAvatarsAsync();
+                _avatarSources = avatars.Select(a => a.ImageSource).ToList();
+            }
+            catch
+            {
+                _avatarSources = new List<ImageSource>();
+            }
+
+            var random = new Random();
+
+            for (int i = 1; i <= 20; i++)
+            {
+                var avatar = GetRandomAvatar(random);
+
                 PlayersSolo.Add(
                     new LeaderboardRowViewModel
                     {
                         Rank = i,
-                        Avatar = "",
+                        Avatar = avatar,
                         Name = $"玩家{i}",
                         RealmIcon = "",
                         RealmName = i <= 3 ? "穹苍魁首" : "日曜名宿",
@@ -32,7 +56,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
                     new LeaderboardRowViewModel
                     {
                         Rank = i,
-                        Avatar = "",
+                        Avatar = GetRandomAvatar(random),
                         Name = $"双人玩家{i}",
                         RealmIcon = "",
                         RealmName = i <= 3 ? "穹苍魁首" : "日曜名宿",
@@ -45,7 +69,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
                     new LeaderboardRowViewModel
                     {
                         Rank = i,
-                        Avatar = "",
+                        Avatar = GetRandomAvatar(random),
                         Name = $"三人玩家{i}",
                         RealmIcon = "",
                         RealmName = i <= 3 ? "穹苍魁首" : "日曜名宿",
@@ -58,7 +82,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
             Unranked = new LeaderboardRowViewModel
             {
                 Rank = 0,
-                Avatar = "",
+                Avatar = GetRandomAvatar(random),
                 Name = "野排牢张",
                 RealmIcon = "",
                 RealmName = "凡尘武师",
@@ -67,13 +91,21 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Leaderboard.ViewModels
             };
         }
 
+        private ImageSource GetRandomAvatar(Random random)
+        {
+            if (_avatarSources.Count == 0)
+                return null;
+
+            return _avatarSources[random.Next(_avatarSources.Count)];
+        }
+
         // ViewModelBase/BindableBase already provides property change notification.
     }
 
     internal class LeaderboardRowViewModel
     {
         public int Rank { get; set; }
-        public string Avatar { get; set; }
+        public ImageSource Avatar { get; set; }
         public string Name { get; set; }
         public string RealmIcon { get; set; }
         public string RealmName { get; set; }

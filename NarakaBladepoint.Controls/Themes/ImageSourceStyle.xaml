@@ -123,7 +123,7 @@
     <BitmapImage x:Key="PersonalInfoDetails16Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/16.png" />
     <BitmapImage x:Key="PersonalInfoDetails18Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/18.png" />
     <BitmapImage x:Key="ClickSettingTagImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/点击设置标签.png" />
-    <BitmapImage x:Key="HeroShowImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/heroShow.png" />
+    <BitmapImage x:Key="HeroShowImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/HeroShow/1.png" />
 
     <!--  Edit Gender Images  -->
     <BitmapImage x:Key="EditGenderPage1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/EditGender/1.png" />
@@ -243,6 +243,13 @@
     <BitmapImage x:Key="Email3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/3.png" />
     <BitmapImage x:Key="Email4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/4.png" />
     <BitmapImage x:Key="Email5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Email/5.png" />
+
+    <!--  Leaderboard Images  -->
+    <BitmapImage x:Key="LeaderboardRank1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/1.png" />
+    <BitmapImage x:Key="LeaderboardRank2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/2.png" />
+    <BitmapImage x:Key="LeaderboardRank3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/3.png" />
+    <BitmapImage x:Key="LeaderboardRealmTopImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/穹苍魁首.png" />
+    <BitmapImage x:Key="LeaderboardRealmOtherImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/Leaderboard/日曜名宿.png" />
 
     <!--  App Icon  -->
     <BitmapImage x:Key="AppIconImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Icon.png" />
