@@ -308,6 +308,8 @@
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\1.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\2.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\3.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Icon.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\总收藏值.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\日曜名宿.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\穹苍魁首.png" />
 	  <None Remove="Image\PersonalInfoDetails\listboxitembackground.png" />
@@ -797,6 +799,8 @@
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\2.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\3.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Icon.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\总收藏值.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\日曜名宿.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\穹苍魁首.png" />
 	  <Resource Include="Image\PersonalInfoDetails\TippingRecord\1.png" />

@@ -7,14 +7,18 @@
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <converter:IconTabItemConverter x:Key="IconTabItemConverter" />
-    <Style x:Key="CommonFunctionTabItem" TargetType="TabItem">
+
+    <!--  Base TabItem Style  -->
+    <Style x:Key="TabItemBaseStyle" TargetType="TabItem">
+        <Setter Property="Height" Value="30" />
+    </Style>
+
+    <Style x:Key="CommonFunctionTabItem" BasedOn="{StaticResource TabItemBaseStyle}" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="5,0" />
         <Setter Property="Height" Value="45" />
-        <Setter Property="FontSize" Value="10" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">
@@ -52,7 +56,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CommonFunctionTabItem2" TargetType="TabItem">
+    <Style x:Key="CommonFunctionTabItem2" BasedOn="{StaticResource TabItemBaseStyle}" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="#1A000000" />
         <Setter Property="BorderThickness" Value="0" />
@@ -103,7 +107,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CommonFunctionTabItem3" TargetType="TabItem">
+    <Style x:Key="CommonFunctionTabItem3" BasedOn="{StaticResource TabItemBaseStyle}" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="#1A000000" />
         <Setter Property="BorderThickness" Value="0" />
@@ -154,10 +158,9 @@
         </Setter>
     </Style>
 
-    <Style x:Key="HistoryMatchRecordTabItemStyle" TargetType="TabItem">
+    <Style x:Key="HistoryMatchRecordTabItemStyle" BasedOn="{StaticResource TabItemBaseStyle}" TargetType="TabItem">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
-
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="12,8" />
         <Setter Property="HeaderTemplate">

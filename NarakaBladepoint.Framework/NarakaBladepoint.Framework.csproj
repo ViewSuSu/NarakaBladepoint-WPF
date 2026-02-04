@@ -10,12 +10,16 @@
 		<Authors>小窗同学</Authors>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Core\Commands\**" />
+	  <EmbeddedResource Remove="Core\Commands\**" />
+	  <None Remove="Core\Commands\**" />
+	  <Page Remove="Core\Commands\**" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Mapster" Version="7.4.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="Prism.DryIoc" Version="9.0.537" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Core\Commands\" />
 	</ItemGroup>
 </Project>

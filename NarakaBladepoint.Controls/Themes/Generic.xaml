@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:NarakaBladepoint.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
+        <ResourceDictionary Source="/NarakaBladepoint.Controls;component/Themes/TabItemStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <converters:LTopLeftConverter x:Key="LTopLeftConverter" />
     <converters:LTopRightConverter x:Key="LTopRightConverter" />
@@ -246,7 +247,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:IconTabItem}">
+    <Style BasedOn="{StaticResource TabItemBaseStyle}" TargetType="{x:Type local:IconTabItem}">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
@@ -336,7 +337,7 @@
         x:Key="DefaultSelectedBackground"
         ImageSource="{StaticResource ModeSelectionTabBackgroundImage}"
         Stretch="Fill" />
-    <Style BasedOn="{StaticResource {x:Type TabItem}}" TargetType="{x:Type local:ImageTextTabItem}">
+    <Style BasedOn="{StaticResource TabItemBaseStyle}" TargetType="{x:Type local:ImageTextTabItem}">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
