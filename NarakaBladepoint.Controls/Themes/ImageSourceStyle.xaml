@@ -97,6 +97,9 @@
     <BitmapImage x:Key="SocialTagIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/Icon1.png" />
     <BitmapImage x:Key="SocialTagIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/Icon2.png" />
 
+    <!--  Music Page Images  -->
+    <BitmapImage x:Key="MusicEmptyStateBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Music/background.png" />
+
     <!--  Personal Info Details Images  -->
     <BitmapImage x:Key="PersonalInfoDetails19Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/19.png" />
     <BitmapImage x:Key="PersonalInfoDetailsListBoxItemBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/PersonalInfoDetails/listboxitembackground.png" />

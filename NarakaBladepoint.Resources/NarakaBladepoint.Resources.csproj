@@ -210,6 +210,7 @@
 	  <None Remove="Image\Button\古币.png" />
 	  <None Remove="Image\Button\幻丝.png" />
 	  <None Remove="Image\Button\金砖.png" />
+	  <None Remove="Image\Music\background.png" />
 	  <None Remove="Image\PersonalInfoDetails\1.png" />
 	  <None Remove="Image\PersonalInfoDetails\10.png" />
 	  <None Remove="Image\PersonalInfoDetails\11.png" />
@@ -685,6 +686,7 @@
 	  <Resource Include="Image\CustomMatch\2.png" />
 	  <Resource Include="Image\CustomMatch\3.png" />
 	  <Resource Include="Image\HeroShow\1.png" />
+	  <Resource Include="Image\Music\background.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\3.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\4.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\Images2\1.png" />

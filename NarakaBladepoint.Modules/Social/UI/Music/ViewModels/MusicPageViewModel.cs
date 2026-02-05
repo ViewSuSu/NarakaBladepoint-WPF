@@ -79,6 +79,29 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
             {
                 _musicList = value;
                 RaisePropertyChanged();
+                UpdateMusicCountAndEmptyState();
+            }
+        }
+
+        private string _musicCountText = "上限 0/20";
+        public string MusicCountText
+        {
+            get { return _musicCountText; }
+            set
+            {
+                _musicCountText = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private bool _isEmptyState = true;
+        public bool IsEmptyState
+        {
+            get { return _isEmptyState; }
+            set
+            {
+                _isEmptyState = value;
+                RaisePropertyChanged();
             }
         }
 
@@ -166,6 +189,8 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
                     Duration = "4:01",
                 },
             };
+            IsEmptyState = false;
+            UpdateMusicCountText();
         }
 
         private void OnSelectMusic(string index)
@@ -176,11 +201,36 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
                 if (musicIndex == 1)
                 {
                     SelectedMusicTitle = "大厅音乐曲库";
+                    IsEmptyState = false;
+                    UpdateMusicCountText();
                 }
                 else if (musicIndex == 2)
                 {
                     SelectedMusicTitle = "我喜欢的音乐";
+                    IsEmptyState = true;
+                    UpdateMusicCountText();
                 }
+            }
+        }
+
+        private void UpdateMusicCountAndEmptyState()
+        {
+            UpdateMusicCountText();
+            if (SelectedMusicIndex == 2)
+            {
+                IsEmptyState = MusicList.Count == 0;
+            }
+        }
+
+        private void UpdateMusicCountText()
+        {
+            if (SelectedMusicIndex == 1)
+            {
+                MusicCountText = $"上限 {MusicList.Count}/20";
+            }
+            else if (SelectedMusicIndex == 2)
+            {
+                MusicCountText = "上限 0/20";
             }
         }
     }

@@ -65,6 +65,7 @@
                     <ScrollViewer Margin="0,0,0,10" VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="stackpanel" Orientation="Vertical">
                             <controls:HighlightBorder
+                                Name="tabitem1"
                                 Height="45"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
                                 BorderThickness="2">
@@ -93,6 +94,7 @@
                                 </controls:HighlightBorder.InputBindings>
                             </controls:HighlightBorder>
                             <controls:HighlightBorder
+                                Name="tabitem2"
                                 Height="45"
                                 Margin="0,8,0,0"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
@@ -137,117 +139,172 @@
                     <StackPanel
                         Name="infoPanel"
                         Background="{StaticResource HeroTagBackground1Brush}"
-                        Orientation="Vertical"
+                        Orientation="Horizontal"
                         Style="{StaticResource MusicInfoPanelStyle}">
                         <TextBlock
                             Margin="20,15,0,15"
+                            VerticalAlignment="Center"
                             d:Text="大厅音乐曲库"
                             FontSize="16"
                             Foreground="White"
                             Text="{Binding SelectedMusicTitle}" />
+                        <TextBlock
+                            Name="count"
+                            Margin="20,15,0,15"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="White"
+                            Text="{Binding MusicCountText}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedMusicIndex}" Value="2">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </StackPanel>
 
-                    <!--  DataGrid with music list  -->
-                    <DataGrid
-                        Grid.Row="1"
-                        Margin="0,10,0,0"
-                        d:ItemsSource="{d:SampleData ItemCount=10}"
-                        AutoGenerateColumns="False"
-                        ColumnHeaderHeight="40"
-                        ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
-                        IsReadOnly="True"
-                        ItemsSource="{Binding MusicList}"
-                        RowStyle="{StaticResource TransparentDataGridRowStyle}"
-                        Style="{StaticResource TransparentDataGridStyle}">
-                        <DataGrid.Columns>
-                            <!--  Index Column  -->
-                            <DataGridTemplateColumn
-                                Width="50"
-                                CellStyle="{StaticResource MusicDataGridCellStyle}"
-                                Header="♪">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            d:Text="1"
-                                            Foreground="White"
-                                            Text="{Binding Index}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                    <!--  DataGrid with music list and empty state  -->
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <!--  DataGrid with music list  -->
+                        <DataGrid
+                            d:ItemsSource="{d:SampleData ItemCount=10}"
+                            AutoGenerateColumns="False"
+                            ColumnHeaderHeight="40"
+                            ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding MusicList}"
+                            RowStyle="{StaticResource TransparentDataGridRowStyle}">
+                            <DataGrid.Style>
+                                <Style BasedOn="{StaticResource TransparentDataGridStyle}" TargetType="DataGrid">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedMusicIndex}" Value="1">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.Style>
+                            <DataGrid.Columns>
+                                <!--  Index Column  -->
+                                <DataGridTemplateColumn
+                                    Width="50"
+                                    CellStyle="{StaticResource MusicDataGridCellStyle}"
+                                    Header="♪">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                d:Text="1"
+                                                Foreground="White"
+                                                Text="{Binding Index}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                            <!--  Music Name Column  -->
-                            <DataGridTemplateColumn
-                                Width="*"
-                                CellStyle="{StaticResource MusicDataGridCellStyle}"
-                                Header="乐曲名称">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock
-                                            Margin="8,0"
-                                            VerticalAlignment="Center"
-                                            d:Text="穿云箭（第19赛季大厅音乐）"
-                                            Foreground="White"
-                                            Text="{Binding MusicName}"
-                                            TextTrimming="CharacterEllipsis" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                <!--  Music Name Column  -->
+                                <DataGridTemplateColumn
+                                    Width="*"
+                                    CellStyle="{StaticResource MusicDataGridCellStyle}"
+                                    Header="乐曲名称">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                Margin="8,0"
+                                                VerticalAlignment="Center"
+                                                d:Text="穿云箭（第19赛季大厅音乐）"
+                                                Foreground="White"
+                                                Text="{Binding MusicName}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                            <!--  Artist Column  -->
-                            <DataGridTemplateColumn
-                                Width="200"
-                                CellStyle="{StaticResource MusicDataGridCellStyle}"
-                                Header="作者">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            d:Text="Moe/24工作室/雷火音频"
-                                            Foreground="White"
-                                            Text="{Binding Artist}"
-                                            TextTrimming="CharacterEllipsis" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                <!--  Artist Column  -->
+                                <DataGridTemplateColumn
+                                    Width="200"
+                                    CellStyle="{StaticResource MusicDataGridCellStyle}"
+                                    Header="作者">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                d:Text="Moe/24工作室/雷火音频"
+                                                Foreground="White"
+                                                Text="{Binding Artist}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                            <!--  Like Column  -->
-                            <DataGridTemplateColumn
-                                Width="60"
-                                CellStyle="{StaticResource MusicDataGridCellStyle}"
-                                Header="喜欢">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            d:Text="♡"
-                                            Foreground="White"
-                                            Text="♡" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                <!--  Like Column  -->
+                                <DataGridTemplateColumn
+                                    Width="60"
+                                    CellStyle="{StaticResource MusicDataGridCellStyle}"
+                                    Header="喜欢">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                d:Text="♡"
+                                                Foreground="White"
+                                                Text="♡" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                            <!--  Duration Column  -->
-                            <DataGridTemplateColumn
-                                Width="80"
-                                CellStyle="{StaticResource MusicDataGridCellStyle}"
-                                Header="时长">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            d:Text="2:32"
-                                            Foreground="White"
-                                            Text="{Binding Duration}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                                <!--  Duration Column  -->
+                                <DataGridTemplateColumn
+                                    Width="80"
+                                    CellStyle="{StaticResource MusicDataGridCellStyle}"
+                                    Header="时长">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                d:Text="2:32"
+                                                Foreground="White"
+                                                Text="{Binding Duration}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!--  Empty State Overlay  -->
+                        <Grid Name="grid">
+                            <Grid Height="{Binding ElementName=grid, Path=ActualHeight}" VerticalAlignment="Top">
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="{StaticResource MusicEmptyStateBackgroundImage}" Stretch="Uniform" />
+                                </Grid.Background>
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedMusicIndex}" Value="2">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="24"
+                                    Foreground="White"
+                                    Opacity="0.6"
+                                    Text="空空如也" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
 
                     <!--  Bottom buttons - Fixed position in right bottom corner  -->
                     <StackPanel
