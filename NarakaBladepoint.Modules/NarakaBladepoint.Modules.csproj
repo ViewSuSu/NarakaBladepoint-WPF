@@ -12,6 +12,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="CommonFunction\UI\Store\Converters\**" />
+	  <EmbeddedResource Remove="CommonFunction\UI\Store\Converters\**" />
+	  <None Remove="CommonFunction\UI\Store\Converters\**" />
+	  <Page Remove="CommonFunction\UI\Store\Converters\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="CommonFunction\UI\Inventory\ViewModels\InventoryPageViewModel.cs~RF1b11ff1.TMP" />
 	  <None Remove="PersonalInformation\UI\CareerAchievements\Views\0xp5bx2m.zyw~" />
 	</ItemGroup>
@@ -21,13 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NarakaBladepoint.Shared\NarakaBladepoint.Shared.csproj" />
-  </ItemGroup>
-
-
-
-
-  <ItemGroup>
-    <Folder Include="CommonFunction\UI\Store\Converters\" />
   </ItemGroup>
 
 </Project>
