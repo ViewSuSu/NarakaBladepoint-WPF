@@ -288,4 +288,9 @@
     <BitmapImage x:Key="HeroCuiSanNiangImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/崔三娘.png" />
     <BitmapImage x:Key="HeroGuQingHanImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/顾清寒.png" />
     <BitmapImage x:Key="HeroHaDiImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/哈迪.png" />
+
+    <!--  Custom Match Images  -->
+    <BitmapImage x:Key="CustomMatchRefreshImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CustomMatch/3.png" />
+    <BitmapImage x:Key="CustomMatchSearchImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CustomMatch/1.png" />
+    <BitmapImage x:Key="CustomMatchLockImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CustomMatch/2.png" />
 </ResourceDictionary>

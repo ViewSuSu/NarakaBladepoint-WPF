@@ -99,6 +99,9 @@
 	  <None Remove="Image\Button\白泽百科.png" />
 	  <None Remove="Image\Button\赛事.png" />
 	  <None Remove="Image\Button\露华集市.png" />
+	  <None Remove="Image\CustomMatch\1.png" />
+	  <None Remove="Image\CustomMatch\2.png" />
+	  <None Remove="Image\CustomMatch\3.png" />
 	  <None Remove="Image\Email\1.png" />
 	  <None Remove="Image\Email\2.png" />
 	  <None Remove="Image\Email\3.png" />
@@ -678,6 +681,9 @@
 
 	<ItemGroup>
 	  <Resource Include="Image\background5.png" />
+	  <Resource Include="Image\CustomMatch\1.png" />
+	  <Resource Include="Image\CustomMatch\2.png" />
+	  <Resource Include="Image\CustomMatch\3.png" />
 	  <Resource Include="Image\HeroShow\1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\3.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Achievements\4.png" />
