@@ -1,4 +1,4 @@
-namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.Views
+namespace NarakaBladepoint.Modules.Social.UI.Friend.Views
 {
     /// <summary>
     /// FriendPage.xaml 的交互逻辑

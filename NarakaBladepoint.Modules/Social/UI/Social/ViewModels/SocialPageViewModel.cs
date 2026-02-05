@@ -1,5 +1,5 @@
 using NarakaBladepoint.Modules.Social.UI.Email.Views;
-using NarakaBladepoint.Modules.Social.UI.Friend.UI.Views;
+using NarakaBladepoint.Modules.Social.UI.Friend.Views;
 using NarakaBladepoint.Modules.Social.UI.Music.Views;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
 using NarakaBladepoint.Modules.Tutorial.UI.Views;

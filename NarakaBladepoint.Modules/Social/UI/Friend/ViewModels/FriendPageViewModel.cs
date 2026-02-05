@@ -1,7 +1,7 @@
 using System.Windows;
 using NarakaBladepoint.Modules.SocialTag.UI.Views;
 
-namespace NarakaBladepoint.Modules.Social.UI.Friend.UI.ViewModels
+namespace NarakaBladepoint.Modules.Social.UI.Friend.ViewModels
 {
     internal class FriendPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
