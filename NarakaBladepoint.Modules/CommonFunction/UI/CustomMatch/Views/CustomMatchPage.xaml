@@ -214,6 +214,7 @@
                     Width="200"
                     Height="30"
                     BorderThickness="0"
+                    Command="{Binding CreateRoomCommand}"
                     Content="创建房间"
                     Foreground="White"
                     Style="{StaticResource CommandButtonStyle3}" />

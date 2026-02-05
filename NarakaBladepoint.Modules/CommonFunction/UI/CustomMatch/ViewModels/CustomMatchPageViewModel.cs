@@ -7,14 +7,33 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
     {
         private readonly string[] _roomNamePrefixes = new[]
         {
-            "00088", "雨里躲风起的房间", "96", "oiyeye的房间", "女大学生刀房",
-            "豆豆有俯炒炒香的房间", "半飘飘的房间", "与郅再关关的房间", "实战007", "竞技场对抗",
-            "高手集中营", "新手练习室", "排位冲分队", "匹配团队", "休闲游戏房"
+            "00088",
+            "雨里躲风起的房间",
+            "96",
+            "oiyeye的房间",
+            "女大学生刀房",
+            "豆豆有俯炒炒香的房间",
+            "半飘飘的房间",
+            "与郅再关关的房间",
+            "实战007",
+            "竞技场对抗",
+            "高手集中营",
+            "新手练习室",
+            "排位冲分队",
+            "匹配团队",
+            "休闲游戏房",
         };
 
-        private readonly string[] _modes = new[] { "无尽试炼", "排位赛", "竞技场", "团队战", "大逃杀" };
+        private readonly string[] _modes = new[]
+        {
+            "无尽试炼",
+            "排位赛",
+            "竞技场",
+            "团队战",
+            "大逃杀",
+        };
         private readonly string[] _statuses = new[] { "准备中", "游戏中" };
-
+        private readonly ITipMessageService tipMessageService;
         private ObservableCollection<RoomItem> _roomList = [];
         private ObservableCollection<RoomItem> _allRooms = [];
         private Random _random = new Random();
@@ -50,8 +69,19 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                 GenerateRandomRooms();
             });
 
-        public CustomMatchPageViewModel()
+        private DelegateCommand _createRoomCommand;
+
+        public DelegateCommand CreateRoomCommand =>
+            _createRoomCommand ??= new DelegateCommand(async () =>
+            {
+                await tipMessageService.ShowTipMessageAsync(
+                    new TipMessageWithHighlightArgs("开发中...")
+                );
+            });
+
+        public CustomMatchPageViewModel(ITipMessageService tipMessageService)
         {
+            this.tipMessageService = tipMessageService;
             InitializeRoomData();
         }
 
@@ -67,7 +97,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "1",
                     TeamSlots = "1/9(0/0)",
-                    IsLocked = true
+                    IsLocked = true,
                 },
                 new RoomItem
                 {
@@ -77,7 +107,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "3",
                     TeamSlots = "3/6(0/0)",
-                    IsLocked = false
+                    IsLocked = false,
                 },
                 new RoomItem
                 {
@@ -87,7 +117,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "3",
                     TeamSlots = "2/6(0/0)",
-                    IsLocked = false
+                    IsLocked = false,
                 },
                 new RoomItem
                 {
@@ -97,7 +127,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "排位赛",
                     PlayersPerTeam = "3",
                     TeamSlots = "1/60(0/0)",
-                    IsLocked = false
+                    IsLocked = false,
                 },
                 new RoomItem
                 {
@@ -107,7 +137,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "1",
                     TeamSlots = "1/2(0/0)",
-                    IsLocked = true
+                    IsLocked = true,
                 },
                 new RoomItem
                 {
@@ -117,7 +147,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "3",
                     TeamSlots = "2/6(0/0)",
-                    IsLocked = false
+                    IsLocked = false,
                 },
                 new RoomItem
                 {
@@ -127,7 +157,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "1",
                     TeamSlots = "1/2(0/0)",
-                    IsLocked = true
+                    IsLocked = true,
                 },
                 new RoomItem
                 {
@@ -137,7 +167,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "1",
                     TeamSlots = "2/2(0/0)",
-                    IsLocked = false
+                    IsLocked = false,
                 },
                 new RoomItem
                 {
@@ -147,7 +177,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "无尽试炼",
                     PlayersPerTeam = "1",
                     TeamSlots = "2/2(0/0)",
-                    IsLocked = false
+                    IsLocked = false,
                 },
                 new RoomItem
                 {
@@ -157,8 +187,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                     Mode = "竞技场",
                     PlayersPerTeam = "2",
                     TeamSlots = "1/4(0/0)",
-                    IsLocked = true
-                }
+                    IsLocked = true,
+                },
             };
 
             RoomList = new ObservableCollection<RoomItem>(_allRooms);
@@ -179,16 +209,18 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
                 var totalSlots = playersPerTeam * (_random.Next(2, 4));
                 var isLocked = _random.Next(0, 2) == 0;
 
-                randomRooms.Add(new RoomItem
-                {
-                    Status = _statuses[_random.Next(_statuses.Length)],
-                    RoomName = roomName + (i > 0 ? $"_{i}" : ""),
-                    Delay = $"{delay}ms",
-                    Mode = mode,
-                    PlayersPerTeam = playersPerTeam.ToString(),
-                    TeamSlots = $"{currentPlayers}/{totalSlots}(0/0)",
-                    IsLocked = isLocked
-                });
+                randomRooms.Add(
+                    new RoomItem
+                    {
+                        Status = _statuses[_random.Next(_statuses.Length)],
+                        RoomName = roomName + (i > 0 ? $"_{i}" : ""),
+                        Delay = $"{delay}ms",
+                        Mode = mode,
+                        PlayersPerTeam = playersPerTeam.ToString(),
+                        TeamSlots = $"{currentPlayers}/{totalSlots}(0/0)",
+                        IsLocked = isLocked,
+                    }
+                );
             }
 
             _allRooms = randomRooms;
@@ -204,8 +236,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.CustomMatch.ViewModels
             }
 
             var filteredRooms = _allRooms
-                .Where(room => room.RoomName.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-                               room.Mode.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                .Where(room =>
+                    room.RoomName.Contains(keyword, StringComparison.OrdinalIgnoreCase)
+                    || room.Mode.Contains(keyword, StringComparison.OrdinalIgnoreCase)
+                )
                 .ToList();
 
             RoomList = new ObservableCollection<RoomItem>(filteredRooms);
