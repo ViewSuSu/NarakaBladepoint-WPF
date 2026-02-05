@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Windows.Media;
-using Prism.Commands;
 using NarakaBladepoint.Framework.Core.Bases.ViewModels;
 using NarakaBladepoint.Resources;
+using Prism.Commands;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
 {
@@ -17,15 +17,28 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
         private DelegateCommand<string> _selectTagCommand;
 
         // 标签索引与名称的映射
-        private static readonly Dictionary<int, string> TagNameMap = new()
-        {
-            { 1, "壹·青空阁" },
-            { 2, "贰·蓝蔚阁" },
-            { 3, "叁·碧天阁" },
-            { 4, "肆·赤霞阁" },
-            { 5, "伍·橙云阁" },
-            { 6, "陆·紫冥阁" }
-        };
+        private static readonly Dictionary<int, string> TagNameMap =
+            new()
+            {
+                { 1, "壹·青空阁" },
+                { 2, "贰·蓝蔚阁" },
+                { 3, "叁·碧天阁" },
+                { 4, "肆·赤霞阁" },
+                { 5, "伍·橙云阁" },
+                { 6, "陆·紫冥阁" },
+            };
+
+        // 标签索引与解锁等级的映射（从50开始，每个+50）
+        private static readonly Dictionary<int, int> TagLevelMap =
+            new()
+            {
+                { 1, 50 },
+                { 2, 100 },
+                { 3, 150 },
+                { 4, 200 },
+                { 5, 250 },
+                { 6, 300 },
+            };
 
         public int SelectedTagIndex
         {
@@ -42,6 +55,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
                     {
                         SelectedTagName = tagName;
                     }
+                    // 更新选中的标签等级
+                    RaisePropertyChanged(nameof(SelectedHeroTagLevel));
+                    RaisePropertyChanged(nameof(SelectedHeroTagLevelText));
                 }
             }
         }
@@ -58,6 +74,11 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
                 }
             }
         }
+
+        public int SelectedHeroTagLevel =>
+            TagLevelMap.TryGetValue(_selectedTagIndex, out var level) ? level : 50;
+
+        public string SelectedHeroTagLevelText => $"英雄印点数达到{SelectedHeroTagLevel}解锁";
 
         public ObservableCollection<ImageSource> CurrentTagImages
         {
@@ -87,7 +108,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.Store.ViewModels
                         "良品",
                         "优品",
                         "极品",
-                        "神品"
+                        "神品",
                     };
                 }
                 return _qualityList;

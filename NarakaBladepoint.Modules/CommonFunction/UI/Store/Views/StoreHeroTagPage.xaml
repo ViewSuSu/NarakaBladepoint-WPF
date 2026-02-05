@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.Store.Views.StoreHeroTagPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Store.Views"
@@ -54,7 +55,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!--  Left sidebar - Tag list  -->
-                <Grid Name="leftSidebar" Margin="10,5">
+                <Grid Name="leftSidebar" Margin="10,0">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
@@ -244,30 +245,61 @@
                 <!--  Right side - Info panel + ItemsControl  -->
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="70" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <!--  Info panel - Aligned with ItemsControl  -->
-                    <StackPanel
-                        Name="infoPanel"
-                        Background="{StaticResource HeroTagBackground1Brush}"
-                        Orientation="Vertical"
-                        Style="{StaticResource HeroTagInfoPanelStyle}">
-                        <StackPanel VerticalAlignment="Center" Orientation="Vertical">
-                            <TextBlock Foreground="Gray" Text="英雄印点数" />
+                    <Grid Name="infoPanel" Background="{StaticResource HeroTagBackground1Brush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Name="tagImage"
+                                Width="25"
+                                Source="{StaticResource StoreHeroTagIcon1Image}" />
+                            <StackPanel
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                                <TextBlock Text="英雄印点数" />
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="23"
+                                    Foreground="{StaticResource DefaultOrangeBrush}"
+                                    Text="4075" />
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
                             <TextBlock
-                                Margin="10,5,0,5"
-                                FontSize="28"
-                                Foreground="Gold"
-                                Text="4075" />
-                        </StackPanel>
-                        <TextBlock
-                            Margin="10,0,0,10"
-                            FontSize="12"
-                            Foreground="White"
-                            Text="{Binding SelectedTagName}" />
-                    </StackPanel>
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                d:Text="壹·青空阁"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="{Binding SelectedTagName}" />
+                            <TextBlock
+                                Name="tagUnlockInfoTextBlock"
+                                Grid.Row="1"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                attach:TextBlockHighlightAttachedProperty.HighlightText="{Binding SelectedHeroTagLevel}"
+                                d:Text="英雄印点数达到50解锁"
+                                Foreground="White"
+                                Text="{Binding SelectedHeroTagLevelText}" />
+                        </Grid>
+                    </Grid>
 
                     <!--  ItemsControl  -->
                     <ItemsControl Grid.Row="1" ItemsSource="{Binding CurrentTagImages}">

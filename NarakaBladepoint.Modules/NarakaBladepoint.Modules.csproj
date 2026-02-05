@@ -23,4 +23,11 @@
     <ProjectReference Include="..\NarakaBladepoint.Shared\NarakaBladepoint.Shared.csproj" />
   </ItemGroup>
 
+
+
+
+  <ItemGroup>
+    <Folder Include="CommonFunction\UI\Store\Converters\" />
+  </ItemGroup>
+
 </Project>

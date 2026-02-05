@@ -497,6 +497,7 @@
 	  <None Remove="Image\Store\HeroTag\6\1.png" />
 	  <None Remove="Image\Store\HeroTag\background1.png" />
 	  <None Remove="Image\Store\HeroTag\background2.png" />
+	  <None Remove="Image\Store\HeroTag\Icon1.png" />
 	  <None Remove="Image\Store\Overview\1.png" />
 	  <None Remove="Image\Store\Overview\10.png" />
 	  <None Remove="Image\Store\Overview\11.png" />
@@ -1219,6 +1220,7 @@
 	  <Resource Include="Image\Store\HeroTag\6\1.png" />
 	  <Resource Include="Image\Store\HeroTag\background1.png" />
 	  <Resource Include="Image\Store\HeroTag\background2.png" />
+	  <Resource Include="Image\Store\HeroTag\Icon1.png" />
 	  <Resource Include="Image\Store\Overview\1.png" />
 	  <Resource Include="Image\Store\Overview\10.png" />
 	  <Resource Include="Image\Store\Overview\11.png" />
