@@ -31,7 +31,7 @@
                 <RowDefinition />
                 <RowDefinition Height="0.1*" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="{StaticResource PersonalInfoDetailsBackgroundBrush}">
+            <Grid x:Name="topGrid" Grid.Row="0" Background="{StaticResource PersonalInfoDetailsBackgroundBrush}">
                 <Grid Margin="50,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*" />

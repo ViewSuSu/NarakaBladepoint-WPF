@@ -251,7 +251,7 @@
                     <!--  Info panel - Aligned with ItemsControl  -->
                     <StackPanel
                         Name="infoPanel"
-                        d:Background="{StaticResource HeroTagBackground1Brush}"
+                        Background="{StaticResource HeroTagBackground1Brush}"
                         Orientation="Vertical"
                         Style="{StaticResource HeroTagInfoPanelStyle}">
                         <StackPanel VerticalAlignment="Center" Orientation="Vertical">

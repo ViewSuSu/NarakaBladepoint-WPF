@@ -1,5 +1,6 @@
 using NarakaBladepoint.Modules.Social.UI.Email.Views;
 using NarakaBladepoint.Modules.Social.UI.Friend.UI.Views;
+using NarakaBladepoint.Modules.Social.UI.Music.Views;
 using NarakaBladepoint.Modules.Social.UI.Setting.Views;
 using NarakaBladepoint.Modules.Tutorial.UI.Views;
 
@@ -16,7 +17,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Social.ViewModels
             {
                 eventAggregator
                     .GetEvent<LoadHomePageRegionEvent>()
-                    .Publish(new NavigationArgs(nameof(TutorialPage)));
+                    .Publish(new NavigationArgs(nameof(MusicPage)));
             });
 
         private DelegateCommand _navigateToTutorialCommand;
