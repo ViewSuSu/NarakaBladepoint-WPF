@@ -9,6 +9,7 @@
     xmlns:commonfunction="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views;assembly=NarakaBladepoint.Modules"
     xmlns:consts="clr-namespace:NarakaBladepoint.Framework.Core.Consts;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:converters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dayEvent="clr-namespace:NarakaBladepoint.Modules.DayEvent.UI.Views;assembly=NarakaBladepoint.Modules"
@@ -31,6 +32,17 @@
     <Window.Resources>
         <ResourceDictionary>
             <converters:StringToHighlightSegmentsConverter x:Key="StringToHighlightSegmentsConverter" />
+            
+            <!--  IsQueuing Rotation Animation  -->
+            <Storyboard x:Key="IsQueuingRotationStoryboard" RepeatBehavior="Forever">
+                <DoubleAnimation
+                    Storyboard.TargetName="QueuingArcContainer"
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                    From="0"
+                    To="360"
+                    Duration="0:0:2" />
+            </Storyboard>
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/TipMessageResources.xaml" />
                 <ResourceDictionary Source="Resources/QueueResources.xaml" />
@@ -96,7 +108,34 @@
                             Grid.Row="1"
                             Grid.Column="0"
                             Background="#000000">
-                            <Image Source="{StaticResource IsQueuingImage}" />
+                            <!-- 旋转的白色圆弧 -->
+                            <Grid
+                                Name="QueuingArcContainer"
+                                Width="35"
+                                Height="35"
+                                RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <RotateTransform Angle="0" />
+                                </Grid.RenderTransform>
+                                
+                                <Canvas Width="35" Height="35">
+                                    <Path
+                                        Width="35"
+                                        Height="35"
+                                        Data="M 17.5,3.5 A 14,14 0 0,1 31.5,17.5"
+                                        Stroke="White"
+                                        StrokeThickness="2" />
+                                </Canvas>
+                            </Grid>
+                            
+                            <!-- 固定不动的 Image（居中） -->
+                            <Image
+                                Name="IsQueuingImage"
+                                Width="20"
+                                Height="20"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Source="{StaticResource IsQueuingImage}" />
                         </Grid>
                         <controls:HighlightBorder
                             Grid.Row="0"

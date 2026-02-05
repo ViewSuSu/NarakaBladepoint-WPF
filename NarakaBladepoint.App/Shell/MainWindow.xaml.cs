@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media.Animation;
 
 namespace NarakaBladepoint.App.Shell
 {
@@ -31,6 +32,15 @@ namespace NarakaBladepoint.App.Shell
                 nameof(SourceInitialized),
                 OnSourceInitialized
             );
+            
+            // Start queuing animation when loaded
+            Loaded += (s, e) =>
+            {
+                if (Resources["IsQueuingRotationStoryboard"] is Storyboard storyboard)
+                {
+                    storyboard.Begin(this, isControllable: true);
+                }
+            };
         }
 
         private void OnSourceInitialized(object? sender, EventArgs e)
