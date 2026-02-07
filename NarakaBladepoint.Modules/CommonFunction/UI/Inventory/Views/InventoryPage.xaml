@@ -35,7 +35,10 @@
                     Margin="50,50,0,0"
                     Background="Transparent"
                     Style="{StaticResource AverageTabControlStyle}">
-                    <controls:IconTabItem Header="全部" Icon="{StaticResource InventoryPropsLogo1Image}">
+                    <controls:IconTabItem
+                        Height="50"
+                        Header="全部"
+                        Icon="{StaticResource InventoryPropsLogo1Image}">
                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding AllItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -72,7 +75,10 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
-                    <controls:IconTabItem Header="礼包" Icon="{StaticResource InventoryPropsLogo2Image}">
+                    <controls:IconTabItem
+                        Height="50"
+                        Header="礼包"
+                        Icon="{StaticResource InventoryPropsLogo2Image}">
                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding GiftPackItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -109,7 +115,10 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
-                    <controls:IconTabItem Header="卡券" Icon="{StaticResource InventoryPropsLogo3Image}">
+                    <controls:IconTabItem
+                        Height="50"
+                        Header="卡券"
+                        Icon="{StaticResource InventoryPropsLogo3Image}">
                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding CouponItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -146,7 +155,10 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
-                    <controls:IconTabItem Header="征神之路" Icon="{StaticResource InventoryPropsLogo4Image}">
+                    <controls:IconTabItem
+                        Height="50"
+                        Header="征神之路"
+                        Icon="{StaticResource InventoryPropsLogo4Image}">
                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding ConquestItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -183,7 +195,10 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </controls:IconTabItem>
-                    <controls:IconTabItem Header="无间镖客" Icon="{StaticResource InventoryPropsLogo5Image}">
+                    <controls:IconTabItem
+                        Height="50"
+                        Header="无间镖客"
+                        Icon="{StaticResource InventoryPropsLogo5Image}">
                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding BountyItems}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -230,7 +245,7 @@
                         Name="image"
                         Grid.Column="0"
                         Width="300"
-                        Height="300"    
+                        Height="300"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
                         Source="{StaticResource InventoryPropsGaoQingImage}"

@@ -304,4 +304,7 @@
     <BitmapImage x:Key="CustomMatchRefreshImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CustomMatch/3.png" />
     <BitmapImage x:Key="CustomMatchSearchImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CustomMatch/1.png" />
     <BitmapImage x:Key="CustomMatchLockImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CustomMatch/2.png" />
+
+    <!--  Button Enable False Images  -->
+    <BitmapImage x:Key="EnableFalseButtonBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/EnableFalseButtonBackground.png" />
 </ResourceDictionary>

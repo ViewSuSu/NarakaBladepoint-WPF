@@ -13,6 +13,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
             {
                 _selectedMusicIndex = value;
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsPlayModeButtonEnabled));
             }
         }
 
@@ -24,8 +25,15 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
             {
                 _selectedPlayModeIndex = value;
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(SelectedPlayMode));
             }
         }
+
+        public string SelectedPlayMode => _selectedPlayModeIndex >= 0 && _selectedPlayModeIndex < PlayModeList.Count
+            ? PlayModeList[_selectedPlayModeIndex]
+            : string.Empty;
+
+        public bool IsPlayModeButtonEnabled => SelectedMusicItem != null && SelectedMusicIndex == 1;
 
         private string _selectedMusicTitle = "大厅音乐曲库";
         public string SelectedMusicTitle
@@ -83,6 +91,18 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
             }
         }
 
+        private MusicItem _selectedMusicItem;
+        public MusicItem SelectedMusicItem
+        {
+            get { return _selectedMusicItem; }
+            set
+            {
+                _selectedMusicItem = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsPlayModeButtonEnabled));
+            }
+        }
+
         private string _musicCountText = "上限 0/20";
         public string MusicCountText
         {
@@ -117,7 +137,7 @@ namespace NarakaBladepoint.Modules.Social.UI.Music.ViewModels
 
         private void InitializePlayModeList()
         {
-            PlayModeList = new ObservableCollection<string> { "列表循环", "单曲循环", "随机播放" };
+            PlayModeList = new ObservableCollection<string> { "列表循环", "随机播放", "单曲循环", "列表循环" };
         }
 
         private void InitializeMusicData()

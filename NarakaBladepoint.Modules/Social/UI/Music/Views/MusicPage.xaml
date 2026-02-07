@@ -130,7 +130,7 @@
                 <!--  Right side - Info panel + DataGrid  -->
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="80" />
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
@@ -172,13 +172,15 @@
                     <Grid Grid.Row="1" Margin="0,10,0,0">
                         <!--  DataGrid with music list  -->
                         <DataGrid
+                            Name="datagrid"
                             d:ItemsSource="{d:SampleData ItemCount=10}"
                             AutoGenerateColumns="False"
                             ColumnHeaderHeight="40"
                             ColumnHeaderStyle="{StaticResource TransparentDataGridColumnHeaderStyle}"
                             IsReadOnly="True"
                             ItemsSource="{Binding MusicList}"
-                            RowStyle="{StaticResource TransparentDataGridRowStyle}">
+                            RowStyle="{StaticResource TransparentDataGridRowStyle}"
+                            SelectedItem="{Binding SelectedMusicItem}">
                             <DataGrid.Style>
                                 <Style BasedOn="{StaticResource TransparentDataGridStyle}" TargetType="DataGrid">
                                     <Setter Property="Visibility" Value="Collapsed" />
@@ -313,6 +315,7 @@
                         HorizontalAlignment="Right"
                         Orientation="Horizontal">
                         <controls:ToggleButtonComboBox
+                            Name="combobox1"
                             Width="150"
                             Height="30"
                             Margin="10,0,0,0"
@@ -321,7 +324,9 @@
                         <Button
                             Width="100"
                             Height="30"
-                            Content="列表循环"
+                            Name="button1"
+                            Content="{Binding SelectedPlayMode}"
+                            IsEnabled="{Binding IsPlayModeButtonEnabled}"
                             Style="{StaticResource CommandButtonStyle2}" />
                     </StackPanel>
                 </Grid>

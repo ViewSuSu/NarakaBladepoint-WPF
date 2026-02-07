@@ -12,6 +12,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tagUsercontrol="clr-namespace:NarakaBladepoint.Modules.SocialTag.UI.Views"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.SocialTag.UI.ViewModels"
+    xmlns:tagConverters="clr-namespace:NarakaBladepoint.Modules.SocialTag.UI.Converters"
     d:DataContext="{d:DesignInstance Type=viewmodels:SocialTagPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
@@ -19,6 +20,7 @@
     <UserControl.Resources>
         <converters:OutRangeMaskVisibilityConverter x:Key="OutRangeMaskVisibilityConverter" />
         <converters:OutRangeEnableConverter x:Key="OutRangeEnableConverter" />
+        <tagConverters:WidthSubtractConverter x:Key="WidthSubtractConverter" />
     </UserControl.Resources>
     <Grid Background="{StaticResource Background2}">
         <Grid>
@@ -49,7 +51,7 @@
                         <Image
                             Width="80"
                             HorizontalAlignment="Left"
-                            d:Source="{StaticResource Background2Image}"
+                            d:Source="{StaticResource Avatar1Image}"
                             Source="{Binding CurrentUserModel.Avatar, Mode=OneWay}" />
                         <UniformGrid Grid.Column="1" Rows="2">
                             <TextBlock
@@ -74,7 +76,7 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.25*" />
+                                <ColumnDefinition Width="0.15*" />
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="0.4*" />
                             </Grid.ColumnDefinitions>
@@ -90,7 +92,7 @@
                                 ItemsSource="{Binding SocialTagOnlineModels, Mode=OneWay}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.SocialTagOnlineModels.Count, Mode=OneWay}" Rows="1" />
+                                        <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.SocialTagOnlineModels.Count, Mode=OneWay}" Margin="5" Rows="1" />
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
@@ -162,7 +164,7 @@
                                     Style="{StaticResource DiamondCheckBoxStyle}" />
                             </UniformGrid>-->
 
-                            <UniformGrid Grid.Column="2" Columns="2">
+                            <UniformGrid Grid.Column="2" Columns="2" Margin="5">
                                 <TextBlock
                                     VerticalAlignment="Center"
                                     FontSize="15"
@@ -171,7 +173,7 @@
                                 <ItemsControl d:ItemsSource="{d:SampleData ItemCount=2}" ItemsSource="{Binding SocialTagMicModels, Mode=OneWay}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.SocialTagMicModels.Count, Mode=OneWay}" Rows="1" />
+                                            <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.SocialTagMicModels.Count, Mode=OneWay}" Margin="5" Rows="1" />
                                         </ItemsPanelTemplate>
                                     </ItemsControl.ItemsPanel>
                                     <ItemsControl.ItemTemplate>
@@ -200,11 +202,14 @@
                         </Grid>
                         <Grid Grid.Row="1">
                             <TabControl
+                                Name="tabControl"
                                 Background="Transparent"
                                 Style="{StaticResource VerticalTabControlStyle}"
                                 TabStripPlacement="Left">
                                 <controls:ImageTextTabItem
-                                    Margin="0,5"
+                                    Width="120"
+                                    Height="40"
+                                    Name="tabItem1"
                                     d:IsSelected="True"
                                     Background="#1A000000"
                                     ImageSource="{StaticResource SocialTagTabItemIcon1Image}"
@@ -212,11 +217,20 @@
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
                                     Text="战斗">
-                                    <Grid Margin="20,5">
+                                    <Grid Margin="10,0,0,10">
+                                        <Grid.Width>
+                                            <MultiBinding Converter="{StaticResource WidthSubtractConverter}">
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                                <Binding Path="ActualWidth" ElementName="tabItem1" />
+                                            </MultiBinding>
+                                        </Grid.Width>
+                                        <Grid.Height>
+                                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                        </Grid.Height>
                                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=15}" ItemsSource="{Binding FightTags}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="5" Rows="7" />
+                                                    <UniformGrid Columns="5" Margin="5" Rows="7" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
@@ -296,7 +310,7 @@
                                     </Grid>
                                 </controls:ImageTextTabItem>
                                 <controls:ImageTextTabItem
-                                    Margin="0,5"
+                                    Height="40"
                                     d:IsSelected="True"
                                     Background="#1A000000"
                                     ImageSource="{StaticResource SocialTagTabItemIcon2Image}"
@@ -304,11 +318,20 @@
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
                                     Text="社交">
-                                    <Grid Margin="20,5">
+                                    <Grid Margin="10,0,0,10">
+                                        <Grid.Width>
+                                            <MultiBinding Converter="{StaticResource WidthSubtractConverter}">
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                                <Binding Path="ActualWidth" ElementName="tabItem1" />
+                                            </MultiBinding>
+                                        </Grid.Width>
+                                        <Grid.Height>
+                                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                        </Grid.Height>
                                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=15}" ItemsSource="{Binding SocialTags}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="5" Rows="7" />
+                                                    <UniformGrid Columns="5" Margin="5" Rows="7" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
@@ -388,7 +411,7 @@
                                     </Grid>
                                 </controls:ImageTextTabItem>
                                 <controls:ImageTextTabItem
-                                    Margin="0,5"
+                                    Height="40"
                                     d:IsSelected="True"
                                     Background="#1A000000"
                                     ImageSource="{StaticResource SocialTagTabItemIcon3Image}"
@@ -396,11 +419,20 @@
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
                                     Text="个性">
-                                    <Grid Margin="20,5">
+                                    <Grid Margin="10,0,0,10">
+                                        <Grid.Width>
+                                            <MultiBinding Converter="{StaticResource WidthSubtractConverter}">
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                                <Binding Path="ActualWidth" ElementName="tabItem1" />
+                                            </MultiBinding>
+                                        </Grid.Width>
+                                        <Grid.Height>
+                                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                        </Grid.Height>
                                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=15}" ItemsSource="{Binding PersonalityTags}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="5" Rows="7" />
+                                                    <UniformGrid Columns="5" Margin="5" Rows="7" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
@@ -480,7 +512,7 @@
                                     </Grid>
                                 </controls:ImageTextTabItem>
                                 <controls:ImageTextTabItem
-                                    Margin="0,5"
+                                    Height="40"
                                     d:IsSelected="True"
                                     Background="#1A000000"
                                     ImageSource="{StaticResource SocialTagTabItemIcon4Image}"
@@ -488,11 +520,20 @@
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
                                     Text="模式">
-                                    <Grid Margin="20,5">
+                                    <Grid Margin="10,0,0,10">
+                                        <Grid.Width>
+                                            <MultiBinding Converter="{StaticResource WidthSubtractConverter}">
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                                <Binding Path="ActualWidth" ElementName="tabItem1" />
+                                            </MultiBinding>
+                                        </Grid.Width>
+                                        <Grid.Height>
+                                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                        </Grid.Height>
                                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=15}" ItemsSource="{Binding ModeTags}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="5" Rows="7" />
+                                                    <UniformGrid Columns="5" Margin="5" Rows="7" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
@@ -572,7 +613,7 @@
                                     </Grid>
                                 </controls:ImageTextTabItem>
                                 <controls:ImageTextTabItem
-                                    Margin="0,5"
+                                    Height="40"
                                     d:IsSelected="True"
                                     Background="#1A000000"
                                     ImageSource="{StaticResource SocialTagTabItemIcon5Image}"
@@ -580,11 +621,20 @@
                                     IsSelectedHilgihtBoder="True"
                                     SelectedBackground="#1A000000"
                                     Text="语言">
-                                    <Grid Margin="20,5">
+                                    <Grid Margin="10,0,0,10">
+                                        <Grid.Width>
+                                            <MultiBinding Converter="{StaticResource WidthSubtractConverter}">
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                                <Binding Path="ActualWidth" ElementName="tabItem1" />
+                                            </MultiBinding>
+                                        </Grid.Width>
+                                        <Grid.Height>
+                                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource AncestorType=TabControl}" />
+                                        </Grid.Height>
                                         <ItemsControl d:ItemsSource="{d:SampleData ItemCount=15}" ItemsSource="{Binding LanguageTags}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="5" Rows="7" />
+                                                    <UniformGrid Columns="5" Margin="5" Rows="7" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>

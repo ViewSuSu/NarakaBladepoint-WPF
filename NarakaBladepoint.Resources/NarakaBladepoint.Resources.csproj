@@ -83,6 +83,7 @@
 	  <None Remove="Image\Button\CleanButtonDefaultBackgound.png" />
 	  <None Remove="Image\Button\CleanButtonHilightBackgound.png" />
 	  <None Remove="Image\Button\DetaulBackGameBackgound.png" />
+	  <None Remove="Image\Button\EnableFalseButtonBackground.png" />
 	  <None Remove="Image\Button\FriendTabItemBackground.png" />
 	  <None Remove="Image\Button\HilightBackGameBackgound.png" />
 	  <None Remove="Image\Button\HistoryMatchRecordBackground.png" />
@@ -315,6 +316,8 @@
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\ChampionsBackgound.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Champions\2025世界冠军赛三排冠军.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Champions\2025世界冠军赛单排冠军.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Champions\2025年职业联赛秋季赛三排冠军.png" />
+	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Champions\2025年职业联赛秋季赛单排冠军.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Icon.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Icon1.png" />
 	  <None Remove="Image\PersonalInfoDetails\Leaderboard\Icon2.png" />
@@ -683,6 +686,7 @@
 
 	<ItemGroup>
 	  <Resource Include="Image\background5.png" />
+	  <Resource Include="Image\Button\EnableFalseButtonBackground.png" />
 	  <Resource Include="Image\CustomMatch\1.png" />
 	  <Resource Include="Image\CustomMatch\2.png" />
 	  <Resource Include="Image\CustomMatch\3.png" />
@@ -824,6 +828,8 @@
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\ChampionsBackgound.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Champions\2025世界冠军赛三排冠军.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Champions\2025世界冠军赛单排冠军.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Champions\2025年职业联赛秋季赛三排冠军.png" />
+	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Champions\2025年职业联赛秋季赛单排冠军.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Icon.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Icon1.png" />
 	  <Resource Include="Image\PersonalInfoDetails\Leaderboard\Icon2.png" />

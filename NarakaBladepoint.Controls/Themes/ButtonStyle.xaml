@@ -142,6 +142,13 @@
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="BackgroundBorder" Property="Background">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="{StaticResource EnableFalseButtonBackgroundImage}" Stretch="Fill" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
