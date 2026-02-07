@@ -318,7 +318,9 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </controls:IconTabItem>
-            <controls:IconTabItem Width="70" Visibility="Hidden" />
+            <controls:IconTabItem
+                Width="70"
+                Visibility="Hidden" />
         </TabControl>
         <TextBlock
             Grid.Row="0"

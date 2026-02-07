@@ -254,6 +254,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="IconWidth" Value="20" />
         <Setter Property="IconHeight" Value="20" />
+        <Setter Property="Height" Value="40" />
         <Setter Property="BackgroundHeightFactor" Value="1.3" />
         <Setter Property="HeaderFontSize" Value="10" />
         <Setter Property="HeaderTemplate">

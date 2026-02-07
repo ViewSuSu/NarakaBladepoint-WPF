@@ -1,14 +1,14 @@
 <base:UserControlBase
-x:Class="NarakaBladepoint.Modules.Social.UI.Email.Views.EmailPage"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
-xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
-xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels"
-xmlns:viewmodels1="clr-namespace:NarakaBladepoint.Modules.Social.UI.Email.ViewModels"
-xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
+    x:Class="NarakaBladepoint.Modules.Social.UI.Email.Views.EmailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
+    xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.ViewModels"
+    xmlns:viewmodels1="clr-namespace:NarakaBladepoint.Modules.Social.UI.Email.ViewModels"
+    xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
     d:DataContext="{d:DesignInstance Type=viewmodels1:EmailPageViewModel}"
     d:DesignHeight="720"
     d:DesignWidth="1080"
@@ -145,7 +145,9 @@ xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
                                 Header="活动"
                                 Icon="{StaticResource Email5Image}"
                                 IconWidth="20" />
-                            <controls:IconTabItem Header="" Visibility="Hidden" />
+                            <controls:IconTabItem
+                                Header=""
+                                Visibility="Hidden" />
                         </TabControl>
                         <UniformGrid Grid.Row="1" Columns="2">
                             <Button
