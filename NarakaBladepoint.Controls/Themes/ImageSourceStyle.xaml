@@ -307,4 +307,10 @@
 
     <!--  Button Enable False Images  -->
     <BitmapImage x:Key="EnableFalseButtonBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/EnableFalseButtonBackground.png" />
+
+    <!--  Friend Page Images  -->
+    <BitmapImage x:Key="BlockImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/屏蔽.png" />
+    <BitmapImage x:Key="RecruitmentImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/招募.png" />
+    <BitmapImage x:Key="RefreshImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/刷新.png" />
+    <BitmapImage x:Key="FilterImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/筛选.png" />
 </ResourceDictionary>

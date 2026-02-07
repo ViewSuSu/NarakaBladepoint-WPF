@@ -1,5 +1,7 @@
 using System.Windows;
 using NarakaBladepoint.Modules.SocialTag.UI.Views;
+using NarakaBladepoint.Resources;
+using NarakaBladepoint.Shared.Datas;
 
 namespace NarakaBladepoint.Modules.Social.UI.Friend.ViewModels
 {
@@ -16,6 +18,18 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.ViewModels
             set
             {
                 _friends = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private List<TeammateDataItem> _teammates = [];
+
+        public List<TeammateDataItem> Teammates
+        {
+            get { return _teammates; }
+            set
+            {
+                _teammates = value;
                 RaisePropertyChanged();
             }
         }
@@ -49,6 +63,59 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.ViewModels
                 .GetCurrentUserInfoAsync()
                 .Result;
             this.IsHaveVilidTag = CurrentUserInfoModel.IsExsitAnyValidSocialTag;
+            InitTeammates();
+        }
+
+        private void InitTeammates()
+        {
+            var random = new Random();
+            int avatarCount = ResourceImageReader.AvatarCount;
+
+            Teammates = new List<TeammateDataItem>
+            {
+                new()
+                {
+                    AvatarIndex = random.Next(0, avatarCount),
+                    Name = "轩墨麟泉",
+                    Description = "排位赛三排",
+                    Tags = new() { "排位赛三排", "精通刘娆", "乐于沟通" }
+                },
+                new()
+                {
+                    AvatarIndex = random.Next(0, avatarCount),
+                    Name = "鸮鸶鸟",
+                    Description = "精通刘娆",
+                    Tags = new() { "精通刘娆", "乐于沟通" }
+                },
+                new()
+                {
+                    AvatarIndex = random.Next(0, avatarCount),
+                    Name = "秦了oxo",
+                    Description = "乐于沟通",
+                    Tags = new() { "乐于沟通", "精通魅轻", "掌控全场" }
+                },
+                new()
+                {
+                    AvatarIndex = random.Next(0, avatarCount),
+                    Name = "王不言王不语",
+                    Description = "救援达人",
+                    Tags = new() { "救援达人", "乐于沟通", "社交达人" }
+                },
+                new()
+                {
+                    AvatarIndex = random.Next(0, avatarCount),
+                    Name = ".Diva.",
+                    Description = "社交达人",
+                    Tags = new() { "社交达人", "擅长英雄互补", "段位相近" }
+                },
+                new()
+                {
+                    AvatarIndex = random.Next(0, avatarCount),
+                    Name = "郭清",
+                    Description = "活跃玩家",
+                    Tags = new() { "活跃玩家", "擅长英雄互补", "乐于沟通" }
+                }
+            };
         }
 
         protected override void OnNavigatedToExecute(NavigationContext navigationContext)
@@ -119,5 +186,29 @@ namespace NarakaBladepoint.Modules.Social.UI.Friend.ViewModels
                     );
                 }
             });
+
+        private DelegateCommand<TeammateDataItem> _blockCommand;
+
+        public DelegateCommand<TeammateDataItem> BlockCommand =>
+            _blockCommand ??= new DelegateCommand<TeammateDataItem>(
+                async (teammate) =>
+                {
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs($"已屏蔽 {teammate.Name}")
+                    );
+                }
+            );
+
+        private DelegateCommand<TeammateDataItem> _recruitCommand;
+
+        public DelegateCommand<TeammateDataItem> RecruitCommand =>
+            _recruitCommand ??= new DelegateCommand<TeammateDataItem>(
+                async (teammate) =>
+                {
+                    await tipMessageService.ShowTipMessageAsync(
+                        new TipMessageWithHighlightArgs($"已向 {teammate.Name} 发送招募邀请")
+                    );
+                }
+            );
     }
 }

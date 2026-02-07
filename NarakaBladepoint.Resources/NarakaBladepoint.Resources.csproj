@@ -666,10 +666,14 @@
 	  <None Remove="Image\任务详情.png" />
 	  <None Remove="Image\出类拔萃.png" />
 	  <None Remove="Image\击杀数.png" />
+	  <None Remove="Image\刷新.png" />
 	  <None Remove="Image\唯我独尊.png" />
 	  <None Remove="Image\在线.png" />
 	  <None Remove="Image\复制.png" />
 	  <None Remove="Image\对局详情.png" />
+	  <None Remove="Image\屏蔽.png" />
+	  <None Remove="Image\快速加入.png" />
+	  <None Remove="Image\招募.png" />
 	  <None Remove="Image\提示Tip.png" />
 	  <None Remove="Image\搜索放大镜.png" />
 	  <None Remove="Image\星.png" />
@@ -678,6 +682,7 @@
 	  <None Remove="Image\每日任务花.png" />
 	  <None Remove="Image\活动中心logo.png" />
 	  <None Remove="Image\点击设置标签.png" />
+	  <None Remove="Image\筛选.png" />
 	  <None Remove="Image\聚宝阁.png" />
 	  <None Remove="Image\豪杰对局.png" />
 	  <None Remove="Image\通用功能按钮高亮背景.png" />
@@ -1391,10 +1396,14 @@
 	  <Resource Include="Image\任务详情.png" />
 	  <Resource Include="Image\出类拔萃.png" />
 	  <Resource Include="Image\击杀数.png" />
+	  <Resource Include="Image\刷新.png" />
 	  <Resource Include="Image\唯我独尊.png" />
 	  <Resource Include="Image\在线.png" />
 	  <Resource Include="Image\复制.png" />
 	  <Resource Include="Image\对局详情.png" />
+	  <Resource Include="Image\屏蔽.png" />
+	  <Resource Include="Image\快速加入.png" />
+	  <Resource Include="Image\招募.png" />
 	  <Resource Include="Image\搜索放大镜.png" />
 	  <Resource Include="Image\星.png" />
 	  <Resource Include="Image\每日任务奖励.png" />
@@ -1402,6 +1411,7 @@
 	  <Resource Include="Image\每日任务花.png" />
 	  <Resource Include="Image\活动中心logo.png" />
 	  <Resource Include="Image\点击设置标签.png" />
+	  <Resource Include="Image\筛选.png" />
 	  <Resource Include="Image\聚宝阁.png" />
 	  <Resource Include="Image\豪杰对局.png" />
 	  <Resource Include="Image\造成伤害.png" />

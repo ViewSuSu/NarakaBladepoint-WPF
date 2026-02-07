@@ -65,6 +65,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <TextBlock
+                        Background="Transparent"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Text="{Binding}"
@@ -116,6 +117,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <TextBlock
+                        Background="Transparent"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Text="{Binding}"
@@ -167,6 +169,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <TextBlock
+                        Background="Transparent"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Text="{Binding}"
