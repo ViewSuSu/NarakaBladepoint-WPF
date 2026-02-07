@@ -67,7 +67,8 @@
                             <controls:HighlightBorder
                                 Height="45"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                EnableMaskOnHover="True">
                                 <controls:HighlightBorder.Style>
                                     <Style TargetType="controls:HighlightBorder">
                                         <Setter Property="BorderBrush" Value="Transparent" />
@@ -95,7 +96,8 @@
                                 Height="45"
                                 Margin="0,8,0,0"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                EnableMaskOnHover="True">
                                 <controls:HighlightBorder.Style>
                                     <Style TargetType="controls:HighlightBorder">
                                         <Setter Property="BorderBrush" Value="Transparent" />
@@ -123,7 +125,8 @@
                                 Height="45"
                                 Margin="0,8,0,0"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                EnableMaskOnHover="True">
                                 <controls:HighlightBorder.Style>
                                     <Style TargetType="controls:HighlightBorder">
                                         <Setter Property="BorderBrush" Value="Transparent" />
@@ -151,7 +154,8 @@
                                 Height="45"
                                 Margin="0,8,0,0"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                EnableMaskOnHover="True">
                                 <controls:HighlightBorder.Style>
                                     <Style TargetType="controls:HighlightBorder">
                                         <Setter Property="BorderBrush" Value="Transparent" />
@@ -179,7 +183,8 @@
                                 Height="45"
                                 Margin="0,8,0,0"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                EnableMaskOnHover="True">
                                 <controls:HighlightBorder.Style>
                                     <Style TargetType="controls:HighlightBorder">
                                         <Setter Property="BorderBrush" Value="Transparent" />
@@ -207,7 +212,8 @@
                                 Height="45"
                                 Margin="0,8,0,0"
                                 Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                EnableMaskOnHover="True">
                                 <controls:HighlightBorder.Style>
                                     <Style TargetType="controls:HighlightBorder">
                                         <Setter Property="BorderBrush" Value="Transparent" />

@@ -157,6 +157,7 @@ mc:Ignorable="d">
                     <Image Source="{StaticResource BaizeTextblockBackgroundImage}" Stretch="Fill" />
                     <ScrollViewer
                         Grid.Row="1 "
+                        Name="scrollViewer"
                         attach:ScrollViewerHorizontalScrollAttachedProperty.EnableMouseWheelScroll="True"
                         HorizontalScrollBarVisibility="Hidden"
                         VerticalScrollBarVisibility="Disabled">
