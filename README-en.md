@@ -14,75 +14,76 @@
 # Naraka Bladepoint Client (WPF)
 
 
-## Project Introduction
+## About This Project
 
-This is a WPF project that recreates the Naraka Bladepoint game client interface. Based on the .NET 6 platform, this project utilizes modern WPF development techniques to demonstrate how to build desktop applications with complex UI interactions.
-
-## Learning Value
-
-This project provides the following learning opportunities for WPF developers:
-
-1. **Complex UI Development**: Learn how to recreate game-level complex interfaces
-2. **Prism Framework Application**: Master modular development for large projects
-3. **Custom Controls**: Understand the design and implementation of complex custom controls
-4. **Data Binding**: Learn efficient data binding and state management
-5. **Performance Optimization**: Master WPF application performance optimization techniques
-6. **Zero Dependency UI Library**: Learn how to recreate and customize complex custom controls from scratch without relying on third-party UI libraries
-7. **Large Project Architecture Design**: Learn reasonable architecture design for large WPF projects, including:
-   - Implementation and application of dependency injection (IoC)
-   - Base class encapsulation and inheritance design
-   - Modularization, splitting, and decoupling strategies
-   - Architecture considerations for scalability and maintainability
-
-## Main Interface Preview
+- **Motivation** - Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF
+- **Tech Stack** - .NET 6, all custom controls, no third-party UI libs
+- **Architecture** - Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure
+- **AI** - Later discovered VibeCoding was amazing for bulk code generation - total game changer!
+- **Code Quality** - Project is half human, half AI-assisted, but architecture and core design don't rely on AI - solid engineering
 
 <div align="center">
-  <img src="./docs/MainWindows.png" alt="Main Window Interface" width="100%" />
+  <img src="./docs/MainWindows.png" alt="Main Window" width="100%" />
   <br/>
-  <em>Figure 1: Main Window</em>
+  <em>Main Interface</em>
 </div>
+
+## What You Can Learn From This
+
+If you're working with WPF, this project might be useful:
+
+- **Game-level UI implementation** - Complex layouts, animations, interactions - all the real problems and solutions
+- **Prism in practice** - How to split a large project into modules that work independently yet together
+- **Building controls from scratch** - No third-party libraries, all custom controls written by hand, you can see all the details
+- **Data binding tricks** - How to handle data flow elegantly in MVVM
+- **Performance optimization** - Performance issues you'll face with complex UIs and how to solve them
+- **Project architecture** - How dependency injection, base class design, and module decoupling actually work in real projects
+
+Code is all open source. Some parts could be better - feel free to open issues or PRs.
+
+## More Screenshots
 
 <table align="center" width="100%">
   <tr>
     <td align="center" width="33.33%">
-      <img src="./docs/HeroList.png" alt="Hero List Interface" width="100%" /><br/>
-      <em>Figure 2: Hero List</em>
+      <img src="./docs/HeroList.png" alt="Hero List" width="100%" /><br/>
+      <em>Hero List</em>
     </td>
     <td align="center" width="33.33%">
-      <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection Interface" width="100%" /><br/>
-      <em>Figure 3: Illustrated Collection</em>
+      <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection" width="100%" /><br/>
+      <em>Illustrated Collection</em>
     </td>
     <td align="center" width="33.33%">
-      <img src="./docs/PersonalInfo.png" alt="Personal Info Interface" width="100%" /><br/>
-      <em>Figure 4: Personal Info</em>
+      <img src="./docs/PersonalInfo.png" alt="Personal Info" width="100%" /><br/>
+      <em>Personal Info</em>
     </td>
   </tr>
   <tr>
     <td align="center" width="33.33%">
       <img src="./docs/TippingRecord.png" alt="Tipping Record" width="100%" /><br/>
-      <em>Figure 5: Tipping Record</em>
+      <em>Tipping Record</em>
     </td>
     <td align="center" width="33.33%">
-      <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="100%" /><br/>
-      <em>Figure 6: Avatar List</em>
+      <img src="./docs/AvatarList.png" alt="Avatar List" width="100%" /><br/>
+      <em>Avatar List</em>
     </td>
     <td align="center" width="33.33%">
-      <img src="./docs/HistoryData.png" alt="History Data Interface" width="100%" /><br/>
-      <em>Figure 7: History Data</em>
+      <img src="./docs/HistoryData.png" alt="History Data" width="100%" /><br/>
+      <em>History Data</em>
     </td>
   </tr>
   <tr>
     <td align="center" width="33.33%">
-      <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
-      <em>Figure 8: Social Tag</em>
+      <img src="./docs/SocialTag.png" alt="Social Tag" width="100%" /><br/>
+      <em>Social Tag</em>
     </td>
     <td align="center" width="33.33%">
-      <img src="./docs/Tag.png" alt="Tag Interface" width="100%" /><br/>
-      <em>Figure 9: Tag</em>
+      <img src="./docs/Tag.png" alt="Tag" width="100%" /><br/>
+      <em>Tag</em>
     </td>
     <td align="center" width="33.33%">
-      <img src="./docs/Weapon.png" alt="Weapon Interface" width="100%" /><br/>
-      <em>Figure 10: Weapon</em>
+      <img src="./docs/Weapon.png" alt="Weapon" width="100%" /><br/>
+      <em>Weapon</em>
     </td>
   </tr>
 </table>
@@ -90,7 +91,7 @@ This project provides the following learning opportunities for WPF developers:
 
 ## Project Architecture
 
-This project adopts a modular layered design based on **Prism**.
+Built with **Prism** for modular layers. Here's the basic structure:
 
 ```mermaid
 graph LR
@@ -116,48 +117,30 @@ graph LR
 
 ```
 
-- **App**: Entry Shell, responsible for container initialization and module aggregation.
-- **Modules**: Business logic layer (Social, Event Center, etc.), isolated by Regions.
-- **Shared**: Cross-module contracts (DTOs, interface definitions, service abstractions).
-- **Controls**: Reusable UI component library containing high-fidelity custom controls.
-- **Resources**: Static assets (icons, background images, etc.).
-- **Framework**: Core foundation layer, providing MVVM bases, attached properties, weak events, etc., used directly by the above layers.
+- **App**: Entry point project, handles startup and wires all modules together
+- **Modules**: Individual feature modules (Social, Event Center, etc.), work independently
+- **Shared**: Common interfaces and data models used across modules
+- **Controls**: Custom control library, all hand-written controls live here
+- **Resources**: Static assets like images and icons
+- **Framework**: Base layer with MVVM base classes, attached properties, and common utilities
 
-## Core Technical Features
+## Tech Stack
 
-### 1. Architecture Design
-- Modular development using the Prism framework
-- DryIoc as dependency injection container
-- Modern architecture based on MVVM pattern
+Built with **Prism** for modular architecture, **DryIoc** for dependency injection, and standard MVVM pattern.
 
-### 2. UI/UX Implementation
-- High-quality recreation of Naraka Bladepoint game interface
-- Development of complex custom controls
-- Smooth animations and transition effects
+UI is completely hand-written, no ready-made UI libraries. Animations and transitions are all tweaked manually to match the game's feel.
 
-### 3. Data Processing
-- Efficient object mapping with Mapster
-- JSON data processing with Newtonsoft.Json
-- Data binding and state management
+For data handling, mainly **Mapster** for object mapping (faster than AutoMapper), and **Newtonsoft.Json** for JSON (old but gold).
 
-## Development Environment Requirements
+## How to Run
 
-### System Requirements
-- Windows 10 or later
-- .NET 6 SDK
-- Visual Studio 2022 or later
+You'll need **Windows 10+** and **.NET 6 SDK** (or later).
 
-## Build and Run
+Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` project.
 
-Run `NarakaBladepoint.App`
+### Dependencies
 
-- Environment: `net6-windows`
-- IDE: Visual Studio 2022 or later
-
-## Dependencies
-
-The project uses the following NuGet packages:
-
-- **Mapster** Version 7.4.0 
-- **Newtonsoft.Json** Version 13.0.4 
-- **Prism.DryIoc** Version 9.0.537 
+Just three lightweight packages:
+- Mapster 7.4.0
+- Newtonsoft.Json 13.0.4
+- Prism.DryIoc 9.0.537
