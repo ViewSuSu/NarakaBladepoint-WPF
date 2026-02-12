@@ -17,7 +17,7 @@
 ## About This Project
 
 - **Motivation** - Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF
-- **Tech Stack** - .NET 6, all custom controls, no third-party UI libs
+- **Tech Stack** - .NET 6, Prism, all custom controls, no third-party UI libs
 - **Architecture** - Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure
 - **AI** - Later discovered VibeCoding was amazing for bulk code generation - total game changer!
 - **Code Quality** - Project is half human, half AI-assisted
@@ -39,7 +39,7 @@ If you're working with WPF, this project might be useful:
 - **Performance optimization** - Performance issues you'll face with complex UIs and how to solve them
 - **Project architecture** - How dependency injection, base class design, and module decoupling actually work in real projects
 
-Code is all open source. Some parts could be better - feel free to open issues or PRs.
+Some parts could be better - feel free to open issues or PRs.
 
 ## More Screenshots
 
@@ -117,20 +117,12 @@ graph LR
 
 ```
 
-- **App**: Entry point project, handles startup and wires all modules together
+- **App**: Entry point, handles startup and wires all modules together
 - **Modules**: Individual feature modules (Social, Event Center, etc.), work independently
 - **Shared**: Common interfaces and data models used across modules
-- **Controls**: Custom control library, all hand-written controls live here
+- **Controls**: Custom control library, all hand-written controls
 - **Resources**: Static assets like images and icons
 - **Framework**: Base layer with MVVM base classes, attached properties, and common utilities
-
-## Tech Stack
-
-Built with **Prism** for modular architecture, **DryIoc** for dependency injection, and standard MVVM pattern.
-
-UI is completely hand-written, no ready-made UI libraries. Animations and transitions are all tweaked manually to match the game's feel.
-
-For data handling, mainly **Mapster** for object mapping (faster than AutoMapper), and **Newtonsoft.Json** for JSON (old but gold).
 
 ## How to Run
 
@@ -140,7 +132,6 @@ Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` 
 
 ## Dependencies
 
-Just three lightweight packages:
 - Mapster 7.4.0
 - Newtonsoft.Json 13.0.4
 - Prism.DryIoc 9.0.537
