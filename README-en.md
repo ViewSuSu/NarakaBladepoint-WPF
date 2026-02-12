@@ -14,13 +14,13 @@
 # Naraka Bladepoint Client (WPF)
 
 
-## About This Project
+## <span style="color: #0969da;">About This Project</span>
 
-- **Motivation** - Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF
-- **Tech Stack** - .NET 6, all custom controls, no third-party UI libs
-- **Architecture** - Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure
-- **AI** - Later discovered VibeCoding was amazing for bulk code generation - total game changer!
-- **Code Quality** - Project is half human, half AI-assisted, but architecture and core design don't rely on AI - solid engineering
+- <span style="color: #238636;">**Motivation**</span> <span style="color: #6e7681;">- Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF</span>
+- <span style="color: #238636;">**Tech Stack**</span> <span style="color: #6e7681;">- .NET 6, all custom controls, no third-party UI libs</span>
+- <span style="color: #238636;">**Architecture**</span> <span style="color: #6e7681;">- Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure</span>
+- <span style="color: #238636;">**AI**</span> <span style="color: #6e7681;">- Later discovered VibeCoding was amazing for bulk code generation - total game changer!</span>
+- <span style="color: #238636;">**Code Quality**</span> <span style="color: #6e7681;">- Project is half human, half AI-assisted</span>
 
 <div align="center">
   <img src="./docs/MainWindows.png" alt="Main Window" width="100%" />
@@ -28,20 +28,20 @@
   <em>Main Interface</em>
 </div>
 
-## What You Can Learn From This
+## <span style="color: #0969da;">What You Can Learn From This</span>
 
 If you're working with WPF, this project might be useful:
 
-- **Game-level UI implementation** - Complex layouts, animations, interactions - all the real problems and solutions
-- **Prism in practice** - How to split a large project into modules that work independently yet together
-- **Building controls from scratch** - No third-party libraries, all custom controls written by hand, you can see all the details
-- **Data binding tricks** - How to handle data flow elegantly in MVVM
-- **Performance optimization** - Performance issues you'll face with complex UIs and how to solve them
-- **Project architecture** - How dependency injection, base class design, and module decoupling actually work in real projects
+- <span style="color: #238636;">**Game-level UI implementation**</span> <span style="color: #6e7681;">- Complex layouts, animations, interactions - all the real problems and solutions</span>
+- <span style="color: #238636;">**Prism in practice**</span> <span style="color: #6e7681;">- How to split a large project into modules that work independently yet together</span>
+- <span style="color: #238636;">**Building controls from scratch**</span> <span style="color: #6e7681;">- No third-party libraries, all custom controls written by hand, you can see all the details</span>
+- <span style="color: #238636;">**Data binding tricks**</span> <span style="color: #6e7681;">- How to handle data flow elegantly in MVVM</span>
+- <span style="color: #238636;">**Performance optimization**</span> <span style="color: #6e7681;">- Performance issues you'll face with complex UIs and how to solve them</span>
+- <span style="color: #238636;">**Project architecture**</span> <span style="color: #6e7681;">- How dependency injection, base class design, and module decoupling actually work in real projects</span>
 
 Code is all open source. Some parts could be better - feel free to open issues or PRs.
 
-## More Screenshots
+## <span style="color: #0969da;">More Screenshots</span>
 
 <table align="center" width="100%">
   <tr>
@@ -89,7 +89,7 @@ Code is all open source. Some parts could be better - feel free to open issues o
 </table>
 
 
-## Project Architecture
+## <span style="color: #0969da;">Project Architecture</span>
 
 Built with **Prism** for modular layers. Here's the basic structure:
 
@@ -124,7 +124,7 @@ graph LR
 - **Resources**: Static assets like images and icons
 - **Framework**: Base layer with MVVM base classes, attached properties, and common utilities
 
-## Tech Stack
+## <span style="color: #0969da;">Tech Stack</span>
 
 Built with **Prism** for modular architecture, **DryIoc** for dependency injection, and standard MVVM pattern.
 
@@ -132,13 +132,13 @@ UI is completely hand-written, no ready-made UI libraries. Animations and transi
 
 For data handling, mainly **Mapster** for object mapping (faster than AutoMapper), and **Newtonsoft.Json** for JSON (old but gold).
 
-## How to Run
+## <span style="color: #0969da;">How to Run</span>
 
 You'll need **Windows 10+** and **.NET 6 SDK** (or later).
 
 Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` project.
 
-### Dependencies
+### <span style="color: #0969da;">Dependencies</span>
 
 Just three lightweight packages:
 - Mapster 7.4.0

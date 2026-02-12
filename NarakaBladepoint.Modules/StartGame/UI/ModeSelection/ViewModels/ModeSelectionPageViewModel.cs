@@ -8,7 +8,17 @@ namespace NarakaBladepoint.Modules.StartGame.UI.ModeSelection.ViewModels
 {
     internal class ModeSelectionPageViewModel : CanRemoveHomePageRegionViewModelBase
     {
-        public List<ServerInformationModel> ServerInfos { get; private set; }
+        private IEnumerable<ServerInformationModel> _serverInfos;
+
+        public IEnumerable<ServerInformationModel> ServerInfos
+        {
+            get { return _serverInfos; }
+            set
+            {
+                _serverInfos = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private ServerInformationModel selectedItem;
         private readonly IServerInfoProvider serverInformation;

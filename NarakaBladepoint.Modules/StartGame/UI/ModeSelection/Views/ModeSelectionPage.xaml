@@ -40,6 +40,7 @@
             Style="{StaticResource AverageTabControlStyle}">
             <controls:ImageTextTabItem
                 Name="ModeSelectionTabItem1"
+                Height="40"
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
@@ -151,7 +152,7 @@
                         </b:Interaction.Triggers>
                     </Grid>
 
-                    <Grid Margin="5,0" VerticalAlignment="Bottom">
+                    <Grid VerticalAlignment="Bottom">
                         <Border ClipToBounds="True">
                             <Image
                                 Panel.ZIndex="0"
@@ -348,6 +349,7 @@
 
             <!--  2. 娱乐标签页  -->
             <controls:ImageTextTabItem
+                Height="40"
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
@@ -598,6 +600,7 @@
             </controls:ImageTextTabItem>
 
             <controls:ImageTextTabItem
+                Height="40"
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
@@ -720,6 +723,7 @@
 
             <controls:ImageTextTabItem
                 Name="ModeSelectionTabItem4"
+                Height="40"
                 Background="#3A000000"
                 FontSize="18"
                 ImageHeight="30"
@@ -1045,11 +1049,8 @@
                 <controls:UpwardComboBox
                     Width="150"
                     HorizontalContentAlignment="Stretch"
-                    d:ItemsSource="{d:SampleData ItemCount=5}"
                     Background="#2A000000"
-                    ItemsSource="{Binding ServerInfos, Mode=OneWay}"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    ItemsSource="{Binding ServerInfos}"
                     SelectedItem="{Binding SelectedItem}">
                     <controls:UpwardComboBox.ItemTemplate>
                         <DataTemplate>
@@ -1072,84 +1073,6 @@
                     </controls:UpwardComboBox.ItemTemplate>
                 </controls:UpwardComboBox>
             </StackPanel>
-            <!--<StackPanel
-                        Margin="20,0,20,20"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Bottom"
-                        Orientation="Horizontal">
-                        <StackPanel Margin="0,0,20,0" Orientation="Horizontal">
-                            <TextBlock
-                                Margin="0,0,10,0"
-                                Foreground="White"
-                                Text="杭州市" />
-                            <TextBlock Foreground="Green" Text="21ms" />
-                        </StackPanel>
-                        <StackPanel Margin="0,0,20,0" Orientation="Horizontal">
-                            <StackPanel Margin="0,0,20,0" Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="0,0,5,0"
-                                    Foreground="White"
-                                    Text="预选英雄" />
-                                <Border
-                                    Width="30"
-                                    Height="30"
-                                    Margin="0,0,5,0"
-                                    Background="Gray"
-                                    CornerRadius="4" />
-                                <Border
-                                    Width="30"
-                                    Height="30"
-                                    Margin="0,0,5,0"
-                                    Background="Gray"
-                                    CornerRadius="4" />
-                                <Border
-                                    Width="30"
-                                    Height="30"
-                                    Background="Gray"
-                                    CornerRadius="4" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="0,0,5,0"
-                                    Foreground="White"
-                                    Text="地图" />
-                                <Border
-                                    Width="150"
-                                    Height="30"
-                                    Background="Gray"
-                                    CornerRadius="4">
-                                    <TextBlock
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="White"
-                                        Text="龙隐洞天" />
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            Orientation="Vertical">
-                            <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                                <Button
-                                    Width="60"
-                                    Margin="0,0,10,0"
-                                    Content="单排" />
-                                <Button
-                                    Width="60"
-                                    Margin="0,0,10,0"
-                                    Content="双排" />
-                                <Button
-                                    Width="60"
-                                    Background="#D4A056"
-                                    Content="三排" />
-                            </StackPanel>
-                            <Button
-                                Width="100"
-                                Height="40"
-                                Background="#E74C3C"
-                                Content="确定" />
-                        </StackPanel>-->
         </Grid>
         <controls:EscBackControl
             Grid.Row="3"
