@@ -14,13 +14,13 @@
 # Naraka Bladepoint Client (WPF)
 
 
-## <span style="color: #0969da;">About This Project</span>
+## About This Project
 
-- 🎯 **Motivation** - Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF
-- 💻 **Tech Stack** - .NET 6, all custom controls, no third-party UI libs
-- 🏗️ **Architecture** - Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure
-- 🤖 **AI** - Later discovered VibeCoding was amazing for bulk code generation - total game changer!
-- ✨ **Code Quality** - Project is half human, half AI-assisted
+- **Motivation** - Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF
+- **Tech Stack** - .NET 6, all custom controls, no third-party UI libs
+- **Architecture** - Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure
+- **AI** - Later discovered VibeCoding was amazing for bulk code generation - total game changer!
+- **Code Quality** - Project is half human, half AI-assisted
 
 <div align="center">
   <img src="./docs/MainWindows.png" alt="Main Window" width="100%" />
@@ -28,20 +28,20 @@
   <em>Main Interface</em>
 </div>
 
-## <span style="color: #0969da;">What You Can Learn From This</span>
+## What You Can Learn From This
 
 If you're working with WPF, this project might be useful:
 
-- 🎮 **Game-level UI implementation** - Complex layouts, animations, interactions - all the real problems and solutions
-- 📦 **Prism in practice** - How to split a large project into modules that work independently yet together
-- 🛠️ **Building controls from scratch** - No third-party libraries, all custom controls written by hand, you can see all the details
-- 🔗 **Data binding tricks** - How to handle data flow elegantly in MVVM
-- ⚡ **Performance optimization** - Performance issues you'll face with complex UIs and how to solve them
-- 🏛️ **Project architecture** - How dependency injection, base class design, and module decoupling actually work in real projects
+- **Game-level UI implementation** - Complex layouts, animations, interactions - all the real problems and solutions
+- **Prism in practice** - How to split a large project into modules that work independently yet together
+- **Building controls from scratch** - No third-party libraries, all custom controls written by hand, you can see all the details
+- **Data binding tricks** - How to handle data flow elegantly in MVVM
+- **Performance optimization** - Performance issues you'll face with complex UIs and how to solve them
+- **Project architecture** - How dependency injection, base class design, and module decoupling actually work in real projects
 
 Code is all open source. Some parts could be better - feel free to open issues or PRs.
 
-## <span style="color: #0969da;">More Screenshots</span>
+## More Screenshots
 
 <table align="center" width="100%">
   <tr>
@@ -89,7 +89,7 @@ Code is all open source. Some parts could be better - feel free to open issues o
 </table>
 
 
-## <span style="color: #0969da;">Project Architecture</span>
+## Project Architecture
 
 Built with **Prism** for modular layers. Here's the basic structure:
 
@@ -124,7 +124,7 @@ graph LR
 - **Resources**: Static assets like images and icons
 - **Framework**: Base layer with MVVM base classes, attached properties, and common utilities
 
-## <span style="color: #0969da;">Tech Stack</span>
+## Tech Stack
 
 Built with **Prism** for modular architecture, **DryIoc** for dependency injection, and standard MVVM pattern.
 
@@ -132,13 +132,13 @@ UI is completely hand-written, no ready-made UI libraries. Animations and transi
 
 For data handling, mainly **Mapster** for object mapping (faster than AutoMapper), and **Newtonsoft.Json** for JSON (old but gold).
 
-## <span style="color: #0969da;">How to Run</span>
+## How to Run
 
 You'll need **Windows 10+** and **.NET 6 SDK** (or later).
 
 Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` project.
 
-## <span style="color: #0969da;">Dependencies</span>
+## Dependencies
 
 Just three lightweight packages:
 - Mapster 7.4.0
