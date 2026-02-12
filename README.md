@@ -16,11 +16,11 @@
 
 ## <span style="color: #0969da;">关于这个项目</span>
 
-- <span style="color: #238636;">**初心**</span> <span style="color: #6e7681;">- 玩了2000个小时的永劫了，最近才发现它整个客户端UX/UI设计的非常牛逼（大厂的产品经理还是牛逼），故想试试用 WPF 还原出U3D的感觉</span>
-- <span style="color: #238636;">**技术栈**</span> <span style="color: #6e7681;">- .NET 6、所有控件纯手撸、没用第三方 UI 库</span>
-- <span style="color: #238636;">**架构设计**</span> <span style="color: #6e7681;">- 经过精心设计，严格遵循 MVVM 模式，符合 WPF 工程规范，代码结构优雅</span>
-- <span style="color: #238636;">**AI**</span> <span style="color: #6e7681;">- 后来发现 VibeCoding 太香了，用来堆量实现功能</span>
-- <span style="color: #238636;">**代码质量**</span> <span style="color: #6e7681;">- 项目一半人味一半 AI 味，但架构和核心设计不依靠 AI</span>
+- 🎯 **初心** - 玩了2000个小时的永劫了，最近才发现它整个客户端UX/UI设计的非常牛逼（大厂的产品经理还是牛逼），故想试试用 WPF 还原出U3D的感觉
+- 💻 **技术栈** - .NET 6、所有控件纯手撸、没用第三方 UI 库
+- 🏗️ **架构设计** - 经过精心设计，严格遵循 MVVM 模式，符合 WPF 工程规范，代码结构优雅
+- 🤖 **AI** - 后来发现 VibeCoding 太香了，用来堆量实现功能
+- ✨ **代码质量** - 项目一半人味一半 AI 味，但架构和核心设计不依靠 AI
 
 <div align="center">
   <img src="./docs/MainWindows.png" alt="主界面" width="100%" />
@@ -32,12 +32,12 @@
 
 如果你也在做 WPF 开发，这个项目可能对你有点帮助：
 
-- <span style="color: #238636;">**游戏级界面怎么做**</span> <span style="color: #6e7681;">- 复杂的布局、动画、交互效果，都是实际碰到并解决的问题</span>
-- <span style="color: #238636;">**Prism 模块化实践**</span> <span style="color: #6e7681;">- 怎么把一个大项目拆成模块，各自独立又能协作</span>
-- <span style="color: #238636;">**从零开始写控件**</span> <span style="color: #6e7681;">- 没用第三方库，所有自定义控件都是手撸的，能看到很多细节</span>
-- <span style="color: #238636;">**数据绑定的技巧**</span> <span style="color: #6e7681;">- MVVM 模式下怎么优雅地处理数据流</span>
-- <span style="color: #238636;">**性能优化**</span> <span style="color: #6e7681;">- 界面复杂了之后会遇到的性能问题和解决方案</span>
-- <span style="color: #238636;">**项目架构设计**</span> <span style="color: #6e7681;">- 依赖注入、基类设计、模块解耦这些在实际项目里怎么用</span>
+- 🎮 **游戏级界面怎么做** - 复杂的布局、动画、交互效果，都是实际碰到并解决的问题
+- 📦 **Prism 模块化实践** - 怎么把一个大项目拆成模块，各自独立又能协作
+- 🛠️ **从零开始写控件** - 没用第三方库，所有自定义控件都是手撸的，能看到很多细节
+- 🔗 **数据绑定的技巧** - MVVM 模式下怎么优雅地处理数据流
+- ⚡ **性能优化** - 界面复杂了之后会遇到的性能问题和解决方案
+- 🏛️ **项目架构设计** - 依赖注入、基类设计、模块解耦这些在实际项目里怎么用
 
 有些地方写得不够好，欢迎提 issue 或 PR。
 
@@ -137,8 +137,8 @@ graph LR
  **Windows 10+** 和 **.NET 6 SDK**（或者更高版本）。
 
  Visual Studio 2022及以上打开解决方案，直接运行 `NarakaBladepoint.App` 项目就行。
- 
-### <span style="color: #0969da;">第三方库</span>
+
+## <span style="color: #0969da;">第三方库</span>
 - Mapster 7.4.0
 - Newtonsoft.Json 13.0.4
 - Prism.DryIoc 9.0.537

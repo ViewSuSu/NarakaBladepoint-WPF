@@ -16,11 +16,11 @@
 
 ## <span style="color: #0969da;">About This Project</span>
 
-- <span style="color: #238636;">**Motivation**</span> <span style="color: #6e7681;">- Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF</span>
-- <span style="color: #238636;">**Tech Stack**</span> <span style="color: #6e7681;">- .NET 6, all custom controls, no third-party UI libs</span>
-- <span style="color: #238636;">**Architecture**</span> <span style="color: #6e7681;">- Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure</span>
-- <span style="color: #238636;">**AI**</span> <span style="color: #6e7681;">- Later discovered VibeCoding was amazing for bulk code generation - total game changer!</span>
-- <span style="color: #238636;">**Code Quality**</span> <span style="color: #6e7681;">- Project is half human, half AI-assisted</span>
+- 🎯 **Motivation** - Played 2000+ hours of Naraka Bladepoint and recently realized how brilliantly designed the client's UX/UI is (props to the big-name product managers!), so I wanted to try recreating that Unity feel with WPF
+- 💻 **Tech Stack** - .NET 6, all custom controls, no third-party UI libs
+- 🏗️ **Architecture** - Meticulously designed, following strict MVVM patterns and WPF best practices, elegant code structure
+- 🤖 **AI** - Later discovered VibeCoding was amazing for bulk code generation - total game changer!
+- ✨ **Code Quality** - Project is half human, half AI-assisted
 
 <div align="center">
   <img src="./docs/MainWindows.png" alt="Main Window" width="100%" />
@@ -32,12 +32,12 @@
 
 If you're working with WPF, this project might be useful:
 
-- <span style="color: #238636;">**Game-level UI implementation**</span> <span style="color: #6e7681;">- Complex layouts, animations, interactions - all the real problems and solutions</span>
-- <span style="color: #238636;">**Prism in practice**</span> <span style="color: #6e7681;">- How to split a large project into modules that work independently yet together</span>
-- <span style="color: #238636;">**Building controls from scratch**</span> <span style="color: #6e7681;">- No third-party libraries, all custom controls written by hand, you can see all the details</span>
-- <span style="color: #238636;">**Data binding tricks**</span> <span style="color: #6e7681;">- How to handle data flow elegantly in MVVM</span>
-- <span style="color: #238636;">**Performance optimization**</span> <span style="color: #6e7681;">- Performance issues you'll face with complex UIs and how to solve them</span>
-- <span style="color: #238636;">**Project architecture**</span> <span style="color: #6e7681;">- How dependency injection, base class design, and module decoupling actually work in real projects</span>
+- 🎮 **Game-level UI implementation** - Complex layouts, animations, interactions - all the real problems and solutions
+- 📦 **Prism in practice** - How to split a large project into modules that work independently yet together
+- 🛠️ **Building controls from scratch** - No third-party libraries, all custom controls written by hand, you can see all the details
+- 🔗 **Data binding tricks** - How to handle data flow elegantly in MVVM
+- ⚡ **Performance optimization** - Performance issues you'll face with complex UIs and how to solve them
+- 🏛️ **Project architecture** - How dependency injection, base class design, and module decoupling actually work in real projects
 
 Code is all open source. Some parts could be better - feel free to open issues or PRs.
 
@@ -138,7 +138,7 @@ You'll need **Windows 10+** and **.NET 6 SDK** (or later).
 
 Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` project.
 
-### <span style="color: #0969da;">Dependencies</span>
+## <span style="color: #0969da;">Dependencies</span>
 
 Just three lightweight packages:
 - Mapster 7.4.0
