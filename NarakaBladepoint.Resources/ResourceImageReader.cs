@@ -37,6 +37,9 @@ namespace NarakaBladepoint.Resources
         private static readonly List<ImageSource> _illustratedCollectionRootImages = new();
         private static readonly Dictionary<string, List<ImageSource>> _illustratedCollectionFolderImages = new();
 
+        // TimeLimitedEvent Reward Images: image/region/eventcenter/timelimitedevent/images/*.png
+        private static readonly List<ImageSource> _timeLimitedEventRewardImages = new();
+
         // Store 相关：image/store/overview/*.png
         private static readonly List<ImageSource> _storeOverviewImages = new();
         // Store Daily 道具：image/store/daily/prop/*.png
@@ -384,6 +387,20 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+
+                // ===================== TimeLimitedEvent Reward Images =====================
+                if (key.StartsWith("image/region/eventcenter/timelimitedevent/images/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/region/eventcenter/timelimitedevent/images/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _timeLimitedEventRewardImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -686,6 +703,25 @@ namespace NarakaBladepoint.Resources
         /// </summary>
         public static ImageSource GetTournamentChampionImage(int index) =>
             index >= 0 && index < _tournamentChampionImages.Count ? _tournamentChampionImages[index] : null;
+
+        // ===================== TimeLimitedEvent Reward Images API =====================
+
+        /// <summary>
+        /// 获取时间限制事件奖励图片（按文件名数字顺序 1.png, 2.png, ...）
+        /// </summary>
+        public static ImageSource GetTimeLimitedEventRewardImage(int index) =>
+            index >= 0 && index < _timeLimitedEventRewardImages.Count ? _timeLimitedEventRewardImages[index] : null;
+
+        /// <summary>
+        /// 获取所有时间限制事件奖励图片列表
+        /// </summary>
+        public static IReadOnlyList<ImageSource> GetAllTimeLimitedEventRewardImages() =>
+            _timeLimitedEventRewardImages.AsReadOnly();
+
+        /// <summary>
+        /// 获取时间限制事件奖励图片总数
+        /// </summary>
+        public static int TimeLimitedEventRewardCount => _timeLimitedEventRewardImages.Count;
     }
 }
 

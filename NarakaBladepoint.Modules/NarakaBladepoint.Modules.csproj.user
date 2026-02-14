@@ -89,9 +89,6 @@
     <Compile Update="EventCenter\UI\TargetedChestGuarantee\Views\TargetedChestGuaranteePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EventCenter\UI\TimeLimitedEvent\Views\TimeLimitedEventPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="EventCenter\UI\WelcomeBackEvent\Views\WelcomeBackEventPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

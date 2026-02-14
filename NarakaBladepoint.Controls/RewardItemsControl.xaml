@@ -1,0 +1,181 @@
+<UserControl
+    x:Class="NarakaBladepoint.Controls.RewardItemsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
+    xmlns:conv="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NarakaBladepoint.Controls"
+    xmlns:localconv="clr-namespace:NarakaBladepoint.Controls.Converters"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="200"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/NarakaBladepoint.Controls;component/Themes/BrushStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/NarakaBladepoint.Controls;component/Themes/ImageSourceStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <conv:HalfValueConverter x:Key="HalfValueConverter" />
+            <localconv:CombinedProgressToSegmentValueConverter x:Key="CombinedProgressToSegmentValueConverter" />
+            <localconv:ProgressCompletedToVisibilityConverter x:Key="ProgressCompletedToVisibilityConverter" />
+            <localconv:ProgressCompletedToVisibilityConverter x:Key="ProgressNotCompletedToVisibilityConverter" Invert="True" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ItemsControl
+        d:ItemsSource="{d:SampleData ItemCount=3}"
+        AlternationCount="{Binding Items.Count, RelativeSource={RelativeSource Self}}"
+        ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType=local:RewardItemsControl}}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Margin="3,0">
+                    <Grid>
+                        <Image
+                            Name="image"
+                            Width="{Binding ImageWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:RewardItemsControl, AncestorLevel=1}}"
+                            Height="{Binding ImageHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:RewardItemsControl, AncestorLevel=1}}"
+                            HorizontalAlignment="Right"
+                            attach:HoverBorderAttachedProperty.EnableHoverBorder="True"
+                            Source="{Binding ImageSource}">
+                            <Image.RenderTransform>
+                                <TranslateTransform X="{Binding RelativeSource={RelativeSource AncestorType=Image}, Path=Width, Converter={StaticResource HalfValueConverter}}" />
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image
+                            Name="have"
+                            Width="25"
+                            Height="25"
+                            HorizontalAlignment="Right"
+                            Panel.ZIndex="1"
+                            Source="{StaticResource IllustratedCollection1Image}">
+                            <Image.Visibility>
+                                <MultiBinding Converter="{StaticResource ProgressCompletedToVisibilityConverter}">
+                                    <Binding
+                                        Mode="OneWay"
+                                        Path="ProgressbarValue"
+                                        RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                        AncestorType=local:RewardItemsControl,
+                                                                        AncestorLevel=1}" />
+                                    <Binding
+                                        Mode="OneWay"
+                                        Path="ProgressbarMaximum"
+                                        RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                        AncestorType=local:RewardItemsControl,
+                                                                        AncestorLevel=1}" />
+                                    <Binding Mode="OneWay" Path="." />
+                                    <Binding
+                                        Mode="OneWay"
+                                        Path="ItemsSource"
+                                        RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                        AncestorType=local:RewardItemsControl,
+                                                                        AncestorLevel=1}" />
+                                </MultiBinding>
+                            </Image.Visibility>
+                            <Image.RenderTransform>
+                                <TranslateTransform X="{Binding RelativeSource={RelativeSource AncestorType=Image}, Path=Width, Converter={StaticResource HalfValueConverter}}" />
+                            </Image.RenderTransform>
+                        </Image>
+                        <Image
+                            Name="lock"
+                            Width="15"
+                            Height="15"
+                            Margin="0,0,3,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="2"
+                            Source="{StaticResource IllustratedCollection2Image}">
+                            <Image.Visibility>
+                                <MultiBinding Converter="{StaticResource ProgressNotCompletedToVisibilityConverter}">
+                                    <Binding
+                                        Mode="OneWay"
+                                        Path="ProgressbarValue"
+                                        RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                        AncestorType=local:RewardItemsControl,
+                                                                        AncestorLevel=1}" />
+                                    <Binding
+                                        Mode="OneWay"
+                                        Path="ProgressbarMaximum"
+                                        RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                        AncestorType=local:RewardItemsControl,
+                                                                        AncestorLevel=1}" />
+                                    <Binding Mode="OneWay" Path="." />
+                                    <Binding
+                                        Mode="OneWay"
+                                        Path="ItemsSource"
+                                        RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                        AncestorType=local:RewardItemsControl,
+                                                                        AncestorLevel=1}" />
+                                </MultiBinding>
+                            </Image.Visibility>
+                            <Image.RenderTransform>
+                                <TranslateTransform X="{Binding ElementName=image, Path=Width, Converter={StaticResource HalfValueConverter}}" />
+                            </Image.RenderTransform>
+                        </Image>
+                        <TextBlock
+                            Name="textValue"
+                            Margin="0,0,3,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            d:Text="200"
+                            Foreground="{Binding ValueTextForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:RewardItemsControl, AncestorLevel=1}}"
+                            Text="{Binding Value, Mode=OneWay, StringFormat='0'}">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform X="{Binding ElementName=image, Path=Width, Converter={StaticResource HalfValueConverter}}" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
+                    <ProgressBar
+                        Width="100"
+                        Height="5"
+                        Margin="0,10,0,0"
+                        Background="{StaticResource DefaultTransientBlackBackground5}"
+                        BorderThickness="0"
+                        Foreground="{StaticResource DefaultOrangeBrush}"
+                        Maximum="100">
+                        <ProgressBar.Value>
+                            <MultiBinding Converter="{StaticResource CombinedProgressToSegmentValueConverter}">
+                                <Binding
+                                    Mode="OneWay"
+                                    Path="ProgressbarValue"
+                                    RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                    AncestorType=local:RewardItemsControl,
+                                                                    AncestorLevel=1}" />
+                                <Binding
+                                    Mode="OneWay"
+                                    Path="ProgressbarMaximum"
+                                    RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                    AncestorType=local:RewardItemsControl,
+                                                                    AncestorLevel=1}" />
+                                <Binding Mode="OneWay" Path="." />
+                                <Binding
+                                    Mode="OneWay"
+                                    Path="ItemsSource"
+                                    RelativeSource="{RelativeSource Mode=FindAncestor,
+                                                                    AncestorType=local:RewardItemsControl,
+                                                                    AncestorLevel=1}" />
+                            </MultiBinding>
+                        </ProgressBar.Value>
+                    </ProgressBar>
+                    <TextBlock
+                        Name="textblock"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Right"
+                        FontSize="{Binding CountTextFontSize, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:RewardItemsControl, AncestorLevel=1}}"
+                        Foreground="{Binding CountTextForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:RewardItemsControl, AncestorLevel=1}}">
+                        <Run Text="{Binding Count}" />
+                        <Run Name="countUnit" Text="{Binding CountUnitText, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:RewardItemsControl, AncestorLevel=1}}" />
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform X="{Binding ElementName=textblock, Path=ActualWidth, Converter={StaticResource HalfValueConverter}}" />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </StackPanel>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

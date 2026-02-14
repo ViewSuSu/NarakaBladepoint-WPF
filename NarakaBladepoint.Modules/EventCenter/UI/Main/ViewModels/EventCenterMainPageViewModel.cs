@@ -7,7 +7,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.Main.ViewModels
         /// <summary>
         /// 是否选中近期热点Tab
         /// </summary>
-        private bool _isSelectedLatestNews = false;
+        private bool _isSelectedLatestNews = true;
 
         public bool IsSelectedLatestNews
         {

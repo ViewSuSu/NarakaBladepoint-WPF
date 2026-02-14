@@ -45,7 +45,7 @@
             </Grid>
             <TabControl
                 Grid.Row="0"
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Background="Transparent"
                 BorderThickness="0">
                 <TabControl.Resources>
@@ -76,7 +76,7 @@
                     Header="限时活动"
                     IsSelected="{Binding IsSelectedLimitedEvent}"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <timeLimitedEvent:TimeLimitedEventPage />
+                    <timeLimitedEvent:TimeLimitedEventPageOne />
                 </TabItem>
                 <TabItem
                     VerticalAlignment="Center"

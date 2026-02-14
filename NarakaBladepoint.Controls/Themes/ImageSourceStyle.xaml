@@ -313,4 +313,11 @@
     <BitmapImage x:Key="RecruitmentImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/招募.png" />
     <BitmapImage x:Key="RefreshImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/刷新.png" />
     <BitmapImage x:Key="FilterImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/筛选.png" />
+
+    <!--  TimeLimitedEvent Images  -->
+    <BitmapImage x:Key="TimeLimitedEventIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Icon1.png" />
+    <BitmapImage x:Key="TimeLimitedEventIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Icon2.png" />
+    <BitmapImage x:Key="TimeLimitedEventIcon3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Icon3.png" />
+    <BitmapImage x:Key="TimeLimitedEventBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background.png" />
+    <BitmapImage x:Key="TimeLimitedEventTipImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/1.png" />
 </ResourceDictionary>

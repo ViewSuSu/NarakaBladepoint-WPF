@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Media;
 using NarakaBladepoint.Resources;
 using NarakaBladepoint.Framework.Core.Extensions;
+using NarakaBladepoint.Controls;
 
 namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels
 {
@@ -30,8 +31,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                             model = new SuitCollectionViewModel
                             {
                                 Name = img.GetFileName(),
-                                ProgressText1 = 3,
-                                ProgressText2 = 17,
+                                ProgressbarValue = 3,
+                                ProgressbarMaximum = 17,
                                 ScoreText = 200,
                                 CoverImage = img,
                                 Rewards = new ObservableCollection<RewardViewModel>
@@ -49,8 +50,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                             model = new SuitCollectionViewModel
                             {
                                 Name = img.GetFileName(),
-                                ProgressText1 = 3,
-                                ProgressText2 = 10,
+                                ProgressbarValue = 3,
+                                ProgressbarMaximum = 10,
                                 ScoreText = 0,
                                 CoverImage = img,
                                 Rewards = new ObservableCollection<RewardViewModel>
@@ -67,8 +68,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                             model = new SuitCollectionViewModel
                             {
                                 Name = img.GetFileName(),
-                                ProgressText1 = 2,
-                                ProgressText2 = 6,
+                                ProgressbarValue = 2,
+                                ProgressbarMaximum = 6,
                                 ScoreText = 0,
                                 CoverImage = img,
                                 Rewards = new ObservableCollection<RewardViewModel>
@@ -85,8 +86,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
                             model = new SuitCollectionViewModel
                             {
                                 Name = img.GetFileName(),
-                                ProgressText1 = 15,
-                                ProgressText2 = 21,
+                                ProgressbarValue = 15,
+                                ProgressbarMaximum = 21,
                                 ScoreText = 200,
                                 CoverImage = img,
                                 Rewards = new ObservableCollection<RewardViewModel>
@@ -111,8 +112,8 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
         public string Name { get; set; } = string.Empty;
 
         // current and total as integers
-        public int ProgressText1 { get; set; }
-        public int ProgressText2 { get; set; }
+        public int ProgressbarValue { get; set; }
+        public int ProgressbarMaximum { get; set; }
 
         // score as integer
         public int ScoreText { get; set; }
@@ -131,16 +132,5 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
         {
             // 查看详情逻辑
         }
-    }
-
-    public class RewardViewModel : ViewModelBase
-    {
-        // 奖励相关属性
-        // 图片源（可以是 pack uri 或 文件路径 / URL）
-        public ImageSource ImageSource { get; set; }
-
-        // 数量
-        public int Count { get; set; }
-        public int Value { get; set; }
     }
 }

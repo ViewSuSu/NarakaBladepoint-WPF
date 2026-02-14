@@ -55,8 +55,8 @@ namespace NarakaBladepoint.Modules.EventCenter.Module
                 PassingTheFlamePageViewModel
             >();
             containerRegistry.RegisterForNavigation<
-                TimeLimitedEventPage,
-                TimeLimitedEventPageViewModel
+                TimeLimitedEventPageOne,
+                TimeLimitedEventPageOneViewModel
             >();
         }
     }
