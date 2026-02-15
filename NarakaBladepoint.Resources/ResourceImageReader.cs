@@ -40,6 +40,9 @@ namespace NarakaBladepoint.Resources
         // TimeLimitedEvent Reward Images: image/region/eventcenter/timelimitedevent/images/*.png
         private static readonly List<ImageSource> _timeLimitedEventRewardImages = new();
 
+        // TimeLimitedEvent Images2: image/region/eventcenter/timelimitedevent/images2/*.png
+        private static readonly List<ImageSource> _timeLimitedEventImages2 = new();
+
         // Store 相关：image/store/overview/*.png
         private static readonly List<ImageSource> _storeOverviewImages = new();
         // Store Daily 道具：image/store/daily/prop/*.png
@@ -401,6 +404,20 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+
+                // ===================== TimeLimitedEvent Images2 =====================
+                if (key.StartsWith("image/region/eventcenter/timelimitedevent/images2/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/region/eventcenter/timelimitedevent/images2/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _timeLimitedEventImages2.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -699,14 +716,6 @@ namespace NarakaBladepoint.Resources
         public static int TournamentChampionCount => _tournamentChampionImages.Count;
 
         /// <summary>
-        /// 获取指定索引的冠军图片
-        /// </summary>
-        public static ImageSource GetTournamentChampionImage(int index) =>
-            index >= 0 && index < _tournamentChampionImages.Count ? _tournamentChampionImages[index] : null;
-
-        // ===================== TimeLimitedEvent Reward Images API =====================
-
-        /// <summary>
         /// 获取时间限制事件奖励图片（按文件名数字顺序 1.png, 2.png, ...）
         /// </summary>
         public static ImageSource GetTimeLimitedEventRewardImage(int index) =>
@@ -722,6 +731,25 @@ namespace NarakaBladepoint.Resources
         /// 获取时间限制事件奖励图片总数
         /// </summary>
         public static int TimeLimitedEventRewardCount => _timeLimitedEventRewardImages.Count;
+
+        // ===================== TimeLimitedEvent Images2 API =====================
+
+        /// <summary>
+        /// 获取时间限制事件 Images2 图片（按文件名数字顺序 1.png, 2.png, ...）
+        /// </summary>
+        public static ImageSource GetTimeLimitedEventImages2(int index) =>
+            index >= 0 && index < _timeLimitedEventImages2.Count ? _timeLimitedEventImages2[index] : null;
+
+        /// <summary>
+        /// 获取所有时间限制事件 Images2 图片列表
+        /// </summary>
+        public static IReadOnlyList<ImageSource> GetAllTimeLimitedEventImages2() =>
+            _timeLimitedEventImages2.AsReadOnly();
+
+        /// <summary>
+        /// 获取时间限制事件 Images2 图片总数
+        /// </summary>
+        public static int TimeLimitedEventImages2Count => _timeLimitedEventImages2.Count;
     }
 }
 

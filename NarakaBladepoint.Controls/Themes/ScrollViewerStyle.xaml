@@ -15,8 +15,8 @@
                             - Width: 滑块宽度
                         -->
                         <Border
-                            Width="3"
-                            Background="#646465"
+                            Width="5"
+                            Background="#505051"
                             CornerRadius="2" />
                     </Grid>
                 </ControlTemplate>
@@ -71,7 +71,7 @@
                     <Rectangle
                         Width="0"
                         Height="0"
-                        Fill="#90000000" />
+                        Fill="#505051" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

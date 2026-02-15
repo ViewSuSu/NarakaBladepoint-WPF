@@ -10,6 +10,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
     {
         private ObservableCollection<RewardItemViewModel> _rewardItems;
         private ObservableCollection<TaskItemViewModel> _taskItems;
+        private ObservableCollection<ImageSource> _timeLimitedEventImages2;
         private ImageSource _backgroundImage;
         private int _selectedEventIndex = 0;
 
@@ -62,10 +63,24 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
             }
         }
 
+        /// <summary>
+        /// 时间限制事件 Images2 图片集合
+        /// </summary>
+        public ObservableCollection<ImageSource> TimeLimitedEventImages2
+        {
+            get => _timeLimitedEventImages2;
+            set 
+            { 
+                _timeLimitedEventImages2 = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public TimeLimitedEventPageOneViewModel()
         {
             InitializeRewardItems();
             InitializeTaskItems();
+            InitializeTimeLimitedEventImages2();
             // 默认选中第一项（飞羽离弦），背景设置为默认背景
             SelectEvent("飞羽离弦");
         }
@@ -109,6 +124,22 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
         private void HandleRewardClick()
         {
             // 处理领取奖励的逻辑
+        }
+
+        /// <summary>
+        /// 初始化时间限制事件 Images2 图片集合
+        /// </summary>
+        private void InitializeTimeLimitedEventImages2()
+        {
+            TimeLimitedEventImages2 = new ObservableCollection<ImageSource>();
+
+            // 从 ResourceImageReader 读取所有时间限制事件 Images2 图片
+            var images2 = ResourceImageReader.GetAllTimeLimitedEventImages2();
+
+            foreach (var imageSource in images2)
+            {
+                TimeLimitedEventImages2.Add(imageSource);
+            }
         }
 
         /// <summary>

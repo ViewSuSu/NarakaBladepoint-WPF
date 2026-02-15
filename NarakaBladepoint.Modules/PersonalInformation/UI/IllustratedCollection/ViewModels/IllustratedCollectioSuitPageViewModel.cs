@@ -107,7 +107,7 @@ namespace NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.
         }
     }
 
-    public class SuitCollectionViewModel : ViewModelBase
+    public class SuitCollectionViewModel
     {
         public string Name { get; set; } = string.Empty;
 

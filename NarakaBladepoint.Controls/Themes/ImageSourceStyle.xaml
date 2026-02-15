@@ -105,6 +105,13 @@
     <BitmapImage x:Key="SocialTagIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/Icon1.png" />
     <BitmapImage x:Key="SocialTagIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SocialTag/Icon2.png" />
 
+    <!--  TimeLimitedEvent Background Images  -->
+    <BitmapImage x:Key="TimeLimitedEventBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background.png" />
+    <BitmapImage x:Key="TimeLimitedEventBackgroundImage1" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background1.png" />
+    <BitmapImage x:Key="TimeLimitedEventBackgroundImage2" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background2.png" />
+    <BitmapImage x:Key="TimeLimitedEventBackgroundImage3" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background3.png" />
+    <BitmapImage x:Key="TimeLimitedEventBackgroundImage4" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background4.png" />
+
     <!--  Music Page Images  -->
     <BitmapImage x:Key="MusicEmptyStateBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Music/background.png" />
 
@@ -318,6 +325,5 @@
     <BitmapImage x:Key="TimeLimitedEventIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Icon1.png" />
     <BitmapImage x:Key="TimeLimitedEventIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Icon2.png" />
     <BitmapImage x:Key="TimeLimitedEventIcon3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Icon3.png" />
-    <BitmapImage x:Key="TimeLimitedEventBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/Background.png" />
     <BitmapImage x:Key="TimeLimitedEventTipImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/TimeLimitedEvent/1.png" />
 </ResourceDictionary>
