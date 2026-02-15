@@ -9,8 +9,8 @@
     xmlns:commonfunction="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.CommonFunction.Views;assembly=NarakaBladepoint.Modules"
     xmlns:consts="clr-namespace:NarakaBladepoint.Framework.Core.Consts;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
-    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:converters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
+    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dayEvent="clr-namespace:NarakaBladepoint.Modules.DayEvent.UI.Views;assembly=NarakaBladepoint.Modules"
     xmlns:mainWindowRightEvent="clr-namespace:NarakaBladepoint.Modules.MainWindowRightEvent.UI.Views;assembly=NarakaBladepoint.Modules"
@@ -22,17 +22,18 @@
     xmlns:startGame="clr-namespace:NarakaBladepoint.Modules.StartGame.UI.StartGame.Views;assembly=NarakaBladepoint.Modules"
     xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views;assembly=NarakaBladepoint.Modules"
     Title="Naraka"
-    Width="1080"
+    Width="1280"
     Height="720"
     d:DataContext="{d:DesignInstance Type=shell:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Icon="{StaticResource AppIconImage}"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <ResourceDictionary>
             <converters:StringToHighlightSegmentsConverter x:Key="StringToHighlightSegmentsConverter" />
-            
+
             <!--  IsQueuing Rotation Animation  -->
             <Storyboard x:Key="IsQueuingRotationStoryboard" RepeatBehavior="Forever">
                 <DoubleAnimation
@@ -42,7 +43,7 @@
                     To="360"
                     Duration="0:0:2" />
             </Storyboard>
-            
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/TipMessageResources.xaml" />
                 <ResourceDictionary Source="Resources/QueueResources.xaml" />
@@ -58,230 +59,232 @@
             QueueBorderName="queueBorder"
             ShowStoryboardKey="QueueShowStoryboard" />
     </b:Interaction.Behaviors>
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="{StaticResource BackgroundImage}" Stretch="UniformToFill" />
-        </Grid.Background>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid.Background>
-                    <ImageBrush ImageSource="{StaticResource Background3Image}" Stretch="Fill" />
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="5*" />
-                    <ColumnDefinition Width="1.5*" />
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="1.5*" />
-                </Grid.ColumnDefinitions>
-                <battlePass:BattlePassPage Grid.Column="0" />
-                <commonfunction:CommonFunctionPage Grid.Column="1" HorizontalAlignment="Center" />
-                <wealth:WealthPage Grid.Column="2" VerticalAlignment="Center" />
-                <social:SocialPage Grid.Column="4" VerticalAlignment="Center" />
-            </Grid>
-            <Grid
-                Name="queue"
-                Grid.Row="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Panel.ZIndex="10"
-                d:Visibility="Visible"
-                Visibility="Collapsed">
-                <Border Name="queueBorder" Style="{StaticResource QueueBorderStyle}">
-                    <Grid
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="#5A5A5A">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40" />
-                            <ColumnDefinition Width="250" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30" />
-                            <RowDefinition Height="30" />
-                        </Grid.RowDefinitions>
+    <Viewbox Stretch="fill" StretchDirection="Both">
+        <Grid Width="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Width}" Height="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Height}">
+            <Grid.Background>
+                <ImageBrush ImageSource="{StaticResource BackgroundImage}" Stretch="UniformToFill" />
+            </Grid.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="{StaticResource DefaultTransientBlackBackground10}">
+                    <!--<Grid.Background>
+                        <ImageBrush ImageSource="{StaticResource Background3Image}" Stretch="Fill" />
+                    </Grid.Background>-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="1.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="1.5*" />
+                    </Grid.ColumnDefinitions>
+                    <battlePass:BattlePassPage Grid.Column="0" />
+                    <commonfunction:CommonFunctionPage Grid.Column="1" HorizontalAlignment="Center" />
+                    <wealth:WealthPage Grid.Column="2" VerticalAlignment="Center" />
+                    <social:SocialPage Grid.Column="4" VerticalAlignment="Center" />
+                </Grid>
+                <Grid
+                    Name="queue"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Panel.ZIndex="10"
+                    d:Visibility="Visible"
+                    Visibility="Collapsed">
+                    <Border Name="queueBorder" Style="{StaticResource QueueBorderStyle}">
                         <Grid
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Background="#000000">
-                            <!-- 旋转的白色圆弧 -->
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#5A5A5A">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="250" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
                             <Grid
-                                Name="QueuingArcContainer"
-                                Width="35"
-                                Height="35"
-                                RenderTransformOrigin="0.5,0.5">
-                                <Grid.RenderTransform>
-                                    <RotateTransform Angle="0" />
-                                </Grid.RenderTransform>
-                                
-                                <Canvas Width="35" Height="35">
-                                    <Path
-                                        Width="35"
-                                        Height="35"
-                                        Data="M 17.5,3.5 A 14,14 0 0,1 31.5,17.5"
-                                        Stroke="White"
-                                        StrokeThickness="2" />
-                                </Canvas>
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Background="#000000">
+                                <!--  旋转的白色圆弧  -->
+                                <Grid
+                                    Name="QueuingArcContainer"
+                                    Width="35"
+                                    Height="35"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <RotateTransform Angle="0" />
+                                    </Grid.RenderTransform>
+
+                                    <Canvas Width="35" Height="35">
+                                        <Path
+                                            Width="35"
+                                            Height="35"
+                                            Data="M 17.5,3.5 A 14,14 0 0,1 31.5,17.5"
+                                            Stroke="White"
+                                            StrokeThickness="2" />
+                                    </Canvas>
+                                </Grid>
+
+                                <!--  固定不动的 Image（居中）  -->
+                                <Image
+                                    Name="IsQueuingImage"
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{StaticResource IsQueuingImage}" />
                             </Grid>
-                            
-                            <!-- 固定不动的 Image（居中） -->
-                            <Image
-                                Name="IsQueuingImage"
-                                Width="20"
-                                Height="20"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Source="{StaticResource IsQueuingImage}" />
+                            <controls:HighlightBorder
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Background="Transparent">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Foreground="White"
+                                    Text="取消匹配" />
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="MouseLeftButtonDown">
+                                        <b:InvokeCommandAction Command="{Binding CancelQueueCommand}" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
+                            </controls:HighlightBorder>
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Background="#000000">
+                                <Grid>
+                                    <TextBlock
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#B8B8B8"
+                                        Text="正在杭州市节点匹配，请稍候" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Margin="5,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        d:Text="00:00"
+                                        Foreground="#B8B8B8"
+                                        Text="{Binding QueueTimeFormatted, Mode=OneWay}" />
+                                </Grid>
+                            </Border>
                         </Grid>
-                        <controls:HighlightBorder
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Background="Transparent">
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Foreground="White"
-                                Text="取消匹配" />
-                            <b:Interaction.Triggers>
-                                <b:EventTrigger EventName="MouseLeftButtonDown">
-                                    <b:InvokeCommandAction Command="{Binding CancelQueueCommand}" />
-                                </b:EventTrigger>
-                            </b:Interaction.Triggers>
-                        </controls:HighlightBorder>
-                        <Border
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Background="#000000">
-                            <Grid>
-                                <TextBlock
-                                    Margin="5,0,0,0"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Foreground="#B8B8B8"
-                                    Text="正在杭州市节点匹配，请稍候" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Margin="5,0"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Center"
-                                    d:Text="00:00"
-                                    Foreground="#B8B8B8"
-                                    Text="{Binding QueueTimeFormatted, Mode=OneWay}" />
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </Border>
-            </Grid>
-            <Grid
-                Name="tipGrid"
-                Grid.Row="1"
-                Margin="0,50,0,0"
-                VerticalAlignment="Top"
-                Panel.ZIndex="10"
-                Visibility="Collapsed">
-                <Border
-                    Name="tipBorder"
-                    Width="{Binding ElementName=tipGrid, Path=ActualWidth}"
-                    Padding="20,8"
-                    d:Visibility="Collapsed"
-                    Style="{StaticResource TipMessageBorderStyle}">
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                            <GradientStop Offset="0" Color="#00000000" />
-                            <GradientStop Offset="0.3" Color="#80000000" />
-                            <GradientStop Offset="0.5" Color="#FF000000" />
-                            <GradientStop Offset="0.7" Color="#80000000" />
-                            <GradientStop Offset="1" Color="#00000000" />
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <TextBlock
-                        Name="tipTextblock"
-                        MaxWidth="800"
-                        attach:TextBlockHighlightAttachedProperty.HighlightSegments="{Binding TipMessageHighlightTexts}"
-                        Style="{StaticResource TipMessageTextBlockStyle}"
-                        Text="{Binding TipMessage}" />
-                </Border>
-            </Grid>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="50" />
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="3*" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Grid>
+                    </Border>
+                </Grid>
+                <Grid
+                    Name="tipGrid"
+                    Grid.Row="1"
+                    Margin="0,50,0,0"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="10"
+                    Visibility="Collapsed">
+                    <Border
+                        Name="tipBorder"
+                        Width="{Binding ElementName=tipGrid, Path=ActualWidth}"
+                        Padding="20,8"
+                        d:Visibility="Collapsed"
+                        Style="{StaticResource TipMessageBorderStyle}">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                <GradientStop Offset="0" Color="#00000000" />
+                                <GradientStop Offset="0.3" Color="#80000000" />
+                                <GradientStop Offset="0.5" Color="#FF000000" />
+                                <GradientStop Offset="0.7" Color="#80000000" />
+                                <GradientStop Offset="1" Color="#00000000" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <TextBlock
+                            Name="tipTextblock"
+                            MaxWidth="800"
+                            attach:TextBlockHighlightAttachedProperty.HighlightSegments="{Binding TipMessageHighlightTexts}"
+                            Style="{StaticResource TipMessageTextBlockStyle}"
+                            Text="{Binding TipMessage}" />
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
                             <RowDefinition Height="3*" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition Height="3*" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="0">
+                        <dayEvent:DayEventPage
+                            Width="240"
+                            Height="330"
+                            Margin="20,20,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    </Grid>
+                    <Grid
+                        Grid.ColumnSpan="3"
+                        Width="240"
+                        Height="300"
+                        Margin="0,0,15,15"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom">
+                        <startGame:StartGamePage />
+                    </Grid>
+                    <Grid
+                        Grid.ColumnSpan="3"
+                        Width="150"
+                        Height="320"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top">
+                        <mainWindowRightEvent:MainWindowRightEventPage />
                     </Grid>
                 </Grid>
-                <Grid Grid.Column="0">
-                    <dayEvent:DayEventPage
-                        Width="240"
-                        Height="330"
-                        Margin="20,20,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top" />
-                </Grid>
-                <Grid
-                    Grid.ColumnSpan="3"
-                    Width="240"
-                    Height="300"
-                    Margin="0,0,15,15"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom">
-                    <startGame:StartGamePage />
-                </Grid>
-                <Grid
-                    Grid.ColumnSpan="3"
-                    Width="150"
-                    Height="320"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top">
-                    <mainWindowRightEvent:MainWindowRightEventPage />
-                </Grid>
+                <personalinformation:PersonalInformationPage
+                    Grid.Row="1"
+                    Width="210"
+                    Height="150"
+                    Margin="20,0,0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" />
+                <ContentControl
+                    Grid.Row="1"
+                    Panel.ZIndex="2"
+                    prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.MainContentRegion}" />
+                <ContentControl
+                    Grid.RowSpan="2"
+                    Panel.ZIndex="3"
+                    prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion1}" />
+                <ContentControl
+                    Grid.RowSpan="2"
+                    Panel.ZIndex="4"
+                    prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion2}" />
+                <ContentControl
+                    Grid.RowSpan="2"
+                    Panel.ZIndex="5"
+                    prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion3}" />
+                <ContentControl
+                    Grid.RowSpan="2"
+                    Panel.ZIndex="6"
+                    prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion4}" />
             </Grid>
-            <personalinformation:PersonalInformationPage
-                Grid.Row="1"
-                Width="210"
-                Height="150"
-                Margin="20,0,0,20"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom" />
-            <ContentControl
-                Grid.Row="1"
-                Panel.ZIndex="2"
-                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.MainContentRegion}" />
-            <ContentControl
-                Grid.RowSpan="2"
-                Panel.ZIndex="3"
-                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion1}" />
-            <ContentControl
-                Grid.RowSpan="2"
-                Panel.ZIndex="4"
-                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion2}" />
-            <ContentControl
-                Grid.RowSpan="2"
-                Panel.ZIndex="5"
-                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion3}" />
-            <ContentControl
-                Grid.RowSpan="2"
-                Panel.ZIndex="6"
-                prism:RegionManager.RegionName="{x:Static consts:GlobalConstant.HomePageRegion4}" />
         </Grid>
-    </Grid>
+    </Viewbox>
 </Window>

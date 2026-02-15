@@ -14,12 +14,12 @@
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:SeasonDataPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:TeamSizeToIndexConverter x:Key="TeamSizeToIndexConverter" />
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="50,80,50,50">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*" />
             <RowDefinition />

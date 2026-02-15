@@ -12,7 +12,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.PersonalInformationDetails.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:EditGenderPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Name="grid">
         <Grid.RowDefinitions>

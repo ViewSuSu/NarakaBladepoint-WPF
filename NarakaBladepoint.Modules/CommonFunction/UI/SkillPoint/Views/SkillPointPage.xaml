@@ -10,7 +10,7 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:SkillPointPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid>
         <controls:EscBackControl

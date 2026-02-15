@@ -8,7 +8,7 @@
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     d:DataContext="{d:DesignInstance Type=viewmodels:GuildHallPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="#354660">
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" Text="聚义庆典内容" />

@@ -12,7 +12,7 @@
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels1:HistoryMatchRecordPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:BoolToAddOrDeleteConverter x:Key="BoolToAddOrDeleteConverter" />
@@ -27,7 +27,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <Grid Margin="30">
+    <Grid Margin="50,80,50,50">
         <TabControl Background="Transparent" BorderThickness="0">
             <TabItem
                 Width="150"

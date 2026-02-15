@@ -9,7 +9,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.AvatarFrame.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:AvatarFramePageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>

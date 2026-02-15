@@ -11,7 +11,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.StartGame.UI.MapChose.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:MapChosePageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="#E6000000">
         <Grid Margin="30,0">

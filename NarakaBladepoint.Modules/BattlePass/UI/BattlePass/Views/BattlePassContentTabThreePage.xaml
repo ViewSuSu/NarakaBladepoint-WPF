@@ -9,7 +9,7 @@
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     d:DataContext="{d:DesignInstance Type=viewmodels:BattlePassContentTabThreePageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid />
 </views:UserControlBase>

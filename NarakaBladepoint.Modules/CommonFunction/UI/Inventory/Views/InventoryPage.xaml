@@ -14,7 +14,7 @@
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:InventoryPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />

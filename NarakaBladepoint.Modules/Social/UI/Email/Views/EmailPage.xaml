@@ -11,7 +11,7 @@
     xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
     d:DataContext="{d:DesignInstance Type=viewmodels1:EmailPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     x:ClassModifier="internal"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">

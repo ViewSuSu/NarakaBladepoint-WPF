@@ -12,7 +12,7 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.StartGame.UI.HeroChose.
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroChosePageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="#E6000000">
         <Grid Margin="80,30,80,0">

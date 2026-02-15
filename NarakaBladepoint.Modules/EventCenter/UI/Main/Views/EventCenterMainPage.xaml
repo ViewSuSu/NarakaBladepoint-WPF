@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.EventCenter.UI.Main.Views.EventCenterMainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:baize="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.BaiZeCard.Views"
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
@@ -22,7 +23,7 @@
     xmlns:welcomeback="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.WelcomeBackEvent.Views"
     d:DataContext="{d:DesignInstance Type=viewmodels:EventCenterMainPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
         <Grid>
@@ -46,6 +47,7 @@
             <TabControl
                 Grid.Row="0"
                 Grid.RowSpan="3"
+                attach:TabControlContentMarginAttachedProperty.IsAutoAdjustContentMargin="True"
                 Background="Transparent"
                 BorderThickness="0">
                 <TabControl.Resources>

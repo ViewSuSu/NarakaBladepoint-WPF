@@ -9,9 +9,9 @@
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     d:Background="Gray"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
-    <Grid Margin="60">
+    <Grid Margin="60,100,60,60">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />

@@ -11,16 +11,15 @@
     xmlns:views="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Store.Views"
     d:DataContext="{d:DesignInstance Type=viewmodels:StorePageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
         <Grid>
             <TabControl
-                Margin="0,-3,0,0"
                 Background="Transparent"
                 BorderThickness="0">
                 <TabItem
-                    Width="305"
+                    Width="455"
                     Height="25"
                     Header=""
                     Style="{StaticResource CommonFunctionTabItem}"

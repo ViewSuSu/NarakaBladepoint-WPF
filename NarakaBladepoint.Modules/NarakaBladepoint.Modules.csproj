@@ -30,4 +30,11 @@
     <ProjectReference Include="..\NarakaBladepoint.Shared\NarakaBladepoint.Shared.csproj" />
   </ItemGroup>
 
+
+
+
+  <ItemGroup>
+    <Folder Include="BattlePass\UI\BattlePass\Converters\" />
+  </ItemGroup>
+
 </Project>

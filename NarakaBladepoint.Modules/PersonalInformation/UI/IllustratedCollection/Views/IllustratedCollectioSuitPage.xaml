@@ -10,12 +10,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.IllustratedCollection.ViewModels"
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
-    d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:IllustratedCollectioSuitPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
-    <Grid>
+    <Grid Margin="50,100">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
@@ -76,12 +75,12 @@
                                         <Run
                                             d:Text="3"
                                             Foreground="{StaticResource DefaultHighlightBackground}"
-                                            Text="{Binding ProgressText1}" />
+                                            Text="{Binding ProgressbarValue}" />
                                         <Run Foreground="{StaticResource DefaultHighlightBackground}" Text="/" />
                                         <Run
                                             d:Text="17"
                                             Foreground="{StaticResource DefaultHighlightBackground}"
-                                            Text="{Binding ProgressText2}" />
+                                            Text="{Binding ProgressbarMaximum}" />
                                     </TextBlock>
                                     <TextBlock>
                                         <Run Text="累计加分：" />
@@ -103,8 +102,8 @@
                             <Grid Grid.Column="2">
                                 <controls:RewardItemsControl
                                     ItemsSource="{Binding Rewards}"
-                                    ProgressbarValue="{Binding ProgressText1}"
-                                    ProgressbarMaximum="{Binding ProgressText2}" />
+                                    ProgressbarMaximum="{Binding ProgressbarMaximum}"
+                                    ProgressbarValue="{Binding ProgressbarValue}" />
                             </Grid>
                         </Grid>
                     </DataTemplate>

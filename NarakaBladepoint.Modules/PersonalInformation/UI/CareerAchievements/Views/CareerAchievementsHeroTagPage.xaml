@@ -12,9 +12,9 @@
     xmlns:views="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     d:DataContext="{d:DesignInstance Type=viewmodels:CareerAchievementsHeroTagPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
-    <Grid Margin="30,0,50,50">
+    <Grid Margin="30,100,50,50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.4*" />
             <ColumnDefinition />

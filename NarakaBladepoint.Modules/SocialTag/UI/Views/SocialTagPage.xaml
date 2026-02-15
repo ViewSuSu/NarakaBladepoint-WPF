@@ -15,7 +15,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.SocialTag.UI.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:SocialTagPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:OutRangeMaskVisibilityConverter x:Key="OutRangeMaskVisibilityConverter" />

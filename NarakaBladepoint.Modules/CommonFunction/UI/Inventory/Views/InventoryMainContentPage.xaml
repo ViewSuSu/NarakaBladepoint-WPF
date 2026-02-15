@@ -9,7 +9,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.Inventory.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:InventoryMainContentPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
         <Grid>

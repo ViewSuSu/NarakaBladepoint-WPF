@@ -10,7 +10,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.LatestNews.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:LatestNewsPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid>
         <Grid Margin="50,10">

@@ -10,7 +10,7 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Tutorial.UI.ViewModels"
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:TutorialPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     Background="Gray"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">

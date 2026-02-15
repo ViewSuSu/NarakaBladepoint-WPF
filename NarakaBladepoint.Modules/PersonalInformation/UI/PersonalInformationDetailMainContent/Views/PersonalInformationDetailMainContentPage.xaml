@@ -8,6 +8,7 @@
     xmlns:bases="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     xmlns:careerAchievementsPage="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.CareerAchievements.Views"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
+    xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:heroData="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HeroData.Views"
     xmlns:historyMatchRecord="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecord.Views"
@@ -22,207 +23,338 @@
     xmlns:wealth="clr-namespace:NarakaBladepoint.Modules.Wealth.UI.Main.Views"
     d:DataContext="{d:DesignInstance Type=viewmodels:PersonalInformationDetailMainContentPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition />
-                <RowDefinition Height="0.1*" />
-            </Grid.RowDefinitions>
-            <Grid x:Name="topGrid" Grid.Row="0" Background="{StaticResource PersonalInfoDetailsBackgroundBrush}">
-                <Grid Margin="50,10">
+        <Grid
+            x:Name="topGrid"
+            Grid.Row="0"
+            VerticalAlignment="Top"
+            Panel.ZIndex="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid
+                    Height="50"
+                    VerticalAlignment="Top"
+                    Background="{StaticResource DefaultTransientBlackBackground2}" />
+                <Grid Margin="50,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="200" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock
+                        Margin="0,10,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         FontSize="25"
                         Foreground="White"
                         Text="名片" />
+                    <TabControl
+                        Name="mainTabControl"
+                        Grid.Column="1"
+                        attached:TabControlContentMarginAttachedProperty.IsAutoAdjustContentMargin="True"
+                        Background="Transparent"
+                        BorderThickness="0">
+                        <TabControl.Resources>
+                            <Style TargetType="{x:Type TabPanel}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </TabControl.Resources>
+                        <TabItem
+                            Name="tab1"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            Header="个人信息"
+                            IsSelected="True"
+                            Style="{StaticResource CommonFunctionTabItem}" />
+                        <TabItem
+                            Name="tab2"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="英雄数据"
+                            Style="{StaticResource CommonFunctionTabItem}" />
+                        <TabItem
+                            Name="tab3"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="赛季数据"
+                            Style="{StaticResource CommonFunctionTabItem}" />
+                        <TabItem
+                            Name="tab4"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="历史战绩"
+                            Style="{StaticResource CommonFunctionTabItem}" />
+                        <TabItem
+                            Name="tab5"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="打赏记录"
+                            Style="{StaticResource CommonFunctionTabItem}" />
+                        <TabItem
+                            Name="tab6"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="社交头像"
+                            Style="{StaticResource CommonFunctionTabItem}" />
+                        <!--<TabItem
+    VerticalAlignment="Center"
+    d:IsSelected="True"
+    Background="Transparent"
+    Header="头像框"
+    Style="{StaticResource CommonFunctionTabItem}">
+    <avatarFramePage:AvatarFramePage />
+</TabItem>-->
+                        <TabItem
+                            Name="tab7"
+                            d:IsSelected="True"
+                            Header="生涯成就"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <TabControl
+                                Margin="0,45,0,0"
+                                Background="Transparent"
+                                BorderThickness="0">
+                                <TabItem
+                                    Width="310"
+                                    Height="25"
+                                    Background="{StaticResource DefaultTransientBlackBackground5}"
+                                    Header=""
+                                    Style="{StaticResource CommonFunctionTabItem}"
+                                    Visibility="Hidden" />
+                                <TabItem
+                                    Name="tabItem1"
+                                    Width="80"
+                                    Height="25"
+                                    Background="{StaticResource DefaultTransientBlackBackground5}"
+                                    Header="英雄印"
+                                    IsSelected="True"
+                                    Style="{StaticResource CommonFunctionTabItem}" />
+                                <TabItem
+                                    Name="tabItem2"
+                                    Width="80"
+                                    Height="25"
+                                    Background="{StaticResource DefaultTransientBlackBackground5}"
+                                    Header="龙魂宝藏"
+                                    Style="{StaticResource CommonFunctionTabItem}" />
+                                <TabItem
+                                    Name="tabItem3"
+                                    Width="80"
+                                    Height="25"
+                                    Background="{StaticResource DefaultTransientBlackBackground5}"
+                                    Header="金乌宝藏"
+                                    Style="{StaticResource CommonFunctionTabItem}" />
+                            </TabControl>
+                        </TabItem>
+                        <TabItem
+                            Name="tab8"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="图鉴收集"
+                            Style="{StaticResource CommonFunctionTabItem}">
+                            <TabControl
+                                Margin="0,45,0,0"
+                                Background="Transparent"
+                                BorderThickness="0">
+                                <TabItem
+                                    Width="400"
+                                    Height="25"
+                                    Header=""
+                                    Style="{StaticResource CommonFunctionTabItem}"
+                                    Visibility="Hidden" />
+                                <TabItem
+                                    Name="tabItemA"
+                                    Width="80"
+                                    Height="25"
+                                    Background="{StaticResource DefaultTransientBlackBackground5}"
+                                    Header="总览"
+                                    IsSelected="True"
+                                    Style="{StaticResource CommonFunctionTabItem}" />
+                                <TabItem
+                                    Name="tabItemB"
+                                    Width="80"
+                                    Height="25"
+                                    Background="{StaticResource DefaultTransientBlackBackground5}"
+                                    Header="套装"
+                                    Style="{StaticResource CommonFunctionTabItem}" />
+                            </TabControl>
+                        </TabItem>
+                        <TabItem
+                            Width="400"
+                            VerticalAlignment="Center"
+                            d:IsSelected="True"
+                            Background="Transparent"
+                            Header="信誉分"
+                            Style="{StaticResource CommonFunctionTabItem}"
+                            Visibility="Hidden" />
+
+                    </TabControl>
                     <wealth:WealthPage
                         Grid.Column="1"
                         Width="140"
                         Margin="0,0,80,0"
                         HorizontalAlignment="Right"
-                        VerticalAlignment="Center" />
+                        VerticalAlignment="Top" />
                 </Grid>
             </Grid>
-            <TabControl
-                Grid.Row="0"
-                Grid.RowSpan="3"
-                Background="Transparent"
-                BorderThickness="0">
-                <TabControl.Resources>
-                    <Style TargetType="{x:Type TabPanel}">
-                        <Setter Property="HorizontalAlignment" Value="Center" />
-                    </Style>
-                </TabControl.Resources>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="个人信息"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <personalInformationDetailsPage:PersonalInformationDetailsPage Margin="40" />
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="英雄数据"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <heroData:HeroDataPage Margin="40" />
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="赛季数据"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <seasonData:SeasonDataPage Margin="30" />
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="历史战绩"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <historyMatchRecord:HistoryMatchRecordPage />
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="打赏记录"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <tippingRecordPage:TippingRecordPage Margin="50" />
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="社交头像"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <socialAvatarPage:SocialAvatarPage Margin="50,30,50,50" />
-                </TabItem>
-                <!--<TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="头像框"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <avatarFramePage:AvatarFramePage />
-                </TabItem>-->
-                <TabItem
-                    Name="tabShengya"
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="生涯成就"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <TabControl
-                        Margin="0,-3,0,0"
-                        Background="Transparent"
-                        BorderThickness="0">
-                        <TabItem
-                            Width="445"
-                            Height="25"
-                            Header=""
-                            Style="{StaticResource CommonFunctionTabItem}"
-                            Visibility="Hidden" />
-                        <TabItem
-                            Name="tabItem1"
-                            Width="80"
-                            Height="25"
-                            Background="{StaticResource DefaultTransientBlackBackground5}"
-                            Header="英雄印"
-                            IsSelected="True"
-                            Style="{StaticResource CommonFunctionTabItem}">
-                            <careerAchievementsPage:CareerAchievementsHeroTagPage />
-                        </TabItem>
-                        <TabItem
-                            Name="tabItem2"
-                            Width="80"
-                            Height="25"
-                            Background="{StaticResource DefaultTransientBlackBackground5}"
-                            Header="龙魂宝藏"
-                            Style="{StaticResource CommonFunctionTabItem}">
-                            <careerAchievementsPage:CareerAchievementsDragonSoulPage />
-                        </TabItem>
-                        <TabItem
-                            Name="tabItem3"
-                            Width="80"
-                            Height="25"
-                            Background="{StaticResource DefaultTransientBlackBackground5}"
-                            Header="金乌宝藏"
-                            Style="{StaticResource CommonFunctionTabItem}">
-                            <careerAchievementsPage:CareerAchievementsGoldenCrowPage />
-                        </TabItem>
-                    </TabControl>
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="图鉴收集"
-                    Style="{StaticResource CommonFunctionTabItem}">
-                    <TabControl
-                        Margin="0,-3,0,0"
-                        Background="Transparent"
-                        BorderThickness="0">
-                        <TabItem
-                            Width="555"
-                            Height="25"
-                            Header=""
-                            Style="{StaticResource CommonFunctionTabItem}"
-                            Visibility="Hidden" />
-                        <TabItem
-                            Name="overview"
-                            Width="60"
-                            Height="25"
-                            d:IsSelected="True"
-                            Background="{StaticResource DefaultTransientBlackBackground5}"
-                            Header="总览"
-                            IsSelected="True"
-                            Style="{StaticResource CommonFunctionTabItem}">
-                            <Image
-                                Margin="0,-30,0,0"
-                                Source="{StaticResource IllustratedCollectionOverviewImage}"
-                                Stretch="Fill" />
-                        </TabItem>
-                        <TabItem
-                            Width="60"
-                            Height="25"
-                            Background="{StaticResource DefaultTransientBlackBackground5}"
-                            Header="套装"
-                            Style="{StaticResource CommonFunctionTabItem}">
-                            <illustratedCollectionPage:IllustratedCollectioSuitPage Margin="50,0,50,40" />
-                        </TabItem>
-                    </TabControl>
-                </TabItem>
-                <TabItem
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header="信誉分"
-                    Style="{StaticResource CommonFunctionTabItem}"
-                    Visibility="Hidden" />
-                <TabItem
-                    Width="150"
-                    VerticalAlignment="Center"
-                    Background="Transparent"
-                    Visibility="Hidden" />
-            </TabControl>
-            <controls:EscBackControl
-                Grid.Row="2"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Command="{Binding ReturnCommand}" />
         </Grid>
+        <ContentControl Name="mainContentControl">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <!--  tab1 (个人信息) 选中时显示  -->
+                        <DataTrigger Binding="{Binding ElementName=tab1, Path=IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <personalInformationDetailsPage:PersonalInformationDetailsPage />
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <!--  tab2 (英雄数据) 选中时显示  -->
+                        <DataTrigger Binding="{Binding ElementName=tab2, Path=IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <heroData:HeroDataPage />
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <!--  tab3 (赛季数据) 选中时显示  -->
+                        <DataTrigger Binding="{Binding ElementName=tab3, Path=IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <seasonData:SeasonDataPage />
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <!--  tab4 (历史战绩) 选中时显示  -->
+                        <DataTrigger Binding="{Binding ElementName=tab4, Path=IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <historyMatchRecord:HistoryMatchRecordPage />
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <!--  tab5 (打赏记录) 选中时显示  -->
+                        <DataTrigger Binding="{Binding ElementName=tab5, Path=IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <tippingRecordPage:TippingRecordPage />
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <!--  tab6 (社交头像) 选中时显示  -->
+                        <DataTrigger Binding="{Binding ElementName=tab6, Path=IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <socialAvatarPage:SocialAvatarPage />
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <!--  tab7 && tabItem1 选中时显示 CareerAchievementsHeroTagPage  -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=tab7, Path=IsSelected}" Value="True" />
+                                <Condition Binding="{Binding ElementName=tabItem1, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <careerAchievementsPage:CareerAchievementsHeroTagPage />
+                                </Setter.Value>
+                            </Setter>
+                        </MultiDataTrigger>
+
+                        <!--  tab7 && tabItem2 选中时显示 CareerAchievementsDragonSoulPage  -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=tab7, Path=IsSelected}" Value="True" />
+                                <Condition Binding="{Binding ElementName=tabItem2, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <careerAchievementsPage:CareerAchievementsDragonSoulPage />
+                                </Setter.Value>
+                            </Setter>
+                        </MultiDataTrigger>
+
+                        <!--  tab7 && tabItem3 选中时显示 CareerAchievementsGoldenCrowPage  -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=tab7, Path=IsSelected}" Value="True" />
+                                <Condition Binding="{Binding ElementName=tabItem3, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <careerAchievementsPage:CareerAchievementsGoldenCrowPage />
+                                </Setter.Value>
+                            </Setter>
+                        </MultiDataTrigger>
+
+
+                        <!--  tab8 && tabItemA 选中时显示总览  -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=tab8, Path=IsSelected}" Value="True" />
+                                <Condition Binding="{Binding ElementName=tabItemA, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <Grid>
+                                        <Image
+                                            Margin="0,-30,0,0"
+                                            Source="{StaticResource IllustratedCollectionOverviewImage}"
+                                            Stretch="Fill" />
+                                    </Grid>
+                                </Setter.Value>
+                            </Setter>
+                        </MultiDataTrigger>
+
+                        <!--  tab8 && tabItemB 选中时显示套装  -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=tab8, Path=IsSelected}" Value="True" />
+                                <Condition Binding="{Binding ElementName=tabItemB, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <illustratedCollectionPage:IllustratedCollectioSuitPage Margin="50,0,50,40" />
+                                </Setter.Value>
+                            </Setter>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
     </Grid>
 </bases:UserControlBase>
 

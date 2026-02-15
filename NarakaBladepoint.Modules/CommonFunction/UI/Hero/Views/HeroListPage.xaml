@@ -12,7 +12,7 @@
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroListPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
         <Grid>

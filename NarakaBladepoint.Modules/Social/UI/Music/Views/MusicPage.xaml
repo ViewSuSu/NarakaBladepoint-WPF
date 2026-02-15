@@ -10,7 +10,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Music.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:MusicPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <bases:UserControlBase.Resources>
         <!--  Music Info Panel Style  -->

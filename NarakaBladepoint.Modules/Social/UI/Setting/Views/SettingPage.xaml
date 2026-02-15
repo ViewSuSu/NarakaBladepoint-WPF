@@ -10,7 +10,7 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.Social.UI.Setting.ViewM
     d:Background="White"
     d:DataContext="{d:DesignInstance Type=viewmodels:SettingPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid>
         <Rectangle Fill="#80000000">

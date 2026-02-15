@@ -14,7 +14,7 @@ xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:HeroTagPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:OutRangeMaskVisibilityConverter x:Key="OutRangeMaskVisibilityConverter" />

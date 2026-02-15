@@ -13,7 +13,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:TimeLimitedEventPageOneViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <bases:UserControlBase.Resources>
         <converters:DoubleToThicknessTopConverter x:Key="DoubleToThicknessTopConverter" />

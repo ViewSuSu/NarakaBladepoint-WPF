@@ -16,12 +16,36 @@ namespace NarakaBladepoint.App.Shell
     {
         private const int WS_EX_TRANSPARENT = 0x20;
         private const int GWL_EXSTYLE = -20;
+        private const double DesignWidth = 1280;
+        private const double DesignHeight = 720;
+        private const double AspectRatio = DesignWidth / DesignHeight; // 16:9
+
+        private bool _isUpdatingSize = false;
+        private double _lastWidth = DesignWidth;
+        private double _lastHeight = DesignHeight;
 
         [DllImport("user32", EntryPoint = "SetWindowLong")]
         private static extern uint SetWindowLong(IntPtr hwnd, int nIndex, uint dwNewLong);
 
         [DllImport("user32", EntryPoint = "GetWindowLong")]
         private static extern uint GetWindowLong(IntPtr hwnd, int nIndex);
+
+        [DllImport("user32")]
+        private static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+
+        [DllImport("user32")]
+        private static extern bool SetWindowPos(IntPtr hwnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+
+        private const uint SWP_NOMOVE = 0x0002;
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
 
         public MainWindow()
         {
@@ -32,7 +56,7 @@ namespace NarakaBladepoint.App.Shell
                 nameof(SourceInitialized),
                 OnSourceInitialized
             );
-            
+
             // Start queuing animation when loaded
             Loaded += (s, e) =>
             {
@@ -41,7 +65,10 @@ namespace NarakaBladepoint.App.Shell
                     storyboard.Begin(this, isControllable: true);
                 }
             };
+
         }
+
+
 
         private void OnSourceInitialized(object? sender, EventArgs e)
         {

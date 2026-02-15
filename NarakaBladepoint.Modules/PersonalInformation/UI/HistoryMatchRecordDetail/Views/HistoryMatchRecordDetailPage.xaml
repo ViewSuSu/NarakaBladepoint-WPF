@@ -13,7 +13,7 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.HistoryMatchRecordDetail.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:HistoryMatchRecordDetailPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
         <Grid.Resources>

@@ -13,12 +13,12 @@
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.PersonalInformation.UI.SocialAvatar.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:SocialAvatarPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:BoolToTransparentBrushConverter x:Key="BoolToTransparentBrushConverter" />
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="50,80,50,50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="0.5*" />
@@ -318,9 +318,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </controls:IconTabItem>
-            <controls:IconTabItem
-                Width="70"
-                Visibility="Hidden" />
+            <controls:IconTabItem Width="70" Visibility="Hidden" />
         </TabControl>
         <TextBlock
             Grid.Row="0"

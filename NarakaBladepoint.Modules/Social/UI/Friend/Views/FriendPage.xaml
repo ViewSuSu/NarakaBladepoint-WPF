@@ -14,7 +14,7 @@
     d:Background="Gray"
     d:DataContext="{d:DesignInstance Type=viewmodels:FriendPageViewModel}"
     d:DesignHeight="720"
-    d:DesignWidth="1080"
+    d:DesignWidth="1280"
     x:ClassModifier="internal"
     mc:Ignorable="d">
     <Grid Background="Transparent">
