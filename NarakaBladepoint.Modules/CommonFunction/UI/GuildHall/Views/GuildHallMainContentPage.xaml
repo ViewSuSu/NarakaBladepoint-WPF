@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.GuildHall.Views.GuildHallMainContentPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.GuildHall.Views"
@@ -15,11 +16,11 @@
     <Grid Background="{StaticResource Background2}">
         <Grid>
             <TabControl
-                Margin="0,-3,0,0"
+                attach:TabControlContentMarginAttachedProperty.IsAutoAdjustContentMargin="True"
                 Background="Transparent"
                 BorderThickness="0">
                 <TabItem
-                    Width="330"
+                    Width="450"
                     Height="25"
                     Header=""
                     Style="{StaticResource CommonFunctionTabItem}"
@@ -31,7 +32,7 @@
                     Header="聚义厅"
                     IsSelected="True"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <local:GuildHallPage Margin="15" />
+                    <local:GuildHallPage />
                 </TabItem>
                 <TabItem
                     Width="80"
@@ -39,7 +40,7 @@
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="聚义商城"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <local:GuildHallStorePage Margin="15" />
+                    <local:GuildHallStorePage />
                 </TabItem>
                 <TabItem
                     Width="80"

@@ -11,6 +11,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
         private ObservableCollection<RewardItemViewModel> _rewardItems;
         private ObservableCollection<TaskItemViewModel> _taskItems;
         private ObservableCollection<ImageSource> _timeLimitedEventImages2;
+        private ObservableCollection<ExchangeItemViewModel> _exchangeItems;
         private ImageSource _backgroundImage;
         private int _selectedEventIndex = 0;
 
@@ -33,6 +34,19 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
             set 
             { 
                 _taskItems = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 兑换物品集合
+        /// </summary>
+        public ObservableCollection<ExchangeItemViewModel> ExchangeItems
+        {
+            get => _exchangeItems;
+            set 
+            { 
+                _exchangeItems = value;
                 RaisePropertyChanged();
             }
         }
@@ -81,6 +95,7 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
             InitializeRewardItems();
             InitializeTaskItems();
             InitializeTimeLimitedEventImages2();
+            InitializeExchangeItems();
             // 默认选中第一项（飞羽离弦），背景设置为默认背景
             SelectEvent("飞羽离弦");
         }
@@ -139,6 +154,48 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
             foreach (var imageSource in images2)
             {
                 TimeLimitedEventImages2.Add(imageSource);
+            }
+        }
+
+        /// <summary>
+        /// 初始化兑换物品集合
+        /// </summary>
+        private void InitializeExchangeItems()
+        {
+            ExchangeItems = new ObservableCollection<ExchangeItemViewModel>();
+
+            var images3 = ResourceImageReader.GetAllTimeLimitedEventImages3();
+
+            // 按照图片顺序创建11个兑换物品项，无重复
+            var exchangeData = new[]
+            {
+                new { Title = "拥有死神·岳山摔绳包全部外观", CurrentCount = 0, TotalCount = 3, HighlightText = "全部", ImageIndex = 0 },
+                new { Title = "拥有源氏·武田信忠摔绳包全部外观", CurrentCount = 0, TotalCount = 3, HighlightText = "全部", ImageIndex = 1 },
+                new { Title = "拥有守望系列全部摔绳包外观", CurrentCount = 0, TotalCount = 16, HighlightText = "全部", ImageIndex = 2 },
+                new { Title = "拥有D.Va·沈妙摔绳包全部外观", CurrentCount = 0, TotalCount = 3, HighlightText = "全部", ImageIndex = 3 },
+                new { Title = "拥有天使·席拉摔绳包全部外观", CurrentCount = 0, TotalCount = 4, HighlightText = "全部", ImageIndex = 4 },
+                new { Title = "拥有黑百合·宁红夜摔绳包全部外观", CurrentCount = 0, TotalCount = 3, HighlightText = "全部", ImageIndex = 5 },
+                new { Title = "拥有守望系列任意1款直售时装", CurrentCount = 0, TotalCount = 1, HighlightText = "1款", ImageIndex = 6 },
+                new { Title = "拥有守望系列任意2款直售时装", CurrentCount = 0, TotalCount = 2, HighlightText = "2款", ImageIndex = 6 },
+                new { Title = "拥有守望系列任意4款直售时装", CurrentCount = 0, TotalCount = 4, HighlightText = "4款", ImageIndex = 6 },
+                new { Title = "拥有守望系列任意7款直售外观", CurrentCount = 0, TotalCount = 7, HighlightText = "7款", ImageIndex = 6 },
+                new { Title = "拥有守望系列摔绳包内任意13款直售外观", CurrentCount = 0, TotalCount = 13, HighlightText = "13款", ImageIndex = 6 }
+            };
+
+            foreach (var data in exchangeData)
+            {
+                var exchangeItem = new ExchangeItemViewModel
+                {
+                    Title = data.Title,
+                    CurrentCount = data.CurrentCount,
+                    TotalCount = data.TotalCount,
+                    HighlightText = data.HighlightText,
+                    ItemImage = data.ImageIndex >= 0 && data.ImageIndex < images3.Count 
+                        ? images3[data.ImageIndex] 
+                        : null
+                };
+
+                ExchangeItems.Add(exchangeItem);
             }
         }
 
@@ -257,6 +314,83 @@ namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
             set 
             { 
                 _isLocked = value;
+                RaisePropertyChanged();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 兑换物品视图模型
+    /// </summary>
+    internal class ExchangeItemViewModel : ViewModelBase
+    {
+        private string _title;
+        private int _currentCount;
+        private int _totalCount;
+        private ImageSource _itemImage;
+        private string _highlightText; // 用于高亮的关键字
+
+        /// <summary>
+        /// 兑换物品标题
+        /// </summary>
+        public string Title
+        {
+            get => _title;
+            set 
+            { 
+                _title = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 当前计数
+        /// </summary>
+        public int CurrentCount
+        {
+            get => _currentCount;
+            set 
+            { 
+                _currentCount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 总计数
+        /// </summary>
+        public int TotalCount
+        {
+            get => _totalCount;
+            set 
+            { 
+                _totalCount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 兑换物品图片
+        /// </summary>
+        public ImageSource ItemImage
+        {
+            get => _itemImage;
+            set 
+            { 
+                _itemImage = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 高亮文本（用于高亮标题中的关键字）
+        /// </summary>
+        public string HighlightText
+        {
+            get => _highlightText;
+            set 
+            { 
+                _highlightText = value;
                 RaisePropertyChanged();
             }
         }

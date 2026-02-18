@@ -43,6 +43,9 @@ namespace NarakaBladepoint.Resources
         // TimeLimitedEvent Images2: image/region/eventcenter/timelimitedevent/images2/*.png
         private static readonly List<ImageSource> _timeLimitedEventImages2 = new();
 
+        // TimeLimitedEvent Images3: image/region/eventcenter/timelimitedevent/images3/*.png
+        private static readonly List<ImageSource> _timeLimitedEventImages3 = new();
+
         // Store 相关：image/store/overview/*.png
         private static readonly List<ImageSource> _storeOverviewImages = new();
         // Store Daily 道具：image/store/daily/prop/*.png
@@ -418,6 +421,20 @@ namespace NarakaBladepoint.Resources
                         catch { }
                     }
                 }
+
+                // ===================== TimeLimitedEvent Images3 =====================
+                if (key.StartsWith("image/region/eventcenter/timelimitedevent/images3/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/region/eventcenter/timelimitedevent/images3/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _timeLimitedEventImages3.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
             }
 
             // ===================== Map 最终配对 =====================
@@ -750,6 +767,25 @@ namespace NarakaBladepoint.Resources
         /// 获取时间限制事件 Images2 图片总数
         /// </summary>
         public static int TimeLimitedEventImages2Count => _timeLimitedEventImages2.Count;
+
+        // ===================== TimeLimitedEvent Images3 API =====================
+
+        /// <summary>
+        /// 获取时间限制事件 Images3 图片（按文件名数字顺序 1.png, 2.png, ...）
+        /// </summary>
+        public static ImageSource GetTimeLimitedEventImages3(int index) =>
+            index >= 0 && index < _timeLimitedEventImages3.Count ? _timeLimitedEventImages3[index] : null;
+
+        /// <summary>
+        /// 获取所有时间限制事件 Images3 图片列表
+        /// </summary>
+        public static IReadOnlyList<ImageSource> GetAllTimeLimitedEventImages3() =>
+            _timeLimitedEventImages3.AsReadOnly();
+
+        /// <summary>
+        /// 获取时间限制事件 Images3 图片总数
+        /// </summary>
+        public static int TimeLimitedEventImages3Count => _timeLimitedEventImages3.Count;
     }
 }
 

@@ -183,11 +183,82 @@
                                 </ScrollViewer>
                             </controls:ImageTextTabItem>
                             <controls:ImageTextTabItem
+                                Name="itemscontrols2"
                                 Width="150"
                                 HorizontalContentAlignment="Center"
+                                d:IsSelected="True"
                                 Background="{StaticResource DefaultTransientBlackBackground5}"
                                 ContentMargin="0,0,30,0"
-                                Text="兑换" />
+                                Text="兑换">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                                    <ItemsControl d:ItemsSource="{d:SampleData ItemCount=20}" ItemsSource="{Binding ExchangeItems}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel HorizontalAlignment="Left" Orientation="Vertical" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,5" Background="{StaticResource DefaultTransientBlackBackground5}">
+                                                    <Grid
+                                                        Width="420"
+                                                        Height="50"
+                                                        Margin="10">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto" />
+                                                            <RowDefinition Height="8" />
+                                                        </Grid.RowDefinitions>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition />
+                                                                <ColumnDefinition Width="80" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                attach:TextBlockHighlightAttachedProperty.HighlightText="{Binding HighlightText}"
+                                                                FontSize="11"
+                                                                Foreground="#CCCCCC"
+                                                                Text="{Binding Title}"
+                                                                TextWrapping="Wrap" />
+                                                            <StackPanel
+                                                                Grid.Column="1"
+                                                                Margin="10,0,0,0"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Orientation="Horizontal">
+                                                                <TextBlock
+                                                                    VerticalAlignment="Center"
+                                                                    FontSize="11"
+                                                                    Foreground="#CCCCCC">
+                                                                    <Run Text="{Binding CurrentCount}" />
+                                                                    <Run Text="/" />
+                                                                    <Run Text="{Binding TotalCount}" />
+                                                                </TextBlock>
+                                                                <controls:HighlightBorder Margin="10,0,0,0">
+                                                                    <Image
+                                                                        Width="30"
+                                                                        Height="30"
+                                                                        Source="{Binding ItemImage}"
+                                                                        Stretch="UniformToFill" />
+                                                                </controls:HighlightBorder>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                        <ProgressBar
+                                                            Grid.Row="1"
+                                                            Margin="0,5,0,0"
+                                                            Background="Gray"
+                                                            BorderThickness="0"
+                                                            Foreground="{StaticResource DefaultOrangeBrush}"
+                                                            Maximum="{Binding TotalCount}"
+                                                            Value="{Binding CurrentCount}" />
+                                                    </Grid>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </controls:ImageTextTabItem>
                         </TabControl>
                     </Grid>
                 </Grid>
