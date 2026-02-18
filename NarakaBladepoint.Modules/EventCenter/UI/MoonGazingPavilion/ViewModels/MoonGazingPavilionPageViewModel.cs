@@ -1,7 +1,29 @@
-﻿namespace NarakaBladepoint.Modules.EventCenter.UI.MoonGazingPavilion.ViewModels
+﻿using System.Windows.Media.Imaging;
+using NarakaBladepoint.Framework.Core.Bases.ViewModels;
+using NarakaBladepoint.Framework.Core.Infrastructure;
+using NarakaBladepoint.Resources;
+
+namespace NarakaBladepoint.Modules.EventCenter.UI.MoonGazingPavilion.ViewModels
 {
-    internal class MoonGazingPavilionPageViewModel : ViewModelBase
+    internal class MoonGazingPavilionPageViewModel : CanRemoveMainContentRegionViewModelBase
     {
-        public MoonGazingPavilionPageViewModel() { }
+        private IEnumerable<BitmapImage> _moonGazingPavilionImages;
+
+        public IEnumerable<BitmapImage> MoonGazingPavilionImages
+        {
+            get => _moonGazingPavilionImages;
+            set => SetProperty(ref _moonGazingPavilionImages, value);
+        }
+
+        public MoonGazingPavilionPageViewModel()
+        {
+            LoadMoonGazingPavilionImages();
+        }
+
+        private void LoadMoonGazingPavilionImages()
+        {
+            var images = ResourceImageReader.GetAllMoonGazingPavilionImages();
+            MoonGazingPavilionImages = images.Cast<BitmapImage>().ToList();
+        }
     }
 }

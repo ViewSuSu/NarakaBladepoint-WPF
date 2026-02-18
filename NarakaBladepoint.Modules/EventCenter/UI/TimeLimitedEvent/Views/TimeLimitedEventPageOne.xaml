@@ -94,6 +94,10 @@
                 </Style.Triggers>
             </Style>
         </Grid.Style>
+        <controls:EscBackControl
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ReturnCommand}" />
         <TabControl
             x:Name="tabControl"
             Grid.Column="0"

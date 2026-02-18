@@ -241,6 +241,9 @@
     <BitmapImage x:Key="LatestNews4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/4.png" />
     <BitmapImage x:Key="LatestNews5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LatestNews/5.png" />
 
+    <!--  MoonGazingPavilion (LanYueGe) Images  -->
+    <BitmapImage x:Key="MoonGazingPavilionBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Background1.png" />
+
     <!--  Day Event Images  -->
     <BitmapImage x:Key="TaskDetailsImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/任务详情.png" />
     <BitmapImage x:Key="DailyTaskBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务背景1.png" />

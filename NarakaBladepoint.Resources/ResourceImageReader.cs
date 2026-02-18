@@ -58,6 +58,9 @@ namespace NarakaBladepoint.Resources
         // Store HeroTag Images: Key = Tag Index (1-6), Value = List of images in that tag folder
         private static readonly Dictionary<int, List<ImageSource>> _storeHeroTagImages = new();
 
+        // MoonGazingPavilion (LanYueGe) Images: image/region/eventcenter/lanyuege/images/*.png
+        private static readonly List<ImageSource> _moonGazingPavilionImages = new();
+
         // Tournament Champion Images: image/personalinfodetails/leaderboard/champions/*.png
         private static readonly List<ImageSource> _tournamentChampionImages = new();
 
@@ -389,6 +392,20 @@ namespace NarakaBladepoint.Resources
                         try
                         {
                             _tournamentChampionImages.Add(LoadBitmapFromResource(assembly, key));
+                        }
+                        catch { }
+                    }
+                }
+
+                // ===================== MoonGazingPavilion (LanYueGe) Images =====================
+                if (key.StartsWith("image/region/eventcenter/lanyuege/images/") && key.EndsWith(".png"))
+                {
+                    var relative = key["image/region/eventcenter/lanyuege/images/".Length..];
+                    if (!relative.Contains("/"))
+                    {
+                        try
+                        {
+                            _moonGazingPavilionImages.Add(LoadBitmapFromResource(assembly, key));
                         }
                         catch { }
                     }
@@ -786,6 +803,25 @@ namespace NarakaBladepoint.Resources
         /// 获取时间限制事件 Images3 图片总数
         /// </summary>
         public static int TimeLimitedEventImages3Count => _timeLimitedEventImages3.Count;
+
+        // ===================== MoonGazingPavilion (LanYueGe) API =====================
+
+        /// <summary>
+        /// 获取揽月阁图片（按文件名数字顺序 1.png, 2.png, ...）
+        /// </summary>
+        public static ImageSource GetMoonGazingPavilionImage(int index) =>
+            index >= 0 && index < _moonGazingPavilionImages.Count ? _moonGazingPavilionImages[index] : null;
+
+        /// <summary>
+        /// 获取所有揽月阁图片列表
+        /// </summary>
+        public static IReadOnlyList<ImageSource> GetAllMoonGazingPavilionImages() =>
+            _moonGazingPavilionImages.AsReadOnly();
+
+        /// <summary>
+        /// 获取揽月阁图片总数
+        /// </summary>
+        public static int MoonGazingPavilionCount => _moonGazingPavilionImages.Count;
     }
 }
 

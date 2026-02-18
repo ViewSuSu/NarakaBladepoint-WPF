@@ -37,4 +37,13 @@
 	<Folder Include="BattlePass\UI\BattlePass\Converters\" />
   </ItemGroup>
 
+
+
+
+  <ItemGroup>
+    <Compile Update="EventCenter\UI\MoonGazingPavilion\Views\MoonGazingPavilionPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@ using Prism.Commands;
 
 namespace NarakaBladepoint.Modules.EventCenter.UI.TimeLimitedEvent.ViewModels
 {
-    internal class TimeLimitedEventPageOneViewModel : ViewModelBase
+    internal class TimeLimitedEventPageOneViewModel : CanRemoveMainContentRegionViewModelBase
     {
         private ObservableCollection<RewardItemViewModel> _rewardItems;
         private ObservableCollection<TaskItemViewModel> _taskItems;

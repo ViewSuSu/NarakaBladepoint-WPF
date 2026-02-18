@@ -71,9 +71,6 @@
     <Compile Update="EventCenter\UI\LatestNews\Views\LatestNewsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EventCenter\UI\MoonGazingPavilion\Views\MoonGazingPavilionPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="EventCenter\UI\NetEasePayRewards\Views\NetEasePayRewardsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
