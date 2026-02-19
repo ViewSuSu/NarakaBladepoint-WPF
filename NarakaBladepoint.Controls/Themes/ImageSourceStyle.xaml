@@ -251,6 +251,42 @@
     <BitmapImage x:Key="MoonGazingPavilionIcon6Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon6.png" />
     <BitmapImage x:Key="MoonGazingPavilionIcon7Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon7.png" />
 
+    <!--  BindReward Background Images  -->
+    <BitmapImage x:Key="BindRewardBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background1.png" />
+    <BitmapImage x:Key="BindRewardBackground2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background2.png" />
+    <BitmapImage x:Key="BindRewardBackground3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background3.png" />
+    <BitmapImage x:Key="BindRewardBackground4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background4.png" />
+    <BitmapImage x:Key="BindRewardBackground5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background5.png" />
+    <BitmapImage x:Key="BindRewardBackground6Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background6.png" />
+    <BitmapImage x:Key="BindRewardBackground7Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background7.png" />
+    <BitmapImage x:Key="BindRewardBackground8Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background8.png" />
+    <BitmapImage x:Key="BindRewardBackground9Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Background9.png" />
+
+    <!--  BindReward Reward Images  -->
+    <BitmapImage x:Key="BindRewardRewardImage1" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images1/1.png" />
+    <BitmapImage x:Key="BindRewardRewardImage2" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images1/2.png" />
+    <BitmapImage x:Key="BindRewardRewardImage3" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images1/3.png" />
+
+    <!--  BindReward Reward Images2  -->
+    <BitmapImage x:Key="BindRewardRewardImage2_1" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images2/1.png" />
+    <BitmapImage x:Key="BindRewardRewardImage2_2" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images2/2.png" />
+    <BitmapImage x:Key="BindRewardRewardImage2_3" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images2/3.png" />
+
+    <!--  BindReward Reward Images3  -->
+    <BitmapImage x:Key="BindRewardRewardImage3_1" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images3/1.png" />
+    <BitmapImage x:Key="BindRewardRewardImage3_2" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images3/2.png" />
+    <BitmapImage x:Key="BindRewardRewardImage3_3" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images3/3.png" />
+
+    <!--  BindReward Reward Images4  -->
+    <BitmapImage x:Key="BindRewardRewardImage4_1" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images4/1.png" />
+    <BitmapImage x:Key="BindRewardRewardImage4_2" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images4/2.png" />
+
+    <!--  BindReward Reward Images5  -->
+    <BitmapImage x:Key="BindRewardRewardImage5_1" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images5/1.png" />
+    <BitmapImage x:Key="BindRewardRewardImage5_2" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images5/2.png" />
+    <BitmapImage x:Key="BindRewardRewardImage5_3" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images5/3.png" />
+    <BitmapImage x:Key="BindRewardRewardImage5_4" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/BindReward/Images5/4.png" />
+
     <!--  Day Event Images  -->
     <BitmapImage x:Key="TaskDetailsImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/任务详情.png" />
     <BitmapImage x:Key="DailyTaskBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/每日任务背景1.png" />

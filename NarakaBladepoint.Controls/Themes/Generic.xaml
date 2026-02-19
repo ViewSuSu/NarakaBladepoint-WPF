@@ -347,26 +347,24 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Grid>
-                        <Grid Margin="{Binding ContentMargin, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}" HorizontalAlignment="{Binding ContentHorizontalAlignment, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Grid.Column="0"
-                                Width="{Binding ImageWidth, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}"
-                                Height="{Binding ImageHeight, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}"
-                                Margin="0,0,2,0"
-                                VerticalAlignment="Center"
-                                Source="{Binding ImageSource, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}" />
-                            <TextBlock
-                                Grid.Column="1"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}"
-                                Text="{Binding Text, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}" />
-                        </Grid>
+                    <Grid Margin="{Binding ContentMargin, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}" HorizontalAlignment="{Binding ContentHorizontalAlignment, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Width="{Binding ImageWidth, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}"
+                            Height="{Binding ImageHeight, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}"
+                            Margin="0,0,2,0"
+                            VerticalAlignment="Center"
+                            Source="{Binding ImageSource, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}"
+                            Text="{Binding Text, RelativeSource={RelativeSource AncestorType=local:ImageTextTabItem}}" />
                     </Grid>
                 </DataTemplate>
             </Setter.Value>

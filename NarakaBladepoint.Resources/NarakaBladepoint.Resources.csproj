@@ -351,6 +351,30 @@
 	  <None Remove="Image\Region\3.png" />
 	  <None Remove="Image\Region\4.png" />
 	  <None Remove="Image\Region\5.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background3.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background4.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background5.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background6.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background7.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background8.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Background9.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images1\1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images1\2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images1\3.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images2\1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images2\2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images2\3.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images3\1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images3\2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images3\3.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images4\1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images4\2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images5\1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images5\2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images5\3.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images5\4.png" />
 	  <None Remove="Image\Region\EventCenter\LanYueGe\Background1.png" />
 	  <None Remove="Image\Region\EventCenter\LanYueGe\Icon1.png" />
 	  <None Remove="Image\Region\EventCenter\LanYueGe\Icon2.png" />
@@ -768,6 +792,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background3.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background4.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background5.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background6.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background7.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background8.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Background9.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images1\1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images1\2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images1\3.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images2\1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images2\2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images2\3.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images3\1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images3\2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images3\3.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images4\1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images4\2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\3.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\4.png" />
 	  <Resource Include="Image\Region\EventCenter\LanYueGe\Icon7.png" />
 	</ItemGroup>
 
