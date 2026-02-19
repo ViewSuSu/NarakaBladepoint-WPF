@@ -58,9 +58,9 @@
                 Orientation="Vertical">
                 <controls:HighlightBorder
                     Height="45"
+                    attachedProperties:MouseLeftClickBehavior.Command="{Binding SelectPropCommand}"
                     Background="{StaticResource DefaultTransientBlackBackground2}"
-                    EnableMaskOnHover="True"
-                    attachedProperties:MouseLeftClickBehavior.Command="{Binding SelectPropCommand}">
+                    EnableMaskOnHover="True">
                     <TextBlock
                         Margin="30,0,0,0"
                         VerticalAlignment="Center"
@@ -71,9 +71,9 @@
                 <controls:HighlightBorder
                     Height="45"
                     Margin="0,5,0,0"
+                    attachedProperties:MouseLeftClickBehavior.Command="{Binding SelectHuanSiCommand}"
                     Background="{StaticResource DefaultTransientBlackBackground2}"
-                    EnableMaskOnHover="True"
-                    attachedProperties:MouseLeftClickBehavior.Command="{Binding SelectHuanSiCommand}">
+                    EnableMaskOnHover="True">
                     <TextBlock
                         Margin="30,0,0,0"
                         VerticalAlignment="Center"
@@ -84,9 +84,9 @@
                 <controls:HighlightBorder
                     Height="45"
                     Margin="0,5,0,0"
+                    attachedProperties:MouseLeftClickBehavior.Command="{Binding SelectGiftCommand}"
                     Background="{StaticResource DefaultTransientBlackBackground2}"
-                    EnableMaskOnHover="True"
-                    attachedProperties:MouseLeftClickBehavior.Command="{Binding SelectGiftCommand}">
+                    EnableMaskOnHover="True">
                     <TextBlock
                         Margin="30,0,0,0"
                         VerticalAlignment="Center"
