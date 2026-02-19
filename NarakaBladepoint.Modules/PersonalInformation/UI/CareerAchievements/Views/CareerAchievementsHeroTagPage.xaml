@@ -59,7 +59,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding AllItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -87,7 +87,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding PersonalItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -115,7 +115,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding CombatItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -143,7 +143,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding ExplorationItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -171,7 +171,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding DivineRoadItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -199,7 +199,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding EntertainmentItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -227,7 +227,7 @@
                     <ItemsControl d:ItemsSource="{d:SampleData ItemCount=25}" ItemsSource="{Binding LimitedItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemWidth="135" />
+                                <UniformGrid Columns="5" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>

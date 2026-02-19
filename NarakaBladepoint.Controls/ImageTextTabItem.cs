@@ -161,6 +161,36 @@ namespace NarakaBladepoint.Controls
                 new PropertyMetadata(new SolidColorBrush(Colors.Transparent))
             );
 
+        public bool ShowSelectedBorder
+        {
+            get { return (bool)GetValue(ShowSelectedBorderProperty); }
+            set { SetValue(ShowSelectedBorderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowSelectedBorder.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowSelectedBorderProperty =
+            DependencyProperty.Register(
+                nameof(ShowSelectedBorder),
+                typeof(bool),
+                typeof(ImageTextTabItem),
+                new PropertyMetadata(false)
+            );
+
+        public bool ShowMouseOverBorder
+        {
+            get { return (bool)GetValue(ShowMouseOverBorderProperty); }
+            set { SetValue(ShowMouseOverBorderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowMouseOverBorder.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowMouseOverBorderProperty =
+            DependencyProperty.Register(
+                nameof(ShowMouseOverBorder),
+                typeof(bool),
+                typeof(ImageTextTabItem),
+                new PropertyMetadata(false)
+            );
+
         #endregion 依赖属性
     }
 }

@@ -56,6 +56,8 @@
 	  <None Remove="Image\background3.png" />
 	  <None Remove="Image\background4.png" />
 	  <None Remove="Image\background5.png" />
+	  <None Remove="Image\background6.png" />
+	  <None Remove="Image\background7.png" />
 	  <None Remove="Image\Baize\1.png" />
 	  <None Remove="Image\Baize\10.png" />
 	  <None Remove="Image\Baize\11.png" />
@@ -100,6 +102,8 @@
 	  <None Remove="Image\Button\白泽百科.png" />
 	  <None Remove="Image\Button\赛事.png" />
 	  <None Remove="Image\Button\露华集市.png" />
+	  <None Remove="Image\CustomControls\1.png" />
+	  <None Remove="Image\CustomControls\2.png" />
 	  <None Remove="Image\CustomMatch\1.png" />
 	  <None Remove="Image\CustomMatch\2.png" />
 	  <None Remove="Image\CustomMatch\3.png" />
@@ -110,6 +114,15 @@
 	  <None Remove="Image\Email\5.png" />
 	  <None Remove="Image\Email\Icon.png" />
 	  <None Remove="Image\friendInv.png" />
+	  <None Remove="Image\GuildHall\1.png" />
+	  <None Remove="Image\GuildHall\2.png" />
+	  <None Remove="Image\GuildHall\3.png" />
+	  <None Remove="Image\GuildHall\Background1.png" />
+	  <None Remove="Image\GuildHall\Background2.png" />
+	  <None Remove="Image\GuildHall\Icon1.png" />
+	  <None Remove="Image\GuildHall\Icon2.png" />
+	  <None Remove="Image\GuildHall\Image1.png" />
+	  <None Remove="Image\GuildHall\Image2.png" />
 	  <None Remove="Image\HeroData\1.png" />
 	  <None Remove="Image\HeroData\2.png" />
 	  <None Remove="Image\HeroData\3.png" />
@@ -375,6 +388,9 @@
 	  <None Remove="Image\Region\EventCenter\BindReward\Images5\2.png" />
 	  <None Remove="Image\Region\EventCenter\BindReward\Images5\3.png" />
 	  <None Remove="Image\Region\EventCenter\BindReward\Images5\4.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images6\1.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images6\2.png" />
+	  <None Remove="Image\Region\EventCenter\BindReward\Images6\3.png" />
 	  <None Remove="Image\Region\EventCenter\LanYueGe\Background1.png" />
 	  <None Remove="Image\Region\EventCenter\LanYueGe\Icon1.png" />
 	  <None Remove="Image\Region\EventCenter\LanYueGe\Icon2.png" />
@@ -792,6 +808,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\background6.png" />
+	  <Resource Include="Image\background7.png" />
+	  <Resource Include="Image\CustomControls\1.png" />
+	  <Resource Include="Image\CustomControls\2.png" />
+	  <Resource Include="Image\GuildHall\1.png" />
+	  <Resource Include="Image\GuildHall\2.png" />
+	  <Resource Include="Image\GuildHall\3.png" />
+	  <Resource Include="Image\GuildHall\Background1.png" />
+	  <Resource Include="Image\GuildHall\Background2.png" />
+	  <Resource Include="Image\GuildHall\Icon1.png" />
+	  <Resource Include="Image\GuildHall\Icon2.png" />
+	  <Resource Include="Image\GuildHall\Image1.png" />
+	  <Resource Include="Image\GuildHall\Image2.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Background1.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Background2.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Background3.png" />
@@ -816,6 +845,9 @@
 	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\2.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\3.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Images5\4.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images6\1.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images6\2.png" />
+	  <Resource Include="Image\Region\EventCenter\BindReward\Images6\3.png" />
 	  <Resource Include="Image\Region\EventCenter\LanYueGe\Icon7.png" />
 	</ItemGroup>
 

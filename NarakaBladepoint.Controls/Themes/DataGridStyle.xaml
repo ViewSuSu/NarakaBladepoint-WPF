@@ -42,6 +42,30 @@ xmlns:converters="clr-namespace:NarakaBladepoint.Controls.Converters">
         </Setter>
     </Style>
 
+    <!--  Transparent DataGrid Column Header Style 2
+         特点：文本左对齐，头之间无间距
+    -->
+    <Style x:Key="TransparentDataGridColumnHeaderStyle2" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="8,0,0,0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridColumnHeader">
+                    <Border Background="{TemplateBinding Background}" Margin="{TemplateBinding Margin}">
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="TransparentDataGridStyle" TargetType="DataGrid">
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource TransparentDataGridColumnHeaderStyle}" />
         <Setter Property="Background" Value="Transparent" />

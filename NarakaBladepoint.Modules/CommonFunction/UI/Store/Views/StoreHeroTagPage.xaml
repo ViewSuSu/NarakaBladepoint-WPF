@@ -30,7 +30,10 @@
             </Style.Triggers>
         </Style>
     </views:UserControlBase.Resources>
-    <Grid d:Background="{StaticResource Background2}">
+    <Grid Name="grid">
+        <Grid.Background>
+            <ImageBrush ImageSource="{StaticResource StoreHeroTagPageBackground}" />
+        </Grid.Background>
         <Grid Margin="50,0,50,120">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
@@ -45,6 +48,18 @@
                     Margin="0,0,15,0"
                     ItemsSource="{Binding QualityList}"
                     SelectedIndex="{Binding SelectedQualityIndex}" />
+                <StackPanel
+                    Height="30"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Background="{StaticResource DefaultTransientBlackBackground3}"
+                    Orientation="Horizontal">
+                    <Image Width="30" Source="{StaticResource HuanSiImage}" />
+                    <TextBlock
+                        Margin="0,0,5,0"
+                        VerticalAlignment="Center"
+                        Text="666550" />
+                </StackPanel>
             </StackPanel>
 
             <!--  Main content grid  -->
@@ -61,184 +76,168 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <!--  Scrollable tag list  -->
-                    <ScrollViewer Margin="0,0,0,10" VerticalScrollBarVisibility="Auto">
-                        <StackPanel Name="stackpanel" Orientation="Vertical">
-                            <controls:HighlightBorder
-                                Height="45"
-                                Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2"
-                                EnableMaskOnHover="True">
-                                <controls:HighlightBorder.Style>
-                                    <Style TargetType="controls:HighlightBorder">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="1">
-                                                <Setter Property="BorderBrush" Value="White" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </controls:HighlightBorder.Style>
-                                <TextBlock
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Text="壹·青空阁" />
-                                <controls:HighlightBorder.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding SelectTagCommand}"
-                                        CommandParameter="1"
-                                        MouseAction="LeftClick" />
-                                </controls:HighlightBorder.InputBindings>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Height="45"
-                                Margin="0,8,0,0"
-                                Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2"
-                                EnableMaskOnHover="True">
-                                <controls:HighlightBorder.Style>
-                                    <Style TargetType="controls:HighlightBorder">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="2">
-                                                <Setter Property="BorderBrush" Value="White" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </controls:HighlightBorder.Style>
-                                <TextBlock
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Text="贰·蓝蔚阁" />
-                                <controls:HighlightBorder.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding SelectTagCommand}"
-                                        CommandParameter="2"
-                                        MouseAction="LeftClick" />
-                                </controls:HighlightBorder.InputBindings>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Height="45"
-                                Margin="0,8,0,0"
-                                Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2"
-                                EnableMaskOnHover="True">
-                                <controls:HighlightBorder.Style>
-                                    <Style TargetType="controls:HighlightBorder">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="3">
-                                                <Setter Property="BorderBrush" Value="White" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </controls:HighlightBorder.Style>
-                                <TextBlock
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Text="叁·碧天阁" />
-                                <controls:HighlightBorder.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding SelectTagCommand}"
-                                        CommandParameter="3"
-                                        MouseAction="LeftClick" />
-                                </controls:HighlightBorder.InputBindings>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Height="45"
-                                Margin="0,8,0,0"
-                                Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2"
-                                EnableMaskOnHover="True">
-                                <controls:HighlightBorder.Style>
-                                    <Style TargetType="controls:HighlightBorder">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="4">
-                                                <Setter Property="BorderBrush" Value="White" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </controls:HighlightBorder.Style>
-                                <TextBlock
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Text="肆·赤霞阁" />
-                                <controls:HighlightBorder.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding SelectTagCommand}"
-                                        CommandParameter="4"
-                                        MouseAction="LeftClick" />
-                                </controls:HighlightBorder.InputBindings>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Height="45"
-                                Margin="0,8,0,0"
-                                Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2"
-                                EnableMaskOnHover="True">
-                                <controls:HighlightBorder.Style>
-                                    <Style TargetType="controls:HighlightBorder">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="5">
-                                                <Setter Property="BorderBrush" Value="White" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </controls:HighlightBorder.Style>
-                                <TextBlock
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Text="伍·橙云阁" />
-                                <controls:HighlightBorder.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding SelectTagCommand}"
-                                        CommandParameter="5"
-                                        MouseAction="LeftClick" />
-                                </controls:HighlightBorder.InputBindings>
-                            </controls:HighlightBorder>
-                            <controls:HighlightBorder
-                                Height="45"
-                                Margin="0,8,0,0"
-                                Background="{StaticResource DefaultTransientBlackBackground2}"
-                                BorderThickness="2"
-                                EnableMaskOnHover="True">
-                                <controls:HighlightBorder.Style>
-                                    <Style TargetType="controls:HighlightBorder">
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="6">
-                                                <Setter Property="BorderBrush" Value="White" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </controls:HighlightBorder.Style>
-                                <TextBlock
-                                    Margin="15,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    Foreground="White"
-                                    Text="陆·紫冥阁" />
-                                <controls:HighlightBorder.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding SelectTagCommand}"
-                                        CommandParameter="6"
-                                        MouseAction="LeftClick" />
-                                </controls:HighlightBorder.InputBindings>
-                            </controls:HighlightBorder>
-                        </StackPanel>
-                    </ScrollViewer>
+                    <TabControl
+                        Background="Transparent"
+                        SelectedIndex="{Binding SelectedTagIndex}"
+                        TabStripPlacement="Left">
+                        <controls:ImageTextTabItem
+                            Name="tabitem1"
+                            Width="200"
+                            Height="45"
+                            SelectedBackground="{StaticResource DefaultTransientBlackBackground3}"
+                            ShowMouseOverBorder="True"
+                            ShowSelectedBorder="True"
+                            Text="壹·青空阁">
+                            <controls:ImageTextTabItem.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding SelectTagCommand}"
+                                    CommandParameter="0"
+                                    MouseAction="LeftClick" />
+                            </controls:ImageTextTabItem.InputBindings>
+                            <controls:ImageTextTabItem.Style>
+                                <Style TargetType="controls:ImageTextTabItem">
+                                    <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+
+                                    <Setter Property="ImageSource" Value="{StaticResource SelectableImageUnselected}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="ImageSource" Value="{StaticResource SelectableImageSelected}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </controls:ImageTextTabItem.Style>
+                        </controls:ImageTextTabItem>
+                        <controls:ImageTextTabItem
+                            Name="tabitem2"
+                            Height="45"
+                            SelectedBackground="{StaticResource DefaultTransientBlackBackground3}"
+                            ShowMouseOverBorder="True"
+                            ShowSelectedBorder="True"
+                            Text="贰·蓝蔚阁">
+                            <controls:ImageTextTabItem.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding SelectTagCommand}"
+                                    CommandParameter="1"
+                                    MouseAction="LeftClick" />
+                            </controls:ImageTextTabItem.InputBindings>
+                            <controls:ImageTextTabItem.Style>
+                                <Style TargetType="controls:ImageTextTabItem">
+                                    <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+
+                                    <Setter Property="ImageSource" Value="{StaticResource SelectableImageUnselected}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="ImageSource" Value="{StaticResource SelectableImageSelected}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </controls:ImageTextTabItem.Style>
+                        </controls:ImageTextTabItem>
+                        <controls:ImageTextTabItem
+                            Name="tabitem3"
+                            Height="45"
+                            SelectedBackground="{StaticResource DefaultTransientBlackBackground3}"
+                            ShowMouseOverBorder="True"
+                            ShowSelectedBorder="True"
+                            Text="叁·碧天阁">
+                            <controls:ImageTextTabItem.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding SelectTagCommand}"
+                                    CommandParameter="2"
+                                    MouseAction="LeftClick" />
+                            </controls:ImageTextTabItem.InputBindings>
+                            <controls:ImageTextTabItem.Style>
+                                <Style TargetType="controls:ImageTextTabItem">
+                                    <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+
+                                    <Setter Property="ImageSource" Value="{StaticResource SelectableImageUnselected}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="ImageSource" Value="{StaticResource SelectableImageSelected}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </controls:ImageTextTabItem.Style>
+                        </controls:ImageTextTabItem>
+                        <controls:ImageTextTabItem
+                            Name="tabitem4"
+                            Height="45"
+                            SelectedBackground="{StaticResource DefaultTransientBlackBackground3}"
+                            ShowMouseOverBorder="True"
+                            ShowSelectedBorder="True"
+                            Text="肆·赤霞阁">
+                            <controls:ImageTextTabItem.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding SelectTagCommand}"
+                                    CommandParameter="3"
+                                    MouseAction="LeftClick" />
+                            </controls:ImageTextTabItem.InputBindings>
+                            <controls:ImageTextTabItem.Style>
+                                <Style TargetType="controls:ImageTextTabItem">
+                                    <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+
+                                    <Setter Property="ImageSource" Value="{StaticResource SelectableImageUnselected}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="ImageSource" Value="{StaticResource SelectableImageSelected}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </controls:ImageTextTabItem.Style>
+                        </controls:ImageTextTabItem>
+                        <controls:ImageTextTabItem
+                            Name="tabitem5"
+                            Height="45"
+                            SelectedBackground="{StaticResource DefaultTransientBlackBackground3}"
+                            ShowMouseOverBorder="True"
+                            ShowSelectedBorder="True"
+                            Text="伍·橙云阁">
+                            <controls:ImageTextTabItem.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding SelectTagCommand}"
+                                    CommandParameter="4"
+                                    MouseAction="LeftClick" />
+                            </controls:ImageTextTabItem.InputBindings>
+                            <controls:ImageTextTabItem.Style>
+                                <Style TargetType="controls:ImageTextTabItem">
+                                    <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+
+                                    <Setter Property="ImageSource" Value="{StaticResource SelectableImageUnselected}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="ImageSource" Value="{StaticResource SelectableImageSelected}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </controls:ImageTextTabItem.Style>
+                        </controls:ImageTextTabItem>
+                        <controls:ImageTextTabItem
+                            Name="tabitem6"
+                            Height="45"
+                            SelectedBackground="{StaticResource DefaultTransientBlackBackground3}"
+                            ShowMouseOverBorder="True"
+                            ShowSelectedBorder="True"
+                            Text="陆·紫冥阁">
+                            <controls:ImageTextTabItem.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding SelectTagCommand}"
+                                    CommandParameter="5"
+                                    MouseAction="LeftClick" />
+                            </controls:ImageTextTabItem.InputBindings>
+                            <controls:ImageTextTabItem.Style>
+                                <Style TargetType="controls:ImageTextTabItem">
+                                    <Setter Property="Background" Value="{StaticResource DefaultTransientBlackBackground2}" />
+
+                                    <Setter Property="ImageSource" Value="{StaticResource SelectableImageUnselected}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="ImageSource" Value="{StaticResource SelectableImageSelected}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </controls:ImageTextTabItem.Style>
+                        </controls:ImageTextTabItem>
+                    </TabControl>
 
                     <!--  Bottom button - Fixed position  -->
                     <Button
@@ -256,7 +255,23 @@
                     </Grid.RowDefinitions>
 
                     <!--  Info panel - Aligned with ItemsControl  -->
-                    <Grid Name="infoPanel" Background="{StaticResource HeroTagBackground1Brush}">
+                    <Grid Name="infoPanel">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Background" Value="{StaticResource HeroTagBackground2Brush}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedTagIndex}" Value="0">
+                                        <Setter Property="Background" Value="{StaticResource HeroTagBackground1Brush}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SelectedTagIndex}" Value="1">
+                                        <Setter Property="Background" Value="{StaticResource HeroTagBackground1Brush}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SelectedTagIndex}" Value="2">
+                                        <Setter Property="Background" Value="{StaticResource HeroTagBackground1Brush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.3*" />
                             <ColumnDefinition />
@@ -300,10 +315,39 @@
                                 Grid.Row="1"
                                 Margin="10,0,0,0"
                                 VerticalAlignment="Center"
-                                attach:TextBlockHighlightAttachedProperty.HighlightText="{Binding SelectedHeroTagLevel}"
                                 d:Text="英雄印点数达到50解锁"
-                                Foreground="White"
-                                Text="{Binding SelectedHeroTagLevelText}" />
+                                Foreground="White">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="0">
+                                                <Setter Property="Text" Value="英雄印点数达到50解锁" />
+                                                <Setter Property="attach:TextBlockHighlightAttachedProperty.HighlightText" Value="50" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="1">
+                                                <Setter Property="Text" Value="英雄印点数达到100解锁" />
+                                                <Setter Property="attach:TextBlockHighlightAttachedProperty.HighlightText" Value="100" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="2">
+                                                <Setter Property="Text" Value="英雄印点数达到150解锁" />
+                                                <Setter Property="attach:TextBlockHighlightAttachedProperty.HighlightText" Value="150" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="3">
+                                                <Setter Property="Text" Value="英雄印点数达到200解锁" />
+                                                <Setter Property="attach:TextBlockHighlightAttachedProperty.HighlightText" Value="200" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="4">
+                                                <Setter Property="Text" Value="英雄印点数达到250解锁" />
+                                                <Setter Property="attach:TextBlockHighlightAttachedProperty.HighlightText" Value="250" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedTagIndex}" Value="5">
+                                                <Setter Property="Text" Value="英雄印点数达到300解锁" />
+                                                <Setter Property="attach:TextBlockHighlightAttachedProperty.HighlightText" Value="300" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
                     </Grid>
 

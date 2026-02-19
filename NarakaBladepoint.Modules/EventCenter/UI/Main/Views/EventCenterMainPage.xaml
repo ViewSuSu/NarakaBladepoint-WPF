@@ -59,13 +59,6 @@
                     </Style>
                 </TabControl.Resources>
                 <TabItem
-                    Width="100"
-                    VerticalAlignment="Center"
-                    d:IsSelected="True"
-                    Background="Transparent"
-                    Header=""
-                    Visibility="Hidden" />
-                <TabItem
                     VerticalAlignment="Center"
                     d:IsSelected="True"
                     Background="Transparent"

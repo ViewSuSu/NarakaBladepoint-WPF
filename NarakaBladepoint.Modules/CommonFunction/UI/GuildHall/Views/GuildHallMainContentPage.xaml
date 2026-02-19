@@ -48,7 +48,7 @@
                     Background="{StaticResource DefaultTransientBlackBackground5}"
                     Header="聚义庆典"
                     Style="{StaticResource CommonFunctionTabItem}">
-                    <local:GuildHallEventPage Margin="15" />
+                    <local:GuildHallEventPage />
                 </TabItem>
             </TabControl>
         </Grid>

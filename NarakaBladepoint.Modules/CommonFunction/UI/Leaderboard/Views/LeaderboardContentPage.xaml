@@ -29,6 +29,7 @@
                 <TabItem Header="单人模式" Style="{StaticResource CommonFunctionTabItem2}">
                     <TabItem.Content>
                         <DataGrid
+                            Name="datagrid1"
                             d:ItemsSource="{d:SampleData ItemCount=5}"
                             AutoGenerateColumns="False"
                             ColumnHeaderHeight="30"

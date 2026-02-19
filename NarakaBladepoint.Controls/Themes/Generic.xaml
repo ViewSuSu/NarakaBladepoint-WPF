@@ -390,7 +390,6 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="PART_Border" Property="Background" Value="{Binding SelectedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{Binding IsSelectedHilgihtBoder, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BoolToTransparentBrushConverter}}" />
                             <Setter TargetName="PART_Border" Property="BorderThickness" Value="1" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False">
@@ -408,5 +407,36 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="True" />
+                    <Condition Property="ShowSelectedBorder" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="BorderThickness" Value="1" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="True" />
+                    <Condition Property="ShowSelectedBorder" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="ShowMouseOverBorder" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="BorderThickness" Value="1" />
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  HeroTagSelectableImage Style  -->
+    <Style TargetType="{x:Type local:HeroTagSelectableImage}">
+        <Setter Property="Stretch" Value="UniformToFill" />
     </Style>
 </ResourceDictionary>

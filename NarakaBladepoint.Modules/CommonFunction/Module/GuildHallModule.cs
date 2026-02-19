@@ -15,15 +15,15 @@ namespace NarakaBladepoint.Modules.CommonFunction.Module
         {
             // 注册聚义厅主内容页
             containerRegistry.RegisterForNavigation<GuildHallMainContentPage, GuildHallMainContentPageViewModel>();
-            
+
             // 注册聚义厅主页
             containerRegistry.RegisterForNavigation<GuildHallPage, GuildHallPageViewModel>();
-            
+
             // 注册聚义厅商店页
-            containerRegistry.RegisterForNavigation<GuildHallStorePage>();
-            
+            containerRegistry.RegisterForNavigation<GuildHallStorePage, GuildHallStorePageViewModel>();
+
             // 注册聚义厅活动页
-            containerRegistry.RegisterForNavigation<GuildHallEventPage>();
+            containerRegistry.RegisterForNavigation<GuildHallEventPage, GuildHallEventPageViewModel>();
         }
     }
 }
