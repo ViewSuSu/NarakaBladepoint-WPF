@@ -13,7 +13,6 @@
     d:DesignWidth="1280"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Background2}">
-        <controls:EscBackControl HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         <Grid Margin="30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

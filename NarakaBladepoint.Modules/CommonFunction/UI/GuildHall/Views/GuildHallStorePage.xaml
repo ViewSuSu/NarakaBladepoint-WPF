@@ -15,7 +15,5 @@
         <Grid.Background>
             <ImageBrush ImageSource="{StaticResource GuildHallBackground1}" />
         </Grid.Background>
-        <controls:EscBackControl HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-  
     </Grid>
 </views:UserControlBase>

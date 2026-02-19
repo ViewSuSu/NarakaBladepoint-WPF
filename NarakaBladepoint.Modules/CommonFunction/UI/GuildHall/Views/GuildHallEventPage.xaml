@@ -15,7 +15,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="{StaticResource GuildHallBackground2}" />
         </Grid.Background>
-        <controls:EscBackControl HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         <Grid Margin="50,100">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
