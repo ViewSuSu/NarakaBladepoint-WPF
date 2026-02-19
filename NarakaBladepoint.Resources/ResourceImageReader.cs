@@ -79,6 +79,9 @@ namespace NarakaBladepoint.Resources
             var mapStaticTemp = new Dictionary<string, ImageSource>();
             var mapGifTemp = new Dictionary<string, ImageSource>();
 
+            // 临时缓存 MoonGazingPavilion（按数字索引）
+            var moonGazingPavilionTemp = new Dictionary<int, ImageSource>();
+
             foreach (DictionaryEntry entry in reader)
             {
                 if (entry.Key is not string key)
@@ -403,11 +406,15 @@ namespace NarakaBladepoint.Resources
                     var relative = key["image/region/eventcenter/lanyuege/images/".Length..];
                     if (!relative.Contains("/"))
                     {
-                        try
+                        var fileNameWithoutExtension = relative[..^4]; // 去掉 .png
+                        if (int.TryParse(fileNameWithoutExtension, out var index))
                         {
-                            _moonGazingPavilionImages.Add(LoadBitmapFromResource(assembly, key));
+                            try
+                            {
+                                moonGazingPavilionTemp[index] = LoadBitmapFromResource(assembly, key);
+                            }
+                            catch { }
                         }
-                        catch { }
                     }
                 }
 
@@ -459,6 +466,12 @@ namespace NarakaBladepoint.Resources
             {
                 mapGifTemp.TryGetValue(mapKey, out var gifImage);
                 _mapImagePairs[mapImage] = gifImage; // Gif 可以为 null
+            }
+
+            // ===================== MoonGazingPavilion 最终排序 =====================
+            foreach (var index in moonGazingPavilionTemp.Keys.OrderBy(k => k))
+            {
+                _moonGazingPavilionImages.Add(moonGazingPavilionTemp[index]);
             }
         }
 

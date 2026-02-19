@@ -17,28 +17,125 @@
             <ImageBrush ImageSource="{StaticResource MoonGazingPavilionBackground1Image}" />
         </Grid.Background>
         <Grid Margin="50,30">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.75*" />
-                <ColumnDefinition />
-                <ColumnDefinition Width="0.75*" />
-            </Grid.ColumnDefinitions>
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.75*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="65" />
                     <RowDefinition Height="40" />
                     <RowDefinition />
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
-                <TextBlock VerticalAlignment="Center" Text="揽月阁" />
+                <Image
+                    Name="icon1"
+                    Height="30"
+                    HorizontalAlignment="Left"
+                    Source="{StaticResource MoonGazingPavilionIcon5Image}" />
+                <UniformGrid
+                    Grid.Column="2"
+                    Height="25"
+                    VerticalAlignment="Center"
+                    Columns="2">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="{StaticResource MoonGazingPavilionIcon1Image}" />
+                        </Grid.Background>
+                        <TextBlock
+                            Margin="25,0,0,0"
+                            VerticalAlignment="Center"
+                            Text="联动" />
+                    </Grid>
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="{StaticResource MoonGazingPavilionIcon2Image}" />
+                        </Grid.Background>
+                        <TextBlock
+                            Margin="5,0,0,0"
+                            VerticalAlignment="Center"
+                            Text="限售:68天" />
+                    </Grid>
+                </UniformGrid>
                 <TextBlock
                     Grid.Row="1"
                     VerticalAlignment="Center"
                     Style="{StaticResource GrayForegroundTextBlock}"
                     Text="勾选以打开可兑换时的红点提示" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    Text="守望先锋·死神·亮相" />
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    VerticalAlignment="Top">
+                    <TextBlock
+                        FontSize="15"
+                        Foreground="{StaticResource DefaultOrangeBrush}"
+                        Text="姿势·岳山专属" />
+                    <Image
+                        Name="image3"
+                        Height="20"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Left"
+                        Source="{StaticResource MoonGazingPavilionIcon7Image}" />
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <StackPanel HorizontalAlignment="Right">
+                        <Image
+                            Name="icon3"
+                            Width="60"
+                            Height="60"
+                            Source="{StaticResource MoonGazingPavilionIcon3Image}" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            Text="获取玉盘" />
+                    </StackPanel>
+                    <Border
+                        Height="45"
+                        Margin="0,5,0,0"
+                        Background="{StaticResource DefaultTransientBlackBackground5}">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <Image
+                                Name="icon2"
+                                Width="20"
+                                Source="{StaticResource MoonGazingPavilionIcon4Image}" />
+                            <TextBlock
+                                Margin="5,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="345/180" />
+                        </StackPanel>
+                    </Border>
+                    <Button
+                        Height="30"
+                        Content="兑换"
+                        Style="{StaticResource CommandButtonStyle2}" />
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Center"
+                        Text="1玉盘=5金块" />
+                </StackPanel>
                 <controls:ToggleButtonComboBox
+                    Name="combobox"
                     Grid.Row="1"
                     Width="120"
-                    HorizontalAlignment="Right" />
+                    Height="25"
+                    HorizontalAlignment="Right"
+                    ItemsSource="{Binding CategoryItems}"
+                    SelectedItem="{Binding SelectedCategory}" />
                 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
                     <ItemsControl
                         Name="itemscontrols"
@@ -46,13 +143,14 @@
                         ItemsSource="{Binding MoonGazingPavilionImages}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel ItemHeight="150" ItemWidth="110" />
+                                <UniformGrid Columns="3" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <controls:HighlightBorder Margin="0,5,5,0" EnableMaskOnHover="True">
                                     <Image
+                                        Height="160"
                                         d:Source="{StaticResource Avatar1Image}"
                                         Source="{Binding}"
                                         Stretch="Fill" />
@@ -61,10 +159,20 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </ScrollViewer>
-                <TextBlock
-                    Grid.Row="3"
-                    VerticalAlignment="Center"
-                    Text="本周对局已获得玉盘：25/30" />
+                <Grid Grid.Row="3" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="{StaticResource MoonGazingPavilionIcon6Image}" />
+                        </Grid.Background>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="本周对局已获得玉盘：25/30" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
                 <TextBlock
                     Grid.Row="3"
                     HorizontalAlignment="Right"

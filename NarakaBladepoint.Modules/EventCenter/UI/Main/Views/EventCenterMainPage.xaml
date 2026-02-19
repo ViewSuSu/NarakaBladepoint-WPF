@@ -32,7 +32,10 @@
                 <RowDefinition />
                 <RowDefinition Height="0.1*" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="50,10">
+            <Grid
+                Grid.Row="0"
+                Margin="50,10"
+                Panel.ZIndex="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.2*" />
                     <ColumnDefinition />

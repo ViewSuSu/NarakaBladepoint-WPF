@@ -243,6 +243,13 @@
 
     <!--  MoonGazingPavilion (LanYueGe) Images  -->
     <BitmapImage x:Key="MoonGazingPavilionBackground1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Background1.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon1.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon2.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon3Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon3.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon4Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon4.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon5Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon5.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon6Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon6.png" />
+    <BitmapImage x:Key="MoonGazingPavilionIcon7Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Region/EventCenter/LanYueGe/Icon7.png" />
 
     <!--  Day Event Images  -->
     <BitmapImage x:Key="TaskDetailsImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/任务详情.png" />
