@@ -11,3 +11,5 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
         }
     }
 }
+
+

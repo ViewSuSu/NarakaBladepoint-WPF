@@ -35,6 +35,7 @@
 
   <ItemGroup>
 	<Folder Include="BattlePass\UI\BattlePass\Converters\" />
+	<Folder Include="CommonFunction\UI\SkillPoint\Behaviors\" />
   </ItemGroup>
 
 

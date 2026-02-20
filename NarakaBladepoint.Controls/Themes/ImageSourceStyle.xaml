@@ -389,4 +389,42 @@
 
     <!--  Store Pages Background  -->
     <BitmapImage x:Key="StoreHeroTagPageBackground" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/background7.png" />
+
+    <!--  Skill Point Background Image  -->
+    <BitmapImage x:Key="SkillPointBackgroundImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Background.png" />
+
+    <!--  Skill Point Circle Image  -->
+    <BitmapImage x:Key="SkillPointCircleImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/1.png" />
+
+    <!--  Skill Point Left Up Circle Images  -->
+    <BitmapImage x:Key="SkillPointLeftUpFirstCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftUp/OneCircel1.png" />
+    <BitmapImage x:Key="SkillPointLeftUpFirstCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftUp/OneCircel2.png" />
+    <BitmapImage x:Key="SkillPointLeftUpSecondCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftUp/TwoCircel1.png" />
+    <BitmapImage x:Key="SkillPointLeftUpSecondCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftUp/TwoCircel2.png" />
+    <BitmapImage x:Key="SkillPointLeftUpThirdCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftUp/ThreeCircel1.png" />
+    <BitmapImage x:Key="SkillPointLeftUpThirdCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftUp/ThreeCircel2.png" />
+
+    <!--  Skill Point Right Up Circle Images  -->
+    <BitmapImage x:Key="SkillPointRightUpFirstCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightUp/OneCircel1.png" />
+    <BitmapImage x:Key="SkillPointRightUpFirstCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightUp/OneCircel2.png" />
+    <BitmapImage x:Key="SkillPointRightUpSecondCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightUp/TwoCircel1.png" />
+    <BitmapImage x:Key="SkillPointRightUpSecondCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightUp/TwoCircel2.png" />
+    <BitmapImage x:Key="SkillPointRightUpThirdCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightUp/ThreeCircel1.png" />
+    <BitmapImage x:Key="SkillPointRightUpThirdCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightUp/ThreeCircel2.png" />
+
+    <!--  Skill Point Left Down Circle Images  -->
+    <BitmapImage x:Key="SkillPointLeftDownFirstCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftDown/OneCircel1.png" />
+    <BitmapImage x:Key="SkillPointLeftDownFirstCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftDown/OneCircel2.png" />
+    <BitmapImage x:Key="SkillPointLeftDownSecondCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftDown/TwoCircel1.png" />
+    <BitmapImage x:Key="SkillPointLeftDownSecondCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftDown/TwoCircel2.png" />
+    <BitmapImage x:Key="SkillPointLeftDownThirdCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftDown/ThreeCircel1.png" />
+    <BitmapImage x:Key="SkillPointLeftDownThirdCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/LeftDown/ThreeCircel2.png" />
+
+    <!--  Skill Point Right Down Circle Images  -->
+    <BitmapImage x:Key="SkillPointRightDownFirstCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/OneCircel1.png" />
+    <BitmapImage x:Key="SkillPointRightDownFirstCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/OneCircel2.png" />
+    <BitmapImage x:Key="SkillPointRightDownSecondCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/TwoCircel1.png" />
+    <BitmapImage x:Key="SkillPointRightDownSecondCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/TwoCircel2.png" />
+    <BitmapImage x:Key="SkillPointRightDownThirdCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/ThreeCircel1.png" />
+    <BitmapImage x:Key="SkillPointRightDownThirdCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/ThreeCircel2.png" />
 </ResourceDictionary>
