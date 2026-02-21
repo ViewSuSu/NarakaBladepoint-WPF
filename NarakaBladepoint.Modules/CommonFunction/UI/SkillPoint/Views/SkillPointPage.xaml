@@ -141,7 +141,7 @@
                         ElementName="ellipse"
                         Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpFirstCircle1Image}" />
+                <Image Source="{StaticResource SkillPointLeftDownFirstCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -196,7 +196,7 @@
                         ElementName="ellipse"
                         Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpFirstCircle2Image}" />
+                <Image Source="{StaticResource SkillPointLeftDownFirstCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -258,7 +258,7 @@
                         ElementName="ellipse"
                         Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpSecondCircle1Image}" />
+                <Image Source="{StaticResource SkillPointLeftDownFirstCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -320,7 +320,7 @@
                         ElementName="ellipse"
                         Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpSecondCircle2Image}" />
+                <Image Source="{StaticResource SkillPointLeftDownSecondCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -382,7 +382,7 @@
                         ElementName="ellipse"
                         Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpThirdCircle1Image}" />
+                <Image Source="{StaticResource SkillPointLeftDownThirdCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -444,7 +444,7 @@
                         ElementName="ellipse"
                         Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpThirdCircle2Image}" />
+                <Image Source="{StaticResource SkillPointLeftDownThirdCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -488,7 +488,7 @@
                 <Canvas.Top>
                     <Binding ElementName="LuGrid" Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightDownFirstCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -531,7 +531,7 @@
                 <Canvas.Top>
                     <Binding ElementName="MaGrid" Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightDownFirstCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -567,9 +567,9 @@
                 </b:Interaction.Triggers>
                 <Grid.IsEnabled>
                     <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsRightUp[0].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[1].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[0].TotalLearnable" />
+                        <Binding Path="SkillPointsRightDown[0].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[1].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[0].TotalLearnable" />
                     </MultiBinding>
                 </Grid.IsEnabled>
                 <Canvas.Left>
@@ -581,7 +581,7 @@
                 <Canvas.Top>
                     <Binding ElementName="HeGrid" Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightDownSecondCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -616,10 +616,10 @@
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
                 <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[0].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[1].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[0].TotalLearnable" />
+                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                        <Binding Path="SkillPointsRightDown[0].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[1].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[0].TotalLearnable" />
                     </MultiBinding>
                 </Grid.IsEnabled>
                 <Canvas.Left>
@@ -631,7 +631,7 @@
                 <Canvas.Top>
                     <Binding ElementName="OuGrid" Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightDownSecondCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -666,10 +666,10 @@
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
                 <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[2].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[3].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[2].TotalLearnable" />
+                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                        <Binding Path="SkillPointsRightDown[2].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[3].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[2].TotalLearnable" />
                     </MultiBinding>
                 </Grid.IsEnabled>
                 <Canvas.Left>
@@ -681,7 +681,7 @@
                 <Canvas.Top>
                     <Binding ElementName="ShiGrid" Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightDownThirdCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -716,10 +716,10 @@
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
                 <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[2].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[3].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[2].TotalLearnable" />
+                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                        <Binding Path="SkillPointsRightDown[2].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[3].CurrentLearned" />
+                        <Binding Path="SkillPointsRightDown[2].TotalLearnable" />
                     </MultiBinding>
                 </Grid.IsEnabled>
                 <Canvas.Left>
@@ -731,7 +731,7 @@
                 <Canvas.Top>
                     <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightDownThirdCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1059,7 +1059,7 @@
                         <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
                     </MultiBinding>
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightUpFirstCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1104,7 +1104,7 @@
                         <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
                     </MultiBinding>
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightUpFirstCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1156,7 +1156,7 @@
                         <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
                     </MultiBinding>
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightUpSecondCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1208,7 +1208,7 @@
                         <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
                     </MultiBinding>
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightUpSecondCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1260,7 +1260,7 @@
                         <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
                     </MultiBinding>
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightUpThirdCircle1Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1312,7 +1312,7 @@
                         <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
                     </MultiBinding>
                 </Canvas.Top>
-                <Image Source="{StaticResource SkillPointCircleImage}" />
+                <Image Source="{StaticResource SkillPointRightUpThirdCircle2Image}" />
                 <Image
                     Width="{StaticResource CanEditIconSize}"
                     Height="{StaticResource CanEditIconSize}"
@@ -1338,6 +1338,6 @@
             Grid.Column="2"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Command="{Binding ReturnCommand}" />
+            Command="{Binding ReturnToHallCommand}" />
     </Grid>
 </base:UserControlBase>

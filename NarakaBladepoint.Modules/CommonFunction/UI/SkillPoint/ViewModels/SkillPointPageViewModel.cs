@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using NarakaBladepoint.Modules.CommonFunction.Domain.Bases;
 using Prism.Commands;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
@@ -63,7 +64,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         }
     }
 
-    internal class SkillPointPageViewModel : CanRemoveMainContentRegionViewModelBase
+    internal class SkillPointPageViewModel : CommonFunctionPageViewModelBase
     {
         private int _remainingPoints;
         private bool _isSkillPointsEnabled;
