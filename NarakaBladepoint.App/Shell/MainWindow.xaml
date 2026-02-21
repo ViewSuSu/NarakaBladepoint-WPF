@@ -69,10 +69,10 @@
                     <RowDefinition Height="50" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Background="{StaticResource DefaultTransientBlackBackground10}">
-                    <!--<Grid.Background>
+                <Grid Name="topgrid" Grid.Row="0">
+                    <Grid.Background>
                         <ImageBrush ImageSource="{StaticResource Background3Image}" Stretch="Fill" />
-                    </Grid.Background>-->
+                    </Grid.Background>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="5*" />
