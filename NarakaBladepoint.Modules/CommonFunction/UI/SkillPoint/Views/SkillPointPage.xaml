@@ -313,7 +313,10 @@
             </UniformGrid>
         </Grid>
         <Grid Name="mainGrid" Grid.Column="1">
-            <Canvas x:Name="skillPointCanvas" ClipToBounds="False">
+            <Canvas
+                x:Name="skillPointCanvas"
+                ClipToBounds="False"
+                Visibility="{Binding ElementName=boder1, Path=IsHighlighted, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Ellipse
                     x:Name="ellipse"
                     Canvas.Left="{Binding ElementName=skillPointCanvas, Path=ActualWidth, Converter={StaticResource CenterOffsetConverter}, ConverterParameter=80}"
@@ -1576,7 +1579,8 @@
                 Height="30"
                 Margin="0,0,0,50"
                 VerticalAlignment="Bottom"
-                Columns="2">
+                Columns="2"
+                Visibility="{Binding ElementName=boder1, Path=IsHighlighted, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <Button
                     Margin="10,0"
                     Command="{Binding AutoAssignCommand}"
