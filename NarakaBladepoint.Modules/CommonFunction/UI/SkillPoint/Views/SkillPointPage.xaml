@@ -116,7 +116,7 @@
                 </StackPanel>
             </Grid>
             <UniformGrid Grid.Row="1" Rows="3">
-                <Border Background="{StaticResource DefaultTransientBlackBackground3}">
+                <local:SelectiveBorder x:Name="boder1" Background="{StaticResource DefaultTransientBlackBackground3}">
                     <Grid>
                         <TextBlock Margin="30" Text="天赋" />
                         <UniformGrid
@@ -192,9 +192,12 @@
                             </local:TalentGrid>
                         </UniformGrid>
                     </Grid>
-                </Border>
+                </local:SelectiveBorder>
 
-                <Border Margin="0,5" Background="{StaticResource DefaultTransientBlackBackground3}">
+                <local:SelectiveBorder
+                    x:Name="boder2"
+                    Margin="0,5"
+                    Background="{StaticResource DefaultTransientBlackBackground3}">
                     <Grid>
                         <TextBlock Margin="30" Text="技能" />
                         <UniformGrid
@@ -248,8 +251,8 @@
                             </local:TalentGrid>
                         </UniformGrid>
                     </Grid>
-                </Border>
-                <Border Background="{StaticResource DefaultTransientBlackBackground3}">
+                </local:SelectiveBorder>
+                <local:SelectiveBorder x:Name="boder3" Background="{StaticResource DefaultTransientBlackBackground3}">
                     <Grid>
                         <TextBlock Margin="30" Text="奥义" />
                         <UniformGrid
@@ -303,7 +306,7 @@
                             </local:TalentGrid>
                         </UniformGrid>
                     </Grid>
-                </Border>
+                </local:SelectiveBorder>
             </UniformGrid>
         </Grid>
         <Grid Name="mainGrid" Grid.Column="1">

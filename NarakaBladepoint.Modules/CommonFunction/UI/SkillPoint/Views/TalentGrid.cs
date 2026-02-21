@@ -1,7 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
 {
@@ -37,18 +36,35 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
         private void TalentGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // 获取父容器
-            var parent = VisualTreeHelper.GetParent(this);
+            var parent = System.Windows.Media.VisualTreeHelper.GetParent(this);
             if (parent is Panel parentPanel)
             {
                 // 获取父容器中的所有子TalentGrid
-                var childCount = VisualTreeHelper.GetChildrenCount(parentPanel);
+                var childCount = System.Windows.Media.VisualTreeHelper.GetChildrenCount(parentPanel);
                 for (int i = 0; i < childCount; i++)
                 {
-                    var child = VisualTreeHelper.GetChild(parentPanel, i);
+                    var child = System.Windows.Media.VisualTreeHelper.GetChild(parentPanel, i);
                     if (child is TalentGrid talentGrid)
                     {
-                        // 更新IsSelected状态
-                        talentGrid.IsSelected = (talentGrid == this);
+                        if (talentGrid == this)
+                        {
+                            // 如果再次点击已选中的Grid，先设置为false再设置为true
+                            // 这样可以触发属性变化事件，更新Border的高亮状态
+                            if (talentGrid.IsSelected)
+                            {
+                                talentGrid.IsSelected = false;
+                                talentGrid.IsSelected = true;
+                            }
+                            else
+                            {
+                                talentGrid.IsSelected = true;
+                            }
+                        }
+                        else
+                        {
+                            // 其他Grid设置为false
+                            talentGrid.IsSelected = false;
+                        }
                     }
                 }
             }
