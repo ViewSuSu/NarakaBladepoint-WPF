@@ -9,6 +9,7 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
     {
         private int _currentLearned;
         private int _totalLearnable;
+        private bool _isLearnable;
 
         public string SkillName { get; set; }
         public int CircleLevel { get; set; }  // 1, 2, or 3
@@ -19,18 +20,46 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         public int CurrentLearned
         {
             get { return _currentLearned; }
-            set { SetProperty(ref _currentLearned, value); }
+            set
+            {
+                if (_currentLearned != value)
+                {
+                    _currentLearned = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public int TotalLearnable
         {
             get { return _totalLearnable; }
-            set { SetProperty(ref _totalLearnable, value); }
+            set
+            {
+                if (_totalLearnable != value)
+                {
+                    _totalLearnable = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public bool IsLearnable
+        {
+            get { return _isLearnable; }
+            set
+            {
+                if (_isLearnable != value)
+                {
+                    _isLearnable = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public SkillPointItemViewModel()
         {
             CurrentLearned = 0;
+            IsLearnable = true;
         }
     }
 
@@ -46,37 +75,79 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         public int RemainingPoints
         {
             get { return _remainingPoints; }
-            set { SetProperty(ref _remainingPoints, value); }
+            set
+            {
+                if (_remainingPoints != value)
+                {
+                    _remainingPoints = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public bool IsSkillPointsEnabled
         {
             get { return _isSkillPointsEnabled; }
-            set { SetProperty(ref _isSkillPointsEnabled, value); }
+            set
+            {
+                if (_isSkillPointsEnabled != value)
+                {
+                    _isSkillPointsEnabled = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public ObservableCollection<SkillPointItemViewModel> SkillPointsLeftUp
         {
             get { return _skillPointsLeftUp; }
-            set { SetProperty(ref _skillPointsLeftUp, value); }
+            set
+            {
+                if (_skillPointsLeftUp != value)
+                {
+                    _skillPointsLeftUp = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public ObservableCollection<SkillPointItemViewModel> SkillPointsLeftDown
         {
             get { return _skillPointsLeftDown; }
-            set { SetProperty(ref _skillPointsLeftDown, value); }
+            set
+            {
+                if (_skillPointsLeftDown != value)
+                {
+                    _skillPointsLeftDown = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public ObservableCollection<SkillPointItemViewModel> SkillPointsRightUp
         {
             get { return _skillPointsRightUp; }
-            set { SetProperty(ref _skillPointsRightUp, value); }
+            set
+            {
+                if (_skillPointsRightUp != value)
+                {
+                    _skillPointsRightUp = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public ObservableCollection<SkillPointItemViewModel> SkillPointsRightDown
         {
             get { return _skillPointsRightDown; }
-            set { SetProperty(ref _skillPointsRightDown, value); }
+            set
+            {
+                if (_skillPointsRightDown != value)
+                {
+                    _skillPointsRightDown = value;
+                    RaisePropertyChanged();
+                }
+            }
         }
 
         public DelegateCommand<SkillPointItemViewModel> LearnSkillCommand { get; set; }
@@ -125,12 +196,12 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                 new { Name = "Shi_ElevenOClock_MirrorH", Circle = 3, Position = "RightUp", Direction = "ElevenOClock", Max = THIRD_CIRCLE_MAX },
 
                 // LeftDown corner
+                new { Name = "Lu_TenOClock_MirrorV", Circle = 1, Position = "LeftDown", Direction = "TenOClock", Max = FIRST_CIRCLE_MAX },
+                new { Name = "Ma_ElevenOClock_MirrorV", Circle = 1, Position = "LeftDown", Direction = "ElevenOClock", Max = FIRST_CIRCLE_MAX },
                 new { Name = "He_TenOClock_MirrorV", Circle = 2, Position = "LeftDown", Direction = "TenOClock", Max = SECOND_CIRCLE_MAX },
                 new { Name = "Ou_ElevenOClock_MirrorV", Circle = 2, Position = "LeftDown", Direction = "ElevenOClock", Max = SECOND_CIRCLE_MAX },
-                new { Name = "Shi_TenOClock_MirrorV", Circle = 3, Position = "LeftDown", Direction = "TenOClock", Max = THIRD_CIRCLE_MAX },
-                new { Name = "Xiong_ElevenOClock_MirrorV", Circle = 3, Position = "LeftDown", Direction = "ElevenOClock", Max = THIRD_CIRCLE_MAX },
-                new { Name = "Ma_TenOClock_MirrorV", Circle = 1, Position = "LeftDown", Direction = "TenOClock", Max = FIRST_CIRCLE_MAX },
-                new { Name = "Lu_ElevenOClock_MirrorV", Circle = 1, Position = "LeftDown", Direction = "ElevenOClock", Max = FIRST_CIRCLE_MAX },
+                new { Name = "Xiong_TenOClock_MirrorV", Circle = 3, Position = "LeftDown", Direction = "TenOClock", Max = THIRD_CIRCLE_MAX },
+                new { Name = "Shi_ElevenOClock_MirrorV", Circle = 3, Position = "LeftDown", Direction = "ElevenOClock", Max = THIRD_CIRCLE_MAX },
 
                 // RightDown corner
                 new { Name = "Lu_TenOClock_MirrorHV", Circle = 1, Position = "RightDown", Direction = "TenOClock", Max = FIRST_CIRCLE_MAX },
@@ -173,6 +244,20 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
                 index++;
             }
+
+            // 初始化所有技能点的IsLearnable状态
+            InitializeLearnableStatus();
+        }
+
+        private void InitializeLearnableStatus()
+        {
+            foreach (var collection in new[] { SkillPointsLeftUp, SkillPointsLeftDown, SkillPointsRightUp, SkillPointsRightDown })
+            {
+                foreach (var skillPoint in collection)
+                {
+                    UpdateSiblingLearnableStatus(skillPoint);
+                }
+            }
         }
 
         private void LearnSkill(SkillPointItemViewModel skillPoint)
@@ -180,16 +265,25 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             if (!CanLearnSkill(skillPoint))
                 return;
 
-            // Check if this is a conflict situation (10 and 11 o'clock in same circle)
-            if (!CanLearnDueToConflict(skillPoint))
-                return;
-
             // Check if previous circle is fully learned in this position
             if (!IsCircleReadyToLearn(skillPoint))
                 return;
 
+            // Check if the shared limit for this pair is not exceeded
+            if (!CanLearnWithinSharedLimit(skillPoint))
+                return;
+
             skillPoint.CurrentLearned++;
             RemainingPoints--;
+
+            // 更新同级技能点的IsLearnable状态
+            UpdateSiblingLearnableStatus(skillPoint);
+
+            // 更新子圈技能点的IsLearnable状态（如果当前是第1或第2圈）
+            if (skillPoint.CircleLevel < 3)
+            {
+                UpdateChildCircleLearnableStatus(skillPoint);
+            }
 
             UpdateSkillPointsEnabled();
             LearnSkillCommand.RaiseCanExecuteChanged();
@@ -204,6 +298,15 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             skillPoint.CurrentLearned--;
             RemainingPoints++;
 
+            // 更新同级技能点的IsLearnable状态
+            UpdateSiblingLearnableStatus(skillPoint);
+
+            // 更新子圈技能点的IsLearnable状态（如果当前是第1或第2圈）
+            if (skillPoint.CircleLevel < 3)
+            {
+                UpdateChildCircleLearnableStatus(skillPoint);
+            }
+
             UpdateSkillPointsEnabled();
             LearnSkillCommand.RaiseCanExecuteChanged();
             UnlearnSkillCommand.RaiseCanExecuteChanged();
@@ -211,48 +314,33 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
         private bool CanLearnSkill(SkillPointItemViewModel skillPoint)
         {
-            return skillPoint != null &&
-                   RemainingPoints > 0 &&
-                   skillPoint.CurrentLearned < skillPoint.TotalLearnable &&
-                   IsSkillPointsEnabled;
+            // Basic checks
+            if (skillPoint == null || RemainingPoints <= 0 || 
+                skillPoint.CurrentLearned >= skillPoint.TotalLearnable || 
+                !IsSkillPointsEnabled)
+                return false;
+
+            // Check if sibling skills have reached the shared limit
+            if (!CanLearnWithinSiblingLimit(skillPoint))
+                return false;
+
+            // Check parent circle prerequisite
+            return IsCircleReadyToLearn(skillPoint);
         }
 
         private bool CanUnlearnSkill(SkillPointItemViewModel skillPoint)
         {
-            return skillPoint != null && skillPoint.CurrentLearned > 0;
-        }
-
-        private bool CanLearnDueToConflict(SkillPointItemViewModel skillPoint)
-        {
-            // Find the conflicting skill in the same corner and circle
-            var conflicting = FindConflictingSkill(skillPoint);
-            if (conflicting != null && conflicting.CurrentLearned > 0)
-            {
-                // If other direction is already learned, this one cannot be learned
+            if (skillPoint == null || skillPoint.CurrentLearned <= 0)
                 return false;
-            }
+
+            // 检查子圈是否全部未学
+            // 要撤销当前技能点，它的所有子圈技能点都必须是 0（未学）
+            if (!AreChildSkillsFullyUnlearned(skillPoint))
+                return false;
+
             return true;
         }
 
-        private SkillPointItemViewModel FindConflictingSkill(SkillPointItemViewModel skillPoint)
-        {
-            // Get the position collection
-            var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
-
-            // Find the conflicting skill in the same circle but different direction
-            foreach (var skill in positionCollection)
-            {
-                if (skill != skillPoint &&
-                    skill.CircleLevel == skillPoint.CircleLevel &&
-                    skill.Direction != skillPoint.Direction)
-                {
-                    return skill;
-                }
-            }
-            return null;
-        }
-
-        // Overloaded method that checks prerequisites properly
         private bool IsCircleReadyToLearn(SkillPointItemViewModel skillPoint)
         {
             if (skillPoint.CircleLevel == 1)
@@ -263,20 +351,102 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             // Get the appropriate collection based on position
             var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
 
-            // Find both skills in the same position and previous circle
+            // Find all skills in the previous circle
             var previousCircleSkills = positionCollection.Where(s => 
                 s.CircleLevel == previousCircleLevel).ToList();
 
-            // All skills in the previous circle of this position must be maxed out
-            foreach (var previousSkill in previousCircleSkills)
+            // Calculate total learned in the previous circle
+            int totalLearnedInPreviousCircle = previousCircleSkills.Sum(s => s.CurrentLearned);
+
+            // Get the shared limit for the previous circle
+            int previousCircleLimit = previousCircleLevel == 3 ? THIRD_CIRCLE_MAX : 
+                                     previousCircleLevel == 2 ? SECOND_CIRCLE_MAX : 
+                                     FIRST_CIRCLE_MAX;
+
+            // The previous circle must be fully learned (total must reach the shared limit)
+            return totalLearnedInPreviousCircle >= previousCircleLimit;
+        }
+
+        private bool CanLearnWithinSharedLimit(SkillPointItemViewModel skillPoint)
+        {
+            var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
+
+            // Determine the pair index and shared limit based on circle level
+            int pairIndex = (skillPoint.CircleLevel - 1) * 2;
+            int sharedLimit = skillPoint.CircleLevel == 3 ? THIRD_CIRCLE_MAX : skillPoint.CircleLevel == 2 ? SECOND_CIRCLE_MAX : FIRST_CIRCLE_MAX;
+
+            // Get the two skills in this pair
+            var skillsInPair = positionCollection
+                .Where(s => s.CircleLevel == skillPoint.CircleLevel && 
+                           (s.Index % 6 == pairIndex || s.Index % 6 == pairIndex + 1))
+                .ToList();
+
+            if (skillsInPair.Count != 2)
+                return true; // Safety check
+
+            // Calculate total learned in this pair
+            int totalLearnedInPair = skillsInPair.Sum(s => s.CurrentLearned);
+
+            // Check if adding one more would exceed the shared limit
+            return totalLearnedInPair < sharedLimit;
+        }
+
+        private bool CanLearnWithinSiblingLimit(SkillPointItemViewModel skillPoint)
+        {
+            var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
+
+            // Determine the pair index and shared limit based on circle level
+            int pairIndex = (skillPoint.CircleLevel - 1) * 2;
+            int sharedLimit = skillPoint.CircleLevel == 3 ? THIRD_CIRCLE_MAX : skillPoint.CircleLevel == 2 ? SECOND_CIRCLE_MAX : FIRST_CIRCLE_MAX;
+
+            // Get the two skills in this pair (sibling skills)
+            var siblingSKills = positionCollection
+                .Where(s => s.CircleLevel == skillPoint.CircleLevel && 
+                           (s.Index % 6 == pairIndex || s.Index % 6 == pairIndex + 1))
+                .ToList();
+
+            if (siblingSKills.Count != 2)
+                return true; // Safety check
+
+            // Calculate total learned in this pair
+            int totalLearnedInPair = siblingSKills.Sum(s => s.CurrentLearned);
+
+            // If current skill is not yet learned and the limit is already reached, cannot learn
+            // If current skill is already learned, allow to continue learning
+            if (skillPoint.CurrentLearned == 0 && totalLearnedInPair >= sharedLimit)
+                return false;
+
+            return true;
+        }
+
+        private bool AreChildSkillsFullyUnlearned(SkillPointItemViewModel skillPoint)
+        {
+            // 调用真实的实现（检查子圈是否都未学）
+            return AreParentSkillsFullyUnlearned(skillPoint);
+        }
+
+        private bool AreParentSkillsFullyUnlearned(SkillPointItemViewModel skillPoint)
+        {
+            // 第3圈没有子圈，可以撤销
+            if (skillPoint.CircleLevel == 3)
+                return true;
+
+            var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
+            int childCircleLevel = skillPoint.CircleLevel + 1;
+
+            // 获取子圈的所有技能点
+            var childSkills = positionCollection
+                .Where(s => s.CircleLevel == childCircleLevel)
+                .ToList();
+
+            // 子圈的所有技能点都必须是 0（完全未学）
+            foreach (var childSkill in childSkills)
             {
-                if (previousSkill.CurrentLearned < previousSkill.TotalLearnable)
-                {
-                    return false; // Previous circle not fully learned
-                }
+                if (childSkill.CurrentLearned > 0)
+                    return false;
             }
 
-            return true; // All prerequisites are met
+            return true;
         }
 
         private ObservableCollection<SkillPointItemViewModel> GetSkillPointCollectionByPosition(string position)
@@ -294,6 +464,74 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         private void UpdateSkillPointsEnabled()
         {
             IsSkillPointsEnabled = RemainingPoints > 0;
+        }
+
+        private void UpdateSiblingLearnableStatus(SkillPointItemViewModel skillPoint)
+        {
+            var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
+            int pairIndex = (skillPoint.CircleLevel - 1) * 2;
+            int sharedLimit = skillPoint.CircleLevel == 3 ? THIRD_CIRCLE_MAX : 
+                             skillPoint.CircleLevel == 2 ? SECOND_CIRCLE_MAX : 
+                             FIRST_CIRCLE_MAX;
+
+            // 获取同级技能点
+            var siblingSkills = positionCollection
+                .Where(s => s.CircleLevel == skillPoint.CircleLevel && 
+                           (s.Index % 6 == pairIndex || s.Index % 6 == pairIndex + 1))
+                .ToList();
+
+            if (siblingSkills.Count != 2)
+                return;
+
+            // 计算该对中已学的总点数
+            int totalLearnedInPair = siblingSkills.Sum(s => s.CurrentLearned);
+
+            // 检查父圈条件（对这一对的所有技能点都相同）
+            bool isParentCircleReady = IsCircleReadyToLearn(skillPoint);
+
+            // 检查该对是否已经满级
+            bool isPairFullyLearned = totalLearnedInPair >= sharedLimit;
+
+            // 更新同级技能点的IsLearnable状态
+            foreach (var sibling in siblingSkills)
+            {
+                if (isPairFullyLearned)
+                {
+                    // 该对已满级，不能再学（无论已学还是未学）
+                    sibling.IsLearnable = false;
+                }
+                else if (!isParentCircleReady)
+                {
+                    // 父圈条件不满足，不能学
+                    sibling.IsLearnable = false;
+                }
+                else
+                {
+                    // 该对未满级且父圈条件满足，可以学
+                    sibling.IsLearnable = true;
+                }
+            }
+        }
+
+        private void UpdateChildCircleLearnableStatus(SkillPointItemViewModel skillPoint)
+        {
+            // 只有第1圈和第2圈有子圈
+            if (skillPoint.CircleLevel >= 3)
+                return;
+
+            var positionCollection = GetSkillPointCollectionByPosition(skillPoint.Position);
+            int childCircleLevel = skillPoint.CircleLevel + 1;
+
+            // 获取子圈的所有技能点
+            var childSkills = positionCollection
+                .Where(s => s.CircleLevel == childCircleLevel)
+                .ToList();
+
+            // 更新子圈技能点的IsLearnable状态
+            foreach (var childSkill in childSkills)
+            {
+                UpdateSiblingLearnableStatus(childSkill);
+            }
         }
     }
 }

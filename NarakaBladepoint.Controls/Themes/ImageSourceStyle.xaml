@@ -201,6 +201,9 @@
     <BitmapImage x:Key="HeroSkillF1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/Skill/F1.png" />
     <BitmapImage x:Key="HeroSkillV1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/Skill/V1.png" />
 
+    <!--  Skill Point Images  -->
+    <BitmapImage x:Key="CanEditImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/CanEdit.png" />
+
     <!--  Button Images  -->
     <BitmapImage x:Key="ButtonBaiZeBaiKeImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/白泽百科.png" />
     <BitmapImage x:Key="ButtonXiuXingImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Button/修行.png" />

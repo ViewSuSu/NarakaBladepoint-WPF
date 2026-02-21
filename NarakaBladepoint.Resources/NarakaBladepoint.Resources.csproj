@@ -102,6 +102,7 @@
 	  <None Remove="Image\Button\白泽百科.png" />
 	  <None Remove="Image\Button\赛事.png" />
 	  <None Remove="Image\Button\露华集市.png" />
+	  <None Remove="Image\CanEdit.png" />
 	  <None Remove="Image\CustomControls\1.png" />
 	  <None Remove="Image\CustomControls\2.png" />
 	  <None Remove="Image\CustomMatch\1.png" />
@@ -836,6 +837,7 @@
 	<ItemGroup>
 	  <Resource Include="Image\background6.png" />
 	  <Resource Include="Image\background7.png" />
+	  <Resource Include="Image\CanEdit.png" />
 	  <Resource Include="Image\CustomControls\1.png" />
 	  <Resource Include="Image\CustomControls\2.png" />
 	  <Resource Include="Image\GuildHall\1.png" />
