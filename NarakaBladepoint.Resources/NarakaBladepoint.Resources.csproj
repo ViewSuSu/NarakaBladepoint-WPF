@@ -225,6 +225,8 @@
 	  <None Remove="Image\Button\古币.png" />
 	  <None Remove="Image\Button\幻丝.png" />
 	  <None Remove="Image\Button\金砖.png" />
+	  <None Remove="Image\MouseLeftButton.png" />
+	  <None Remove="Image\MouseRightButton.png" />
 	  <None Remove="Image\Music\background.png" />
 	  <None Remove="Image\PersonalInfoDetails\1.png" />
 	  <None Remove="Image\PersonalInfoDetails\10.png" />
@@ -530,6 +532,8 @@
 	  <None Remove="Image\sayhello.png" />
 	  <None Remove="Image\SkillPoints\1.png" />
 	  <None Remove="Image\SkillPoints\Background.png" />
+	  <None Remove="Image\SkillPoints\F1.png" />
+	  <None Remove="Image\SkillPoints\F2.png" />
 	  <None Remove="Image\SkillPoints\LeftDown\OneCircel1.png" />
 	  <None Remove="Image\SkillPoints\LeftDown\OneCircel2.png" />
 	  <None Remove="Image\SkillPoints\LeftDown\ThreeCircel1.png" />
@@ -554,6 +558,10 @@
 	  <None Remove="Image\SkillPoints\RightUp\ThreeCircel2.png" />
 	  <None Remove="Image\SkillPoints\RightUp\TwoCircel1.png" />
 	  <None Remove="Image\SkillPoints\RightUp\TwoCircel2.png" />
+	  <None Remove="Image\SkillPoints\TianFu1.png" />
+	  <None Remove="Image\SkillPoints\TianFu2.png" />
+	  <None Remove="Image\SkillPoints\V1.png" />
+	  <None Remove="Image\SkillPoints\V2.png" />
 	  <None Remove="Image\SocialTag\background.png" />
 	  <None Remove="Image\SocialTag\Icon1.png" />
 	  <None Remove="Image\SocialTag\Icon2.png" />
@@ -849,6 +857,8 @@
 	  <Resource Include="Image\GuildHall\Icon2.png" />
 	  <Resource Include="Image\GuildHall\Image1.png" />
 	  <Resource Include="Image\GuildHall\Image2.png" />
+	  <Resource Include="Image\MouseLeftButton.png" />
+	  <Resource Include="Image\MouseRightButton.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Background1.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Background2.png" />
 	  <Resource Include="Image\Region\EventCenter\BindReward\Background3.png" />
@@ -1144,6 +1154,8 @@
 	  <Resource Include="Image\Region\StartGame\Training\3.png" />
 	  <Resource Include="Image\SkillPoints\1.png" />
 	  <Resource Include="Image\SkillPoints\Background.png" />
+	  <Resource Include="Image\SkillPoints\F1.png" />
+	  <Resource Include="Image\SkillPoints\F2.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\OneCircel1.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\OneCircel2.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\ThreeCircel1.png" />
@@ -1168,6 +1180,10 @@
 	  <Resource Include="Image\SkillPoints\RightUp\ThreeCircel2.png" />
 	  <Resource Include="Image\SkillPoints\RightUp\TwoCircel1.png" />
 	  <Resource Include="Image\SkillPoints\RightUp\TwoCircel2.png" />
+	  <Resource Include="Image\SkillPoints\TianFu1.png" />
+	  <Resource Include="Image\SkillPoints\TianFu2.png" />
+	  <Resource Include="Image\SkillPoints\V1.png" />
+	  <Resource Include="Image\SkillPoints\V2.png" />
 	  <Resource Include="Image\SocialTag\background.png" />
 	  <Resource Include="Image\SocialTag\Icon1.png" />
 	  <Resource Include="Image\SocialTag\Icon2.png" />

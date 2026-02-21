@@ -1,3 +1,5 @@
+using System.Windows;
+
 namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
 {
     /// <summary>
@@ -11,5 +13,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
         }
     }
 }
+
 
 

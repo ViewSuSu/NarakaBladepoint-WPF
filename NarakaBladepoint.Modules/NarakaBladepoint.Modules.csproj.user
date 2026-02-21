@@ -47,6 +47,9 @@
     <Compile Update="CommonFunction\UI\Leaderboard\Views\UniversityLeaderboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CommonFunction\UI\SkillPoint\Views\SkillPointMouseOver.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CommonFunction\UI\Store\Views\StoreDailyPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

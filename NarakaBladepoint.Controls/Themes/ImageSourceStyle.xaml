@@ -430,4 +430,15 @@
     <BitmapImage x:Key="SkillPointRightDownSecondCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/TwoCircel2.png" />
     <BitmapImage x:Key="SkillPointRightDownThirdCircle1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/ThreeCircel1.png" />
     <BitmapImage x:Key="SkillPointRightDownThirdCircle2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/RightDown/ThreeCircel2.png" />
+
+    <!--  Talent, Skill, Ultimate Images  -->
+    <BitmapImage x:Key="TianFu1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/TianFu1.png" />
+    <BitmapImage x:Key="TianFu2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/TianFu2.png" />
+    <BitmapImage x:Key="F1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/F1.png" />
+    <BitmapImage x:Key="F2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/F2.png" />
+    <BitmapImage x:Key="V1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/V1.png" />
+    <BitmapImage x:Key="V2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/V2.png" />
+
+    <!--  Hero Image  -->
+    <BitmapImage x:Key="ZhangQiLingHeroImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/张起灵.png" />
 </ResourceDictionary>

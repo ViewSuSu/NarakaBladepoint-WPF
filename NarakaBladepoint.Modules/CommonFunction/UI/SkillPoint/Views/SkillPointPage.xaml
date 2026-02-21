@@ -8,6 +8,7 @@
     xmlns:converters="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Converters"
     xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fwConverters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
@@ -25,6 +26,7 @@
         <converters:LearnedToOpacityConverter x:Key="LearnedToOpacityConverter" />
         <converters:DependencySkillPointConverter x:Key="DependencySkillPointConverter" />
         <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter" />
+        <fwConverters:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
         <system:Double x:Key="FirstCircleSkillPointSize">40</system:Double>
@@ -41,6 +43,16 @@
         <Thickness x:Key="FirstCircleTextBlockMargin">0,0,0,0</Thickness>
         <Thickness x:Key="SecondCircleTextBlockMargin">0,0,0,0</Thickness>
         <Thickness x:Key="ThirdCircleTextBlockMargin">0,0,0,0</Thickness>
+
+        <!--  Talent Item Grid Style  -->
+        <Style x:Key="TalentItemGridStyle" TargetType="local:TalentGrid">
+            <Setter Property="Opacity" Value="0.7" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Opacity" Value="1.0" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
         <!--  Style for Skill Point Grid with Triggers  -->
         <Style x:Key="SkillPointGridStyle" TargetType="Grid">
@@ -62,1282 +74,1502 @@
             </Style.Triggers>
         </Style>
     </base:UserControlBase.Resources>
-
-    <Grid Name="mainGrid">
-        <Grid.Background>
-            <ImageBrush ImageSource="{StaticResource SkillPointBackgroundImage}" />
-        </Grid.Background>
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="0.85*" />
         </Grid.ColumnDefinitions>
-        <Canvas
-            x:Name="skillPointCanvas"
-            Grid.Column="1"
-            ClipToBounds="False">
-            <Ellipse
-                x:Name="ellipse"
-                Canvas.Left="{Binding ElementName=skillPointCanvas, Path=ActualWidth, Converter={StaticResource CenterOffsetConverter}, ConverterParameter=80}"
-                Canvas.Top="{Binding ElementName=skillPointCanvas, Path=ActualHeight, Converter={StaticResource CenterOffsetConverter}, ConverterParameter=80}"
-                Width="80"
-                Height="80"
-                Fill="{StaticResource DefaultTransientBlackBackground3}"
-                Stroke="{StaticResource DefaultOrangeBrush}"
-                StrokeThickness="3" />
-            <StackPanel
-                x:Name="stackPanel"
-                Canvas.Left="{Binding ElementName=ellipse, Path=(Canvas.Left)}"
-                Canvas.Top="{Binding ElementName=ellipse, Path=(Canvas.Top)}"
-                Width="80"
-                Margin="0,15,0,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Panel.ZIndex="1">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    d:Text="20"
-                    FontSize="24"
-                    Foreground="White"
-                    Text="{Binding RemainingPoints}" />
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="10"
-                    Text="剩余点数" />
-            </StackPanel>
+        <Grid.Background>
+            <ImageBrush ImageSource="{StaticResource SkillPointBackgroundImage}" />
+        </Grid.Background>
+        <Grid Grid.Column="0" Margin="40,50,0,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="{StaticResource DefaultTransientBlackBackground8}">
 
-            <!--  LeftUp Circle 1 - 10 O'Clock  -->
-            <Grid
-                x:Name="LuGrid"
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftDown[0]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[0]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[0]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
-                                                                            Angle={StaticResource TenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=0}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
-                                                                            Angle={StaticResource TenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=1}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftDownFirstCircle1Image}" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
                 <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftDown[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftDown[0].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
+                    Name="hero"
+                    HorizontalAlignment="Left"
+                    Source="{StaticResource ZhangQiLingHeroImage}" />
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center">
+                    <TextBlock
+                        Name="heroName"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        Text="{Binding ElementName=hero, Path=Source, Converter={StaticResource ImageSourceToFileNameConverter}}" />
+                    <TextBlock
+                        Margin="0,10,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        Style="{StaticResource GrayForegroundTextBlock}"
+                        Text="切换角色" />
+                </StackPanel>
             </Grid>
+            <UniformGrid Grid.Row="1" Rows="3">
+                <Border Background="{StaticResource DefaultTransientBlackBackground3}">
+                    <Grid>
+                        <TextBlock Margin="30" Text="天赋" />
+                        <UniformGrid
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Columns="3">
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                IsSelected="True"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="1"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource TianFu1Image}" />
+                            </local:TalentGrid>
 
-            <!--  LeftUp Circle 1 - 11 O'Clock  -->
-            <Grid
-                x:Name="MaGrid"
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftDown[1]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[1]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[1]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
-                                                                            Angle={StaticResource ElevenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=0}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
-                                                                            Angle={StaticResource ElevenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=1}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftDownFirstCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftDown[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                Margin="5,0"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="1"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource TianFu2Image}" />
+                            </local:TalentGrid>
+
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="1"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource TianFu2Image}" />
+                            </local:TalentGrid>
+                        </UniformGrid>
+                    </Grid>
+                </Border>
+
+                <Border Margin="0,5" Background="{StaticResource DefaultTransientBlackBackground3}">
+                    <Grid>
+                        <TextBlock Margin="30" Text="技能" />
+                        <UniformGrid
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Columns="2">
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                IsSelected="True"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="2"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource F1Image}" />
+                            </local:TalentGrid>
+
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                Margin="5,0"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="2"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource F2Image}" />
+                            </local:TalentGrid>
+                        </UniformGrid>
+                    </Grid>
+                </Border>
+                <Border Background="{StaticResource DefaultTransientBlackBackground3}">
+                    <Grid>
+                        <TextBlock Margin="30" Text="奥义" />
+                        <UniformGrid
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Columns="2">
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                IsSelected="True"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="3"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource V1Image}" />
+                            </local:TalentGrid>
+
+                            <local:TalentGrid
+                                Width="40"
+                                Height="40"
+                                Margin="5,0"
+                                Style="{StaticResource TalentItemGridStyle}">
+                                <Viewbox
+                                    Width="10"
+                                    Height="9"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Panel.ZIndex="1"
+                                    Stretch="Fill"
+                                    StretchDirection="Both">
+                                    <RadioButton
+                                        Foreground="Gray"
+                                        GroupName="3"
+                                        IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
+                                        Style="{StaticResource DiamondRadioButtonStyle}"
+                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                </Viewbox>
+                                <Image Source="{StaticResource V2Image}" />
+                            </local:TalentGrid>
+                        </UniformGrid>
+                    </Grid>
+                </Border>
+            </UniformGrid>
+        </Grid>
+        <Grid Name="mainGrid" Grid.Column="1">
+            <Canvas x:Name="skillPointCanvas" ClipToBounds="False">
+                <Ellipse
+                    x:Name="ellipse"
+                    Canvas.Left="{Binding ElementName=skillPointCanvas, Path=ActualWidth, Converter={StaticResource CenterOffsetConverter}, ConverterParameter=80}"
+                    Canvas.Top="{Binding ElementName=skillPointCanvas, Path=ActualHeight, Converter={StaticResource CenterOffsetConverter}, ConverterParameter=80}"
+                    Width="80"
+                    Height="80"
+                    Fill="{StaticResource DefaultTransientBlackBackground3}"
+                    Stroke="{StaticResource DefaultOrangeBrush}"
+                    StrokeThickness="3" />
+                <StackPanel
+                    x:Name="stackPanel"
+                    Canvas.Left="{Binding ElementName=ellipse, Path=(Canvas.Left)}"
+                    Canvas.Top="{Binding ElementName=ellipse, Path=(Canvas.Top)}"
+                    Width="80"
+                    Margin="0,15,0,0"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Center"
                     Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftDown[1].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        d:Text="20"
+                        FontSize="24"
+                        Foreground="White"
+                        Text="{Binding RemainingPoints}" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="10"
+                        Text="剩余点数" />
+                </StackPanel>
 
-            <!--  LeftUp Circle 2 - 10 O'Clock  -->
-            <Grid
-                x:Name="HeGrid"
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftDown[2]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[2]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[2]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsLeftDown[0].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[1].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
-                                                                            Angle={StaticResource TenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=0}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
-                                                                            Angle={StaticResource TenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=1}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftDownFirstCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftDown[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftDown[2].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                <!--  LeftUp Circle 1 - 10 O'Clock  -->
+                <Grid
+                    x:Name="LuGrid"
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftDown[0]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[0]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[0]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
+                                                                                Angle={StaticResource TenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=0}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
+                                                                                Angle={StaticResource TenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=1}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftDownFirstCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftDown[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftDown[0].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  LeftUp Circle 2 - 11 O'Clock  -->
-            <Grid
-                x:Name="OuGrid"
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftDown[3]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[3]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[3]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsLeftDown[0].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[1].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
-                                                                            Angle={StaticResource ElevenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=0}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
-                                                                            Angle={StaticResource ElevenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=1}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftDownSecondCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftDown[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftDown[3].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                <!--  LeftUp Circle 1 - 11 O'Clock  -->
+                <Grid
+                    x:Name="MaGrid"
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftDown[1]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[1]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[1]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
+                                                                                Angle={StaticResource ElevenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=0}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource FirstCircleRadius},
+                                                                                Angle={StaticResource ElevenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=1}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftDownFirstCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftDown[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftDown[1].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  LeftUp Circle 3 - 10 O'Clock  -->
-            <Grid
-                x:Name="XiongGrid"
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftDown[4]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[4]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[4]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsLeftDown[2].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[3].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
-                                                                            Angle={StaticResource TenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=0}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
-                                                                            Angle={StaticResource TenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=1}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftDownThirdCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftDown[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftDown[4].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
+                <!--  LeftUp Circle 2 - 10 O'Clock  -->
+                <Grid
+                    x:Name="HeGrid"
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftDown[2]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[2]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[2]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsLeftDown[0].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[1].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
+                                                                                Angle={StaticResource TenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=0}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
+                                                                                Angle={StaticResource TenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=1}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftDownFirstCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftDown[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftDown[2].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  LeftUp Circle 3 - 11 O'Clock  -->
-            <Grid
-                x:Name="ShiGrid"
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftDown[5]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[5]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[5]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsLeftDown[2].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[3].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftDown[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
-                                                                            Angle={StaticResource ElevenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=0}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding
-                        Converter="{StaticResource UpperLeftPolarConverter}"
-                        ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
-                                                                            Angle={StaticResource ElevenOClockAngle},
-                                                                            ElementSize={StaticResource SkillPointElementSize},
-                                                                            Coordinate=1}"
-                        ElementName="ellipse"
-                        Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftDownThirdCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftDown[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftDown[5].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
+                <!--  LeftUp Circle 2 - 11 O'Clock  -->
+                <Grid
+                    x:Name="OuGrid"
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftDown[3]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[3]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[3]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsLeftDown[0].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[1].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
+                                                                                Angle={StaticResource ElevenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=0}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource SecondCircleRadius},
+                                                                                Angle={StaticResource ElevenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=1}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftDownSecondCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftDown[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftDown[3].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  Generate remaining 18 grids with mirroring and triggers  -->
-            <!--  RightUp Circle 1 - 10 O'Clock (Mirror H)  -->
-            <Grid
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightDown[0]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[0]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[0]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="LuGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding ElementName="LuGrid" Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightDownFirstCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightDown[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightDown[0].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                <!--  LeftUp Circle 3 - 10 O'Clock  -->
+                <Grid
+                    x:Name="XiongGrid"
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftDown[4]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[4]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[4]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsLeftDown[2].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[3].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
+                                                                                Angle={StaticResource TenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=0}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
+                                                                                Angle={StaticResource TenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=1}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftDownThirdCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftDown[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftDown[4].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  RightUp Circle 1 - 11 O'Clock (Mirror H)  -->
-            <Grid
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightDown[1]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[1]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[1]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="MaGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding ElementName="MaGrid" Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightDownFirstCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightDown[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightDown[1].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                <!--  LeftUp Circle 3 - 11 O'Clock  -->
+                <Grid
+                    x:Name="ShiGrid"
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftDown[5]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[5]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftDown[5]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsLeftDown[2].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[3].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftDown[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
+                                                                                Angle={StaticResource ElevenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=0}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding
+                            Converter="{StaticResource UpperLeftPolarConverter}"
+                            ConverterParameter="{converters:SkillPointParameter Radius={StaticResource ThirdCircleRadius},
+                                                                                Angle={StaticResource ElevenOClockAngle},
+                                                                                ElementSize={StaticResource SkillPointElementSize},
+                                                                                Coordinate=1}"
+                            ElementName="ellipse"
+                            Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftDownThirdCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftDown[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftDown[5].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  RightUp Circle 2 - 10 O'Clock (Mirror H)  -->
-            <Grid
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightDown[2]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[2]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[2]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsRightDown[0].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[1].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="HeGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding ElementName="HeGrid" Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightDownSecondCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightDown[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightDown[2].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
-
-            <!--  RightUp Circle 2 - 11 O'Clock (Mirror H)  -->
-            <Grid
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightDown[3]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[3]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[3]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsRightDown[0].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[1].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="OuGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding ElementName="OuGrid" Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightDownSecondCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightDown[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightDown[3].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
-
-            <!--  RightUp Circle 3 - 10 O'Clock (Mirror H)  -->
-            <Grid
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightDown[4]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[4]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[4]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsRightDown[2].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[3].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="ShiGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding ElementName="ShiGrid" Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightDownThirdCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightDown[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightDown[4].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
-
-            <!--  RightUp Circle 3 - 11 O'Clock (Mirror H)  -->
-            <Grid
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightDown[5]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[5]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[5]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
-                        <Binding Path="SkillPointsRightDown[2].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[3].CurrentLearned" />
-                        <Binding Path="SkillPointsRightDown[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="XiongGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightDownThirdCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightDown[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightDown[5].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
-
-            <!--  LeftDown: Vertical mirrors (indices 12-17)  -->
-            <Grid
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftUp[3]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[3]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[3]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsLeftUp[0].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[1].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding ElementName="HeGrid" Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="HeGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpSecondCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftUp[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftUp[3].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftUp[2]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[2]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[2]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsLeftUp[0].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[1].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding ElementName="OuGrid" Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="OuGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpSecondCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftUp[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftUp[2].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftUp[5]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[5]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[5]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsLeftUp[2].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[3].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding ElementName="ShiGrid" Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="ShiGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpThirdCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftUp[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftUp[5].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Name="threeGrid2"
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftUp[4]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[4]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[4]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsLeftUp[2].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[3].CurrentLearned" />
-                        <Binding Path="SkillPointsLeftUp[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <Binding ElementName="XiongGrid" Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpThirdCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftUp[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftUp[4].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftUp[0]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[0]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[0]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <Binding ElementName="MaGrid" Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="MaGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpFirstCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftUp[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftUp[0].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsLeftUp[1]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[1]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[1]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <Binding ElementName="LuGrid" Path="(Canvas.Left)" />
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                <!--  Generate remaining 18 grids with mirroring and triggers  -->
+                <!--  RightUp Circle 1 - 10 O'Clock (Mirror H)  -->
+                <Grid
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightDown[0]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[0]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[0]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="LuGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
                         <Binding ElementName="LuGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointLeftUpFirstCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsLeftUp[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsLeftUp[1].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightDownFirstCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightDown[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightDown[0].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <!--  RightDown: Horizontal and Vertical mirrors (indices 18-23)  -->
-            <Grid
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightUp[0]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[0]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[0]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="LuGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="LuGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightUpFirstCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightUp[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightUp[0].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Width="{StaticResource FirstCircleSkillPointSize}"
-                Height="{StaticResource FirstCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightUp[1]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[1]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[1]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="MaGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                <!--  RightUp Circle 1 - 11 O'Clock (Mirror H)  -->
+                <Grid
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightDown[1]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[1]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[1]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="MaGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
                         <Binding ElementName="MaGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightUpFirstCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightUp[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource FirstCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightUp[1].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightDownFirstCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightDown[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightDown[1].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <Grid
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightUp[2]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[2]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[2]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[0].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[1].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="HeGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                <!--  RightUp Circle 2 - 10 O'Clock (Mirror H)  -->
+                <Grid
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightDown[2]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[2]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[2]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsRightDown[0].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[1].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="HeGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
                         <Binding ElementName="HeGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightUpSecondCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightUp[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightUp[2].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightDownSecondCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightDown[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightDown[2].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <Grid
-                Width="{StaticResource SecondCircleSkillPointSize}"
-                Height="{StaticResource SecondCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightUp[3]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[3]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[3]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[0].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[1].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[0].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="OuGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                <!--  RightUp Circle 2 - 11 O'Clock (Mirror H)  -->
+                <Grid
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightDown[3]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[3]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[3]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsRightDown[0].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[1].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="OuGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
                         <Binding ElementName="OuGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightUpSecondCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightUp[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource SecondCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightUp[3].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="4" />
-                </TextBlock>
-            </Grid>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightDownSecondCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightDown[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightDown[3].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
 
-            <Grid
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightUp[4]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[4]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[4]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[2].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[3].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="XiongGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightUpThirdCircle1Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightUp[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightUp[4].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
-
-            <Grid
-                Width="{StaticResource ThirdCircleSkillPointSize}"
-                Height="{StaticResource ThirdCircleSkillPointSize}"
-                Style="{StaticResource SkillPointGridStyle}"
-                Tag="{Binding SkillPointsRightUp[5]}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseLeftButtonDown">
-                        <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[5]}" />
-                    </b:EventTrigger>
-                    <b:EventTrigger EventName="MouseRightButtonDown">
-                        <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[5]}" />
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-                <Grid.IsEnabled>
-                    <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
-                        <Binding Path="SkillPointsRightUp[2].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[3].CurrentLearned" />
-                        <Binding Path="SkillPointsRightUp[2].TotalLearnable" />
-                    </MultiBinding>
-                </Grid.IsEnabled>
-                <Canvas.Left>
-                    <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
-                        <Binding ElementName="ShiGrid" Path="(Canvas.Left)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
-                    </MultiBinding>
-                </Canvas.Left>
-                <Canvas.Top>
-                    <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                <!--  RightUp Circle 3 - 10 O'Clock (Mirror H)  -->
+                <Grid
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightDown[4]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[4]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[4]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsRightDown[2].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[3].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="ShiGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
                         <Binding ElementName="ShiGrid" Path="(Canvas.Top)" />
-                        <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
-                    </MultiBinding>
-                </Canvas.Top>
-                <Image Source="{StaticResource SkillPointRightUpThirdCircle2Image}" />
-                <Image
-                    Width="{StaticResource CanEditIconSize}"
-                    Height="{StaticResource CanEditIconSize}"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Panel.ZIndex="1"
-                    Source="{StaticResource CanEditImage}"
-                    Visibility="{Binding SkillPointsRightUp[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <TextBlock
-                    Margin="{StaticResource ThirdCircleTextBlockMargin}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Panel.ZIndex="1">
-                    <Run FontSize="10" Text="{Binding SkillPointsRightUp[5].CurrentLearned}" />
-                    <Run FontSize="10" Text="/" />
-                    <Run FontSize="10" Text="2" />
-                </TextBlock>
-            </Grid>
-        </Canvas>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightDownThirdCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightDown[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightDown[4].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
 
-        <!--  Return Button  -->
+                <!--  RightUp Circle 3 - 11 O'Clock (Mirror H)  -->
+                <Grid
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightDown[5]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[5]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightDown[5]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}" FallbackValue="True">
+                            <Binding Path="SkillPointsRightDown[2].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[3].CurrentLearned" />
+                            <Binding Path="SkillPointsRightDown[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="XiongGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightDownThirdCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightDown[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightDown[5].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
+
+                <!--  LeftDown: Vertical mirrors (indices 12-17)  -->
+                <Grid
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftUp[3]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[3]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[3]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsLeftUp[0].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[1].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding ElementName="HeGrid" Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="HeGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftUpSecondCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftUp[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftUp[3].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftUp[2]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[2]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[2]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsLeftUp[0].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[1].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding ElementName="OuGrid" Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="OuGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftUpSecondCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftUp[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftUp[2].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftUp[5]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[5]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[5]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsLeftUp[2].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[3].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding ElementName="ShiGrid" Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="ShiGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftUpThirdCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftUp[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftUp[5].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Name="threeGrid2"
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftUp[4]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[4]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[4]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsLeftUp[2].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[3].CurrentLearned" />
+                            <Binding Path="SkillPointsLeftUp[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <Binding ElementName="XiongGrid" Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftUpThirdCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftUp[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftUp[4].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftUp[0]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[0]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[0]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <Binding ElementName="MaGrid" Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="MaGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftUpFirstCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftUp[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftUp[0].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsLeftUp[1]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[1]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsLeftUp[1]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <Binding ElementName="LuGrid" Path="(Canvas.Left)" />
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="LuGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointLeftUpFirstCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsLeftUp[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsLeftUp[1].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <!--  RightDown: Horizontal and Vertical mirrors (indices 18-23)  -->
+                <Grid
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightUp[0]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[0]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[0]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="LuGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="LuGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightUpFirstCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightUp[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightUp[0].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource FirstCircleSkillPointSize}"
+                    Height="{StaticResource FirstCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightUp[1]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[1]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[1]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="MaGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="MaGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightUpFirstCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightUp[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource FirstCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightUp[1].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightUp[2]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[2]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[2]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsRightUp[0].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[1].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="HeGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="HeGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightUpSecondCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightUp[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightUp[2].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource SecondCircleSkillPointSize}"
+                    Height="{StaticResource SecondCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightUp[3]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[3]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[3]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsRightUp[0].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[1].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[0].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="OuGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="OuGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightUpSecondCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightUp[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource SecondCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightUp[3].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="4" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightUp[4]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[4]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[4]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsRightUp[2].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[3].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="XiongGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="XiongGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightUpThirdCircle1Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightUp[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightUp[4].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
+
+                <Grid
+                    Width="{StaticResource ThirdCircleSkillPointSize}"
+                    Height="{StaticResource ThirdCircleSkillPointSize}"
+                    Style="{StaticResource SkillPointGridStyle}"
+                    Tag="{Binding SkillPointsRightUp[5]}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="MouseLeftButtonDown">
+                            <b:InvokeCommandAction Command="{Binding LearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[5]}" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseRightButtonDown">
+                            <b:InvokeCommandAction Command="{Binding UnlearnSkillCommand}" CommandParameter="{Binding SkillPointsRightUp[5]}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <Grid.IsEnabled>
+                        <MultiBinding Converter="{StaticResource DependencySkillPointConverter}">
+                            <Binding Path="SkillPointsRightUp[2].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[3].CurrentLearned" />
+                            <Binding Path="SkillPointsRightUp[2].TotalLearnable" />
+                        </MultiBinding>
+                    </Grid.IsEnabled>
+                    <Canvas.Left>
+                        <MultiBinding Converter="{StaticResource HorizontalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="ShiGrid" Path="(Canvas.Left)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualWidth" />
+                        </MultiBinding>
+                    </Canvas.Left>
+                    <Canvas.Top>
+                        <MultiBinding Converter="{StaticResource VerticalMirrorConverter}" ConverterParameter="50">
+                            <Binding ElementName="ShiGrid" Path="(Canvas.Top)" />
+                            <Binding ElementName="skillPointCanvas" Path="ActualHeight" />
+                        </MultiBinding>
+                    </Canvas.Top>
+                    <Image Source="{StaticResource SkillPointRightUpThirdCircle2Image}" />
+                    <Image
+                        Width="{StaticResource CanEditIconSize}"
+                        Height="{StaticResource CanEditIconSize}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="1"
+                        Source="{StaticResource CanEditImage}"
+                        Visibility="{Binding SkillPointsRightUp[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock
+                        Margin="{StaticResource ThirdCircleTextBlockMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <Run FontSize="10" Text="{Binding SkillPointsRightUp[5].CurrentLearned}" />
+                        <Run FontSize="10" Text="/" />
+                        <Run FontSize="10" Text="2" />
+                    </TextBlock>
+                </Grid>
+            </Canvas>
+        </Grid>
         <controls:EscBackControl
             Grid.Column="2"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Command="{Binding ReturnToHallCommand}" />
     </Grid>
+
 </base:UserControlBase>
