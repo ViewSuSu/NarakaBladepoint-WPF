@@ -51,6 +51,9 @@
                 <Trigger Property="IsSelected" Value="True">
                     <Setter Property="Opacity" Value="1.0" />
                 </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="1.0" />
+                </Trigger>
             </Style.Triggers>
         </Style>
 
