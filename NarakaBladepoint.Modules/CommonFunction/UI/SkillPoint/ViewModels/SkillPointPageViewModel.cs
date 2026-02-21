@@ -153,6 +153,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
         public DelegateCommand<SkillPointItemViewModel> LearnSkillCommand { get; set; }
         public DelegateCommand<SkillPointItemViewModel> UnlearnSkillCommand { get; set; }
+        public DelegateCommand AutoAssignCommand { get; set; }
+        public DelegateCommand ResetAllCommand { get; set; }
 
         private const int TOTAL_SKILL_POINTS = 20;
         private const int FIRST_CIRCLE_MAX = 4;
@@ -171,6 +173,8 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
             LearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(LearnSkill, CanLearnSkill);
             UnlearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(UnlearnSkill, CanUnlearnSkill);
+            AutoAssignCommand = new DelegateCommand(AutoAssignSkills);
+            ResetAllCommand = new DelegateCommand(ResetAllSkills);
 
             InitializeSkillPoints();
         }
@@ -533,6 +537,78 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             {
                 UpdateSiblingLearnableStatus(childSkill);
             }
+        }
+
+        /// <summary>
+        /// 自动装配技能点
+        /// SkillPointsLeftUp[0] -> 4点
+        /// SkillPointsLeftUp[2] -> 4点
+        /// SkillPointsLeftUp[5] -> 2点
+        /// SkillPointsRightUp[1] -> 4点
+        /// SkillPointsRightUp[3] -> 4点
+        /// SkillPointsRightUp[5] -> 2点
+        /// </summary>
+        private void AutoAssignSkills()
+        {
+            // 先重置所有技能
+            ResetAllSkills();
+
+            // 分配LeftUp的技能
+            AutoLearnSkill(SkillPointsLeftUp[0], 4);  // Index 0: 4 points
+            AutoLearnSkill(SkillPointsLeftUp[2], 4);  // Index 2: 4 points
+            AutoLearnSkill(SkillPointsLeftUp[5], 2);  // Index 5: 2 points
+
+            // 分配RightUp的技能
+            AutoLearnSkill(SkillPointsRightUp[1], 4); // Index 1: 4 points
+            AutoLearnSkill(SkillPointsRightUp[3], 4); // Index 3: 4 points
+            AutoLearnSkill(SkillPointsRightUp[5], 2); // Index 5: 2 points
+        }
+
+        /// <summary>
+        /// 为指定的技能点自动学习指定数量的点数
+        /// </summary>
+        private void AutoLearnSkill(SkillPointItemViewModel skillPoint, int pointsToLearn)
+        {
+            for (int i = 0; i < pointsToLearn && skillPoint.CurrentLearned < skillPoint.TotalLearnable; i++)
+            {
+                if (CanLearnSkill(skillPoint))
+                {
+                    skillPoint.CurrentLearned++;
+                    RemainingPoints--;
+
+                    // 更新状态
+                    UpdateSiblingLearnableStatus(skillPoint);
+                    if (skillPoint.CircleLevel < 3)
+                    {
+                        UpdateChildCircleLearnableStatus(skillPoint);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 重置所有技能点
+        /// </summary>
+        private void ResetAllSkills()
+        {
+            var allSkillPoints = new[] { SkillPointsLeftUp, SkillPointsLeftDown, SkillPointsRightUp, SkillPointsRightDown }
+                .SelectMany(collection => collection)
+                .ToList();
+
+            foreach (var skillPoint in allSkillPoints)
+            {
+                skillPoint.CurrentLearned = 0;
+            }
+
+            RemainingPoints = TOTAL_SKILL_POINTS;
+            UpdateSkillPointsEnabled();
+
+            // 重新初始化所有技能点的IsLearnable状态
+            InitializeLearnableStatus();
+
+            // 触发Command的CanExecuteChanged事件
+            LearnSkillCommand.RaiseCanExecuteChanged();
+            UnlearnSkillCommand.RaiseCanExecuteChanged();
         }
     }
 }

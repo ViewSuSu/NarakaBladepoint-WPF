@@ -1568,6 +1568,24 @@
                 </Grid>
             </Canvas>
         </Grid>
+        <Grid Grid.Column="2">
+            <UniformGrid
+                Height="30"
+                Margin="0,0,0,50"
+                VerticalAlignment="Bottom"
+                Columns="2">
+                <Button
+                    Margin="10,0"
+                    Command="{Binding AutoAssignCommand}"
+                    Content="自动装配"
+                    Style="{StaticResource CommandButtonStyle2}" />
+                <Button
+                    Margin="10,0"
+                    Command="{Binding ResetAllCommand}"
+                    Content="全部重置"
+                    Style="{StaticResource CommandButtonStyle3}" />
+            </UniformGrid>
+        </Grid>
         <controls:EscBackControl
             Grid.Column="2"
             HorizontalAlignment="Right"
