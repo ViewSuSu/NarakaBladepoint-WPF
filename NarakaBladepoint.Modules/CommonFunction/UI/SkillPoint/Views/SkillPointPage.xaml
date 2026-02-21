@@ -210,7 +210,7 @@
                             <local:TalentGrid
                                 Width="40"
                                 Height="40"
-                                IsSelected="True"
+                                IsSelected="False"
                                 Style="{StaticResource TalentItemGridStyle}">
                                 <Viewbox
                                     Width="10"
@@ -265,7 +265,7 @@
                             <local:TalentGrid
                                 Width="40"
                                 Height="40"
-                                IsSelected="True"
+                                IsSelected="False"
                                 Style="{StaticResource TalentItemGridStyle}">
                                 <Viewbox
                                     Width="10"

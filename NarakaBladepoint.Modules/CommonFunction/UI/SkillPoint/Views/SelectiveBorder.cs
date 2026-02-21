@@ -83,8 +83,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
         /// </summary>
         private void SelectiveBorder_Loaded(object sender, RoutedEventArgs e)
         {
-            UpdateHighlightState();
             AttachPropertyChangeListeners();
+            // 初始化时立即更新高亮状态
+            UpdateHighlightState();
         }
 
         /// <summary>
