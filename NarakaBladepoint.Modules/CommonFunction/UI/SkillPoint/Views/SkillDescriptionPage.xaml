@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{Binding DescriptionHeight, RelativeSource={RelativeSource AncestorType=local:SkillDescriptionPage}}" />
             <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
 
@@ -62,25 +62,34 @@
         </ItemsControl>
 
         <!--  Description Row  -->
-        <ContentControl
-            Name="description"
+        <ScrollViewer
             Grid.Row="2"
-            Padding="10"
-            VerticalAlignment="Center"
-            Content="{Binding Description, RelativeSource={RelativeSource AncestorType=local:SkillDescriptionPage}}" />
+            HorizontalScrollBarVisibility="Hidden"
+            VerticalScrollBarVisibility="Auto">
+            <ContentControl
+                Name="description"
+                Padding="10"
+                VerticalAlignment="Top"
+                Content="{Binding Description, RelativeSource={RelativeSource AncestorType=local:SkillDescriptionPage}}" />
+        </ScrollViewer>
 
         <!--  Image Row  -->
         <Border
             Name="mp4"
             Grid.Row="3"
-            Padding="10">
-            <MediaElement
-                Name="VideoPlayer"
-                LoadedBehavior="Play"
-                MediaEnded="VideoPlayer_MediaEnded"
-                Source="{Binding VideoSource, RelativeSource={RelativeSource AncestorType=local:SkillDescriptionPage}}"
-                Stretch="UniformToFill"
-                UnloadedBehavior="Stop" />
+            Padding="10"
+            Background="Black">
+            <Grid>
+                <MediaElement
+                    Name="VideoPlayer"
+                    LoadedBehavior="Pause"
+                    MediaEnded="VideoPlayer_MediaEnded"
+                    MediaOpened="VideoPlayer_MediaOpened"
+                    Source="{Binding VideoSource, RelativeSource={RelativeSource AncestorType=local:SkillDescriptionPage}}"
+                    Stretch="UniformToFill"
+                    UnloadedBehavior="Stop"
+                    Volume="0.5" />
+            </Grid>
         </Border>
     </Grid>
 </UserControl>

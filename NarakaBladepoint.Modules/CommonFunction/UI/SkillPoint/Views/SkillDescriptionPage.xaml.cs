@@ -25,8 +25,20 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
             InitializeComponent();
         }
 
+        private void VideoPlayer_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            // 媒体加载完成后，自动开始播放
+            if (VideoPlayer != null && VideoPlayer.Source != null)
+            {
+                // 设置音量
+                VideoPlayer.Volume = 0.5;
+                VideoPlayer.Play();
+            }
+        }
+
         private void VideoPlayer_MediaEnded(object sender, RoutedEventArgs e)
         {
+            // 视频播放结束后，重置到开始位置并循环播放
             if (VideoPlayer != null)
             {
                 VideoPlayer.Position = TimeSpan.Zero;
@@ -129,6 +141,22 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
                 typeof(string),
                 typeof(SkillDescriptionPage),
                 new PropertyMetadata(string.Empty));
+
+        /// <summary>
+        /// 描述高度
+        /// </summary>
+        public GridLength DescriptionHeight
+        {
+            get { return (GridLength)GetValue(DescriptionHeightProperty); }
+            set { SetValue(DescriptionHeightProperty, value); }
+        }
+
+        public static readonly DependencyProperty DescriptionHeightProperty =
+            DependencyProperty.Register(
+                nameof(DescriptionHeight),
+                typeof(GridLength),
+                typeof(SkillDescriptionPage),
+                new PropertyMetadata(new GridLength(1, GridUnitType.Auto)));
 
         /// <summary>
         /// 视频源

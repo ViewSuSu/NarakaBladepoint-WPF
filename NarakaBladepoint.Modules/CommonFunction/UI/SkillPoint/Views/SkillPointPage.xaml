@@ -1667,10 +1667,12 @@
             <skillViews:SkillDescriptionPage
                 x:Name="skillFPage"
                 Title="发丘指"
-                TagHeight="30"
+                Margin="10,50"
+                DescriptionHeight="100"
+                TagHeight="20"
                 TagWidth="80"
                 Tags="{StaticResource F1Tags}"
-                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/F1.Mp4">
+                VideoSource="{Binding F1VideoSource}">
                 <skillViews:SkillDescriptionPage.Visibility>
                     <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="f1">
                         <Binding Path="CurrentSelectedSkillType" />
@@ -1693,10 +1695,12 @@
             <skillViews:SkillDescriptionPage
                 x:Name="f2SkillFPage"
                 Title="发丘指·锁喉"
-                TagHeight="30"
+                Margin="10,50"
+                DescriptionHeight="100"
+                TagHeight="20"
                 TagWidth="80"
                 Tags="{StaticResource F2Tags}"
-                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/F2.Mp4">
+                VideoSource="{Binding F2VideoSource}">
                 <skillViews:SkillDescriptionPage.Visibility>
                     <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="f2">
                         <Binding Path="CurrentSelectedSkillType" />
@@ -1737,10 +1741,12 @@
             <skillViews:SkillDescriptionPage
                 x:Name="v1SkillDescriptionPage"
                 Title="麒麟怒"
-                TagHeight="30"
+                Margin="10,50"
+                DescriptionHeight="100"
+                TagHeight="20"
                 TagWidth="80"
                 Tags="{StaticResource V1Tags}"
-                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/V1.Mp4">
+                VideoSource="{Binding V1VideoSource}">
                 <skillViews:SkillDescriptionPage.Visibility>
                     <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="v1">
                         <Binding Path="CurrentSelectedSkillType" />
@@ -1800,10 +1806,12 @@
             <skillViews:SkillDescriptionPage
                 x:Name="v2SkillDescriptionPage"
                 Title="麒麟怒・绝斩"
-                TagHeight="30"
+                Margin="10,50"
+                DescriptionHeight="100"
+                TagHeight="20"
                 TagWidth="80"
                 Tags="{StaticResource V2Tags}"
-                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/V2.Mp4">
+                VideoSource="{Binding V2VideoSource}">
                 <skillViews:SkillDescriptionPage.Visibility>
                     <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="v2">
                         <Binding Path="CurrentSelectedSkillType" />

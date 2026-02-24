@@ -73,6 +73,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         private ObservableCollection<SkillPointItemViewModel> _skillPointsRightUp;
         private ObservableCollection<SkillPointItemViewModel> _skillPointsRightDown;
         private string _currentSelectedSkillType;
+        private Uri _f1VideoSource;
+        private Uri _f2VideoSource;
+        private Uri _v1VideoSource;
+        private Uri _v2VideoSource;
 
         public string CurrentSelectedSkillType
         {
@@ -165,6 +169,58 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             }
         }
 
+        public Uri F1VideoSource
+        {
+            get { return _f1VideoSource; }
+            set
+            {
+                if (_f1VideoSource != value)
+                {
+                    _f1VideoSource = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public Uri F2VideoSource
+        {
+            get { return _f2VideoSource; }
+            set
+            {
+                if (_f2VideoSource != value)
+                {
+                    _f2VideoSource = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public Uri V1VideoSource
+        {
+            get { return _v1VideoSource; }
+            set
+            {
+                if (_v1VideoSource != value)
+                {
+                    _v1VideoSource = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public Uri V2VideoSource
+        {
+            get { return _v2VideoSource; }
+            set
+            {
+                if (_v2VideoSource != value)
+                {
+                    _v2VideoSource = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         public DelegateCommand<SkillPointItemViewModel> LearnSkillCommand { get; set; }
         public DelegateCommand<SkillPointItemViewModel> UnlearnSkillCommand { get; set; }
         public DelegateCommand AutoAssignCommand { get; set; }
@@ -184,6 +240,16 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             SkillPointsLeftDown = new ObservableCollection<SkillPointItemViewModel>();
             SkillPointsRightUp = new ObservableCollection<SkillPointItemViewModel>();
             SkillPointsRightDown = new ObservableCollection<SkillPointItemViewModel>();
+
+            // Initialize video sources using relative file paths
+            // MediaElement doesn't support pack:// URIs, so we use local file paths instead
+            var appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var resourcePath = System.IO.Path.Combine(appPath, "..", "..", "NarakaBladepoint.Resources", "Image", "SkillPoints", "Gif");
+
+            F1VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "F1.Mp4"));
+            F2VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "F2.Mp4"));
+            V1VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "V1.Mp4"));
+            V2VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "V2.Mp4"));
 
             LearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(LearnSkill, CanLearnSkill);
             UnlearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(UnlearnSkill, CanUnlearnSkill);
