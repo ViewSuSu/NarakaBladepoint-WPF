@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,6 +10,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
     /// </summary>
     public class TalentGrid : Grid
     {
+        // IsSelectedChanged 事件
+        public event EventHandler IsSelectedChanged;
+
         public TalentGrid()
         {
             this.MouseLeftButtonDown += TalentGrid_MouseLeftButtonDown;
@@ -22,7 +26,15 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
                 nameof(IsSelected),
                 typeof(bool),
                 typeof(TalentGrid),
-                new PropertyMetadata(false));
+                new PropertyMetadata(false, OnIsSelectedChanged));
+
+        private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is TalentGrid talentGrid && (bool)e.NewValue == true)
+            {
+                talentGrid.IsSelectedChanged?.Invoke(talentGrid, EventArgs.Empty);
+            }
+        }
 
         public bool IsSelected
         {

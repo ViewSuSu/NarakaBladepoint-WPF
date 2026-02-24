@@ -439,6 +439,11 @@
     <BitmapImage x:Key="V1Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/V1.png" />
     <BitmapImage x:Key="V2Image" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/V2.png" />
 
+    <!--  Skill Point UI Icons  -->
+    <BitmapImage x:Key="SkillPointFKeyImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/F.png" />
+    <BitmapImage x:Key="MouseLeftButtonImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/MouseLeftButton.png" />
+    <BitmapImage x:Key="MouseRightButtonImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/MouseRightButton.png" />
+
     <!--  Hero Image  -->
     <BitmapImage x:Key="ZhangQiLingHeroImage" UriSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/Hero/张起灵.png" />
 </ResourceDictionary>

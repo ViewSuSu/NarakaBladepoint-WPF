@@ -72,6 +72,20 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         private ObservableCollection<SkillPointItemViewModel> _skillPointsLeftDown;
         private ObservableCollection<SkillPointItemViewModel> _skillPointsRightUp;
         private ObservableCollection<SkillPointItemViewModel> _skillPointsRightDown;
+        private string _currentSelectedSkillType;
+
+        public string CurrentSelectedSkillType
+        {
+            get { return _currentSelectedSkillType; }
+            set
+            {
+                if (_currentSelectedSkillType != value)
+                {
+                    _currentSelectedSkillType = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         public int RemainingPoints
         {

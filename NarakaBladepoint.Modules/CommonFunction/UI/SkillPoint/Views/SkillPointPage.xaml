@@ -2,6 +2,7 @@
     x:Class="NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views.SkillPointPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:NarakaBladepoint.Framework.UI.AttachedProperties;assembly=NarakaBladepoint.Framework"
     xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
     xmlns:base="clr-namespace:NarakaBladepoint.Framework.Core.Bases.Views;assembly=NarakaBladepoint.Framework"
     xmlns:controls="clr-namespace:NarakaBladepoint.Controls;assembly=NarakaBladepoint.Controls"
@@ -11,6 +12,7 @@
     xmlns:fwConverters="clr-namespace:NarakaBladepoint.Framework.UI.Converters;assembly=NarakaBladepoint.Framework"
     xmlns:local="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skillViews="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:viewmodels="clr-namespace:NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:SkillPointPageViewModel}"
@@ -26,6 +28,7 @@
         <converters:LearnedToOpacityConverter x:Key="LearnedToOpacityConverter" />
         <converters:DependencySkillPointConverter x:Key="DependencySkillPointConverter" />
         <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter" />
+        <converters:SelectedSkillVisibilityConverter x:Key="SelectedSkillVisibilityConverter" />
         <fwConverters:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
@@ -43,6 +46,27 @@
         <Thickness x:Key="FirstCircleTextBlockMargin">0,0,0,0</Thickness>
         <Thickness x:Key="SecondCircleTextBlockMargin">0,0,0,0</Thickness>
         <Thickness x:Key="ThirdCircleTextBlockMargin">0,0,0,0</Thickness>
+
+        <!--  Tags Collections  -->
+        <x:Array x:Key="F1Tags" Type="system:String">
+            <system:String>受击可用</system:String>
+            <system:String>防御</system:String>
+        </x:Array>
+        <x:Array x:Key="F2Tags" Type="system:String">
+            <system:String>伤害</system:String>
+            <system:String>控制</system:String>
+        </x:Array>
+        <x:Array x:Key="V1Tags" Type="system:String">
+            <system:String>机动</system:String>
+            <system:String>伤害</system:String>
+            <system:String>续命</system:String>
+        </x:Array>
+        <x:Array x:Key="V2Tags" Type="system:String">
+            <system:String>机动</system:String>
+            <system:String>伤害</system:String>
+            <system:String>续命</system:String>
+            <system:String>充能</system:String>
+        </x:Array>
 
         <!--  Talent Item Grid Style  -->
         <Style x:Key="TalentItemGridStyle" TargetType="local:TalentGrid">
@@ -127,10 +151,19 @@
                             VerticalAlignment="Center"
                             Columns="3">
                             <local:TalentGrid
+                                x:Name="tianfu1"
                                 Width="40"
                                 Height="40"
                                 IsSelected="True"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="tianfu" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -150,10 +183,19 @@
                             </local:TalentGrid>
 
                             <local:TalentGrid
+                                x:Name="tianfu2"
                                 Width="40"
                                 Height="40"
                                 Margin="5,0"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="tianfu" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -173,9 +215,18 @@
                             </local:TalentGrid>
 
                             <local:TalentGrid
+                                x:Name="tianfu3"
                                 Width="40"
                                 Height="40"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="tianfu" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -208,10 +259,19 @@
                             VerticalAlignment="Center"
                             Columns="2">
                             <local:TalentGrid
+                                x:Name="f1"
                                 Width="40"
                                 Height="40"
                                 IsSelected="False"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="f1" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -222,7 +282,7 @@
                                     StretchDirection="Both">
                                     <RadioButton
                                         Foreground="Gray"
-                                        GroupName="2"
+                                        GroupName="FSkillSelection"
                                         IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
                                         Style="{StaticResource DiamondRadioButtonStyle}"
                                         Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -231,10 +291,19 @@
                             </local:TalentGrid>
 
                             <local:TalentGrid
+                                x:Name="f2"
                                 Width="40"
                                 Height="40"
                                 Margin="5,0"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="f2" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -245,7 +314,7 @@
                                     StretchDirection="Both">
                                     <RadioButton
                                         Foreground="Gray"
-                                        GroupName="2"
+                                        GroupName="FSkillSelection"
                                         IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
                                         Style="{StaticResource DiamondRadioButtonStyle}"
                                         Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -263,10 +332,19 @@
                             VerticalAlignment="Center"
                             Columns="2">
                             <local:TalentGrid
+                                x:Name="v1"
                                 Width="40"
                                 Height="40"
                                 IsSelected="False"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="v1" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -277,7 +355,7 @@
                                     StretchDirection="Both">
                                     <RadioButton
                                         Foreground="Gray"
-                                        GroupName="3"
+                                        GroupName="VSkillSelection"
                                         IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
                                         Style="{StaticResource DiamondRadioButtonStyle}"
                                         Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -286,10 +364,19 @@
                             </local:TalentGrid>
 
                             <local:TalentGrid
+                                x:Name="v2"
                                 Width="40"
                                 Height="40"
                                 Margin="5,0"
                                 Style="{StaticResource TalentItemGridStyle}">
+                                <b:Interaction.Triggers>
+                                    <b:EventTrigger EventName="IsSelectedChanged">
+                                        <core:ChangePropertyAction
+                                            PropertyName="CurrentSelectedSkillType"
+                                            TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
+                                            Value="v2" />
+                                    </b:EventTrigger>
+                                </b:Interaction.Triggers>
                                 <Viewbox
                                     Width="10"
                                     Height="9"
@@ -300,7 +387,7 @@
                                     StretchDirection="Both">
                                     <RadioButton
                                         Foreground="Gray"
-                                        GroupName="3"
+                                        GroupName="VSkillSelection"
                                         IsChecked="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected}"
                                         Style="{StaticResource DiamondRadioButtonStyle}"
                                         Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:TalentGrid}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -313,10 +400,12 @@
             </UniformGrid>
         </Grid>
         <Grid Name="mainGrid" Grid.Column="1">
-            <Canvas
-                x:Name="skillPointCanvas"
-                ClipToBounds="False"
-                Visibility="{Binding ElementName=boder1, Path=IsHighlighted, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Canvas x:Name="skillPointCanvas" ClipToBounds="False">
+                <Canvas.Visibility>
+                    <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="canvas">
+                        <Binding Path="CurrentSelectedSkillType" />
+                    </MultiBinding>
+                </Canvas.Visibility>
                 <Ellipse
                     x:Name="ellipse"
                     Canvas.Left="{Binding ElementName=skillPointCanvas, Path=ActualWidth, Converter={StaticResource CenterOffsetConverter}, ConverterParameter=80}"
@@ -1573,6 +1662,186 @@
                     </TextBlock>
                 </Grid>
             </Canvas>
+
+            <!--  SkillFPage - 显示技能详情  -->
+            <skillViews:SkillDescriptionPage
+                x:Name="skillFPage"
+                Title="发丘指"
+                TagHeight="30"
+                TagWidth="80"
+                Tags="{StaticResource F1Tags}"
+                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/F1.Mp4">
+                <skillViews:SkillDescriptionPage.Visibility>
+                    <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="f1">
+                        <Binding Path="CurrentSelectedSkillType" />
+                    </MultiBinding>
+                </skillViews:SkillDescriptionPage.Visibility>
+                <skillViews:SkillDescriptionPage.Description>
+                    <TextBlock
+                        Padding="10"
+                        VerticalAlignment="Center"
+                        attach:TextBlockHighlightAttachedProperty.HighlightForeground="{StaticResource DefaultOrangeBrush}"
+                        attach:TextBlockHighlightAttachedProperty.HighlightText="受击中可用。"
+                        FontSize="12"
+                        Foreground="#FFFFFF"
+                        Text="向前方突进并击飞敌人后，进入1.2秒【拨挡】架势。&#10;• 【拨挡】架势期间不可移动，自身受到攻击可自动触发反击。&#10;• 受击中可用。"
+                        TextWrapping="Wrap" />
+                </skillViews:SkillDescriptionPage.Description>
+            </skillViews:SkillDescriptionPage>
+
+            <!--  SkillFPage - F2技能详情  -->
+            <skillViews:SkillDescriptionPage
+                x:Name="f2SkillFPage"
+                Title="发丘指·锁喉"
+                TagHeight="30"
+                TagWidth="80"
+                Tags="{StaticResource F2Tags}"
+                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/F2.Mp4">
+                <skillViews:SkillDescriptionPage.Visibility>
+                    <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="f2">
+                        <Binding Path="CurrentSelectedSkillType" />
+                    </MultiBinding>
+                </skillViews:SkillDescriptionPage.Visibility>
+                <skillViews:SkillDescriptionPage.Description>
+                    <TextBlock
+                        Padding="10"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Foreground="#FFFFFF"
+                        TextWrapping="Wrap">
+                        <Run Text="凝聚指力，向前方突进戳刺，命中时根据敌人的霸体状态产生不同效果：" />
+                        <LineBreak />
+                        <Run Text="• 若命中非霸体敌人，则" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="锁喉控制敌人2秒，" />
+                        <Run Text="且" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="可再按" />
+                        <InlineUIContainer>
+                            <Image
+                                Width="10"
+                                Height="10"
+                                Margin="2,0"
+                                VerticalAlignment="Center"
+                                Source="{StaticResource SkillPointFKeyImage}" />
+                        </InlineUIContainer>
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="将其击飞" />
+                        <Run Text="。" />
+                        <LineBreak />
+                        <Run Text="• 若命中蓝霸体、紫霸体、金霸体状态下的敌人，则直接将其击飞。" />
+                        <LineBreak />
+                        <Run Text="• 奥义状态下，若命中非霸体、蓝霸体、紫霸体状态下的敌人，则触发特殊处决招式。" />
+                    </TextBlock>
+                </skillViews:SkillDescriptionPage.Description>
+            </skillViews:SkillDescriptionPage>
+
+            <!--  V1技能详情 - 麒麟怒  -->
+            <skillViews:SkillDescriptionPage
+                x:Name="v1SkillDescriptionPage"
+                Title="麒麟怒"
+                TagHeight="30"
+                TagWidth="80"
+                Tags="{StaticResource V1Tags}"
+                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/V1.Mp4">
+                <skillViews:SkillDescriptionPage.Visibility>
+                    <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="v1">
+                        <Binding Path="CurrentSelectedSkillType" />
+                    </MultiBinding>
+                </skillViews:SkillDescriptionPage.Visibility>
+                <skillViews:SkillDescriptionPage.Description>
+                    <TextBlock
+                        Padding="10"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Foreground="#FFFFFF"
+                        TextWrapping="Wrap">
+                        <Run Text="张起灵以麒麟血淬炼古刀，击退周围敌人并替换武器为【黑金古刀】，持续22秒；" />
+                        <LineBreak />
+                        <Run Text="期间可发动5次斩击" />
+                        <LineBreak />
+                        <LineBreak />
+                        <InlineUIContainer>
+                            <Image
+                                Width="10"
+                                Height="10"
+                                Margin="2,0"
+                                VerticalAlignment="Center"
+                                Source="{StaticResource MouseLeftButtonImage}" />
+                        </InlineUIContainer>
+                        <Run Text="或" />
+                        <InlineUIContainer>
+                            <Image
+                                Width="10"
+                                Height="10"
+                                Margin="2,0"
+                                VerticalAlignment="Center"
+                                Source="{StaticResource MouseRightButtonImage}" />
+                        </InlineUIContainer>
+                        <Run Text="获得全新的普通攻击及蓄力招式，并消耗斩击次数。" />
+                        <LineBreak />
+                        <Run Text="·蓄力跑动期间不会被非霸体招式和飞索打断。" />
+                        <LineBreak />
+                        <Run Text="·奥义期间，斩击次数耗尽或体力不足400时，触发" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="【宝血护命】" />
+                        <Run Text="。" />
+                        <LineBreak />
+                        <Run Text="·【宝血护命】：4秒内自身体力不会低于400，" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="且期间可无消耗使用斩击" />
+                        <Run Text="。" />
+                        <LineBreak />
+                        <Run Text="·若斩击次数耗尽，且当前不处于【宝血护命】状态时，则奥义提前结束。" />
+                        <LineBreak />
+                        <Run Text="·触发【宝血护命】时，" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="若自身处于被控制或受击状态" />
+                        <Run Text="，则会击退周围敌人。" />
+                    </TextBlock>
+                </skillViews:SkillDescriptionPage.Description>
+            </skillViews:SkillDescriptionPage>
+
+            <!--  V2技能详情  -->
+            <skillViews:SkillDescriptionPage
+                x:Name="v2SkillDescriptionPage"
+                Title="麒麟怒・绝斩"
+                TagHeight="30"
+                TagWidth="80"
+                Tags="{StaticResource V2Tags}"
+                VideoSource="pack://application:,,,/NarakaBladepoint.Resources;component/Image/SkillPoints/Gif/V2.Mp4">
+                <skillViews:SkillDescriptionPage.Visibility>
+                    <MultiBinding Converter="{StaticResource SelectedSkillVisibilityConverter}" ConverterParameter="v2">
+                        <Binding Path="CurrentSelectedSkillType" />
+                    </MultiBinding>
+                </skillViews:SkillDescriptionPage.Visibility>
+                <skillViews:SkillDescriptionPage.Description>
+                    <TextBlock
+                        Padding="10"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Foreground="#FFFFFF"
+                        TextWrapping="Wrap">
+                        <Run Text="张起灵以麒麟血淬炼古刀，击退周围敌人并替换武器为【黑金古刀】，持续22秒；" />
+                        <LineBreak />
+                        <Run Text="期间可发动2次斩击。" />
+                        <LineBreak />
+                        <Run Text="·普通攻击与蓄力招式【怒意绝斩】均会消耗斩击次数，若次数耗尽则可消耗体力" />
+                        <LineBreak />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="额外发动斩击，命中敌人时根据命中人数回复体力，蓄力招式可以被振刀架势抵挡" />
+                        <LineBreak />
+                        <Run Text="·蓄力跑动期间不会被非霸体招式和飞索打断。" />
+                        <LineBreak />
+                        <Run Text="·奥义期间若体力不足300时触发【宝血护命】。" />
+                        <LineBreak />
+                        <Run Text="·若斩击次数耗尽且体力低于200，则奥义提前结束。" />
+                        <LineBreak />
+                        <Run Text="·【宝血护命】：4秒内自身体力不会低于300" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="且期间内可无消耗使用斩击" />
+                        <Run Text="。" />
+                        <LineBreak />
+                        <Run Text="·【怒意绝斩】：向准星方向高速冲刺斩击，短时间后出现记忆灵体，灵体会沿冲刺轨迹再次发动斩击。" />
+                        <LineBreak />
+                        <Run Text="·触发【宝血护命】时，" />
+                        <Run Foreground="{StaticResource DefaultOrangeBrush}" Text="若自身处于被控制或受击状态" />
+                        <Run Text="，则会击退周围敌人。" />
+                    </TextBlock>
+                </skillViews:SkillDescriptionPage.Description>
+            </skillViews:SkillDescriptionPage>
         </Grid>
         <Grid Grid.Column="2">
             <UniformGrid

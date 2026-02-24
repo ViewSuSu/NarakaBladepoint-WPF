@@ -114,6 +114,7 @@
 	  <None Remove="Image\Email\4.png" />
 	  <None Remove="Image\Email\5.png" />
 	  <None Remove="Image\Email\Icon.png" />
+	  <None Remove="Image\F.png" />
 	  <None Remove="Image\friendInv.png" />
 	  <None Remove="Image\GuildHall\1.png" />
 	  <None Remove="Image\GuildHall\2.png" />
@@ -531,9 +532,14 @@
 	  <None Remove="Image\Region\Wealth\1.png" />
 	  <None Remove="Image\sayhello.png" />
 	  <None Remove="Image\SkillPoints\1.png" />
+	  <None Remove="Image\SkillPoints\2.png" />
 	  <None Remove="Image\SkillPoints\Background.png" />
 	  <None Remove="Image\SkillPoints\F1.png" />
 	  <None Remove="Image\SkillPoints\F2.png" />
+	  <None Remove="Image\SkillPoints\Gif\F1.mp4" />
+	  <None Remove="Image\SkillPoints\Gif\F2.mp4" />
+	  <None Remove="Image\SkillPoints\Gif\V1.mp4" />
+	  <None Remove="Image\SkillPoints\Gif\V2.mp4" />
 	  <None Remove="Image\SkillPoints\LeftDown\OneCircel1.png" />
 	  <None Remove="Image\SkillPoints\LeftDown\OneCircel2.png" />
 	  <None Remove="Image\SkillPoints\LeftDown\ThreeCircel1.png" />
@@ -848,6 +854,7 @@
 	  <Resource Include="Image\CanEdit.png" />
 	  <Resource Include="Image\CustomControls\1.png" />
 	  <Resource Include="Image\CustomControls\2.png" />
+	  <Resource Include="Image\F.png" />
 	  <Resource Include="Image\GuildHall\1.png" />
 	  <Resource Include="Image\GuildHall\2.png" />
 	  <Resource Include="Image\GuildHall\3.png" />
@@ -1153,9 +1160,14 @@
 	  <Resource Include="Image\Region\StartGame\Training\2.png" />
 	  <Resource Include="Image\Region\StartGame\Training\3.png" />
 	  <Resource Include="Image\SkillPoints\1.png" />
+	  <Resource Include="Image\SkillPoints\2.png" />
 	  <Resource Include="Image\SkillPoints\Background.png" />
 	  <Resource Include="Image\SkillPoints\F1.png" />
 	  <Resource Include="Image\SkillPoints\F2.png" />
+	  <Resource Include="Image\SkillPoints\Gif\F1.mp4" />
+	  <Resource Include="Image\SkillPoints\Gif\F2.mp4" />
+	  <Resource Include="Image\SkillPoints\Gif\V1.mp4" />
+	  <Resource Include="Image\SkillPoints\Gif\V2.mp4" />
 	  <Resource Include="Image\SkillPoints\LeftDown\OneCircel1.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\OneCircel2.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\ThreeCircel1.png" />
