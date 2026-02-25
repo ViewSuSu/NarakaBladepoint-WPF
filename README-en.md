@@ -49,12 +49,12 @@ Some parts could be better - feel free to open issues or PRs.
 
 ## Main Interfaces
 
-### Pixel-perfect reproduction of the game's talent system
+### 1. Pixel-perfect reproduction of the game's talent system
 
 <div align="center">
   <img src="./docs/Tianfu.gif" alt="Talent System" width="100%" />
   <br/>
-  <em>Talent system — full talent configuration interface</em>
+  <em>Talent system</em>
 </div>
 
 <table align="center" width="100%">
@@ -70,7 +70,22 @@ Some parts could be better - feel free to open issues or PRs.
   </tr>
 </table>
 
-### Other Screenshots
+### 2. Elegant Animation and Feature Implementation
+
+<table align="center" width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/Queue.gif" alt="Queue" width="100%" /><br/>
+      <em>Queue Animation</em>
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/TipMessage.gif" alt="Tip Message" width="100%" /><br/>
+      <em>Global Message Notification</em>
+    </td>
+  </tr>
+</table>
+
+### 3. Other Screenshots
 
 <table align="center" width="100%">
   <tr>

@@ -43,7 +43,7 @@
 
 ## 主要界面
 
-### 复刻游戏里的天赋系统
+### 1. 复刻游戏里的天赋系统
 
 <div align="center">
   <img src="./docs/Tianfu.gif" alt="天赋系统" width="100%" />
@@ -64,7 +64,22 @@
   </tr>
 </table>
 
-### 其他界面展示
+### 2. 优雅动画与功能实现
+
+<table align="center" width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/Queue.gif" alt="排队功能" width="100%" /><br/>
+      <em>排队动画</em>
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/TipMessage.gif" alt="消息提示" width="100%" /><br/>
+      <em>全局消息提示</em>
+    </td>
+  </tr>
+</table>
+
+### 3. 其他界面展示
 
 <table align="center" width="100%">
   <tr>
