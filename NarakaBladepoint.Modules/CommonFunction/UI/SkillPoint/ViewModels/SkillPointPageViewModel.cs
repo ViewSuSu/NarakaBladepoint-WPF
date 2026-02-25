@@ -73,7 +73,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
     {
         private readonly ITianfuSkillPointProvider _tianfuSkillPointProvider;
         private int _remainingPoints;
-        private bool _isSkillPointsEnabled;
         private ObservableCollection<SkillPointItemViewModel> _skillPointsLeftUp;
         private ObservableCollection<SkillPointItemViewModel> _skillPointsLeftDown;
         private ObservableCollection<SkillPointItemViewModel> _skillPointsRightUp;
@@ -92,6 +91,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
         // 为每个天赋独立维护 RemainingPoints，避免互相影响
         private readonly Dictionary<string, int> _tianfuRemainingPointsMap = new();
+
+        // 为每个天赋独立维护 IsSkillPointsEnabled 状态
+        private readonly Dictionary<string, bool> _tianfuEnabledMap = new();
 
         public string CurrentSelectedSkillType
         {
@@ -133,21 +135,15 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                 {
                     _remainingPoints = value;
                     RaisePropertyChanged();
+                    // 通知 IsSkillPointsEnabled 属性改变
+                    RaisePropertyChanged(nameof(IsSkillPointsEnabled));
                 }
             }
         }
 
         public bool IsSkillPointsEnabled
         {
-            get { return _isSkillPointsEnabled; }
-            set
-            {
-                if (_isSkillPointsEnabled != value)
-                {
-                    _isSkillPointsEnabled = value;
-                    RaisePropertyChanged();
-                }
-            }
+            get { return RemainingPoints > 0; }
         }
 
         public ObservableCollection<SkillPointItemViewModel> SkillPointsLeftUp
@@ -259,10 +255,30 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         private const int SECOND_CIRCLE_MAX = 4;
         private const int THIRD_CIRCLE_MAX = 2;
 
-        public DelegateCommand<SkillPointItemViewModel> LearnSkillCommand { get; set; }
-        public DelegateCommand<SkillPointItemViewModel> UnlearnSkillCommand { get; set; }
-        public DelegateCommand AutoAssignCommand { get; set; }
-        public DelegateCommand ResetAllCommand { get; set; }
+        private DelegateCommand<SkillPointItemViewModel> _learnSkillCommand;
+        private DelegateCommand<SkillPointItemViewModel> _unlearnSkillCommand;
+        private DelegateCommand _autoAssignCommand;
+        private DelegateCommand _resetAllCommand;
+
+        public DelegateCommand<SkillPointItemViewModel> LearnSkillCommand
+        {
+            get { return _learnSkillCommand ??= new DelegateCommand<SkillPointItemViewModel>(LearnSkill, CanLearnSkill); }
+        }
+
+        public DelegateCommand<SkillPointItemViewModel> UnlearnSkillCommand
+        {
+            get { return _unlearnSkillCommand ??= new DelegateCommand<SkillPointItemViewModel>(UnlearnSkill, CanUnlearnSkill); }
+        }
+
+        public DelegateCommand AutoAssignCommand
+        {
+            get { return _autoAssignCommand ??= new DelegateCommand(AutoAssignSkills); }
+        }
+
+        public DelegateCommand ResetAllCommand
+        {
+            get { return _resetAllCommand ??= new DelegateCommand(ResetAllSkills); }
+        }
 
         public SkillPointPageViewModel(ITianfuSkillPointProvider tianfuSkillPointProvider = null)
         {
@@ -272,7 +288,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             _tianfuDataCache = new Dictionary<string, (List<SkillPointItemViewModel>, List<SkillPointItemViewModel>, List<SkillPointItemViewModel>, List<SkillPointItemViewModel>, int)>();
 
             RemainingPoints = TOTAL_SKILL_POINTS;
-            IsSkillPointsEnabled = true;
 
             SkillPointsLeftUp = new ObservableCollection<SkillPointItemViewModel>();
             SkillPointsLeftDown = new ObservableCollection<SkillPointItemViewModel>();
@@ -291,11 +306,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             {
                 System.Diagnostics.Debug.WriteLine($"Failed to load video sources: {ex.Message}");
             }
-
-            LearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(LearnSkill, CanLearnSkill);
-            UnlearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(UnlearnSkill, CanUnlearnSkill);
-            AutoAssignCommand = new DelegateCommand(AutoAssignSkills);
-            ResetAllCommand = new DelegateCommand(ResetAllSkills);
 
             // 异步预加载所有天赋数据
             _ = PreloadAllTianfuDataAsync();
@@ -811,7 +821,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                 UpdateChildCircleLearnableStatus(skillPoint);
             }
 
-            UpdateSkillPointsEnabled();
             LearnSkillCommand.RaiseCanExecuteChanged();
             UnlearnSkillCommand.RaiseCanExecuteChanged();
 
@@ -842,7 +851,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                 UpdateChildCircleLearnableStatus(skillPoint);
             }
 
-            UpdateSkillPointsEnabled();
             LearnSkillCommand.RaiseCanExecuteChanged();
             UnlearnSkillCommand.RaiseCanExecuteChanged();
 
@@ -991,11 +999,6 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             };
         }
 
-        private void UpdateSkillPointsEnabled()
-        {
-            IsSkillPointsEnabled = RemainingPoints > 0;
-        }
-
         /// <summary>
         /// 获取指定圈数允许的最大技能点数
         /// </summary>
@@ -1069,15 +1072,14 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         /// </summary>
         private async void AutoAssignSkills()
         {
-            IsSkillPointsEnabled = false;
-
             try
             {
                 await AutoAssignSkillsAsync();
             }
             finally
             {
-                UpdateSkillPointsEnabled();
+                LearnSkillCommand.RaiseCanExecuteChanged();
+                UnlearnSkillCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -1113,15 +1115,14 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
         /// </summary>
         private async void ResetAllSkills()
         {
-            IsSkillPointsEnabled = false;
-
             try
             {
                 await ResetAllSkillsAsync();
             }
             finally
             {
-                UpdateSkillPointsEnabled();
+                LearnSkillCommand.RaiseCanExecuteChanged();
+                UnlearnSkillCommand.RaiseCanExecuteChanged();
             }
         }
 
