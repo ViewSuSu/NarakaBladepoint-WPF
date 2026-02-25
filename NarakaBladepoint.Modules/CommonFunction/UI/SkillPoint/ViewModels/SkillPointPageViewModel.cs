@@ -120,6 +120,10 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
                     _currentSelectedTianfu = value;
                     RaisePropertyChanged();
+
+                    // 切换天赋时，重置技能选择，使得只显示skillPointCanvas
+                    CurrentSelectedSkillType = null;
+
                     // 同步切换，直接使用缓存数据
                     SwitchTianfuData(value);
                 }
@@ -1100,13 +1104,16 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                 AutoLearnSkillSync(SkillPointsRightUp[1], 4); // Index 1: 4 points
                 AutoLearnSkillSync(SkillPointsRightUp[3], 4); // Index 3: 4 points
                 AutoLearnSkillSync(SkillPointsRightUp[5], 2); // Index 5: 2 points
+
+                // 同步缓存
+                SaveCurrentTianfuDataToCache();
             });
 
             // UI线程上更新状态
             LearnSkillCommand.RaiseCanExecuteChanged();
             UnlearnSkillCommand.RaiseCanExecuteChanged();
 
-            // 异步保存
+            // 异步保存到文件
             await SaveCurrentTianfuDataAsync();
         }
 
