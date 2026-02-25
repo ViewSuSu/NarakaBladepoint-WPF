@@ -30,6 +30,7 @@
         <converters:DependencySkillPointConverter x:Key="DependencySkillPointConverter" />
         <converters:GreaterThanZeroConverter x:Key="GreaterThanZeroConverter" />
         <converters:SelectedSkillVisibilityConverter x:Key="SelectedSkillVisibilityConverter" />
+        <converters:CanEditImageVisibilityConverter x:Key="CanEditImageVisibilityConverter" />
         <fwConverters:ImageSourceToFileNameConverter x:Key="ImageSourceToFileNameConverter" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
@@ -479,8 +480,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsLeftDown[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsLeftDown[0].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource FirstCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -534,8 +541,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsLeftDown[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsLeftDown[1].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource FirstCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -596,8 +609,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsLeftDown[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsLeftDown[2].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource SecondCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -658,8 +677,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsLeftDown[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsLeftDown[3].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource SecondCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -720,8 +745,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsLeftDown[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsLeftDown[4].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource ThirdCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -782,8 +813,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsLeftDown[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsLeftDown[5].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource ThirdCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -826,8 +863,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsRightDown[0].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsRightDown[0].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource FirstCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -869,8 +912,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsRightDown[1].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsRightDown[1].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource FirstCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -919,8 +968,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsRightDown[2].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsRightDown[2].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource SecondCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -969,8 +1024,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsRightDown[3].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsRightDown[3].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource SecondCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -1019,8 +1080,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsRightDown[4].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsRightDown[4].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource ThirdCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
@@ -1069,8 +1136,14 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Panel.ZIndex="1"
-                        Source="{StaticResource CanEditImage}"
-                        Visibility="{Binding SkillPointsRightDown[5].IsLearnable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        Source="{StaticResource CanEditImage}">
+                        <Image.Visibility>
+                            <MultiBinding Converter="{StaticResource CanEditImageVisibilityConverter}">
+                                <Binding Path="SkillPointsRightDown[5].IsLearnable" />
+                                <Binding Path="RemainingPoints" />
+                            </MultiBinding>
+                        </Image.Visibility>
+                    </Image>
                     <TextBlock
                         Margin="{StaticResource ThirdCircleTextBlockMargin}"
                         HorizontalAlignment="Center"
