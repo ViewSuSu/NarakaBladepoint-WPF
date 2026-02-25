@@ -1164,10 +1164,18 @@
 	  <Resource Include="Image\SkillPoints\Background.png" />
 	  <Resource Include="Image\SkillPoints\F1.png" />
 	  <Resource Include="Image\SkillPoints\F2.png" />
-	  <Resource Include="Image\SkillPoints\Gif\F1.mp4" />
-	  <Resource Include="Image\SkillPoints\Gif\F2.mp4" />
-	  <Resource Include="Image\SkillPoints\Gif\V1.mp4" />
-	  <Resource Include="Image\SkillPoints\Gif\V2.mp4" />
+	  <Resource Include="Image\SkillPoints\Gif\F1.mp4">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Image\SkillPoints\Gif\F2.mp4">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Image\SkillPoints\Gif\V1.mp4">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Image\SkillPoints\Gif\V2.mp4">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
 	  <Resource Include="Image\SkillPoints\LeftDown\OneCircel1.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\OneCircel2.png" />
 	  <Resource Include="Image\SkillPoints\LeftDown\ThreeCircel1.png" />

@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using NarakaBladepoint.Modules.CommonFunction.Domain.Bases;
+using NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Utilities;
 using Prism.Commands;
 
 namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
@@ -241,15 +242,18 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             SkillPointsRightUp = new ObservableCollection<SkillPointItemViewModel>();
             SkillPointsRightDown = new ObservableCollection<SkillPointItemViewModel>();
 
-            // Initialize video sources using relative file paths
-            // MediaElement doesn't support pack:// URIs, so we use local file paths instead
-            var appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var resourcePath = System.IO.Path.Combine(appPath, "..", "..", "NarakaBladepoint.Resources", "Image", "SkillPoints", "Gif");
-
-            F1VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "F1.Mp4"));
-            F2VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "F2.Mp4"));
-            V1VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "V1.Mp4"));
-            V2VideoSource = new Uri(System.IO.Path.Combine(resourcePath, "V2.Mp4"));
+            // Initialize video sources using reflection to get assembly path
+            try
+            {
+                F1VideoSource = VideoPathResolver.GetVideoUri("Image/SkillPoints/Gif/F1.Mp4");
+                F2VideoSource = VideoPathResolver.GetVideoUri("Image/SkillPoints/Gif/F2.Mp4");
+                V1VideoSource = VideoPathResolver.GetVideoUri("Image/SkillPoints/Gif/V1.Mp4");
+                V2VideoSource = VideoPathResolver.GetVideoUri("Image/SkillPoints/Gif/V2.Mp4");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Failed to load video sources: {ex.Message}");
+            }
 
             LearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(LearnSkill, CanLearnSkill);
             UnlearnSkillCommand = new DelegateCommand<SkillPointItemViewModel>(UnlearnSkill, CanUnlearnSkill);
