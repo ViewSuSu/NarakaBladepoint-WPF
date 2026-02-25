@@ -113,6 +113,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
             {
                 if (_currentSelectedTianfu != value)
                 {
+                    // 保存当前天赋的数据到缓存
+                    SaveCurrentTianfuDataToCache();
+
                     _currentSelectedTianfu = value;
                     RaisePropertyChanged();
                     // 同步切换，直接使用缓存数据
@@ -547,6 +550,27 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
 
             // 重新初始化IsLearnable状态
             InitializeLearnableStatus();
+        }
+
+        /// <summary>
+        /// 将当前天赋的数据保存到缓存中
+        /// </summary>
+        private void SaveCurrentTianfuDataToCache()
+        {
+            if (string.IsNullOrEmpty(CurrentSelectedTianfu))
+                return;
+
+            // 将当前UI中的数据保存到缓存
+            var cachedData = (
+                SkillPointsLeftUp?.ToList() ?? new List<SkillPointItemViewModel>(),
+                SkillPointsLeftDown?.ToList() ?? new List<SkillPointItemViewModel>(),
+                SkillPointsRightUp?.ToList() ?? new List<SkillPointItemViewModel>(),
+                SkillPointsRightDown?.ToList() ?? new List<SkillPointItemViewModel>(),
+                RemainingPoints
+            );
+
+            _tianfuDataCache[CurrentSelectedTianfu] = cachedData;
+            _tianfuRemainingPointsMap[CurrentSelectedTianfu] = RemainingPoints;
         }
 
         /// <summary>
@@ -1140,6 +1164,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                 _tianfuRemainingPointsMap[CurrentSelectedTianfu] = RemainingPoints;
             }
 
+            // 同步更新缓存中的数据
+            SaveCurrentTianfuDataToCache();
+
             // 重新初始化所有技能点的IsLearnable状态
             InitializeLearnableStatus();
         }
@@ -1164,6 +1191,9 @@ namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.ViewModels
                     }
                 }
             }
+
+            // 同步更新缓存中的数据
+            SaveCurrentTianfuDataToCache();
         }
 
         /// <summary>
