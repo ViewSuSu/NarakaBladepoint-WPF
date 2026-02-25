@@ -1,0 +1,242 @@
+[
+  {
+    "Index": 0,
+    "SkillName": "Lu_TenOClock",
+    "CircleLevel": 1,
+    "Position": "LeftUp",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 1,
+    "SkillName": "Ma_ElevenOClock",
+    "CircleLevel": 1,
+    "Position": "LeftUp",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 2,
+    "SkillName": "He_TenOClock",
+    "CircleLevel": 2,
+    "Position": "LeftUp",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 3,
+    "SkillName": "Ou_ElevenOClock",
+    "CircleLevel": 2,
+    "Position": "LeftUp",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 4,
+    "SkillName": "Xiong_TenOClock",
+    "CircleLevel": 3,
+    "Position": "LeftUp",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 5,
+    "SkillName": "Shi_ElevenOClock",
+    "CircleLevel": 3,
+    "Position": "LeftUp",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 6,
+    "SkillName": "Lu_TenOClock_MirrorH",
+    "CircleLevel": 1,
+    "Position": "RightUp",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 7,
+    "SkillName": "Ma_ElevenOClock_MirrorH",
+    "CircleLevel": 1,
+    "Position": "RightUp",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 8,
+    "SkillName": "He_TenOClock_MirrorH",
+    "CircleLevel": 2,
+    "Position": "RightUp",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 9,
+    "SkillName": "Ou_ElevenOClock_MirrorH",
+    "CircleLevel": 2,
+    "Position": "RightUp",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 10,
+    "SkillName": "Xiong_TenOClock_MirrorH",
+    "CircleLevel": 3,
+    "Position": "RightUp",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 11,
+    "SkillName": "Shi_ElevenOClock_MirrorH",
+    "CircleLevel": 3,
+    "Position": "RightUp",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 12,
+    "SkillName": "Lu_TenOClock_MirrorV",
+    "CircleLevel": 1,
+    "Position": "LeftDown",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 13,
+    "SkillName": "Ma_ElevenOClock_MirrorV",
+    "CircleLevel": 1,
+    "Position": "LeftDown",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 14,
+    "SkillName": "He_TenOClock_MirrorV",
+    "CircleLevel": 2,
+    "Position": "LeftDown",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 15,
+    "SkillName": "Ou_ElevenOClock_MirrorV",
+    "CircleLevel": 2,
+    "Position": "LeftDown",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 16,
+    "SkillName": "Xiong_TenOClock_MirrorV",
+    "CircleLevel": 3,
+    "Position": "LeftDown",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 17,
+    "SkillName": "Shi_ElevenOClock_MirrorV",
+    "CircleLevel": 3,
+    "Position": "LeftDown",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 18,
+    "SkillName": "Lu_TenOClock_MirrorHV",
+    "CircleLevel": 1,
+    "Position": "RightDown",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 19,
+    "SkillName": "Ma_ElevenOClock_MirrorHV",
+    "CircleLevel": 1,
+    "Position": "RightDown",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 20,
+    "SkillName": "He_TenOClock_MirrorHV",
+    "CircleLevel": 2,
+    "Position": "RightDown",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 21,
+    "SkillName": "Ou_ElevenOClock_MirrorHV",
+    "CircleLevel": 2,
+    "Position": "RightDown",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 4,
+    "IsLearnable": true
+  },
+  {
+    "Index": 22,
+    "SkillName": "Xiong_TenOClock_MirrorHV",
+    "CircleLevel": 3,
+    "Position": "RightDown",
+    "Direction": "TenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  },
+  {
+    "Index": 23,
+    "SkillName": "Shi_ElevenOClock_MirrorHV",
+    "CircleLevel": 3,
+    "Position": "RightDown",
+    "Direction": "ElevenOClock",
+    "CurrentLearned": 0,
+    "TotalLearnable": 2,
+    "IsLearnable": true
+  }
+]

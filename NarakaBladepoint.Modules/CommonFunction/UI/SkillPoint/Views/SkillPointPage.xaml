@@ -161,9 +161,9 @@
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="IsSelectedChanged">
                                         <core:ChangePropertyAction
-                                            PropertyName="CurrentSelectedSkillType"
+                                            PropertyName="CurrentSelectedTianfu"
                                             TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
-                                            Value="tianfu" />
+                                            Value="tianfu1" />
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
                                 <Viewbox
@@ -193,9 +193,9 @@
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="IsSelectedChanged">
                                         <core:ChangePropertyAction
-                                            PropertyName="CurrentSelectedSkillType"
+                                            PropertyName="CurrentSelectedTianfu"
                                             TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
-                                            Value="tianfu" />
+                                            Value="tianfu2" />
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
                                 <Viewbox
@@ -224,9 +224,9 @@
                                 <b:Interaction.Triggers>
                                     <b:EventTrigger EventName="IsSelectedChanged">
                                         <core:ChangePropertyAction
-                                            PropertyName="CurrentSelectedSkillType"
+                                            PropertyName="CurrentSelectedTianfu"
                                             TargetObject="{Binding RelativeSource={RelativeSource AncestorType=base:UserControlBase}, Path=DataContext}"
-                                            Value="tianfu" />
+                                            Value="tianfu3" />
                                     </b:EventTrigger>
                                 </b:Interaction.Triggers>
                                 <Viewbox

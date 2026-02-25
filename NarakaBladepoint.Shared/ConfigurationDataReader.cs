@@ -217,5 +217,53 @@ namespace NarakaBladepoint.Shared
                 return false;
             }
         }
+
+        /// <summary>
+        /// 保存 List 配置到自定义名称的 JSON 文件（覆盖本地 JSON 文件）
+        /// </summary>
+        /// <typeparam name="TItem">列表元素类型</typeparam>
+        /// <param name="list">列表实例，不能为null</param>
+        /// <param name="jsonFileName">JSON文件名（不包含.json扩展名）</param>
+        /// <returns>是否保存成功。当list为null时返回false，异常时也返回false</returns>
+        /// <remarks>
+        /// 该方法将列表序列化为格式化的JSON（便于人工查看和编辑），
+        /// 然后覆盖写入到文件 {_jsonsFolderPath}/{jsonFileName}.json
+        /// 如果目录不存在，会自动创建
+        /// 异常被捕获，不会抛出，仅返回false表示失败
+        ///
+        /// 使用示例：
+        /// var items = new List&lt;SkillPointData&gt; { ... };
+        /// ConfigurationDataReader.SaveList&lt;SkillPointData&gt;(items, "tianfu1");
+        /// 将保存为 tianfu1.json
+        /// </remarks>
+        public static bool SaveList<TItem>(IEnumerable<TItem> list, string jsonFileName)
+        {
+            if (list == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                var jsonFilePath = Path.Combine(_jsonsFolderPath, $"{jsonFileName}.json");
+
+                // 确保目录存在，如果不存在则创建
+                Directory.CreateDirectory(_jsonsFolderPath);
+
+                // 使用缩进格式序列化，方便人工查看和编辑
+                var jsonContent = JsonConvert.SerializeObject(list, Formatting.Indented);
+
+                // 覆盖写入JSON文件
+                File.WriteAllText(jsonFilePath, jsonContent);
+
+                return true;
+            }
+            catch
+            {
+                // 捕获所有异常，返回false表示保存失败
+                // TODO: 可以在这里添加日志记录异常信息
+                return false;
+            }
+        }
     }
 }
