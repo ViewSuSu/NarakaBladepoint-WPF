@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
+namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Controls
 {
     /// <summary>
     /// 天赋/技能/奥义选择Grid控件

@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.ComponentModel;
 
-namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Views
+namespace NarakaBladepoint.Modules.CommonFunction.UI.SkillPoint.Controls
 {
     /// <summary>
     /// 自定义Border控件，支持选中时显示内偏移白色边框
