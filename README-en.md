@@ -10,7 +10,7 @@
 
 > **Note:** Both repositories are synchronized bidirectionally. Pull requests are welcome!
 
-[![Download Latest Installer](https://img.shields.io/badge/Download_Latest_Installer-NarakaBladepoint--WPF.exe-blue?style=for-the-badge&logo=windows)](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/latest/download/NarakaBladepoint-WPF.exe)
+[Download Latest Installer](https://github.com/ViewSuSu/NarakaBladepoint-WPF/releases/latest/download/NarakaBladepoint-WPF.exe)
 
 > [!TIP]
 > If it fails to run, ensure [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) or later is installed.
