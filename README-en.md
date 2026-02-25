@@ -29,7 +29,7 @@
 - **Code Quality** - Project is half human, half AI-assisted
 
 <div align="center">
-  <img src="./docs/MainWindows.png" alt="Main Window" width="100%" />
+  <img src="./docs/MainWindows.png" alt="主窗口" width="100%" />
   <br/>
   <em>Main Interface</em>
 </div>
@@ -47,7 +47,30 @@ If you're working with WPF, this project might be useful:
 
 Some parts could be better - feel free to open issues or PRs.
 
-## More Screenshots
+## Main Interfaces
+
+### Pixel-perfect reproduction of the game's talent system
+
+<div align="center">
+  <img src="./docs/Tianfu.gif" alt="Talent System" width="100%" />
+  <br/>
+  <em>Talent system — full talent configuration interface</em>
+</div>
+
+<table align="center" width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/F.gif" alt="Skill" width="100%" /><br/>
+      <em>Skill (F)</em>
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/V.gif" alt="Ultimate" width="100%" /><br/>
+      <em>Ultimate (V)</em>
+    </td>
+  </tr>
+</table>
+
+### Other Screenshots
 
 <table align="center" width="100%">
   <tr>
@@ -140,4 +163,4 @@ Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` 
 
 - Mapster 7.4.0
 - Newtonsoft.Json 13.0.4
-- Prism.DryIoc 9.0.537
+- Prism.DryIoc 8.1.97

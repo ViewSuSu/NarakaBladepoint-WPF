@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using NarakaBladepoint.Framework.Core.Extensions;
+using Prism.Ioc;
 
 namespace NarakaBladepoint.Shared.Services
 {

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Prism.DryIoc;
 
 namespace NarakaBladepoint.Framework.Core.Bases
 {

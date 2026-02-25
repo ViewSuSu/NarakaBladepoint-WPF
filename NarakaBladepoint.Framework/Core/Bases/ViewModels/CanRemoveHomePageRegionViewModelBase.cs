@@ -1,4 +1,5 @@
 ﻿using NarakaBladepoint.Framework.Core.Evens;
+using Prism.Commands;
 
 namespace NarakaBladepoint.Framework.Core.Bases.ViewModels
 {

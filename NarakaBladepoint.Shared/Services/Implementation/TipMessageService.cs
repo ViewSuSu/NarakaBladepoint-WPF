@@ -1,4 +1,5 @@
 using NarakaBladepoint.Framework.Core.Evens;
+using Prism.Events;
 
 namespace NarakaBladepoint.Shared.Services.Implementation
 {

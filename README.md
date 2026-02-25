@@ -22,21 +22,17 @@
 
 ## 关于这个项目
 
-- **初心** - 玩了2000个小时的永劫了，最近才发现它整个客户端UX/UI设计得非常优雅（大厂的产品经理还是牛逼），所以想试试用 WPF 还原出U3D的感觉
-- **技术栈** - .NET 6、Prism、所有自定义控件纯手撸、没用第三方 UI 库
-- **架构设计** - 经过精心设计，严格遵循 MVVM 模式，符合 WPF 工程规范，代码结构优雅
-- **AI** - 后来发现 VibeCoding 太香了，用来堆量实现功能
-- **代码质量** - 项目一半人味一半 AI 味，但架构和核心设计不依靠 AI
+-  玩了2000个小时的永劫了，最近才发现它整个客户端UX/UI设计得非常优雅（大厂的产品经理还是牛逼），所以想试试用 WPF 还原出U3D的感觉
+-  .NET 6、Prism、所有自定义控件纯手撸、没用第三方 UI 库
+-  经过精心设计，严格遵循 MVVM 模式，符合 WPF 工程规范，代码结构优雅
 
 <div align="center">
-  <img src="./docs/MainWindows.png" alt="主界面" width="100%" />
+  <img src="./docs/MainWindows.png" alt="主窗口" width="100%" />
   <br/>
   <em>主界面效果</em>
 </div>
 
 ## 你能从这个项目学到什么
-
-如果你也在做 WPF 开发，这个项目可能对你有点帮助：
 
 - **游戏级界面怎么做** - 复杂的布局、动画、交互效果，都是实际碰到并解决的问题
 - **Prism 模块化实践** - 怎么把一个大项目拆成模块，各自独立又能协作
@@ -45,49 +41,72 @@
 - **性能优化** - 界面复杂了之后会遇到的性能问题和解决方案
 - **项目架构设计** - 依赖注入、基类设计、模块解耦这些在实际项目里怎么用
 
-## 更多界面
+## 主要界面
+
+### 复刻游戏里的天赋系统
+
+<div align="center">
+  <img src="./docs/Tianfu.gif" alt="天赋系统" width="100%" />
+  <br/>
+  <em>天赋系统</em>
+</div>
+
+<table align="center" width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/F.gif" alt="技能界面" width="100%" /><br/>
+      <em>技能 (F)</em>
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/V.gif" alt="奥义界面" width="100%" /><br/>
+      <em>奥义 (V)</em>
+    </td>
+  </tr>
+</table>
+
+### 其他界面展示
 
 <table align="center" width="100%">
   <tr>
     <td align="center" width="33.33%">
       <img src="./docs/HeroList.png" alt="Hero List Interface" width="100%" /><br/>
-      <em>Figure 2: 英雄列表</em>
+      <em>英雄列表</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/IllustratedCollection.png" alt="Illustrated Collection Interface" width="100%" /><br/>
-      <em>Figure 3: 仓库</em>
+      <em>仓库</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/PersonalInfo.png" alt="Personal Info Interface" width="100%" /><br/>
-      <em>Figure 4: 个人信息</em>
+      <em>个人信息</em>
     </td>
   </tr>
   <tr>
     <td align="center" width="33.33%">
       <img src="./docs/TippingRecord.png" alt="打赏记录" width="100%" /><br/>
-      <em>Figure 5: 打赏记录</em>
+      <em>打赏记录</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/AvatarList.png" alt="Avatar List Interface" width="100%" /><br/>
-      <em>Figure 6: 头像</em>
+      <em>头像</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/HistoryData.png" alt="History Data Interface" width="100%" /><br/>
-      <em>Figure 7: 历史记录</em>
+      <em>历史记录</em>
     </td>
   </tr>
   <tr>
     <td align="center" width="33.33%">
       <img src="./docs/SocialTag.png" alt="Social Tag Interface" width="100%" /><br/>
-      <em>Figure 8: 社交标签</em>
+      <em>社交标签</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/Tag.png" alt="Tag Interface" width="100%" /><br/>
-      <em>Figure 9: 标签</em>
+      <em>标签</em>
     </td>
     <td align="center" width="33.33%">
       <img src="./docs/Weapon.png" alt="Weapon Interface" width="100%" /><br/>
-      <em>Figure 10: 武器列表</em>
+      <em>武器列表</em>
     </td>
   </tr>
 </table>
@@ -137,4 +156,4 @@ graph LR
 ## 第三方库
 - Mapster 7.4.0
 - Newtonsoft.Json 13.0.4
-- Prism.DryIoc 9.0.537
+- Prism.DryIoc 8.1.97

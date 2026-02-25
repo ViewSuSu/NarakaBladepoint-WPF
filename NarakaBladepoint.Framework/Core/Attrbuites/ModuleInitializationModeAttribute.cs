@@ -1,4 +1,6 @@
-﻿namespace NarakaBladepoint.Framework.Core.Attrbuites
+﻿
+
+namespace NarakaBladepoint.Framework.Core.Attrbuites
 {
     /// <summary>
     /// 模块初始化模式特性

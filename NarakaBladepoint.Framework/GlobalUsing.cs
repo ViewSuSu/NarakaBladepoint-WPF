@@ -1,1 +1,9 @@
 ﻿global using NarakaBladepoint.Framework.Core.Attrbuites;
+global using Prism.Modularity;
+global using NarakaBladepoint.Framework.Core.Evens;
+global using Prism.Commands;
+global using Prism;
+global using Prism.Events;
+global using Prism.Ioc;
+global using Prism.Mvvm;
+global using Prism.Regions;

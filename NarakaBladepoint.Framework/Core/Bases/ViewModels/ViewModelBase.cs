@@ -1,4 +1,10 @@
-﻿namespace NarakaBladepoint.Framework.Core.Bases.ViewModels
+﻿using Prism;
+using Prism.Events;
+using Prism.Ioc;
+using Prism.Mvvm;
+using Prism.Regions;
+
+namespace NarakaBladepoint.Framework.Core.Bases.ViewModels
 {
     /// <summary>
     /// ViewModel基类

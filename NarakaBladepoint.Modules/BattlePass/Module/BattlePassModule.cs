@@ -1,5 +1,7 @@
 using NarakaBladepoint.Modules.BattlePass.UI.BattlePass.ViewModels;
 using NarakaBladepoint.Modules.BattlePass.UI.BattlePass.Views;
+using Prism.Ioc;
+using Prism.Modularity;
 
 namespace NarakaBladepoint.Modules.BattlePass.Module
 {
