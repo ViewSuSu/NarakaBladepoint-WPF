@@ -7,6 +7,7 @@
 **Repository:**
 - 🌐 [GitHub](https://github.com/ViewSuSu/NarakaBladepoint-WPF)
 - 🌐 [Gitee](https://gitee.com/SususuChang/NarakaBladepoint-WPF)
+- 🎬 [Project Introduction Video](https://www.bilibili.com/video/BV1jnPMz1E4a/?spm_id_from=333.1387.homepage.video_card.click)
 
 > **Note:** Both repositories are synchronized bidirectionally. Pull requests are welcome!
 

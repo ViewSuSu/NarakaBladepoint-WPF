@@ -7,6 +7,7 @@
 **仓库：**
 - 🌐 [GitHub](https://github.com/ViewSuSu/NarakaBladepoint-WPF)
 - 🌐 [Gitee](https://gitee.com/SususuChang/NarakaBladepoint-WPF)
+- 🎬 [项目介绍视频](https://www.bilibili.com/video/BV1jnPMz1E4a/?spm_id_from=333.1387.homepage.video_card.click)
 
 > **说明：** 仓库已经完成双向镜像同步，欢迎提PR！
 
