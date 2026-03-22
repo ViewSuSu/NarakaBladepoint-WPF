@@ -173,7 +173,7 @@ graph LR
 
 You'll need **Windows 10+** and **.NET 6 SDK** (or later).
 
-Open the solution in Visual Studio 2022 and just run the `NarakaBladepoint.App` project.
+Open the solution in Visual Studio 2026 .slnx and just run the `NarakaBladepoint.App` project.
 
 ## Dependencies
 
