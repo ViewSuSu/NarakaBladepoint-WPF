@@ -167,7 +167,7 @@ graph LR
 
  **Windows 10+** 和 **.NET 6 SDK**（或者更高版本）。
 
- Visual Studio 2022及以上打开解决方案，直接运行 `NarakaBladepoint.App` 项目就行。
+ Visual Studio 2022及以上打开解决方案.slnx，直接运行 `NarakaBladepoint.App` 项目就行。
 
 ## 第三方库
 - Mapster 7.4.0
