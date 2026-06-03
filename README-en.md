@@ -180,3 +180,8 @@ Open the solution in Visual Studio 2026 .slnx and just run the `NarakaBladepoint
 - Mapster 7.4.0
 - Newtonsoft.Json 13.0.4
 - Prism.DryIoc 8.1.97
+
+
+## 星曲线图 / Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ViewSuSu/NarakaBladepoint-WPF&type=Date)](https://star-history.com/#ViewSuSu/NarakaBladepoint-WPF&Date)
